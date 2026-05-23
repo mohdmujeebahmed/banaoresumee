@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume for Freshers</title>
+</head>
+<body>
+
+<h1>Resume for Freshers</h1>
+
+<p>
+A good fresher resume should include skills, projects, education and achievements.
+</p>
+
+<h2>Tips</h2>
+
+<p>
+Keep your resume one page long.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>
