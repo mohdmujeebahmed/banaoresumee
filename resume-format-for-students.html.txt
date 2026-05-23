@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Format for Students</title>
+</head>
+<body>
+
+<h1>Resume Format for Students</h1>
+
+<p>
+Students should keep resumes short, clean and focused on skills and education.
+</p>
+
+<h2>Student Resume Tips</h2>
+
+<p>
+Mention certifications, projects, internships and extracurricular activities.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>

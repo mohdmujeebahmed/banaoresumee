@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Software Engineer Resume</title>
+</head>
+<body>
+
+<h1>Software Engineer Resume</h1>
+
+<p>
+A software engineer resume should highlight technical skills, projects and problem-solving ability.
+</p>
+
+<h2>Important Sections</h2>
+
+<p>
+Include programming languages, frameworks, internships and projects.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>

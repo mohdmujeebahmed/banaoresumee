@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>One Page Resume</title>
+</head>
+<body>
+
+<h1>One Page Resume</h1>
+
+<p>
+A one-page resume is ideal for students, freshers and early-career professionals.
+</p>
+
+<h2>Benefits</h2>
+
+<p>
+Recruiters prefer concise resumes that quickly show skills and achievements.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>

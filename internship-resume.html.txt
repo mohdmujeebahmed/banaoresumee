@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Internship Resume</title>
+</head>
+<body>
+
+<h1>Internship Resume</h1>
+
+<p>
+An internship resume should focus on projects, education and practical skills.
+</p>
+
+<h2>How to Stand Out</h2>
+
+<p>
+Show relevant coursework, coding skills and achievements.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>

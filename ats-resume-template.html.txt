@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ATS Resume Template</title>
+</head>
+<body>
+
+<h1>ATS Resume Template</h1>
+
+<p>
+An ATS-friendly resume helps your application pass recruiter software screening systems.
+</p>
+
+<h2>ATS Resume Tips</h2>
+
+<p>
+Use simple formatting, clear headings and relevant keywords.
+</p>
+
+<a href="/">
+Build Your Resume Now
+</a>
+
+</body>
+</html>
