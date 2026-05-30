@@ -2,30 +2,25 @@
 <html lang="en">
 <head>
 
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCH9JGBW7S"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YCH9JGBW7S');
 </script>
 
-
-  
 <title>Free ATS Resume Builder for Students & Freshers | BanaoResume</title>
-  
 <meta name="description" content="Create professional ATS-friendly resumes for free. Perfect for students, freshers, internships and placements. Download PDF instantly." />
 <meta property="og:title" content="Free ATS Resume Builder | BanaoResume" />
 <meta property="og:description" content="Create ATS-friendly resumes online for free." />
 <meta property="og:url" content="https://banaoresumee.online" />
 <meta property="og:type" content="website" />
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>BanaoResume — Build Your Resume in Minutes</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FF6B35'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='white' font-family='serif' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://banaoresumee.online/">
+<meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -56,6 +51,13 @@ header{position:sticky;top:0;z-index:100;background:rgba(250,247,244,0.95);backd
 .brand-sub{font-size:0.55rem;color:var(--muted);font-weight:500;letter-spacing:0.04em;display:none;}
 @media(min-width:400px){.brand-sub{display:block;}}
 .header-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
+
+/* NAV LINKS in header */
+.header-nav{display:flex;gap:0.4rem;align-items:center;}
+.header-nav a{font-size:0.65rem;font-weight:600;color:var(--muted);text-decoration:none;padding:0.25rem 0.5rem;border-radius:6px;transition:all 0.2s;white-space:nowrap;}
+.header-nav a:hover{color:var(--orange);background:var(--orange-light);}
+@media(max-width:420px){.header-nav{display:none;}}
+
 .mode-chip{font-size:0.6rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:100px;letter-spacing:0.03em;white-space:nowrap;}
 .mode-chip.fresher{background:#FFF0EA;color:var(--orange);border:1px solid #FFCCB3;}
 .mode-chip.experienced{background:var(--green-light);color:var(--green-dark);border:1px solid #A8EDCA;}
@@ -222,12 +224,52 @@ textarea{resize:vertical;min-height:75px;}
 .edit-panel-header:hover{background:var(--orange-light);}
 .edit-panel-body{padding:0.9rem 1rem 1rem;border-top:1.5px solid var(--border);}
 
+/* =====================
+   BUY ME A COFFEE BUTTON
+   ===================== */
+.bmc-float{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;}
+.bmc-btn{display:flex;align-items:center;gap:0.5rem;background:#FFDD00;color:#000000;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;padding:0.6rem 1rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.25s cubic-bezier(0.22,1,0.36,1);border:2px solid rgba(0,0,0,0.08);white-space:nowrap;}
+.bmc-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+.bmc-btn:active{transform:scale(0.97);}
+.bmc-btn svg{width:18px;height:18px;flex-shrink:0;}
+.bmc-dismiss{background:none;border:none;font-size:0.65rem;color:var(--muted);cursor:pointer;padding:0.2rem 0.4rem;text-decoration:underline;text-underline-offset:2px;}
+.bmc-dismiss:hover{color:var(--ink-2);}
+
+/* =====================
+   STATIC PAGES (About, Contact, Privacy)
+   ===================== */
+.page-overlay{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;animation:pageSlideIn 0.3s cubic-bezier(0.22,1,0.36,1);}
+.page-overlay.open{display:block;}
+@keyframes pageSlideIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.page-inner{max-width:640px;margin:0 auto;padding:1.5rem 1rem 5rem;}
+.page-back{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:600;color:var(--muted);background:var(--surface);border:1.5px solid var(--border);padding:0.45rem 0.9rem;border-radius:100px;cursor:pointer;margin-bottom:1.5rem;transition:all 0.2s;text-decoration:none;}
+.page-back:hover{color:var(--orange);border-color:var(--orange);background:var(--orange-light);}
+.page-title{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--ink);letter-spacing:-0.03em;margin-bottom:0.35rem;}
+.page-sub{font-size:0.82rem;color:var(--muted);margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1.5px solid var(--border);}
+.page-section{margin-bottom:1.5rem;}
+.page-section h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;}
+.page-section p,.page-section li{font-size:0.85rem;color:#4A3A2E;line-height:1.8;}
+.page-section ul{padding-left:1.2rem;}
+.page-section li{margin-bottom:0.25rem;}
+.page-section a{color:var(--orange);text-decoration:underline;text-underline-offset:2px;}
+
+/* Contact form */
+.contact-form{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:1.25rem;box-shadow:var(--shadow);}
+.contact-form .field-group{margin-bottom:1rem;}
+.contact-submit{background:var(--orange);color:white;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700;padding:0.75rem 1.75rem;border-radius:var(--r-sm);border:none;cursor:pointer;width:100%;box-shadow:0 4px 14px rgba(255,107,53,0.3);transition:all 0.2s;}
+.contact-submit:hover{background:var(--orange-dark);transform:translateY(-1px);}
+.contact-success{display:none;background:var(--green-light);border:1.5px solid #A8EDCA;border-radius:var(--r-sm);padding:1rem;text-align:center;font-size:0.85rem;color:var(--green-dark);font-weight:600;}
+
+/* FOOTER */
+footer{position:relative;z-index:5;background:var(--ink);color:var(--muted);text-align:center;padding:1.5rem 1rem;font-size:0.72rem;line-height:1.9;}
+footer a{color:#CCA890;text-decoration:none;margin:0 0.4rem;}
+footer a:hover{color:var(--orange);}
+.footer-brand{font-family:'Fraunces',serif;font-size:1rem;font-weight:900;color:white;margin-bottom:0.5rem;}
+.footer-brand span{color:var(--orange);}
+
 /* PRINT / PDF HIDDEN AREA */
 #resume-print-area{display:none;}
 
-/* =====================
-   PRINT STYLES — this is what actually becomes the PDF
-   ===================== */
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
   body>*{display:none!important;}
@@ -239,8 +281,6 @@ textarea{resize:vertical;min-height:75px;}
 /* =====================
    RESUME TEMPLATES
    ===================== */
-
-/* ---- TEMPLATE 1: Modern (default) ---- */
 .resume-doc{width:210mm;min-height:297mm;background:#fff;color:#1a1a1a;font-family:'DM Sans',sans-serif;}
 .resume-doc .resume-top{padding:22px 26px 16px;background:linear-gradient(135deg,#1A1008 0%,#3D1E08 100%);position:relative;overflow:hidden;}
 .resume-doc .resume-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF6B35,#FFD166,#2ECC71);}
@@ -274,7 +314,7 @@ textarea{resize:vertical;min-height:75px;}
 .resume-doc .res-achievement{font-size:10.5px;color:#374151;line-height:1.6;margin-bottom:5px;padding-left:10px;position:relative;}
 .resume-doc .res-achievement::before{content:'▸';color:#FF6B35;position:absolute;left:0;top:0;font-size:8.5px;}
 
-/* ---- TEMPLATE 2: Classic (blue sidebar) ---- */
+/* Template variants */
 .resume-doc.tpl-classic .resume-top{background:linear-gradient(135deg,#1e3a5f,#2d5282)!important;}
 .resume-doc.tpl-classic .resume-top::after{background:linear-gradient(90deg,#3182ce,#63b3ed)!important;}
 .resume-doc.tpl-classic .res-role{color:#90cdf4!important;}
@@ -287,8 +327,6 @@ textarea{resize:vertical;min-height:75px;}
 .resume-doc.tpl-classic .res-skill-tag{background:#ebf8ff!important;color:#1a365d!important;}
 .resume-doc.tpl-classic .res-skill-tag.tools{background:#e6fffa!important;color:#065f46!important;}
 .resume-doc.tpl-classic .res-achievement::before{color:#2b6cb0!important;}
-
-/* ---- TEMPLATE 3: Minimal (clean black) ---- */
 .resume-doc.tpl-minimal .resume-top{background:#111!important;}
 .resume-doc.tpl-minimal .resume-top::after{background:#555!important;}
 .resume-doc.tpl-minimal .res-name{color:#fff!important;}
@@ -304,8 +342,6 @@ textarea{resize:vertical;min-height:75px;}
 .resume-doc.tpl-minimal .res-skill-tag.soft{background:#e8e8e8!important;color:#333!important;}
 .resume-doc.tpl-minimal .res-achievement::before{color:#111!important;}
 .resume-doc.tpl-minimal .res-side{background:#f5f5f5!important;}
-
-/* ---- TEMPLATE 4: Elegant (forest green) ---- */
 .resume-doc.tpl-elegant .resume-top{background:linear-gradient(135deg,#1a3a2a,#2d5a3d)!important;}
 .resume-doc.tpl-elegant .resume-top::after{background:linear-gradient(90deg,#38a169,#68d391)!important;}
 .resume-doc.tpl-elegant .res-role{color:#9ae6b4!important;}
@@ -319,8 +355,6 @@ textarea{resize:vertical;min-height:75px;}
 .resume-doc.tpl-elegant .res-skill-tag.tools{background:#e6fffa!important;color:#065f46!important;}
 .resume-doc.tpl-elegant .res-achievement::before{color:#276749!important;}
 .resume-doc.tpl-elegant .res-side{background:#f0fff4!important;}
-
-/* ---- TEMPLATE 5: Bold Purple ---- */
 .resume-doc.tpl-bold .resume-top{background:linear-gradient(135deg,#2d1b69,#553c9a)!important;}
 .resume-doc.tpl-bold .resume-top::after{background:linear-gradient(90deg,#805ad5,#b794f4)!important;}
 .resume-doc.tpl-bold .res-role{color:#d6bcfa!important;}
@@ -334,8 +368,6 @@ textarea{resize:vertical;min-height:75px;}
 .resume-doc.tpl-bold .res-skill-tag.tools{background:#e9d8fd!important;color:#44337a!important;}
 .resume-doc.tpl-bold .res-achievement::before{color:#6b46c1!important;}
 .resume-doc.tpl-bold .res-side{background:#faf5ff!important;}
-
-/* ---- TEMPLATE 6: Warm (terracotta) ---- */
 .resume-doc.tpl-warm .resume-top{background:linear-gradient(135deg,#6b2c13,#9c4221)!important;}
 .resume-doc.tpl-warm .resume-top::after{background:linear-gradient(90deg,#c05621,#f6ad55)!important;}
 .resume-doc.tpl-warm .res-role{color:#fbd38d!important;}
@@ -355,8 +387,9 @@ textarea{resize:vertical;min-height:75px;}
 <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
 <div class="flash-overlay" id="flashEl"></div>
 
+<!-- ===================== HEADER ===================== -->
 <header>
-  <a class="brand" href="#" onclick="return false">
+  <a class="brand" href="#" onclick="showPage(null);return false;">
     <div class="brand-logo">
       <svg viewBox="0 0 24 24" fill="none">
         <rect x="3" y="2" width="13" height="2" rx="1" fill="white"/>
@@ -373,6 +406,11 @@ textarea{resize:vertical;min-height:75px;}
     </div>
   </a>
   <div class="header-right">
+    <nav class="header-nav">
+      <a href="#" onclick="showPage('about');return false;">About</a>
+      <a href="#" onclick="showPage('contact');return false;">Contact</a>
+      <a href="#" onclick="showPage('privacy');return false;">Privacy</a>
+    </nav>
     <div id="modeBadgeWrap"></div>
     <div>
       <div class="step-pills" id="stepPills"></div>
@@ -381,7 +419,8 @@ textarea{resize:vertical;min-height:75px;}
   </div>
 </header>
 
-<main>
+<!-- ===================== MAIN RESUME BUILDER ===================== -->
+<main id="mainApp">
 
 <!-- STEP 0: MODE SELECT -->
 <div class="section active" id="step-0">
@@ -573,7 +612,6 @@ textarea{resize:vertical;min-height:75px;}
     <div class="sec-head-text"><h2>Your Resume is Ready! 🎉</h2><p>Pick a template, preview, then download.</p></div>
   </div>
 
-  <!-- Template Picker -->
   <div class="templates-section">
     <h3>Choose a Template</h3>
     <p>Click any template to apply it instantly — preview updates live.</p>
@@ -590,17 +628,14 @@ textarea{resize:vertical;min-height:75px;}
             <div style="height:3px;background:#FF6B35;border-radius:2px;width:40%;"></div>
             <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
             <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:90%;"></div>
           </div>
           <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#fafaf8;padding:3px;border-radius:2px;">
             <div style="height:3px;background:#FF6B35;border-radius:2px;width:60%;"></div>
             <div style="height:2px;background:#FFF0EA;border-radius:1px;"></div>
-            <div style="height:2px;background:#FFF0EA;border-radius:1px;width:80%;"></div>
           </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">Modern Orange</div><div class="tpl-desc">Bold · Colorful · Tech</div></div>
       </div>
-
       <div class="tpl-card" id="tpl-classic" onclick="applyTemplate('classic')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
@@ -611,16 +646,10 @@ textarea{resize:vertical;min-height:75px;}
           <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
             <div style="height:3px;background:#2b6cb0;border-radius:2px;width:40%;"></div>
             <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-          </div>
-          <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#f7fbff;padding:3px;border-radius:2px;">
-            <div style="height:3px;background:#2b6cb0;border-radius:2px;width:60%;"></div>
-            <div style="height:2px;background:#ebf8ff;border-radius:1px;"></div>
           </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">Classic Blue</div><div class="tpl-desc">Professional · Finance · Corporate</div></div>
       </div>
-
       <div class="tpl-card" id="tpl-minimal" onclick="applyTemplate('minimal')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
@@ -628,82 +657,39 @@ textarea{resize:vertical;min-height:75px;}
           <div style="position:absolute;bottom:0;left:0;height:3px;right:0;background:#555;"></div>
           <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
           <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#bbb;">Target Role</div>
-          <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
-            <div style="height:3px;background:#111;border-radius:2px;width:40%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-          </div>
-          <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#f5f5f5;padding:3px;border-radius:2px;">
-            <div style="height:3px;background:#333;border-radius:2px;width:60%;"></div>
-            <div style="height:2px;background:#eee;border-radius:1px;"></div>
-          </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">ATS Minimal</div><div class="tpl-desc">Clean · Safe · Printer-friendly</div></div>
       </div>
-
       <div class="tpl-card" id="tpl-elegant" onclick="applyTemplate('elegant')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#1a3a2a,#2d5a3d);"></div>
-          <div style="position:absolute;bottom:0;left:0;height:4px;right:0;background:linear-gradient(90deg,#38a169,#68d391);"></div>
           <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
           <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#9ae6b4;">Target Role</div>
-          <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
-            <div style="height:3px;background:#276749;border-radius:2px;width:40%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-          </div>
-          <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#f0fff4;padding:3px;border-radius:2px;">
-            <div style="height:3px;background:#276749;border-radius:2px;width:60%;"></div>
-            <div style="height:2px;background:#c6f6d5;border-radius:1px;"></div>
-          </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">Elegant Green</div><div class="tpl-desc">Sophisticated · Medical · Law</div></div>
       </div>
-
       <div class="tpl-card" id="tpl-bold" onclick="applyTemplate('bold')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#2d1b69,#553c9a);"></div>
-          <div style="position:absolute;bottom:0;left:0;height:4px;right:0;background:linear-gradient(90deg,#805ad5,#b794f4);"></div>
           <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
           <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#d6bcfa;">Target Role</div>
-          <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
-            <div style="height:3px;background:#6b46c1;border-radius:2px;width:40%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-          </div>
-          <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#faf5ff;padding:3px;border-radius:2px;">
-            <div style="height:3px;background:#6b46c1;border-radius:2px;width:60%;"></div>
-            <div style="height:2px;background:#e9d8fd;border-radius:1px;"></div>
-          </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">Bold Purple</div><div class="tpl-desc">Creative · Design · Marketing</div></div>
       </div>
-
       <div class="tpl-card" id="tpl-warm" onclick="applyTemplate('warm')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#6b2c13,#9c4221);"></div>
-          <div style="position:absolute;bottom:0;left:0;height:4px;right:0;background:linear-gradient(90deg,#c05621,#f6ad55);"></div>
           <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
           <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#fbd38d;">Target Role</div>
-          <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
-            <div style="height:3px;background:#c05621;border-radius:2px;width:40%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;width:80%;"></div>
-          </div>
-          <div style="position:absolute;top:44px;right:4px;left:52%;display:flex;flex-direction:column;gap:3px;background:#fffaf0;padding:3px;border-radius:2px;">
-            <div style="height:3px;background:#c05621;border-radius:2px;width:60%;"></div>
-            <div style="height:2px;background:#feebc8;border-radius:1px;"></div>
-          </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">Warm Terracotta</div><div class="tpl-desc">Warm · Arts · Hospitality</div></div>
       </div>
     </div>
   </div>
 
-  <!-- Download -->
   <div class="dl-wrap" style="margin-top:1.25rem;">
     <h3>⬇ Download Your Resume</h3>
     <div class="dl-action-row">
@@ -717,13 +703,11 @@ textarea{resize:vertical;min-height:75px;}
 
   <div id="pdfStatus"></div>
 
-  <!-- Live Preview -->
   <div id="previewArea">
     <div class="preview-label">Live Preview</div>
     <div class="preview-scroll" id="previewScroll"></div>
   </div>
 
-  <!-- Edit Panel -->
   <div class="edit-panel" id="editPanel">
     <div class="edit-panel-header" onclick="toggleEditPanel()">
       <span>✏️ Edit Your Resume</span>
@@ -756,15 +740,268 @@ textarea{resize:vertical;min-height:75px;}
 
 </main>
 
-<!-- PRINT TARGET — only this shows when printing -->
+<!-- ===================== FOOTER ===================== -->
+<footer id="mainFooter">
+  <div class="footer-brand">Banao<span>Resume</span></div>
+  Free ATS resume builder for students &amp; freshers in India.
+  <br><br>
+  <a href="#" onclick="showPage('about');return false;">About</a> ·
+  <a href="#" onclick="showPage('contact');return false;">Contact</a> ·
+  <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> ·
+  <a href="#" onclick="showPage('terms');return false;">Terms</a> ·
+  <a href="#" onclick="showPage('disclaimer');return false;">Disclaimer</a> ·
+  <a href="https://www.linkedin.com/in/mohammed-mujeeb-ahmed/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#0A66C2;border-radius:5px;text-decoration:none;vertical-align:middle;margin-left:2px;transition:all 0.2s;" onmouseover="this.style.background='#004182'" onmouseout="this.style.background='#0A66C2'" title="Connect on LinkedIn">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="white"/></svg>
+  </a>
+  <br><br>
+  <span style="font-size:0.65rem;color:#9C8677;">📧 <a href="mailto:support@banaoresumee.online" style="color:#CCA890;">support@banaoresumee.online</a></span>
+  <br>
+  <span style="font-size:0.65rem;opacity:0.5;">© 2025 BanaoResume · Made with ❤️ for job seekers</span>
+</footer>
+
+<!-- ===================== ABOUT PAGE ===================== -->
+<div class="page-overlay" id="page-about">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">About BanaoResume</h1>
+    <p class="page-sub">Free, simple, and built for students across India 🇮🇳</p>
+
+    <div class="page-section">
+      <h3>What is BanaoResume?</h3>
+      <p>BanaoResume is a free online resume builder designed specifically for students, freshers, and early-career professionals in India. We help you create clean, ATS-friendly resumes in minutes — no sign-up required, no hidden fees, ever.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>Why we built this</h3>
+      <p>Most resume builders are either too expensive, too complicated, or not suited for Indian job markets. We wanted to change that. BanaoResume is built with one goal: help every student land their first job without worrying about the cost of a resume tool.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>What you get — 100% Free</h3>
+      <ul>
+        <li>6 professionally designed templates</li>
+        <li>ATS-optimized formatting for Indian recruiters</li>
+        <li>Instant PDF download — colored or black & white</li>
+        <li>No account needed, no data stored on servers</li>
+        <li>Works on mobile, tablet, and desktop</li>
+      </ul>
+    </div>
+
+    <div class="page-section">
+      <h3>Your data is yours</h3>
+      <p>Everything you type stays in your browser. We don't store your resume data on any server. When you close the tab, your data is gone — completely private.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>Support this project ☕</h3>
+      <p>BanaoResume is free and will always be free. If it helped you land a job or internship, consider buying us a coffee — it helps keep the servers running and motivates us to add more templates and features.</p>
+      <br>
+      <a href="https://www.buymeacoffee.com/banaoresume" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#FFDD00;color:#000;font-weight:700;font-size:0.85rem;padding:0.65rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.12);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        Support us ☕ / UPI
+      </a>
+    </div>
+
+    <div class="page-section">
+      <h3>Get in touch</h3>
+      <p>Questions, suggestions, or just want to say thanks? <a href="#" onclick="showPage('contact');return false;">Contact us here</a> — we'd love to hear from you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CONTACT PAGE ===================== -->
+<div class="page-overlay" id="page-contact">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-sub">We're here to help — reach out anytime 👋</p>
+
+    <div class="page-section" style="margin-bottom:1.25rem;">
+      <h3>Send us a message</h3>
+      <p style="margin-bottom:1rem;">Have a question, found a bug, or want to give feedback? Fill in the form below or email us directly at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+    </div>
+
+    <div class="contact-form">
+      <div class="field-group">
+        <label>Your Name</label>
+        <input type="text" id="cf-name" placeholder="Arjun Sharma"/>
+      </div>
+      <div class="field-group">
+        <label>Your Email <span class="req">*</span></label>
+        <input type="email" id="cf-email" placeholder="arjun@gmail.com"/>
+      </div>
+      <div class="field-group">
+        <label>Subject</label>
+        <input type="text" id="cf-subject" placeholder="Bug report / Feedback / Question"/>
+      </div>
+      <div class="field-group">
+        <label>Message <span class="req">*</span></label>
+        <textarea id="cf-message" rows="5" placeholder="Write your message here..."></textarea>
+      </div>
+      <button class="contact-submit" onclick="submitContact()">Send Message →</button>
+      <div class="contact-success" id="cf-success">
+        ✅ Thanks for reaching out! We'll get back to you at <strong id="cf-reply-email"></strong> within 24–48 hours.
+      </div>
+    </div>
+
+    <div class="page-section" style="margin-top:1.5rem;">
+      <h3>Direct contact</h3>
+      <p>📧 Email: <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PRIVACY POLICY PAGE ===================== -->
+<div class="page-overlay" id="page-privacy">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-sub">Last updated: January 2025 · BanaoResume (banaoresumee.online)</p>
+
+    <div class="page-section">
+      <h3>1. Overview</h3>
+      <p>BanaoResume ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our website at banaoresumee.online.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>2. Data We Do NOT Collect</h3>
+      <p>We do not collect, store, or transmit any personal information you enter into the resume builder. All resume data (your name, email, work history, skills, etc.) is processed entirely in your browser and is never sent to our servers.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>3. Information We Do Collect</h3>
+      <p>We use Google Analytics (Google Tag Manager) to collect anonymous usage data, including:</p>
+      <ul>
+        <li>Pages visited and time spent on site</li>
+        <li>Browser type and device type</li>
+        <li>Country/region (approximate, not precise location)</li>
+        <li>Referral source (how you found us)</li>
+      </ul>
+      <p style="margin-top:0.5rem;">This data is aggregated and anonymous — we cannot identify you from it.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>4. Cookies</h3>
+      <p>We use cookies through Google Analytics to understand how visitors use our site. These are standard analytics cookies and do not contain personal information. You can disable cookies in your browser settings at any time.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>5. Third-Party Services</h3>
+      <p>We use the following third-party services:</p>
+      <ul>
+        <li><strong>Google Analytics</strong> — anonymous website traffic analysis (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>)</li>
+        <li><strong>Google Fonts</strong> — fonts loaded from Google's CDN</li>
+        <li><strong>Buy Me a Coffee</strong> — optional donation platform (only if you click the button)</li>
+      </ul>
+    </div>
+
+    <div class="page-section">
+      <h3>6. Children's Privacy</h3>
+      <p>BanaoResume is intended for users aged 16 and above. We do not knowingly collect information from children under 13.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>7. Changes to This Policy</h3>
+      <p>We may update this Privacy Policy occasionally. Changes will be posted on this page with an updated date. Continued use of the site after changes means you accept the updated policy.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>8. Contact</h3>
+      <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+    </div>
+
+    <div class="page-section">
+      <h3>9. Google Analytics</h3>
+      <p>We use Google Analytics to understand how visitors interact with our website. Google Analytics collects data such as how long you spend on the site, which pages you visit, and your approximate location (country/city level only). This data is anonymous and aggregated — Google cannot identify you individually from this data. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>10. Cookies</h3>
+      <p>This website uses cookies to improve user experience. Cookies are small text files stored on your browser. We use the following types:</p>
+      <ul>
+        <li><strong>Analytics cookies</strong> — set by Google Analytics to track usage patterns (anonymous)</li>
+        <li><strong>Preference cookies</strong> — to remember if you've accepted our cookie notice</li>
+      </ul>
+      <p style="margin-top:0.5rem;">You can disable cookies in your browser settings. Note that some features may not work correctly without cookies.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>11. Google AdSense</h3>
+      <p>We may use Google AdSense to display advertisements on this website. Third-party vendors, including Google, use cookies to serve ads based on users' prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>12. Data Collection &amp; Sale</h3>
+      <p>We do not sell, trade, or rent your personal information to third parties. Any data collected through analytics is used solely to improve the website experience.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BUY ME A COFFEE FLOATING BUTTON ===================== -->
+<div class="bmc-float" id="bmcFloat">
+  <button class="bmc-btn" onclick="handleUPIClick(event)">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="6" y1="1" x2="6" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+      <line x1="10" y1="1" x2="10" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+      <line x1="14" y1="1" x2="14" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    Support us ☕
+  </button>
+  <button class="bmc-dismiss" onclick="document.getElementById('bmcFloat').style.display='none'">hide</button>
+</div>
+
+<!-- PRINT TARGET -->
 <div id="resume-print-area"></div>
 
 <script>
 let currentStep=0, userMode='fresher', currentTemplate='modern';
 const skillTags={tech:[],tools:[],soft:[],langs:[]};
 let expCount=0,projCount=0,eduCount=0,achCount=0;
-const STEP_NAMES=['','Personal','Experience','Projects','Education','Skills','Achievements','Preview'];
 
+// ===================== PAGE NAVIGATION =====================
+function showPage(pageId) {
+  // Hide all overlays
+  document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
+  if (pageId) {
+    const page = document.getElementById('page-' + pageId);
+    if (page) {
+      page.classList.add('open');
+      page.scrollTop = 0;
+    }
+  }
+}
+
+// ===================== CONTACT FORM =====================
+function submitContact() {
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+
+  if (!email || !message) {
+    alert('Please fill in your email and message.');
+    return;
+  }
+
+  // Build mailto link and open it
+  const to = 'support@banaoresumee.online';
+  const sub = encodeURIComponent(subject || 'BanaoResume Contact: ' + (name || 'User'));
+  const body = encodeURIComponent(
+    'From: ' + (name || 'Anonymous') + '\nEmail: ' + email + '\n\n' + message
+  );
+  window.location.href = 'mailto:' + to + '?subject=' + sub + '&body=' + body;
+
+  // Show success
+  document.getElementById('cf-reply-email').textContent = email;
+  document.getElementById('cf-success').style.display = 'block';
+  document.getElementById('cf-name').value = '';
+  document.getElementById('cf-email').value = '';
+  document.getElementById('cf-subject').value = '';
+  document.getElementById('cf-message').value = '';
+}
+
+// ===================== RESUME BUILDER =====================
 function selectMode(mode){
   userMode=mode;
   document.querySelectorAll('.tip-box').forEach(el=>el.classList.toggle('show',mode==='fresher'));
@@ -802,7 +1039,6 @@ function goTo(n){
 }
 buildPills();
 
-// TEMPLATE SWITCHER
 function applyTemplate(tpl){
   currentTemplate=tpl;
   document.querySelectorAll('.tpl-card').forEach(c=>c.classList.remove('selected'));
@@ -810,7 +1046,6 @@ function applyTemplate(tpl){
   refreshPreview();
 }
 
-// ENTRY BUILDERS
 function addEntry(type){
   if(type==='exp'){
     expCount++;const id=expCount;
@@ -865,7 +1100,6 @@ function removeEntry(id){
   setTimeout(()=>el.remove(),200);
 }
 
-// TAG INPUTS
 function setupTagInput(inputId,wrapId,store){
   const input=document.getElementById(inputId);
   input.addEventListener('keydown',e=>{
@@ -921,14 +1155,11 @@ function getData(){
 }
 
 function buildResumeHTML(d, bw){
-  // Determine template class
   let tplClass='';
   if(bw) tplClass=' tpl-minimal';
   else if(currentTemplate!=='modern') tplClass=' tpl-'+currentTemplate;
-
   const hLink = bw ? '#ccc' : (currentTemplate==='classic'?'#90cdf4':currentTemplate==='elegant'?'#9ae6b4':currentTemplate==='bold'?'#d6bcfa':currentTemplate==='warm'?'#fbd38d':'#FFB899');
   const pLink = bw ? '#333' : (currentTemplate==='classic'?'#2b6cb0':currentTemplate==='elegant'?'#276749':currentTemplate==='bold'?'#6b46c1':currentTemplate==='warm'?'#c05621':'#FF6B35');
-
   const contactBits=[
     d.email&&`<span>✉ <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
     d.phone&&`<span>✆ ${d.phone}</span>`,
@@ -936,7 +1167,6 @@ function buildResumeHTML(d, bw){
     d.website&&`<span>🔗 ${linkify(d.website,hLink)}</span>`,
     d.github&&`<span>⌥ ${linkify(d.github,hLink)}</span>`,
   ].filter(Boolean).join('');
-
   const expSec=d.experience.filter(e=>e.title||e.company).length?`
     <div class="res-sec"><div class="res-sec-title">Experience</div>
     ${d.experience.filter(e=>e.title||e.company).map(e=>`
@@ -945,7 +1175,6 @@ function buildResumeHTML(d, bw){
         ${e.company?`<div class="res-item-sub">${e.company}</div>`:''}
         ${e.desc?`<div class="res-item-desc">${e.desc}</div>`:''}
       </div>`).join('')}</div>`:'';
-
   const projSec=d.projects.filter(p=>p.name).length?`
     <div class="res-sec"><div class="res-sec-title">Projects</div>
     ${d.projects.filter(p=>p.name).map(p=>`
@@ -954,18 +1183,15 @@ function buildResumeHTML(d, bw){
         ${p.link?`<div class="res-item-sub"><a href="${p.link.startsWith('http')?p.link:'https://'+p.link}" target="_blank" style="color:${pLink};text-decoration:underline;font-size:10px;">${p.link}</a></div>`:''}
         ${p.desc?`<div class="res-item-desc">${p.desc}</div>`:''}
       </div>`).join('')}</div>`:'';
-
   const achSec=d.achievements.length?`
     <div class="res-sec"><div class="res-sec-title">Achievements</div>
     ${d.achievements.map(a=>`<div class="res-achievement">${a}</div>`).join('')}</div>`:'';
-
   const techSec=d.skills.tech.length?`
     <div class="res-sec"><div class="res-sec-title">Skills</div>
     <div class="res-skill-tags">${d.skills.tech.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div>
     ${d.skills.tools.length?`<div class="res-skill-cat">Tools</div><div class="res-skill-tags">${d.skills.tools.map(s=>`<span class="res-skill-tag tools">${s}</span>`).join('')}</div>`:''}
     ${d.skills.soft.length?`<div class="res-skill-cat">Soft Skills</div><div class="res-skill-tags">${d.skills.soft.map(s=>`<span class="res-skill-tag soft">${s}</span>`).join('')}</div>`:''}
     </div>`:'';
-
   const eduSec=d.education.filter(e=>e.degree||e.institution).length?`
     <div class="res-sec"><div class="res-sec-title">Education</div>
     ${d.education.filter(e=>e.degree||e.institution).map(e=>`
@@ -974,15 +1200,12 @@ function buildResumeHTML(d, bw){
         <div class="res-edu-school">${e.institution||''}</div>
         <div class="res-edu-year">${e.year||''}${e.gpa?' · '+e.gpa:''}</div>
       </div>`).join('')}</div>`:'';
-
   const langSec=d.skills.langs.length?`
     <div class="res-sec"><div class="res-sec-title">Languages</div>
     <div class="res-skill-tags">${d.skills.langs.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div></div>`:'';
-
   const mainContent=userMode==='fresher'
     ?`${d.about?`<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>`:''}${projSec}${expSec}${achSec}`
     :`${d.about?`<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>`:''}${expSec}${projSec}${achSec}`;
-
   return `<div class="resume-doc${tplClass}">
     <div class="resume-top">
       <div class="res-name">${d.name||'YOUR NAME'}</div>
@@ -1005,7 +1228,6 @@ function refreshPreview(){
   const d=getData();
   const html=buildResumeHTML(d,false);
   const scroll=document.getElementById('previewScroll');
-  const pa=document.getElementById('previewArea');
   const availW=(scroll.parentElement?scroll.parentElement.clientWidth:320)-32;
   const resumeW=794;
   const scale=Math.min(availW/resumeW,0.65);
@@ -1047,6 +1269,177 @@ function toggleEditPanel(){
 }
 
 addEntry('exp');addEntry('proj');addEntry('edu');addAchievement();
+
+function handleUPIClick(e) {
+  e.preventDefault();
+  // Try opening PhonePe directly first, fallback to generic UPI
+  const phonePeUrl = 'phonepe://pay?pa=9381282521@ybl&pn=BanaoResume&cu=INR&tn=Support%20BanaoResume';
+  const upiUrl    = 'upi://pay?pa=9381282521@ybl&pn=BanaoResume&cu=INR&tn=Support%20BanaoResume';
+
+  // Show popup on ALL devices (mobile + laptop) with both options
+  const existing = document.getElementById('upi-popup');
+  if (existing) { existing.remove(); return; }
+  const popup = document.createElement('div');
+  popup.id = 'upi-popup';
+  popup.style.cssText = 'position:fixed;bottom:5rem;right:1.25rem;background:white;border:1.5px solid #EDE3D9;border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 32px rgba(255,107,53,0.18);z-index:1000;max-width:240px;text-align:center;animation:slideUp 0.3s ease;';
+  popup.innerHTML = `
+    <div style="font-size:0.8rem;font-weight:700;color:#1A1008;margin-bottom:0.7rem;">Support BanaoResume ☕</div>
+    <a href="${phonePeUrl}" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#5f259f;color:white;font-size:0.78rem;font-weight:700;padding:0.55rem 0.75rem;border-radius:8px;text-decoration:none;margin-bottom:0.45rem;" onclick="setTimeout(()=>openUPIFallback(),500);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13.5 2L3 14h9l-1.5 8L21 10h-9z"/></svg>
+      Open PhonePe
+    </a>
+    <a href="${upiUrl}" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#FFF0EA;color:#FF6B35;font-size:0.78rem;font-weight:700;padding:0.55rem 0.75rem;border-radius:8px;text-decoration:none;margin-bottom:0.6rem;border:1.5px solid #FFD6C0;">
+      📲 Other UPI App
+    </a>
+    <div style="font-size:0.68rem;color:#9C8677;margin-bottom:0.4rem;">Or copy UPI ID manually:</div>
+    <div onclick="navigator.clipboard.writeText('9381282521@ybl');this.innerHTML='✅ Copied!';" style="background:#FFF0EA;border:1.5px solid #EDE3D9;border-radius:6px;padding:0.4rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:600;color:#FF6B35;cursor:pointer;">9381282521@ybl</div>
+    <button onclick="document.getElementById('upi-popup').remove()" style="margin-top:0.6rem;background:none;border:none;font-size:0.63rem;color:#9C8677;cursor:pointer;text-decoration:underline;">close</button>
+  `;
+  document.body.appendChild(popup);
+  setTimeout(()=>{const p=document.getElementById('upi-popup');if(p)p.remove();},12000);
+}
+function openUPIFallback(){
+  // If PhonePe didn't open, nothing extra needed — user sees popup still
+}
 </script>
+
+<!-- ===================== TERMS PAGE ===================== -->
+<div class="page-overlay" id="page-terms">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Terms & Conditions</h1>
+    <p class="page-sub">Last updated: January 2025 · Please read these terms carefully before using BanaoResume.</p>
+
+    <div class="page-section">
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing or using BanaoResume at banaoresumee.online, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the website.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>2. Use of Website</h3>
+      <p>You may use BanaoResume for personal and professional resume creation purposes only. You agree not to:</p>
+      <ul>
+        <li>Use the website for any unlawful purpose</li>
+        <li>Attempt to gain unauthorized access to any part of the website</li>
+        <li>Reproduce, duplicate, or copy any part of the website without permission</li>
+        <li>Use the website to transmit spam, malware, or harmful content</li>
+        <li>Scrape or crawl the website using automated tools</li>
+      </ul>
+    </div>
+
+    <div class="page-section">
+      <h3>3. No Job Guarantee</h3>
+      <p>BanaoResume is a tool to help you create a resume. We do not guarantee interviews, job placements, or any employment outcome. The quality and success of your job application depends entirely on your own qualifications and the requirements of employers.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>4. User Responsibility</h3>
+      <p>You are solely responsible for the accuracy, completeness, and legality of all information you enter into your resume. BanaoResume does not verify, endorse, or take responsibility for any content you create using this tool. You must not include false, misleading, or defamatory information in your resume.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>5. Intellectual Property</h3>
+      <p>The BanaoResume name, logo, website design, templates, and all associated content are the intellectual property of BanaoResume. You may not copy, modify, distribute, or use our branding or templates for commercial purposes without written permission.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>6. Privacy & Data</h3>
+      <p>Your resume data is processed entirely in your browser and is never stored on our servers. Please read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details on how we handle data.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>7. Third-Party Links</h3>
+      <p>Our website may contain links to third-party websites (such as LinkedIn, job boards, or payment platforms). We are not responsible for the content, privacy practices, or reliability of any third-party websites. Visiting those links is at your own risk.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>8. Limitation of Liability</h3>
+      <p>BanaoResume is provided "as is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for any direct, indirect, incidental, or consequential losses resulting from your use of this website, including but not limited to loss of employment opportunities, data loss, or technical issues.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>9. Service Availability</h3>
+      <p>We do not guarantee that the website will be available 100% of the time. We may suspend, discontinue, or modify the service at any time without notice. We are not liable for any inconvenience caused by downtime or changes to the service.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>10. Changes to Terms</h3>
+      <p>We reserve the right to update these Terms and Conditions at any time. Changes will be posted on this page with an updated date. Continued use of the website after changes constitutes your acceptance of the new terms.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>11. Governing Law</h3>
+      <p>These terms are governed by the laws of India. Any disputes arising from use of this website will be subject to the jurisdiction of Indian courts.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>12. Contact</h3>
+      <p>For any questions regarding these Terms and Conditions, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DISCLAIMER PAGE ===================== -->
+<div class="page-overlay" id="page-disclaimer">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Disclaimer</h1>
+    <p class="page-sub">Last updated: January 2025 · banaoresumee.online</p>
+
+    <div class="page-section">
+      <h3>General Disclaimer</h3>
+      <p>The information provided by BanaoResume on banaoresumee.online is for general informational and resume-building purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy, adequacy, validity, reliability, or completeness of any information on the site.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>No Professional Advice</h3>
+      <p>The resume templates, tips, and suggestions provided by BanaoResume do not constitute professional career advice, legal advice, or HR consulting. You should consult a qualified career counsellor or HR professional for advice specific to your situation.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>No Employment Guarantee</h3>
+      <p>Use of BanaoResume does not guarantee employment, interviews, or any specific career outcome. Job market success depends on many factors outside our control, including your qualifications, experience, and employer requirements.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>External Links</h3>
+      <p>Our website may contain links to external websites. These links are provided for convenience only. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>Errors and Omissions</h3>
+      <p>While we strive to keep the information on BanaoResume up-to-date and correct, we make no representations about the completeness, accuracy, or suitability of the information. Any reliance you place on such information is strictly at your own risk.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>Advertising Disclaimer</h3>
+      <p>BanaoResume may display advertisements through Google AdSense or other networks. The display of ads does not constitute an endorsement of those products or services. We are not responsible for the content of external advertisements.</p>
+    </div>
+
+    <div class="page-section">
+      <h3>Contact</h3>
+      <p>If you have any questions about this Disclaimer, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COOKIE BANNER ===================== -->
+<div id="cookieBanner" style="position:fixed;bottom:20px;left:20px;right:20px;background:#1A1008;color:#EDE3D9;padding:14px 18px;border-radius:12px;z-index:9999;font-size:0.78rem;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1.5px solid #3D2E1E;max-width:680px;margin:0 auto;">
+  <span>🍪 This website uses cookies and Google Analytics to improve your experience. <a href="#" onclick="showPage('privacy');return false;" style="color:#FF6B35;text-decoration:underline;">Learn more</a></span>
+  <button onclick="acceptCookies()" style="background:#FF6B35;color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;white-space:nowrap;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='#E85520'" onmouseout="this.style.background='#FF6B35'">Accept</button>
+</div>
+
+<script>
+function acceptCookies() {
+  localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById("cookieBanner").style.display = "none";
+}
+window.addEventListener('load', function () {
+  if (localStorage.getItem("cookiesAccepted") === "true") {
+    document.getElementById("cookieBanner").style.display = "none";
+  }
+});
+</script>
+
 </body>
 </html>
