@@ -227,15 +227,19 @@ textarea{resize:vertical;min-height:75px;}
 .edit-panel-body{padding:0.9rem 1rem 1rem;border-top:1.5px solid var(--border);}
 
 /* =====================
-   BUY ME A COFFEE BUTTON
+   PHONEPAY FLOAT BUTTON  ← FIXED
    ===================== */
 .bmc-float{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;}
-.bmc-btn{display:flex;align-items:center;gap:0.5rem;background:#FFDD00;color:#000000;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;padding:0.6rem 1rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.25s cubic-bezier(0.22,1,0.36,1);border:2px solid rgba(0,0,0,0.08);white-space:nowrap;}
-.bmc-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
-.bmc-btn:active{transform:scale(0.97);}
-.bmc-btn svg{width:18px;height:18px;flex-shrink:0;}
+.phonepe-float-btn{display:flex;align-items:center;gap:0.5rem;background:#5f259f;color:white;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;padding:0.6rem 1.1rem;border-radius:100px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(95,37,159,0.45);transition:all 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;}
+.phonepe-float-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 24px rgba(95,37,159,0.55);}
+.phonepe-float-btn:active{transform:scale(0.97);}
+.phonepe-float-btn svg{flex-shrink:0;}
 .bmc-dismiss{background:none;border:none;font-size:0.65rem;color:var(--muted);cursor:pointer;padding:0.2rem 0.4rem;text-decoration:underline;text-underline-offset:2px;}
 .bmc-dismiss:hover{color:var(--ink-2);}
+
+/* PhonePe QR Modal */
+@keyframes ppModalIn{from{opacity:0;transform:scale(0.92) translateY(12px);}to{opacity:1;transform:scale(1) translateY(0);}}
+#phonepe-qr-modal .pp-card{animation:ppModalIn 0.3s cubic-bezier(0.22,1,0.36,1);}
 
 /* =====================
    STATIC PAGES (About, Contact, Privacy)
@@ -767,17 +771,14 @@ footer a:hover{color:var(--orange);}
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">About BanaoResume</h1>
     <p class="page-sub">Free, simple, and built for students across India 🇮🇳</p>
-
     <div class="page-section">
       <h3>What is BanaoResume?</h3>
       <p>BanaoResume is a free online resume builder designed specifically for students, freshers, and early-career professionals in India. We help you create clean, ATS-friendly resumes in minutes — no sign-up required, no hidden fees, ever.</p>
     </div>
-
     <div class="page-section">
       <h3>Why we built this</h3>
       <p>Most resume builders are either too expensive, too complicated, or not suited for Indian job markets. We wanted to change that. BanaoResume is built with one goal: help every student land their first job without worrying about the cost of a resume tool.</p>
     </div>
-
     <div class="page-section">
       <h3>What you get — 100% Free</h3>
       <ul>
@@ -788,21 +789,18 @@ footer a:hover{color:var(--orange);}
         <li>Works on mobile, tablet, and desktop</li>
       </ul>
     </div>
-
     <div class="page-section">
       <h3>Your data is yours</h3>
       <p>Everything you type stays in your browser. We don't store your resume data on any server. When you close the tab, your data is gone — completely private.</p>
     </div>
-
     <div class="page-section">
       <h3>Support this project ☕</h3>
-      <p>BanaoResume is free and will always be free. If it helped you land a job or internship, consider buying us a coffee — it helps keep the servers running and motivates us to add more templates and features.</p>
+      <p>BanaoResume is free and will always be free. If it helped you land a job or internship, consider supporting us via PhonePe — it helps keep the servers running and motivates us to add more templates and features.</p>
       <br>
-      <a href="https://www.buymeacoffee.com/banaoresume" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#FFDD00;color:#000;font-weight:700;font-size:0.85rem;padding:0.65rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.12);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        Support us ☕ / UPI
-      </a>
+      <button onclick="handlePhonePeClick(event)" style="display:inline-flex;align-items:center;gap:8px;background:#5f259f;color:white;font-weight:700;font-size:0.85rem;padding:0.65rem 1.25rem;border-radius:100px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(95,37,159,0.35);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        💜 Support via PhonePe / UPI
+      </button>
     </div>
-
     <div class="page-section">
       <h3>Get in touch</h3>
       <p>Questions, suggestions, or just want to say thanks? <a href="#" onclick="showPage('contact');return false;">Contact us here</a> — we'd love to hear from you.</p>
@@ -816,12 +814,10 @@ footer a:hover{color:var(--orange);}
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">Contact Us</h1>
     <p class="page-sub">We're here to help — reach out anytime 👋</p>
-
     <div class="page-section" style="margin-bottom:1.25rem;">
       <h3>Send us a message</h3>
       <p style="margin-bottom:1rem;">Have a question, found a bug, or want to give feedback? Fill in the form below or email us directly at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
     </div>
-
     <div class="contact-form">
       <div class="field-group">
         <label>Your Name</label>
@@ -844,7 +840,6 @@ footer a:hover{color:var(--orange);}
         ✅ Thanks for reaching out! We'll get back to you at <strong id="cf-reply-email"></strong> within 24–48 hours.
       </div>
     </div>
-
     <div class="page-section" style="margin-top:1.5rem;">
       <h3>Direct contact</h3>
       <p>📧 Email: <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
@@ -858,17 +853,14 @@ footer a:hover{color:var(--orange);}
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">Privacy Policy</h1>
     <p class="page-sub">Last updated: January 2025 · BanaoResume (banaoresumee.online)</p>
-
     <div class="page-section">
       <h3>1. Overview</h3>
       <p>BanaoResume ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our website at banaoresumee.online.</p>
     </div>
-
     <div class="page-section">
       <h3>2. Data We Do NOT Collect</h3>
       <p>We do not collect, store, or transmit any personal information you enter into the resume builder. All resume data (your name, email, work history, skills, etc.) is processed entirely in your browser and is never sent to our servers.</p>
     </div>
-
     <div class="page-section">
       <h3>3. Information We Do Collect</h3>
       <p>We use Google Analytics (Google Tag Manager) to collect anonymous usage data, including:</p>
@@ -880,57 +872,48 @@ footer a:hover{color:var(--orange);}
       </ul>
       <p style="margin-top:0.5rem;">This data is aggregated and anonymous — we cannot identify you from it.</p>
     </div>
-
     <div class="page-section">
       <h3>4. Cookies</h3>
       <p>We use cookies through Google Analytics to understand how visitors use our site. These are standard analytics cookies and do not contain personal information. You can disable cookies in your browser settings at any time.</p>
     </div>
-
     <div class="page-section">
       <h3>5. Third-Party Services</h3>
       <p>We use the following third-party services:</p>
       <ul>
         <li><strong>Google Analytics</strong> — anonymous website traffic analysis (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>)</li>
         <li><strong>Google Fonts</strong> — fonts loaded from Google's CDN</li>
-        <li><strong>Buy Me a Coffee</strong> — optional donation platform (only if you click the button)</li>
+        <li><strong>PhonePe / UPI</strong> — optional donation platform (only if you tap the support button)</li>
       </ul>
     </div>
-
     <div class="page-section">
       <h3>6. Children's Privacy</h3>
       <p>BanaoResume is intended for users aged 16 and above. We do not knowingly collect information from children under 13.</p>
     </div>
-
     <div class="page-section">
       <h3>7. Changes to This Policy</h3>
       <p>We may update this Privacy Policy occasionally. Changes will be posted on this page with an updated date. Continued use of the site after changes means you accept the updated policy.</p>
     </div>
-
     <div class="page-section">
       <h3>8. Contact</h3>
       <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
     </div>
-
     <div class="page-section">
       <h3>9. Google Analytics</h3>
-      <p>We use Google Analytics to understand how visitors interact with our website. Google Analytics collects data such as how long you spend on the site, which pages you visit, and your approximate location (country/city level only). This data is anonymous and aggregated — Google cannot identify you individually from this data. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+      <p>We use Google Analytics to understand how visitors interact with our website. Google Analytics collects data such as how long you spend on the site, which pages you visit, and your approximate location (country/city level only). This data is anonymous and aggregated. You can opt out by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
     </div>
-
     <div class="page-section">
       <h3>10. Cookies</h3>
-      <p>This website uses cookies to improve user experience. Cookies are small text files stored on your browser. We use the following types:</p>
+      <p>This website uses cookies to improve user experience. We use the following types:</p>
       <ul>
         <li><strong>Analytics cookies</strong> — set by Google Analytics to track usage patterns (anonymous)</li>
         <li><strong>Preference cookies</strong> — to remember if you've accepted our cookie notice</li>
       </ul>
-      <p style="margin-top:0.5rem;">You can disable cookies in your browser settings. Note that some features may not work correctly without cookies.</p>
+      <p style="margin-top:0.5rem;">You can disable cookies in your browser settings.</p>
     </div>
-
     <div class="page-section">
       <h3>11. Google AdSense</h3>
-      <p>We may use Google AdSense to display advertisements on this website. Third-party vendors, including Google, use cookies to serve ads based on users' prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</p>
+      <p>We may use Google AdSense to display advertisements on this website. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</p>
     </div>
-
     <div class="page-section">
       <h3>12. Data Collection &amp; Sale</h3>
       <p>We do not sell, trade, or rent your personal information to third parties. Any data collected through analytics is used solely to improve the website experience.</p>
@@ -938,17 +921,15 @@ footer a:hover{color:var(--orange);}
   </div>
 </div>
 
-<!-- ===================== BUY ME A COFFEE FLOATING BUTTON ===================== -->
+<!-- ===================== PHONEPAY FLOATING BUTTON — FIXED ===================== -->
 <div class="bmc-float" id="bmcFloat">
-  <button class="bmc-btn" onclick="handleUPIClick(event)">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="6" y1="1" x2="6" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-      <line x1="10" y1="1" x2="10" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-      <line x1="14" y1="1" x2="14" y2="4" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  <button class="phonepe-float-btn" onclick="handlePhonePeClick(event)">
+    <!-- PhonePe "P" logo mark -->
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="8" fill="white"/>
+      <path d="M22 8h-7.5C12 8 10 10 10 12.5c0 2 1.2 3.7 3 4.3l-3.5 7.2h3.2l3.3-6.8H18v6.8h3V8z" fill="#5f259f"/>
     </svg>
-    Support us ☕
+    Support via PhonePe
   </button>
   <button class="bmc-dismiss" onclick="document.getElementById('bmcFloat').style.display='none'">hide</button>
 </div>
@@ -957,44 +938,37 @@ footer a:hover{color:var(--orange);}
 <div id="resume-print-area"></div>
 
 <script>
-let currentStep=0, userMode='fresher', currentTemplate='modern';
-const skillTags={tech:[],tools:[],soft:[],langs:[]};
-let expCount=0,projCount=0,eduCount=0,achCount=0;
+/* =====================================================
+   CORE STATE
+===================================================== */
+let currentStep = 0, userMode = 'fresher', currentTemplate = 'modern';
+const skillTags = { tech: [], tools: [], soft: [], langs: [] };
+let expCount = 0, projCount = 0, eduCount = 0, achCount = 0;
 
-// ===================== PAGE NAVIGATION =====================
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
 function showPage(pageId) {
-  // Hide all overlays
   document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
   if (pageId) {
     const page = document.getElementById('page-' + pageId);
-    if (page) {
-      page.classList.add('open');
-      page.scrollTop = 0;
-    }
+    if (page) { page.classList.add('open'); page.scrollTop = 0; }
   }
 }
 
-// ===================== CONTACT FORM =====================
+/* =====================================================
+   CONTACT FORM
+===================================================== */
 function submitContact() {
-  const name = document.getElementById('cf-name').value.trim();
-  const email = document.getElementById('cf-email').value.trim();
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
   const subject = document.getElementById('cf-subject').value.trim();
   const message = document.getElementById('cf-message').value.trim();
-
-  if (!email || !message) {
-    alert('Please fill in your email and message.');
-    return;
-  }
-
-  // Build mailto link and open it
-  const to = 'support@banaoresumee.online';
-  const sub = encodeURIComponent(subject || 'BanaoResume Contact: ' + (name || 'User'));
-  const body = encodeURIComponent(
-    'From: ' + (name || 'Anonymous') + '\nEmail: ' + email + '\n\n' + message
-  );
+  if (!email || !message) { alert('Please fill in your email and message.'); return; }
+  const to   = 'support@banaoresumee.online';
+  const sub  = encodeURIComponent(subject || 'BanaoResume Contact: ' + (name || 'User'));
+  const body = encodeURIComponent('From: ' + (name || 'Anonymous') + '\nEmail: ' + email + '\n\n' + message);
   window.location.href = 'mailto:' + to + '?subject=' + sub + '&body=' + body;
-
-  // Show success
   document.getElementById('cf-reply-email').textContent = email;
   document.getElementById('cf-success').style.display = 'block';
   document.getElementById('cf-name').value = '';
@@ -1003,56 +977,172 @@ function submitContact() {
   document.getElementById('cf-message').value = '';
 }
 
-// ===================== RESUME BUILDER =====================
-function selectMode(mode){
-  userMode=mode;
-  document.querySelectorAll('.tip-box').forEach(el=>el.classList.toggle('show',mode==='fresher'));
+/* =====================================================
+   PHONEPAY — FIXED
+   Mobile  → opens PhonePe app directly (zero friction)
+   Desktop → shows scannable QR modal
+===================================================== */
+function handlePhonePeClick(e) {
+  e.preventDefault();
+
+  const UPI_ID      = '9381282521@ybl';
+  const UPI_NAME    = 'BanaoResume';
+  const UPI_NOTE    = 'Support BanaoResume';
+  const phonePeUrl  = 'phonepe://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&cu=INR&tn=' + encodeURIComponent(UPI_NOTE);
+  const upiUrl      = 'upi://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&cu=INR&tn=' + encodeURIComponent(UPI_NOTE);
+  const isMobile    = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    /* ── MOBILE: tap → PhonePe opens instantly, pre-filled ── */
+    window.location.href = phonePeUrl;
+    /* Safety net: if PhonePe isn't installed, any UPI app opens after 1.5 s */
+    setTimeout(function () {
+      if (!document.hidden) window.location.href = upiUrl;
+    }, 1500);
+
+  } else {
+    /* ── DESKTOP: show QR code modal ── */
+    const existing = document.getElementById('phonepe-qr-modal');
+    if (existing) { existing.remove(); return; }
+
+    /* QR encodes the standard UPI payment link — PhonePe "Scan QR" reads it */
+    const qrData = encodeURIComponent(upiUrl);
+    const qrSrc  = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + qrData + '&bgcolor=ffffff&color=5f259f&margin=12&qzone=1';
+
+    const modal = document.createElement('div');
+    modal.id = 'phonepe-qr-modal';
+    modal.style.cssText = [
+      'position:fixed;inset:0;background:rgba(10,5,20,0.65);',
+      'z-index:2000;display:flex;align-items:center;justify-content:center;',
+      'padding:1rem;backdrop-filter:blur(4px);'
+    ].join('');
+
+    modal.innerHTML = [
+      '<div class="pp-card" style="',
+        'background:#fff;border-radius:22px;padding:1.75rem 1.5rem 1.5rem;',
+        'max-width:290px;width:100%;text-align:center;',
+        'box-shadow:0 28px 60px rgba(95,37,159,0.22),0 6px 20px rgba(0,0,0,0.15);',
+        'position:relative;">',
+
+        /* close button */
+        '<button onclick="document.getElementById(\'phonepe-qr-modal\').remove()" style="',
+          'position:absolute;top:12px;right:14px;background:none;border:none;',
+          'font-size:1.4rem;cursor:pointer;color:#9C8677;line-height:1;',
+          'transition:color 0.2s;" onmouseover="this.style.color=\'#5f259f\'" onmouseout="this.style.color=\'#9C8677\'">&times;</button>',
+
+        /* PhonePe icon */
+        '<div style="width:50px;height:50px;border-radius:14px;background:#5f259f;',
+          'display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;',
+          'box-shadow:0 4px 14px rgba(95,37,159,0.4);">',
+          '<svg width="26" height="26" viewBox="0 0 32 32" fill="none">',
+            '<path d="M22 8h-7.5C12 8 10 10 10 12.5c0 2 1.2 3.7 3 4.3l-3.5 7.2h3.2l3.3-6.8H18v6.8h3V8z" fill="white"/>',
+          '</svg>',
+        '</div>',
+
+        /* heading */
+        '<div style="font-family:\'Fraunces\',serif;font-size:1.1rem;font-weight:900;color:#1A1008;margin-bottom:0.2rem;">',
+          'Support BanaoResume',
+        '</div>',
+        '<div style="font-size:0.72rem;color:#9C8677;margin-bottom:1.1rem;line-height:1.5;">',
+          'Open PhonePe → tap <strong style="color:#5f259f;">Scan QR</strong> → scan below',
+        '</div>',
+
+        /* QR code box */
+        '<div style="background:linear-gradient(135deg,#f5eeff,#ede0ff);border-radius:16px;',
+          'padding:1rem;margin-bottom:1rem;display:inline-block;',
+          'box-shadow:inset 0 2px 8px rgba(95,37,159,0.08);">',
+          '<img src="', qrSrc, '" alt="Scan with PhonePe" ',
+            'style="width:180px;height:180px;border-radius:10px;display:block;" ',
+            'onerror="this.parentElement.innerHTML=\'<div style=&quot;width:180px;height:180px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#5f259f;line-height:1.6;&quot;>QR unavailable.<br>Use UPI ID below.</div>\'"/>',
+        '</div>',
+
+        /* UPI ID chip */
+        '<div style="background:#f5eeff;border-radius:12px;padding:0.65rem 0.9rem;margin-bottom:0.75rem;',
+          'border:1.5px solid rgba(95,37,159,0.15);">',
+          '<div style="font-size:0.6rem;color:#9C8677;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">',
+            'Or pay manually · UPI ID',
+          '</div>',
+          '<div style="font-weight:700;color:#5f259f;font-family:\'JetBrains Mono\',monospace;font-size:0.95rem;letter-spacing:0.03em;">',
+            UPI_ID,
+          '</div>',
+        '</div>',
+
+        /* footer note */
+        '<div style="font-size:0.63rem;color:#C4B4A4;line-height:1.7;">',
+          'Pay any amount — even ₹10 helps 💜<br>',
+          'Keeps BanaoResume free for everyone',
+        '</div>',
+
+      '</div>'
+    ].join('');
+
+    /* close on backdrop click */
+    modal.addEventListener('click', function (ev) {
+      if (ev.target === modal) modal.remove();
+    });
+
+    /* close on Escape key */
+    function escClose(ev) {
+      if (ev.key === 'Escape') { modal.remove(); document.removeEventListener('keydown', escClose); }
+    }
+    document.addEventListener('keydown', escClose);
+
+    document.body.appendChild(modal);
+  }
+}
+
+/* =====================================================
+   RESUME BUILDER
+===================================================== */
+function selectMode(mode) {
+  userMode = mode;
+  document.querySelectorAll('.tip-box').forEach(el => el.classList.toggle('show', mode === 'fresher'));
   document.getElementById('projTip')?.classList.add('show');
   document.getElementById('achTip')?.classList.add('show');
-  document.getElementById('expSubtext').textContent=mode==='fresher'
-    ?'Internships, part-time, campus roles — anything counts'
-    :'List your work history, starting with most recent';
-  document.getElementById('modeBadgeWrap').innerHTML=
-    `<div class="mode-chip ${mode}">${mode==='fresher'?'🎓 Fresher':'💼 Experienced'}</div>`;
+  document.getElementById('expSubtext').textContent = mode === 'fresher'
+    ? 'Internships, part-time, campus roles — anything counts'
+    : 'List your work history, starting with most recent';
+  document.getElementById('modeBadgeWrap').innerHTML =
+    `<div class="mode-chip ${mode}">${mode === 'fresher' ? '🎓 Fresher' : '💼 Experienced'}</div>`;
   goTo(1);
 }
 
-function buildPills(){
-  const pills=document.getElementById('stepPills');
-  const label=document.getElementById('stepLabel');
-  if(currentStep===0){pills.innerHTML='';label.innerHTML='';document.getElementById('progFill').style.width='0%';return;}
-  pills.innerHTML=Array.from({length:7},(_,i)=>i+1).map(i=>
-    `<div class="step-pill ${i<currentStep?'done':i===currentStep?'active':''}"></div>`
+function buildPills() {
+  const pills = document.getElementById('stepPills');
+  const label = document.getElementById('stepLabel');
+  if (currentStep === 0) { pills.innerHTML = ''; label.innerHTML = ''; document.getElementById('progFill').style.width = '0%'; return; }
+  pills.innerHTML = Array.from({ length: 7 }, (_, i) => i + 1).map(i =>
+    `<div class="step-pill ${i < currentStep ? 'done' : i === currentStep ? 'active' : ''}"></div>`
   ).join('');
-  label.innerHTML=`<span>${currentStep}</span>/7`;
-  document.getElementById('progFill').style.width=(((currentStep-1)/6)*100)+'%';
+  label.innerHTML = `<span>${currentStep}</span>/7`;
+  document.getElementById('progFill').style.width = (((currentStep - 1) / 6) * 100) + '%';
 }
 
-function goTo(n){
-  if(n===7) buildResume();
-  const fl=document.getElementById('flashEl');
+function goTo(n) {
+  if (n === 7) buildResume();
+  const fl = document.getElementById('flashEl');
   fl.classList.add('on');
-  setTimeout(()=>fl.classList.remove('on'),160);
+  setTimeout(() => fl.classList.remove('on'), 160);
   document.getElementById(`step-${currentStep}`).classList.remove('active');
-  currentStep=n;
+  currentStep = n;
   document.getElementById(`step-${currentStep}`).classList.add('active');
   buildPills();
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 buildPills();
 
-function applyTemplate(tpl){
-  currentTemplate=tpl;
-  document.querySelectorAll('.tpl-card').forEach(c=>c.classList.remove('selected'));
-  document.getElementById('tpl-'+tpl).classList.add('selected');
+function applyTemplate(tpl) {
+  currentTemplate = tpl;
+  document.querySelectorAll('.tpl-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('tpl-' + tpl).classList.add('selected');
   refreshPreview();
 }
 
-function addEntry(type){
-  if(type==='exp'){
-    expCount++;const id=expCount;
-    const d=document.createElement('div');d.className='entry-card';d.id=`exp-${id}`;
-    d.innerHTML=`<button class="remove-btn" onclick="removeEntry('exp-${id}')">✕</button>
+function addEntry(type) {
+  if (type === 'exp') {
+    expCount++; const id = expCount;
+    const d = document.createElement('div'); d.className = 'entry-card'; d.id = `exp-${id}`;
+    d.innerHTML = `<button class="remove-btn" onclick="removeEntry('exp-${id}')">✕</button>
     <div class="entry-grid">
       <div class="field-group"><label>Job Title</label><input type="text" id="exp-title-${id}" placeholder="Software Engineer Intern"/></div>
       <div class="field-group"><label>Company</label><input type="text" id="exp-company-${id}" placeholder="Google"/></div>
@@ -1061,10 +1151,10 @@ function addEntry(type){
       <div class="field-group full"><label>What you did & impact</label><textarea id="exp-desc-${id}" placeholder="Developed a REST API that reduced response time by 30%..."></textarea></div>
     </div>`;
     document.getElementById('expContainer').appendChild(d);
-  }else if(type==='proj'){
-    projCount++;const id=projCount;
-    const d=document.createElement('div');d.className='entry-card';d.id=`proj-${id}`;
-    d.innerHTML=`<button class="remove-btn" onclick="removeEntry('proj-${id}')">✕</button>
+  } else if (type === 'proj') {
+    projCount++; const id = projCount;
+    const d = document.createElement('div'); d.className = 'entry-card'; d.id = `proj-${id}`;
+    d.innerHTML = `<button class="remove-btn" onclick="removeEntry('proj-${id}')">✕</button>
     <div class="entry-grid">
       <div class="field-group"><label>Project Name</label><input type="text" id="proj-name-${id}" placeholder="AI Resume Builder"/></div>
       <div class="field-group"><label>Tech Stack</label><input type="text" id="proj-tech-${id}" placeholder="React, Node.js, MongoDB"/></div>
@@ -1073,10 +1163,10 @@ function addEntry(type){
       <div class="field-group full"><label>What it does & your contribution</label><textarea id="proj-desc-${id}" placeholder="Built a tool that generates professional resumes..."></textarea></div>
     </div>`;
     document.getElementById('projContainer').appendChild(d);
-  }else if(type==='edu'){
-    eduCount++;const id=eduCount;
-    const d=document.createElement('div');d.className='entry-card';d.id=`edu-${id}`;
-    d.innerHTML=`<button class="remove-btn" onclick="removeEntry('edu-${id}')">✕</button>
+  } else if (type === 'edu') {
+    eduCount++; const id = eduCount;
+    const d = document.createElement('div'); d.className = 'entry-card'; d.id = `edu-${id}`;
+    d.innerHTML = `<button class="remove-btn" onclick="removeEntry('edu-${id}')">✕</button>
     <div class="entry-grid">
       <div class="field-group"><label>Degree / Certificate</label><input type="text" id="edu-deg-${id}" placeholder="B.Tech Computer Science"/></div>
       <div class="field-group"><label>Institution</label><input type="text" id="edu-inst-${id}" placeholder="IIT Bombay"/></div>
@@ -1087,132 +1177,141 @@ function addEntry(type){
   }
 }
 
-function addAchievement(){
-  achCount++;const id=achCount;
-  const d=document.createElement('div');d.className='entry-card';d.id=`ach-${id}`;
-  d.style.cssText='display:flex;gap:0.6rem;align-items:center;padding:0.75rem;';
-  d.innerHTML=`<button class="remove-btn" style="position:relative;top:0;right:0;flex-shrink:0;" onclick="removeEntry('ach-${id}')">✕</button>
+function addAchievement() {
+  achCount++; const id = achCount;
+  const d = document.createElement('div'); d.className = 'entry-card'; d.id = `ach-${id}`;
+  d.style.cssText = 'display:flex;gap:0.6rem;align-items:center;padding:0.75rem;';
+  d.innerHTML = `<button class="remove-btn" style="position:relative;top:0;right:0;flex-shrink:0;" onclick="removeEntry('ach-${id}')">✕</button>
   <div class="field-group" style="flex:1;margin:0;"><input type="text" id="ach-text-${id}" placeholder="Top 100 in CodeChef Long Challenge 2024"/></div>`;
   document.getElementById('achieveContainer').appendChild(d);
 }
 
-function removeEntry(id){
-  const el=document.getElementById(id);
-  el.style.cssText+='opacity:0;transform:scale(0.95);transition:all 0.2s;';
-  setTimeout(()=>el.remove(),200);
+function removeEntry(id) {
+  const el = document.getElementById(id);
+  el.style.cssText += 'opacity:0;transform:scale(0.95);transition:all 0.2s;';
+  setTimeout(() => el.remove(), 200);
 }
 
-function setupTagInput(inputId,wrapId,store){
-  const input=document.getElementById(inputId);
-  input.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===','){
+function setupTagInput(inputId, wrapId, store) {
+  const input = document.getElementById(inputId);
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault();
-      const v=input.value.trim().replace(/,$/,'');
-      if(v&&!store.includes(v)){store.push(v);renderTag(v,wrapId,store,inputId);}
-      input.value='';
+      const v = input.value.trim().replace(/,$/, '');
+      if (v && !store.includes(v)) { store.push(v); renderTag(v, wrapId, store, inputId); }
+      input.value = '';
     }
-    if(e.key==='Backspace'&&input.value===''&&store.length){
+    if (e.key === 'Backspace' && input.value === '' && store.length) {
       store.pop();
-      const tags=document.getElementById(wrapId).querySelectorAll('.tag');
-      if(tags.length)tags[tags.length-1].remove();
+      const tags = document.getElementById(wrapId).querySelectorAll('.tag');
+      if (tags.length) tags[tags.length - 1].remove();
     }
   });
-  document.getElementById(wrapId).addEventListener('click',()=>input.focus());
-}
-function renderTag(val,wrapId,store,inputId){
-  const wrap=document.getElementById(wrapId);
-  const input=document.getElementById(inputId);
-  const tag=document.createElement('span');
-  tag.className='tag';tag._val=val;tag._store=store;
-  tag.innerHTML=`${val}<span class="tag-x" onclick="removeTag(this,'${val}')">×</span>`;
-  wrap.insertBefore(tag,input);
-}
-function removeTag(xEl,val){
-  const tag=xEl.parentElement;
-  const store=tag._store;
-  if(store){const i=store.indexOf(val);if(i>-1)store.splice(i,1);}
-  tag.style.cssText='transform:scale(0);transition:transform 0.15s;';
-  setTimeout(()=>tag.remove(),150);
-}
-setupTagInput('techSkillInput','techSkillsWrap',skillTags.tech);
-setupTagInput('toolsInput','toolsWrap',skillTags.tools);
-setupTagInput('softInput','softWrap',skillTags.soft);
-setupTagInput('langsInput','langsWrap',skillTags.langs);
-
-function val(id){const el=document.getElementById(id);return el?el.value.trim():'';}
-
-function linkify(text,c){
-  if(!text) return '';
-  const href=text.startsWith('http')?text:'https://'+text;
-  return `<a href="${href}" target="_blank" style="color:${c||'#FFB899'};text-decoration:underline;text-underline-offset:2px;">${text}</a>`;
+  document.getElementById(wrapId).addEventListener('click', () => input.focus());
 }
 
-function getData(){
-  const data={name:val('name'),jobTitle:val('jobTitle'),email:val('email'),phone:val('phone'),location:val('location'),website:val('website'),github:val('github'),about:val('about'),experience:[],projects:[],education:[],achievements:[],skills:{...skillTags}};
-  for(let i=1;i<=expCount;i++) if(document.getElementById(`exp-${i}`)) data.experience.push({title:val(`exp-title-${i}`),company:val(`exp-company-${i}`),start:val(`exp-start-${i}`),end:val(`exp-end-${i}`),desc:val(`exp-desc-${i}`)});
-  for(let i=1;i<=projCount;i++) if(document.getElementById(`proj-${i}`)) data.projects.push({name:val(`proj-name-${i}`),tech:val(`proj-tech-${i}`),link:val(`proj-link-${i}`),year:val(`proj-year-${i}`),desc:val(`proj-desc-${i}`)});
-  for(let i=1;i<=eduCount;i++) if(document.getElementById(`edu-${i}`)) data.education.push({degree:val(`edu-deg-${i}`),institution:val(`edu-inst-${i}`),year:val(`edu-year-${i}`),gpa:val(`edu-gpa-${i}`)});
-  for(let i=1;i<=achCount;i++) if(document.getElementById(`ach-${i}`)){const t=val(`ach-text-${i}`);if(t)data.achievements.push(t);}
+function renderTag(val, wrapId, store, inputId) {
+  const wrap  = document.getElementById(wrapId);
+  const input = document.getElementById(inputId);
+  const tag   = document.createElement('span');
+  tag.className = 'tag'; tag._val = val; tag._store = store;
+  tag.innerHTML = `${val}<span class="tag-x" onclick="removeTag(this,'${val}')">×</span>`;
+  wrap.insertBefore(tag, input);
+}
+
+function removeTag(xEl, val) {
+  const tag   = xEl.parentElement;
+  const store = tag._store;
+  if (store) { const i = store.indexOf(val); if (i > -1) store.splice(i, 1); }
+  tag.style.cssText = 'transform:scale(0);transition:transform 0.15s;';
+  setTimeout(() => tag.remove(), 150);
+}
+
+setupTagInput('techSkillInput', 'techSkillsWrap', skillTags.tech);
+setupTagInput('toolsInput',     'toolsWrap',      skillTags.tools);
+setupTagInput('softInput',      'softWrap',       skillTags.soft);
+setupTagInput('langsInput',     'langsWrap',      skillTags.langs);
+
+function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function linkify(text, c) {
+  if (!text) return '';
+  const href = text.startsWith('http') ? text : 'https://' + text;
+  return `<a href="${href}" target="_blank" style="color:${c || '#FFB899'};text-decoration:underline;text-underline-offset:2px;">${text}</a>`;
+}
+
+function getData() {
+  const data = {
+    name: val('name'), jobTitle: val('jobTitle'), email: val('email'),
+    phone: val('phone'), location: val('location'), website: val('website'),
+    github: val('github'), about: val('about'),
+    experience: [], projects: [], education: [], achievements: [],
+    skills: { ...skillTags }
+  };
+  for (let i = 1; i <= expCount;  i++) if (document.getElementById(`exp-${i}`))  data.experience.push({ title: val(`exp-title-${i}`), company: val(`exp-company-${i}`), start: val(`exp-start-${i}`), end: val(`exp-end-${i}`), desc: val(`exp-desc-${i}`) });
+  for (let i = 1; i <= projCount; i++) if (document.getElementById(`proj-${i}`)) data.projects.push({ name: val(`proj-name-${i}`), tech: val(`proj-tech-${i}`), link: val(`proj-link-${i}`), year: val(`proj-year-${i}`), desc: val(`proj-desc-${i}`) });
+  for (let i = 1; i <= eduCount;  i++) if (document.getElementById(`edu-${i}`))  data.education.push({ degree: val(`edu-deg-${i}`), institution: val(`edu-inst-${i}`), year: val(`edu-year-${i}`), gpa: val(`edu-gpa-${i}`) });
+  for (let i = 1; i <= achCount;  i++) if (document.getElementById(`ach-${i}`))  { const t = val(`ach-text-${i}`); if (t) data.achievements.push(t); }
   return data;
 }
 
-function buildResumeHTML(d, bw){
-  let tplClass='';
-  if(bw) tplClass=' tpl-minimal';
-  else if(currentTemplate!=='modern') tplClass=' tpl-'+currentTemplate;
-  const hLink = bw ? '#ccc' : (currentTemplate==='classic'?'#90cdf4':currentTemplate==='elegant'?'#9ae6b4':currentTemplate==='bold'?'#d6bcfa':currentTemplate==='warm'?'#fbd38d':'#FFB899');
-  const pLink = bw ? '#333' : (currentTemplate==='classic'?'#2b6cb0':currentTemplate==='elegant'?'#276749':currentTemplate==='bold'?'#6b46c1':currentTemplate==='warm'?'#c05621':'#FF6B35');
-  const contactBits=[
-    d.email&&`<span>✉ <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
-    d.phone&&`<span>✆ ${d.phone}</span>`,
-    d.location&&`<span>📍 ${d.location}</span>`,
-    d.website&&`<span>🔗 ${linkify(d.website,hLink)}</span>`,
-    d.github&&`<span>⌥ ${linkify(d.github,hLink)}</span>`,
+function buildResumeHTML(d, bw) {
+  let tplClass = '';
+  if (bw) tplClass = ' tpl-minimal';
+  else if (currentTemplate !== 'modern') tplClass = ' tpl-' + currentTemplate;
+  const hLink = bw ? '#ccc' : (currentTemplate === 'classic' ? '#90cdf4' : currentTemplate === 'elegant' ? '#9ae6b4' : currentTemplate === 'bold' ? '#d6bcfa' : currentTemplate === 'warm' ? '#fbd38d' : '#FFB899');
+  const pLink = bw ? '#333' : (currentTemplate === 'classic' ? '#2b6cb0' : currentTemplate === 'elegant' ? '#276749' : currentTemplate === 'bold' ? '#6b46c1' : currentTemplate === 'warm' ? '#c05621' : '#FF6B35');
+  const contactBits = [
+    d.email    && `<span>✉ <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
+    d.phone    && `<span>✆ ${d.phone}</span>`,
+    d.location && `<span>📍 ${d.location}</span>`,
+    d.website  && `<span>🔗 ${linkify(d.website, hLink)}</span>`,
+    d.github   && `<span>⌥ ${linkify(d.github, hLink)}</span>`,
   ].filter(Boolean).join('');
-  const expSec=d.experience.filter(e=>e.title||e.company).length?`
+  const expSec = d.experience.filter(e => e.title || e.company).length ? `
     <div class="res-sec"><div class="res-sec-title">Experience</div>
-    ${d.experience.filter(e=>e.title||e.company).map(e=>`
+    ${d.experience.filter(e => e.title || e.company).map(e => `
       <div class="res-item">
-        <div class="res-item-hd"><div class="res-item-title">${e.title||''}</div><div class="res-item-date">${e.start||''}${e.end?' – '+e.end:''}</div></div>
-        ${e.company?`<div class="res-item-sub">${e.company}</div>`:''}
-        ${e.desc?`<div class="res-item-desc">${e.desc}</div>`:''}
-      </div>`).join('')}</div>`:'';
-  const projSec=d.projects.filter(p=>p.name).length?`
+        <div class="res-item-hd"><div class="res-item-title">${e.title || ''}</div><div class="res-item-date">${e.start || ''}${e.end ? ' – ' + e.end : ''}</div></div>
+        ${e.company ? `<div class="res-item-sub">${e.company}</div>` : ''}
+        ${e.desc    ? `<div class="res-item-desc">${e.desc}</div>`   : ''}
+      </div>`).join('')}</div>` : '';
+  const projSec = d.projects.filter(p => p.name).length ? `
     <div class="res-sec"><div class="res-sec-title">Projects</div>
-    ${d.projects.filter(p=>p.name).map(p=>`
+    ${d.projects.filter(p => p.name).map(p => `
       <div class="res-item">
-        <div class="res-item-hd"><div class="res-item-title">${p.name}${p.tech?` <span style="font-weight:500;color:#9C8677;font-size:9px">· ${p.tech}</span>`:''}</div><div class="res-item-date">${p.year||''}</div></div>
-        ${p.link?`<div class="res-item-sub"><a href="${p.link.startsWith('http')?p.link:'https://'+p.link}" target="_blank" style="color:${pLink};text-decoration:underline;font-size:10px;">${p.link}</a></div>`:''}
-        ${p.desc?`<div class="res-item-desc">${p.desc}</div>`:''}
-      </div>`).join('')}</div>`:'';
-  const achSec=d.achievements.length?`
+        <div class="res-item-hd"><div class="res-item-title">${p.name}${p.tech ? ` <span style="font-weight:500;color:#9C8677;font-size:9px">· ${p.tech}</span>` : ''}</div><div class="res-item-date">${p.year || ''}</div></div>
+        ${p.link ? `<div class="res-item-sub"><a href="${p.link.startsWith('http') ? p.link : 'https://' + p.link}" target="_blank" style="color:${pLink};text-decoration:underline;font-size:10px;">${p.link}</a></div>` : ''}
+        ${p.desc ? `<div class="res-item-desc">${p.desc}</div>` : ''}
+      </div>`).join('')}</div>` : '';
+  const achSec = d.achievements.length ? `
     <div class="res-sec"><div class="res-sec-title">Achievements</div>
-    ${d.achievements.map(a=>`<div class="res-achievement">${a}</div>`).join('')}</div>`:'';
-  const techSec=d.skills.tech.length?`
+    ${d.achievements.map(a => `<div class="res-achievement">${a}</div>`).join('')}</div>` : '';
+  const techSec = d.skills.tech.length ? `
     <div class="res-sec"><div class="res-sec-title">Skills</div>
-    <div class="res-skill-tags">${d.skills.tech.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div>
-    ${d.skills.tools.length?`<div class="res-skill-cat">Tools</div><div class="res-skill-tags">${d.skills.tools.map(s=>`<span class="res-skill-tag tools">${s}</span>`).join('')}</div>`:''}
-    ${d.skills.soft.length?`<div class="res-skill-cat">Soft Skills</div><div class="res-skill-tags">${d.skills.soft.map(s=>`<span class="res-skill-tag soft">${s}</span>`).join('')}</div>`:''}
-    </div>`:'';
-  const eduSec=d.education.filter(e=>e.degree||e.institution).length?`
+    <div class="res-skill-tags">${d.skills.tech.map(s => `<span class="res-skill-tag">${s}</span>`).join('')}</div>
+    ${d.skills.tools.length ? `<div class="res-skill-cat">Tools</div><div class="res-skill-tags">${d.skills.tools.map(s => `<span class="res-skill-tag tools">${s}</span>`).join('')}</div>` : ''}
+    ${d.skills.soft.length  ? `<div class="res-skill-cat">Soft Skills</div><div class="res-skill-tags">${d.skills.soft.map(s => `<span class="res-skill-tag soft">${s}</span>`).join('')}</div>` : ''}
+    </div>` : '';
+  const eduSec = d.education.filter(e => e.degree || e.institution).length ? `
     <div class="res-sec"><div class="res-sec-title">Education</div>
-    ${d.education.filter(e=>e.degree||e.institution).map(e=>`
+    ${d.education.filter(e => e.degree || e.institution).map(e => `
       <div style="margin-bottom:8px">
-        <div class="res-edu-deg">${e.degree||''}</div>
-        <div class="res-edu-school">${e.institution||''}</div>
-        <div class="res-edu-year">${e.year||''}${e.gpa?' · '+e.gpa:''}</div>
-      </div>`).join('')}</div>`:'';
-  const langSec=d.skills.langs.length?`
+        <div class="res-edu-deg">${e.degree || ''}</div>
+        <div class="res-edu-school">${e.institution || ''}</div>
+        <div class="res-edu-year">${e.year || ''}${e.gpa ? ' · ' + e.gpa : ''}</div>
+      </div>`).join('')}</div>` : '';
+  const langSec = d.skills.langs.length ? `
     <div class="res-sec"><div class="res-sec-title">Languages</div>
-    <div class="res-skill-tags">${d.skills.langs.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div></div>`:'';
-  const mainContent=userMode==='fresher'
-    ?`${d.about?`<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>`:''}${projSec}${expSec}${achSec}`
-    :`${d.about?`<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>`:''}${expSec}${projSec}${achSec}`;
+    <div class="res-skill-tags">${d.skills.langs.map(s => `<span class="res-skill-tag">${s}</span>`).join('')}</div></div>` : '';
+  const mainContent = userMode === 'fresher'
+    ? `${d.about ? `<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>` : ''}${projSec}${expSec}${achSec}`
+    : `${d.about ? `<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>` : ''}${expSec}${projSec}${achSec}`;
   return `<div class="resume-doc${tplClass}">
     <div class="resume-top">
-      <div class="res-name">${d.name||'YOUR NAME'}</div>
-      ${d.jobTitle?`<div class="res-role">${d.jobTitle}</div>`:''}
-      ${contactBits?`<div class="res-contact-bar">${contactBits}</div>`:''}
+      <div class="res-name">${d.name || 'YOUR NAME'}</div>
+      ${d.jobTitle ? `<div class="res-role">${d.jobTitle}</div>` : ''}
+      ${contactBits ? `<div class="res-contact-bar">${contactBits}</div>` : ''}
     </div>
     <div class="res-body">
       <div class="res-main">${mainContent}</div>
@@ -1221,86 +1320,60 @@ function buildResumeHTML(d, bw){
   </div>`;
 }
 
-function buildResume(){
+function buildResume() {
   refreshPreview();
   populateEditFields(getData());
 }
 
-function refreshPreview(){
-  const d=getData();
-  const html=buildResumeHTML(d,false);
-  const scroll=document.getElementById('previewScroll');
-  const availW=(scroll.parentElement?scroll.parentElement.clientWidth:320)-32;
-  const resumeW=794;
-  const scale=Math.min(availW/resumeW,0.65);
-  const negMargin=-(resumeW*(1-scale)*1.4);
-  scroll.innerHTML=`<div style="transform:scale(${scale});transform-origin:top left;width:${100/scale}%;pointer-events:none;border-radius:6px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.12);margin-bottom:${negMargin}px;">${html}</div>`;
+function refreshPreview() {
+  const d      = getData();
+  const html   = buildResumeHTML(d, false);
+  const scroll = document.getElementById('previewScroll');
+  const availW = (scroll.parentElement ? scroll.parentElement.clientWidth : 320) - 32;
+  const resumeW = 794;
+  const scale   = Math.min(availW / resumeW, 0.65);
+  const negMargin = -(resumeW * (1 - scale) * 1.4);
+  scroll.innerHTML = `<div style="transform:scale(${scale});transform-origin:top left;width:${100 / scale}%;pointer-events:none;border-radius:6px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.12);margin-bottom:${negMargin}px;">${html}</div>`;
 }
 
-function downloadResume(bw){
-  bw=bw||false;
-  const d=getData();
-  const html=buildResumeHTML(d,bw);
-  const printArea=document.getElementById('resume-print-area');
-  printArea.innerHTML=html;
-  const status=document.getElementById('pdfStatus');
-  status.style.display='block';
-  status.innerHTML=`<div style="background:var(--orange-light);border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:var(--orange);font-weight:600;">
+function downloadResume(bw) {
+  bw = bw || false;
+  const d         = getData();
+  const html      = buildResumeHTML(d, bw);
+  const printArea = document.getElementById('resume-print-area');
+  printArea.innerHTML = html;
+  const status = document.getElementById('pdfStatus');
+  status.style.display = 'block';
+  status.innerHTML = `<div style="background:var(--orange-light);border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:var(--orange);font-weight:600;">
     🖨️ <strong>Print dialog opening…</strong><br>
     <span style="font-weight:400;color:#7A3C1E;">Set <strong>Destination → Save as PDF</strong>, Paper = <strong>A4</strong>, Margins = <strong>None</strong>, enable <strong>Background graphics</strong>.</span>
   </div>`;
-  setTimeout(function(){
+  setTimeout(function () {
     window.print();
-    setTimeout(function(){status.style.display='none';},3500);
-  },120);
+    setTimeout(function () { status.style.display = 'none'; }, 3500);
+  }, 120);
 }
 
-function populateEditFields(d){
-  var map={name:'edit-name',jobTitle:'edit-jobTitle',email:'edit-email',phone:'edit-phone',location:'edit-location',website:'edit-website',github:'edit-github',about:'edit-about'};
-  for(var k in map){var el=document.getElementById(map[k]);if(el)el.value=d[k]||'';}
-}
-function syncEdit(field,editId){
-  var src=document.getElementById(field),editEl=document.getElementById(editId);
-  if(src&&editEl)src.value=editEl.value;
-}
-function toggleEditPanel(){
-  var body=document.getElementById('editPanelBody'),chevron=document.getElementById('editChevron');
-  var open=body.style.display==='none';
-  body.style.display=open?'block':'none';
-  chevron.style.transform=open?'rotate(180deg)':'rotate(0deg)';
+function populateEditFields(d) {
+  const map = { name: 'edit-name', jobTitle: 'edit-jobTitle', email: 'edit-email', phone: 'edit-phone', location: 'edit-location', website: 'edit-website', github: 'edit-github', about: 'edit-about' };
+  for (const k in map) { const el = document.getElementById(map[k]); if (el) el.value = d[k] || ''; }
 }
 
-addEntry('exp');addEntry('proj');addEntry('edu');addAchievement();
-
-function handleUPIClick(e) {
-  e.preventDefault();
-  // Try opening PhonePe directly first, fallback to generic UPI
-  const phonePeUrl = 'phonepe://pay?pa=9381282521@ybl&pn=BanaoResume&cu=INR&tn=Support%20BanaoResume';
-  const upiUrl    = 'upi://pay?pa=9381282521@ybl&pn=BanaoResume&cu=INR&tn=Support%20BanaoResume';
-
-  // Show popup on ALL devices (mobile + laptop) with both options
-  const existing = document.getElementById('upi-popup');
-  if (existing) { existing.remove(); return; }
-  const popup = document.createElement('div');
-  popup.id = 'upi-popup';
-  popup.style.cssText = 'position:fixed;bottom:5rem;right:1.25rem;background:white;border:1.5px solid #EDE3D9;border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 32px rgba(255,107,53,0.18);z-index:1000;max-width:240px;text-align:center;animation:slideUp 0.3s ease;';
-  popup.innerHTML = `
-    <div style="font-size:0.8rem;font-weight:700;color:#1A1008;margin-bottom:0.7rem;">Support BanaoResume ☕</div>
-    <a href="${phonePeUrl}" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#5f259f;color:white;font-size:0.78rem;font-weight:700;padding:0.55rem 0.75rem;border-radius:8px;text-decoration:none;margin-bottom:0.45rem;" onclick="setTimeout(()=>openUPIFallback(),500);">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13.5 2L3 14h9l-1.5 8L21 10h-9z"/></svg>
-      Open PhonePe
-    </a>
-    <a href="${upiUrl}" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#FFF0EA;color:#FF6B35;font-size:0.78rem;font-weight:700;padding:0.55rem 0.75rem;border-radius:8px;text-decoration:none;margin-bottom:0.6rem;border:1.5px solid #FFD6C0;">
-      📲 Other UPI App
-    </a>
-    <button onclick="document.getElementById('upi-popup').remove()" style="margin-top:0.6rem;background:none;border:none;font-size:0.63rem;color:#9C8677;cursor:pointer;text-decoration:underline;">close</button>
-  `;
-  document.body.appendChild(popup);
-  setTimeout(()=>{const p=document.getElementById('upi-popup');if(p)p.remove();},12000);
+function syncEdit(field, editId) {
+  const src = document.getElementById(field), editEl = document.getElementById(editId);
+  if (src && editEl) src.value = editEl.value;
 }
-function openUPIFallback(){
-  // If PhonePe didn't open, nothing extra needed — user sees popup still
+
+function toggleEditPanel() {
+  const body    = document.getElementById('editPanelBody');
+  const chevron = document.getElementById('editChevron');
+  const open    = body.style.display === 'none';
+  body.style.display       = open ? 'block' : 'none';
+  chevron.style.transform  = open ? 'rotate(180deg)' : 'rotate(0deg)';
 }
+
+/* Pre-populate one empty entry per section on load */
+addEntry('exp'); addEntry('proj'); addEntry('edu'); addAchievement();
 </script>
 
 <!-- ===================== TERMS PAGE ===================== -->
@@ -1309,12 +1382,10 @@ function openUPIFallback(){
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">Terms & Conditions</h1>
     <p class="page-sub">Last updated: January 2025 · Please read these terms carefully before using BanaoResume.</p>
-
     <div class="page-section">
       <h3>1. Acceptance of Terms</h3>
       <p>By accessing or using BanaoResume at banaoresumee.online, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the website.</p>
     </div>
-
     <div class="page-section">
       <h3>2. Use of Website</h3>
       <p>You may use BanaoResume for personal and professional resume creation purposes only. You agree not to:</p>
@@ -1326,55 +1397,45 @@ function openUPIFallback(){
         <li>Scrape or crawl the website using automated tools</li>
       </ul>
     </div>
-
     <div class="page-section">
       <h3>3. No Job Guarantee</h3>
       <p>BanaoResume is a tool to help you create a resume. We do not guarantee interviews, job placements, or any employment outcome. The quality and success of your job application depends entirely on your own qualifications and the requirements of employers.</p>
     </div>
-
     <div class="page-section">
       <h3>4. User Responsibility</h3>
-      <p>You are solely responsible for the accuracy, completeness, and legality of all information you enter into your resume. BanaoResume does not verify, endorse, or take responsibility for any content you create using this tool. You must not include false, misleading, or defamatory information in your resume.</p>
+      <p>You are solely responsible for the accuracy, completeness, and legality of all information you enter into your resume. BanaoResume does not verify, endorse, or take responsibility for any content you create using this tool.</p>
     </div>
-
     <div class="page-section">
       <h3>5. Intellectual Property</h3>
       <p>The BanaoResume name, logo, website design, templates, and all associated content are the intellectual property of BanaoResume. You may not copy, modify, distribute, or use our branding or templates for commercial purposes without written permission.</p>
     </div>
-
     <div class="page-section">
       <h3>6. Privacy & Data</h3>
-      <p>Your resume data is processed entirely in your browser and is never stored on our servers. Please read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details on how we handle data.</p>
+      <p>Your resume data is processed entirely in your browser and is never stored on our servers. Please read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details.</p>
     </div>
-
     <div class="page-section">
       <h3>7. Third-Party Links</h3>
-      <p>Our website may contain links to third-party websites (such as LinkedIn, job boards, or payment platforms). We are not responsible for the content, privacy practices, or reliability of any third-party websites. Visiting those links is at your own risk.</p>
+      <p>Our website may contain links to third-party websites. We are not responsible for the content, privacy practices, or reliability of any third-party websites.</p>
     </div>
-
     <div class="page-section">
       <h3>8. Limitation of Liability</h3>
-      <p>BanaoResume is provided "as is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for any direct, indirect, incidental, or consequential losses resulting from your use of this website, including but not limited to loss of employment opportunities, data loss, or technical issues.</p>
+      <p>BanaoResume is provided "as is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for any direct, indirect, incidental, or consequential losses resulting from your use of this website.</p>
     </div>
-
     <div class="page-section">
       <h3>9. Service Availability</h3>
-      <p>We do not guarantee that the website will be available 100% of the time. We may suspend, discontinue, or modify the service at any time without notice. We are not liable for any inconvenience caused by downtime or changes to the service.</p>
+      <p>We do not guarantee that the website will be available 100% of the time. We may suspend, discontinue, or modify the service at any time without notice.</p>
     </div>
-
     <div class="page-section">
       <h3>10. Changes to Terms</h3>
-      <p>We reserve the right to update these Terms and Conditions at any time. Changes will be posted on this page with an updated date. Continued use of the website after changes constitutes your acceptance of the new terms.</p>
+      <p>We reserve the right to update these Terms and Conditions at any time. Continued use of the website after changes constitutes your acceptance of the new terms.</p>
     </div>
-
     <div class="page-section">
       <h3>11. Governing Law</h3>
       <p>These terms are governed by the laws of India. Any disputes arising from use of this website will be subject to the jurisdiction of Indian courts.</p>
     </div>
-
     <div class="page-section">
       <h3>12. Contact</h3>
-      <p>For any questions regarding these Terms and Conditions, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+      <p>For any questions regarding these Terms, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
     </div>
   </div>
 </div>
@@ -1385,37 +1446,30 @@ function openUPIFallback(){
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">Disclaimer</h1>
     <p class="page-sub">Last updated: January 2025 · banaoresumee.online</p>
-
     <div class="page-section">
       <h3>General Disclaimer</h3>
       <p>The information provided by BanaoResume on banaoresumee.online is for general informational and resume-building purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy, adequacy, validity, reliability, or completeness of any information on the site.</p>
     </div>
-
     <div class="page-section">
       <h3>No Professional Advice</h3>
       <p>The resume templates, tips, and suggestions provided by BanaoResume do not constitute professional career advice, legal advice, or HR consulting. You should consult a qualified career counsellor or HR professional for advice specific to your situation.</p>
     </div>
-
     <div class="page-section">
       <h3>No Employment Guarantee</h3>
-      <p>Use of BanaoResume does not guarantee employment, interviews, or any specific career outcome. Job market success depends on many factors outside our control, including your qualifications, experience, and employer requirements.</p>
+      <p>Use of BanaoResume does not guarantee employment, interviews, or any specific career outcome. Job market success depends on many factors outside our control.</p>
     </div>
-
     <div class="page-section">
       <h3>External Links</h3>
-      <p>Our website may contain links to external websites. These links are provided for convenience only. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+      <p>Our website may contain links to external websites. These links are provided for convenience only. We have no control over the content of those sites and accept no responsibility for them.</p>
     </div>
-
     <div class="page-section">
       <h3>Errors and Omissions</h3>
       <p>While we strive to keep the information on BanaoResume up-to-date and correct, we make no representations about the completeness, accuracy, or suitability of the information. Any reliance you place on such information is strictly at your own risk.</p>
     </div>
-
     <div class="page-section">
       <h3>Advertising Disclaimer</h3>
-      <p>BanaoResume may display advertisements through Google AdSense or other networks. The display of ads does not constitute an endorsement of those products or services. We are not responsible for the content of external advertisements.</p>
+      <p>BanaoResume may display advertisements through Google AdSense or other networks. The display of ads does not constitute an endorsement of those products or services.</p>
     </div>
-
     <div class="page-section">
       <h3>Contact</h3>
       <p>If you have any questions about this Disclaimer, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
@@ -1431,12 +1485,12 @@ function openUPIFallback(){
 
 <script>
 function acceptCookies() {
-  localStorage.setItem("cookiesAccepted", "true");
-  document.getElementById("cookieBanner").style.display = "none";
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieBanner').style.display = 'none';
 }
 window.addEventListener('load', function () {
-  if (localStorage.getItem("cookiesAccepted") === "true") {
-    document.getElementById("cookieBanner").style.display = "none";
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    document.getElementById('cookieBanner').style.display = 'none';
   }
 });
 </script>
