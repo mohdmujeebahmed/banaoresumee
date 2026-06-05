@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Resume is Cooked in 2026 (Unless You Read This) | BanaoResumee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --card: #1a1a26;
+      --accent: #7cf87c;
+      --accent2: #f7c948;
+      --accent3: #ff6b6b;
+      --accent4: #6bcfff;
+      --text: #f0f0f5;
+      --muted: #888899;
+      --border: rgba(124,248,124,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── noise grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
+    }
+
+    /* ── header ── */
+    header {
+      padding: 22px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-tag {
+      font-size: 0.75rem;
+      background: var(--accent);
+      color: #000;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── hero ── */
+    .hero {
+      padding: 80px 40px 60px;
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1px solid;
+    }
+
+    .tag-green { border-color: var(--accent); color: var(--accent); }
+    .tag-yellow { border-color: var(--accent2); color: var(--accent2); }
+    .tag-blue { border-color: var(--accent4); color: var(--accent4); }
+    .tag-red { border-color: var(--accent3); color: var(--accent3); }
+
+    .hero-date {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #bbbbc8;
+      max-width: 600px;
+      margin-bottom: 36px;
+    }
+
+    .cta-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 rgba(124,248,124,0);
+    }
+
+    .cta-inline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(124,248,124,0.25);
+    }
+
+    /* ── divider ── */
+    .divider {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── article body ── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .intro-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-box::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(124,248,124,0.08), transparent 70%);
+    }
+
+    .intro-box p {
+      font-size: 1.1rem;
+      color: #ccccd8;
+    }
+
+    .intro-box strong {
+      color: var(--accent);
+    }
+
+    /* ── section headings ── */
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    h2 .num {
+      font-size: 0.7rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 8px;
+      color: var(--muted);
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+
+    p { margin-bottom: 18px; color: #c8c8d4; }
+
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(124,248,124,0.3); transition: border-color 0.2s; }
+    a:hover { border-color: var(--accent); }
+
+    /* ── callout cards ── */
+    .callout {
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      position: relative;
+    }
+
+    .callout-green {
+      background: rgba(124,248,124,0.06);
+      border: 1px solid rgba(124,248,124,0.2);
+    }
+
+    .callout-yellow {
+      background: rgba(247,201,72,0.06);
+      border: 1px solid rgba(247,201,72,0.2);
+    }
+
+    .callout-red {
+      background: rgba(255,107,107,0.06);
+      border: 1px solid rgba(255,107,107,0.2);
+    }
+
+    .callout-blue {
+      background: rgba(107,207,255,0.06);
+      border: 1px solid rgba(107,207,255,0.2);
+    }
+
+    .callout-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .callout-green .callout-label { color: var(--accent); }
+    .callout-yellow .callout-label { color: var(--accent2); }
+    .callout-red .callout-label { color: var(--accent3); }
+    .callout-blue .callout-label { color: var(--accent4); }
+
+    .callout p { margin: 0; font-size: 1rem; }
+
+    /* ── big stat ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 36px 0;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .stat-card .big {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .small {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── checklist ── */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0 30px;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 18px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.96rem;
+      color: #c8c8d4;
+      transition: border-color 0.2s;
+    }
+
+    .checklist li:hover { border-color: var(--border); }
+
+    .check-icon {
+      width: 22px; height: 22px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-icon.x { background: var(--accent3); }
+
+    /* ── section block ── */
+    .section-block {
+      margin-bottom: 64px;
+    }
+
+    /* ── quote ── */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 20px 28px;
+      margin: 36px 0;
+      background: var(--card);
+      border-radius: 0 12px 12px 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #d4d4e0;
+    }
+
+    /* ── big CTA ── */
+    .big-cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 64px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-cta::before {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      background: radial-gradient(ellipse at center, rgba(124,248,124,0.07) 0%, transparent 65%);
+    }
+
+    .big-cta h2 {
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .big-cta p {
+      max-width: 500px;
+      margin: 0 auto 32px;
+      font-size: 1.05rem;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(124,248,124,0.25);
+      border-bottom: none;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* ── highlight text ── */
+    .hl-green { color: var(--accent); font-weight: 500; }
+    .hl-yellow { color: var(--accent2); font-weight: 500; }
+    .hl-red { color: var(--accent3); font-weight: 500; }
+    .hl-blue { color: var(--accent4); font-weight: 500; }
+
+    /* ── emoji section opener ── */
+    .emoji-title {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    /* ── footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer a { color: var(--accent); border-bottom: none; }
+
+    @media (max-width: 600px) {
+      header, .hero, .article, footer { padding-left: 20px; padding-right: 20px; }
+      .hero { padding-top: 50px; }
+      .big-cta { padding: 36px 24px; }
+      h2 { font-size: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://banaoresumee.online" class="logo">BanaoResumee ✦</a>
+  <span class="nav-tag">Blog</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-meta">
+    <span class="tag tag-red">🔥 Trending</span>
+    <span class="tag tag-green">Resumes</span>
+    <span class="tag tag-yellow">Jobs 2026</span>
+    <span class="hero-date">June 5, 2026 · 6 min read</span>
+  </div>
+
+  <h1>Your Resume is <em>Lowkey Cooked</em> in 2026 —<br>Here's How to Fix It fr fr</h1>
+  <p class="hero-sub">No cap — the job game has changed completely. If your resume still looks like it's from 2022, recruiters are not going to pick you. Let's fix that. 🫡</p>
+
+  <a href="https://banaoresumee.online" class="cta-inline">
+    🚀 Build your 2026 Resume Free
+    <span>→</span>
+  </a>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARTICLE BODY -->
+<article class="article">
+
+  <!-- INTRO BOX -->
+  <div class="intro-box">
+    <p>
+      Okay real talk — <strong>98% of big companies</strong> now use AI robots (called ATS) to read your resume before a human even sees it. If your resume can't pass the robot check, it goes straight to the trash. No cap. But don't panic — head to <strong><a href="https://banaoresumee.online">banaoresumee.online</a></strong> and we'll make sure your resume passes every single check. ✅
+    </p>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section-block">
+    <div class="emoji-title">🤖</div>
+    <h2><span class="num">01</span> AI is Reading Your Resume Before Humans Do</h2>
+    <p>
+      This is not a joke. When you apply for a job at any big company, there's an AI system (called ATS — Applicant Tracking System) that reads your resume first. It checks for keywords, formatting, and structure. If you fail this check, no human ever even sees your resume.
+    </p>
+
+    <div class="callout callout-red">
+      <div class="callout-label">⚠️ Red Flag</div>
+      <p>Using fancy tables, columns, icons, or graphics in your resume? The AI literally cannot read that. Your whole resume gets skipped. 💀</p>
+    </div>
+
+    <p>
+      So what do you do? Keep it <span class="hl-green">clean and simple</span>. Use standard headings like "Experience", "Education", and "Skills". No complicated layouts. The good news? <a href="https://banaoresumee.online">banaoresumee.online</a> automatically gives you ATS-ready templates — so you don't have to stress about this at all.
+    </p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="big hl-green">98%</div>
+      <div class="small">of Fortune 500 companies use ATS to filter resumes</div>
+    </div>
+    <div class="stat-card">
+      <div class="big hl-yellow">70%</div>
+      <div class="small">of hiring managers say LinkedIn profile affects their decision</div>
+    </div>
+    <div class="stat-card">
+      <div class="big hl-red">6 sec</div>
+      <div class="small">is how long a recruiter looks at your resume first</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-block">
+    <div class="emoji-title">📊</div>
+    <h2><span class="num">02</span> Stop Listing Duties — Show Results Instead</h2>
+    <p>
+      This is the biggest mistake everyone makes. You write <em>"Managed social media"</em> and think it's good. But recruiters see that 1000 times a day. They don't care <em>what</em> you did — they care <em>how well</em> you did it.
+    </p>
+
+    <blockquote>
+      "Managed social media" ❌<br>
+      "Grew Instagram followers from 2K to 18K in 4 months, increasing brand reach by 300%" ✅
+    </blockquote>
+
+    <p>
+      Always add numbers. How many people? How much money? What percentage? Numbers make your resume look powerful. Use the <span class="hl-yellow">X-Y-Z formula</span>: Accomplished [X], as measured by [Y], by doing [Z].
+    </p>
+
+    <div class="callout callout-green">
+      <div class="callout-label">✨ Pro Tip</div>
+      <p>Not sure how to add numbers to your experience? The <a href="https://banaoresumee.online">BanaoResumee</a> builder has AI suggestions that help you rewrite weak bullet points into strong, number-backed ones. Literally just type what you did and it upgrades it for you. 🔥</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-block">
+    <div class="emoji-title">💡</div>
+    <h2><span class="num">03</span> Skills-First Resume is the New Wave</h2>
+    <p>
+      Old-school resumes put your job history first. But in 2026, <span class="hl-blue">skills-based hiring</span> is taking over. Companies don't care as much about where you worked — they care about <em>what you can do</em>.
+    </p>
+
+    <p>
+      This is actually great news for freshers and people switching careers. If you have the skills, you can get the job — even without years of experience. Put your most relevant skills near the top of your resume.
+    </p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> List both hard skills (Excel, Python, Photoshop) and soft skills (communication, leadership)</li>
+      <li><span class="check-icon">✓</span> Copy keywords directly from the job description and use them in your resume</li>
+      <li><span class="check-icon">✓</span> Add any certifications or online courses — even free ones count!</li>
+      <li><span class="check-icon x">✗</span> Don't just write "hardworking" or "team player" — nobody believes that without proof</li>
+      <li><span class="check-icon x">✗</span> Don't stuff 50 skills in a list — keep it focused and relevant to that specific job</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-block">
+    <div class="emoji-title">🎯</div>
+    <h2><span class="num">04</span> One Resume for All Jobs = Big Mistake</h2>
+    <p>
+      Sending the same resume to 100 companies? That's the spray-and-pray method — and it doesn't work anymore. In 2026, you need to <span class="hl-green">tailor your resume</span> for each job you apply for.
+    </p>
+
+    <p>
+      It sounds like a lot of work but it's actually pretty simple. Just change the keywords in your skills section and summary to match what the job posting says. Even 10-15 minutes of tweaking can double your chances of getting a call back.
+    </p>
+
+    <div class="callout callout-yellow">
+      <div class="callout-label">⚡ Quick Hack</div>
+      <p>Paste the job description into <a href="https://banaoresumee.online">banaoresumee.online</a> and it'll tell you exactly which keywords you're missing. Then you can add them in seconds. No more guessing. 🎯</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section-block">
+    <div class="emoji-title">🤳</div>
+    <h2><span class="num">05</span> Your Online Presence is Part of Your Resume Now</h2>
+    <p>
+      Recruiters are Googling you. That's just the reality in 2026. Your <span class="hl-blue">LinkedIn profile</span>, your GitHub, your portfolio — all of it matters. Over 70% of hiring managers say a complete LinkedIn profile influences their hiring decision.
+    </p>
+
+    <p>
+      You don't need a fancy personal website. Just make sure your LinkedIn is updated, has a good photo, and matches what's on your resume. Add a link to your LinkedIn in your resume header.
+    </p>
+
+    <div class="callout callout-blue">
+      <div class="callout-label">💬 Real Talk</div>
+      <p>Your resume and LinkedIn should tell the same story. If your resume says you were a "Marketing Executive" but LinkedIn says "Social Media Guy" — that looks sus. Keep it consistent.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section-block">
+    <div class="emoji-title">🧹</div>
+    <h2><span class="num">06</span> Clean Design > Fancy Design (Always)</h2>
+    <p>
+      A lot of people make their resume look like a graphic design project. Cool colors, infographics, skill bars, profile pictures. It looks great — but the ATS robot literally can't read it.
+    </p>
+
+    <p>
+      The winning formula in 2026 is: <span class="hl-green">clean, minimal, readable</span>. Lots of white space. Clear sections. Good typography. A resume that looks professional and scans easily — for both robots and humans.
+    </p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> Use a clean single-column or simple two-column layout</li>
+      <li><span class="check-icon">✓</span> Stick to one or two professional fonts</li>
+      <li><span class="check-icon">✓</span> Keep it to 1 page (2 pages if you have 5+ years of experience)</li>
+      <li><span class="check-icon x">✗</span> No skill bar graphs (e.g., "Excel: ████░░ 80%") — ATS hates these</li>
+      <li><span class="check-icon x">✗</span> No profile photos — can cause unconscious bias and ATS issues</li>
+    </ul>
+
+    <p>
+      All the templates on <a href="https://banaoresumee.online">banaoresumee.online</a> are designed with exactly this in mind — clean, ATS-friendly, and actually good looking. You just fill in your info and you're done. That's it. ✌️
+    </p>
+  </div>
+
+  <!-- WHAT'S OUT -->
+  <div class="section-block">
+    <div class="emoji-title">🚫</div>
+    <h2><span class="num">07</span> Things to Delete From Your Resume ASAP</h2>
+    <p>Still have any of these? Remove them right now. They're making your resume look old and can actually hurt your chances:</p>
+
+    <ul class="checklist">
+      <li><span class="check-icon x">✗</span> "Objective Statement" at the top — replace it with a strong 2-line summary</li>
+      <li><span class="check-icon x">✗</span> Words like "hardworking", "go-getter", "team player" without any proof</li>
+      <li><span class="check-icon x">✗</span> Your full home address — just city and state is enough</li>
+      <li><span class="check-icon x">✗</span> Hobbies like "listening to music" or "watching movies" — useless unless relevant</li>
+      <li><span class="check-icon x">✗</span> References available on request — everyone knows that, just delete it</li>
+      <li><span class="check-icon x">✗</span> Your resume as a .doc file — always send PDF</li>
+    </ul>
+  </div>
+
+  <!-- BIG CTA -->
+  <div class="big-cta">
+    <h2>Ready to Make a Resume That Actually Gets You Hired? 💪</h2>
+    <p>Stop wasting time on outdated templates. Build a clean, ATS-ready, 2026-proof resume in minutes — completely free.</p>
+    <div class="btn-row">
+      <a href="https://banaoresumee.online" class="btn-primary">✨ Build Free Resume Now</a>
+      <a href="https://banaoresumee.online" class="btn-secondary">See Resume Templates →</a>
+    </div>
+    <br>
+    <p style="font-size:0.82rem; color: var(--muted); margin: 0;">No signup needed · Free forever · Download as PDF ✓</p>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="https://banaoresumee.online">BanaoResumee.online</a> · Made with 💚 for job seekers everywhere</p>
+  <p style="margin-top: 8px;">Build your dream resume for free at <a href="https://banaoresumee.online">banaoresumee.online</a></p>
+</footer>
+
+</body>
+</html>
