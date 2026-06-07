@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Resume Revolution 2025 — BanaoResume Blog</title>
+<meta name="description" content="Master the 2025 job market. Beat ATS, understand skills vs resume, freshers guide, experienced pro tips, LinkedIn hacks & the top resume killers. Powered by BanaoResume."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#05060D;
+  --surface:#0C0D1A;
+  --surface2:#12142B;
+  --border:rgba(255,95,50,.12);
+  --primary:#FF5F32;
+  --primary-dim:rgba(255,95,50,.15);
+  --secondary:#00D4FF;
+  --gold:#FFD700;
+  --green:#22C55E;
+  --red:#EF4444;
+  --text:#F0F0F8;
+  --muted:#7878A0;
+  --FD:'Syne',sans-serif;
+  --FB:'Plus Jakarta Sans',sans-serif;
+  --FA:'Bebas Neue',cursive
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--FB);font-size:16px;line-height:1.75;overflow-x:hidden}
+
+/* PROGRESS BAR */
+#pbar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#FF9932,var(--secondary));z-index:9999;transition:width .08s linear}
+
+/* NAV */
+nav{position:fixed;top:3px;left:0;right:0;z-index:998;display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 6%;background:rgba(5,6,13,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--FD);font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-logo em{color:var(--primary);font-style:normal}
+.ndot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:ndot 2s ease-in-out infinite}
+@keyframes ndot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.03em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.ncta{background:var(--primary)!important;color:#fff!important;padding:8px 20px;border-radius:7px;font-weight:700!important;transition:opacity .2s,transform .2s!important}
+.ncta:hover{opacity:.9!important;transform:translateY(-1px)!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 6% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,95,50,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,95,50,.04) 1px,transparent 1px);background-size:70px 70px}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.28}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,#FF5F32 0%,transparent 70%);top:-250px;left:-200px;animation:orb1 11s ease-in-out infinite alternate}
+.orb2{width:550px;height:550px;background:radial-gradient(circle,#00D4FF 0%,transparent 70%);bottom:-150px;right:-120px;animation:orb2 13s ease-in-out infinite alternate}
+.orb3{width:400px;height:400px;background:radial-gradient(circle,#FFD700 0%,transparent 70%);top:40%;right:12%;opacity:.12;animation:orb2 9s ease-in-out infinite alternate}
+@keyframes orb1{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.07)}}
+@keyframes orb2{from{transform:translate(0,0) scale(1)}to{transform:translate(-30px,-20px) scale(1.05)}}
+.hero-inner{position:relative;z-index:1;max-width:920px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--primary-dim);border:1px solid rgba(255,95,50,.35);color:var(--primary);padding:6px 18px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:30px}
+.hero-badge span{width:6px;height:6px;background:var(--primary);border-radius:50%;animation:ndot 1.4s ease-in-out infinite}
+.hero-h1{font-family:var(--FD);font-weight:800;font-size:clamp(2.4rem,6vw,5.2rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:26px}
+.grad-text{background:linear-gradient(120deg,var(--primary) 0%,#FF9932 40%,var(--secondary) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:660px;margin:0 auto 40px;line-height:1.85}
+.hero-sub strong{color:var(--text);font-weight:600}
+.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-a{background:linear-gradient(135deg,var(--primary),#FF9932);color:#fff;padding:15px 34px;border-radius:9px;text-decoration:none;font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:9px;transition:transform .22s,box-shadow .22s;box-shadow:0 4px 28px rgba(255,95,50,.3)}
+.btn-a:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(255,95,50,.4)}
+.btn-b{background:transparent;color:var(--text);padding:15px 34px;border-radius:9px;text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid rgba(240,240,248,.18);transition:all .22s}
+.btn-b:hover{border-color:var(--primary);background:var(--primary-dim)}
+.hero-qs{display:flex;gap:48px;justify-content:center;margin-top:64px;flex-wrap:wrap}
+.hero-q .num{font-family:var(--FA);font-size:2.6rem;color:var(--primary);line-height:1}
+.hero-q .lbl{font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;animation:shint 2.2s ease-in-out infinite}
+@keyframes shint{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
+
+/* DIVIDER */
+.div-line{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+
+/* SECTIONS */
+section{padding:96px 6%;max-width:1240px;margin:0 auto}
+.fullw{max-width:100%;padding:96px 8%}
+.stag{font-family:var(--FA);font-size:.82rem;letter-spacing:.22em;color:var(--primary);display:block;margin-bottom:10px}
+.sh1{font-family:var(--FD);font-weight:800;font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.12;letter-spacing:-.02em;margin-bottom:18px}
+.ssub{font-size:1rem;color:var(--muted);max-width:580px;margin-bottom:56px;line-height:1.85}
+
+/* REVEAL ANIMATIONS */
+.rv{opacity:0;transform:translateY(38px);transition:opacity .65s ease,transform .65s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
+
+/* STATS BAND */
+.stats-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:72px 8%}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border-radius:18px;overflow:hidden}
+.scard{background:var(--surface);padding:52px 28px;text-align:center;transition:background .3s}
+.scard:hover{background:var(--surface2)}
+.snum{font-family:var(--FA);font-size:4rem;color:var(--primary);line-height:1}
+.sunit{color:var(--secondary)}
+.slbl strong{display:block;color:var(--text);font-size:.97rem;margin-top:10px;font-weight:600}
+.slbl{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:5px}
+
+/* SKILLS VS RESUME */
+.debate{display:grid;grid-template-columns:1fr 72px 1fr;gap:20px;align-items:start;margin-top:24px}
+.dc{background:var(--surface);border:1px solid;border-radius:18px;padding:36px;transition:transform .3s,box-shadow .3s}
+.dc:hover{transform:translateY(-5px)}
+.dc.left{border-color:rgba(0,212,255,.2)}
+.dc.left:hover{box-shadow:0 12px 48px rgba(0,212,255,.1);border-color:rgba(0,212,255,.4)}
+.dc.right{border-color:rgba(255,95,50,.2)}
+.dc.right:hover{box-shadow:0 12px 48px rgba(255,95,50,.12);border-color:rgba(255,95,50,.4)}
+.dc-icon{font-size:2.4rem;margin-bottom:14px}
+.dc h3{font-family:var(--FD);font-size:1.35rem;font-weight:700;margin-bottom:18px}
+.dc.left h3{color:var(--secondary)}
+.dc.right h3{color:var(--primary)}
+.dc ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.dc ul li{font-size:.88rem;color:var(--muted);padding-left:20px;position:relative;line-height:1.65}
+.dc.right ul li::before,.dc.left ul li::before{content:'▸';position:absolute;left:0}
+.dc.right ul li::before{color:var(--primary)}
+.dc.left ul li::before{color:var(--secondary)}
+.dc ul li strong{color:var(--text)}
+.vs-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding-top:70px}
+.vs-mid .vs{font-family:var(--FA);font-size:2.8rem;color:var(--muted)}
+.vs-mid .vl{width:1px;height:100px;background:linear-gradient(to bottom,transparent,var(--border),transparent)}
+.winner{background:linear-gradient(135deg,rgba(255,95,50,.07),rgba(0,212,255,.07));border:1px solid rgba(255,215,0,.25);border-radius:18px;padding:36px;margin-top:40px;text-align:center}
+.winner h3{font-family:var(--FD);font-size:1.55rem;font-weight:800;color:var(--gold);margin-bottom:12px}
+.winner p{color:var(--muted);font-size:.92rem;line-height:1.8}
+.winner p strong{color:var(--text)}
+
+/* QUOTE */
+.bq{border-left:3px solid var(--primary);background:rgba(255,95,50,.05);border-radius:0 12px 12px 0;padding:24px 32px;margin:40px 0}
+.bq p{font-style:italic;font-size:1.05rem;color:var(--text);line-height:1.75;margin-bottom:10px}
+.bq cite{font-size:.75rem;color:var(--muted)}
+
+/* ATS SECTION */
+.ats-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:96px 8%}
+.ats-flow{display:flex;align-items:center;justify-content:center;gap:0;margin:56px 0;flex-wrap:wrap}
+.af{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px;flex:1;min-width:120px}
+.af-ic{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px;border:2px solid;transition:transform .3s}
+.af-ic:hover{transform:scale(1.1)}
+.af:nth-child(1) .af-ic{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.4)}
+.af:nth-child(3) .af-ic{background:rgba(255,95,50,.08);border-color:rgba(255,95,50,.4)}
+.af:nth-child(5) .af-ic{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.5)}
+.af:nth-child(7) .af-ic{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.4)}
+.af-arr{font-size:1.4rem;color:var(--muted);flex-shrink:0}
+.af h4{font-family:var(--FD);font-size:.88rem;font-weight:700;margin-bottom:6px}
+.af p{font-size:.73rem;color:var(--muted);line-height:1.5}
+.af:nth-child(5) h4{color:var(--red)}
+.af:nth-child(7) h4{color:var(--green)}
+.ats-tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:20px}
+.at{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:22px;display:flex;gap:15px;align-items:flex-start;transition:all .3s}
+.at:hover{border-color:rgba(255,95,50,.4);transform:translateY(-2px)}
+.at-i{width:40px;height:40px;background:var(--primary-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.at h4{font-family:var(--FD);font-size:.92rem;font-weight:700;margin-bottom:5px}
+.at p{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+/* FRESHERS TIMELINE */
+.timeline{position:relative;padding-left:44px;margin-top:24px}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),var(--secondary),var(--primary))}
+.ti{position:relative;padding:0 0 52px 36px}
+.ti-dot{position:absolute;left:-38px;top:5px;width:18px;height:18px;background:var(--primary);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 4px rgba(255,95,50,.25);transition:transform .3s}
+.ti:hover .ti-dot{transform:scale(1.3)}
+.ti-n{font-family:var(--FA);font-size:.78rem;letter-spacing:.17em;color:var(--primary);margin-bottom:7px}
+.ti-t{font-family:var(--FD);font-size:1.25rem;font-weight:700;margin-bottom:10px}
+.ti-d{font-size:.88rem;color:var(--muted);line-height:1.82}
+.ti-tag{display:inline-block;background:var(--primary-dim);border:1px solid rgba(255,95,50,.22);color:var(--primary);padding:4px 12px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.05em;margin-top:11px}
+
+/* EXP GRID */
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.eg{background:var(--surface);border:1px solid rgba(0,212,255,.12);border-radius:15px;padding:28px;transition:all .3s}
+.eg:hover{border-color:rgba(0,212,255,.35);box-shadow:0 10px 40px rgba(0,212,255,.07);transform:translateY(-4px)}
+.eg-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.eg-ic{width:46px;height:46px;background:rgba(0,212,255,.08);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.eg h3{font-family:var(--FD);font-size:1rem;font-weight:700;color:var(--secondary)}
+.eg p{font-size:.85rem;color:var(--muted);line-height:1.75}
+
+/* LINKEDIN */
+.lk-card{background:var(--surface);border:1px solid rgba(0,119,181,.25);border-radius:18px;padding:44px;position:relative;overflow:hidden;margin-top:24px}
+.lk-card::after{content:'in';position:absolute;right:28px;top:20px;font-size:4.5rem;font-weight:900;color:rgba(0,119,181,.1);font-family:Arial,sans-serif;line-height:1}
+.lk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:32px}
+.lkt{background:var(--bg);border:1px solid rgba(0,119,181,.12);border-radius:13px;padding:22px;transition:all .3s}
+.lkt:hover{border-color:rgba(0,119,181,.38);background:rgba(0,119,181,.04)}
+.lkt .lic{font-size:1.3rem;margin-bottom:10px}
+.lkt h4{font-family:var(--FD);font-size:.93rem;font-weight:700;margin-bottom:7px}
+.lkt p{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+/* VIDEO SECTION */
+.vid-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:96px 8%}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.vc{background:var(--bg);border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .32s;text-decoration:none}
+.vc:hover{border-color:rgba(255,95,50,.4);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.vth{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.vth1{background:linear-gradient(135deg,#12022a,#1a0a50,#0a2060)}
+.vth2{background:linear-gradient(135deg,#1a0508,#3a060a,#200408)}
+.vth3{background:linear-gradient(135deg,#02180a,#0a2d14,#021808)}
+.vplay{width:62px;height:62px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:2;transition:all .25s}
+.vc:hover .vplay{background:var(--primary);border-color:var(--primary);transform:scale(1.12)}
+.vtag-label{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);color:#fff;padding:4px 10px;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.vtag-dur{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.8);color:#fff;padding:3px 8px;border-radius:5px;font-size:.68rem;font-weight:600}
+.vi{padding:20px}
+.vi-tag{font-size:.68rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}
+.vi h3{font-family:var(--FD);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4}
+.vi p{font-size:.8rem;color:var(--muted);line-height:1.62}
+
+/* VIDEO MODAL */
+.vmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9000;align-items:center;justify-content:center;padding:20px}
+.vmodal.open{display:flex}
+.vmodal-inner{background:var(--surface);border-radius:16px;overflow:hidden;max-width:900px;width:100%;position:relative}
+.vmodal-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.1);color:var(--text);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;z-index:10;transition:background .2s}
+.vmodal-close:hover{background:var(--primary)}
+.vmodal-iframe{width:100%;aspect-ratio:16/9;border:none}
+
+/* MISTAKES */
+.mk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px}
+.mk{background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.14);border-radius:13px;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
+.mk:hover{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.3)}
+.mk-n{font-family:var(--FA);font-size:1.9rem;color:var(--red);opacity:.55;line-height:1;flex-shrink:0;width:32px}
+.mk h4{font-family:var(--FD);font-size:.93rem;font-weight:700;margin-bottom:6px}
+.mk p{font-size:.8rem;color:var(--muted);line-height:1.65}
+.fix{display:inline-block;margin-top:10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:var(--green);padding:4px 12px;border-radius:100px;font-size:.68rem;font-weight:700}
+
+/* CTA SECTION */
+.cta-s{background:linear-gradient(140deg,#0F0905,#180A02);border-top:1px solid rgba(255,95,50,.2);max-width:100%;padding:120px 8%;text-align:center;position:relative;overflow:hidden}
+.cta-s::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(255,95,50,.1),transparent 60%);pointer-events:none}
+.cta-inner{position:relative;z-index:1}
+.cta-features{display:flex;gap:32px;justify-content:center;margin:32px 0 52px;flex-wrap:wrap}
+.cf{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted)}
+.cf .ck{color:var(--green);font-size:1rem}
+.cta-s .sh1{font-size:clamp(2.2rem,5vw,4rem)}
+
+/* FOOTER */
+footer{background:var(--surface);padding:44px 8%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.fl{font-family:var(--FD);font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none}
+.fl em{color:var(--primary);font-style:normal}
+footer p{font-size:.78rem;color:var(--muted)}
+footer .flinks{display:flex;gap:20px}
+footer .flinks a{color:var(--muted);text-decoration:none;font-size:.78rem;transition:color .2s}
+footer .flinks a:hover{color:var(--text)}
+
+/* FLOATING CTA */
+.fab{position:fixed;bottom:28px;right:28px;z-index:950;background:linear-gradient(135deg,var(--primary),#FF9932);color:#fff;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.88rem;box-shadow:0 6px 32px rgba(255,95,50,.35);transition:transform .25s,box-shadow .25s;display:flex;align-items:center;gap:8px;animation:fabpop .6s ease .8s both}
+@keyframes fabpop{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.fab:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 48px rgba(255,95,50,.45)}
+
+/* HIGHLIGHT UTILS */
+.hl{color:var(--primary)}
+.hlb{color:var(--secondary)}
+.hlg{color:var(--gold)}
+.hlgr{color:var(--green)}
+
+/* CHIP */
+.chip{display:inline-block;padding:4px 14px;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.05em}
+.chip-blue{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);color:var(--secondary)}
+.chip-orange{background:var(--primary-dim);border:1px solid rgba(255,95,50,.22);color:var(--primary)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .debate{grid-template-columns:1fr}
+  .vs-mid{flex-direction:row;padding:16px 0}
+  .vs-mid .vl{width:80px;height:1px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  nav{padding:0 5%}
+  .nav-links{display:none}
+  section{padding:60px 5%}
+  .fullw,.stats-band,.ats-bg,.vid-bg,.cta-s{padding:60px 5%}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .hero-qs{gap:28px}
+  footer{flex-direction:column;text-align:center}
+  .flinks{justify-content:center}
+  .fab{bottom:18px;right:18px;padding:11px 18px;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<!-- FLOATING CTA -->
+<a href="https://banaoresumee.online" class="fab" target="_blank">🚀 Build Free Resume</a>
+
+<!-- NAV -->
+<nav>
+  <a href="https://banaoresumee.online" class="nav-logo">
+    <div class="ndot"></div>
+    Banao<em>Resume</em>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#debate">Skills vs Resume</a></li>
+    <li><a href="#ats">Beat ATS</a></li>
+    <li><a href="#freshers">Freshers</a></li>
+    <li><a href="#experienced">Experienced</a></li>
+    <li><a href="#mistakes">Mistakes</a></li>
+    <li><a href="https://banaoresumee.online" class="ncta">Build Free Resume →</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span>✦ The 2025 Job Market Playbook</div>
+    <h1 class="hero-h1">
+      Your Resume Has<br/>
+      <span class="grad-text">6 Seconds to Impress.</span><br/>
+      Make Every Word Count.
+    </h1>
+    <p class="hero-sub">
+      <strong>75% of resumes get auto-rejected before a human ever sees them.</strong> Whether you're a fresher stepping into your first job or an experienced pro levelling up — this guide covers ATS secrets, the skills vs resume debate, LinkedIn power moves, and the 7 mistakes silently killing your job hunt.
+    </p>
+    <div class="ctas">
+      <a href="#stats" class="btn-a">📖 Read the Full Guide ↓</a>
+      <a href="https://banaoresumee.online" class="btn-b" target="_blank">🚀 Build Your Free Resume</a>
+    </div>
+    <div class="hero-qs">
+      <div class="hero-q rv"><div class="num" data-target="75">0<span class="sunit">%</span></div><div class="lbl">Rejected by ATS bots</div></div>
+      <div class="hero-q rv d1"><div class="num">6 <span style="font-size:1.2rem;color:var(--muted)">sec</span></div><div class="lbl">Average recruiter scan</div></div>
+      <div class="hero-q rv d2"><div class="num" data-target="89">0<span class="sunit">%</span></div><div class="lbl">Bad hires lack soft skills</div></div>
+      <div class="hero-q rv d3"><div class="num" data-target="73">0<span class="sunit">%</span></div><div class="lbl">Companies now skills-first</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span><span>↓</span>
+  </div>
+</div>
+
+<!-- ═══════════════ STATS BAND ═══════════════ -->
+<div class="div-line"></div>
+<div class="stats-band" id="stats">
+  <div style="text-align:center;max-width:700px;margin:0 auto 52px">
+    <span class="stag rv">BY THE NUMBERS</span>
+    <h2 class="sh1 rv d1">The Hard Truth About<br/>the 2025 Job Market</h2>
+    <p class="ssub rv d2" style="margin:0 auto">These aren't just stats — they're the reasons your applications go silent. Understanding them is step one of winning.</p>
+  </div>
+  <div class="stats-grid rv d3">
+    <div class="scard">
+      <div class="snum"><span class="cnum" data-to="75">0</span><span class="sunit">%</span></div>
+      <div class="slbl"><strong>ATS Rejection Rate</strong>Resumes filtered before a human sees them — Fortune 500 near 100%</div>
+    </div>
+    <div class="scard">
+      <div class="snum"><span class="cnum" data-to="89">0</span><span class="sunit">%</span></div>
+      <div class="slbl"><strong>Bad Hires Lack Soft Skills</strong>Most bad hires are technically capable but interpersonally unfit</div>
+    </div>
+    <div class="scard">
+      <div class="snum"><span class="cnum" data-to="73">0</span><span class="sunit">%</span></div>
+      <div class="slbl"><strong>Companies Are Skills-First</strong>Moving beyond degrees — your portfolio > your GPA</div>
+    </div>
+    <div class="scard">
+      <div class="snum"><span class="cnum" data-to="71">0</span><span class="sunit">%</span></div>
+      <div class="slbl"><strong>More Interview Chances</strong>Job seekers with aligned LinkedIn profiles vs those without</div>
+    </div>
+  </div>
+</div>
+<div class="div-line"></div>
+
+<!-- ═══════════════ SKILLS VS RESUME ═══════════════ -->
+<section id="debate">
+  <span class="stag rv">THE GREAT DEBATE</span>
+  <h2 class="sh1 rv d1">Skills vs Resume:<br/>What Actually Gets You Hired?</h2>
+  <p class="ssub rv d2">For decades, your resume was the golden ticket. Today? It's just the <em>entry fee.</em> Here's what's really happening in the hiring world right now.</p>
+
+  <div class="debate rv d3">
+    <div class="dc left">
+      <div class="dc-icon">📄</div>
+      <h3>The Traditional Resume</h3>
+      <ul>
+        <li><strong>Degree-gated</strong> — employers filter by college name first, skills second</li>
+        <li><strong>Keywords over context</strong> — ATS systems match words, not abilities</li>
+        <li><strong>Work history focus</strong> — chronological format favors experienced pros</li>
+        <li><strong>Static credential</strong> — doesn't show what you can do <em>today</em></li>
+        <li><strong>Recruiter bias risk</strong> — two recruiters reading the same resume differ by 41%</li>
+        <li><strong>Generic = ghosted</strong> — one-size-fits-all resumes go nowhere</li>
+      </ul>
+    </div>
+    <div class="vs-mid">
+      <div class="vl"></div>
+      <div class="vs">VS</div>
+      <div class="vl"></div>
+    </div>
+    <div class="dc right">
+      <div class="dc-icon">⚡</div>
+      <h3>Skills-First Hiring</h3>
+      <ul>
+        <li><strong>5× better prediction</strong> — skills assessments vs resume-only screening</li>
+        <li><strong>81% faster hiring</strong> — companies using skills-first report this metric</li>
+        <li><strong>Portfolio power</strong> — your GitHub, projects, and demos speak louder</li>
+        <li><strong>Outcomes over titles</strong> — "Led a ₹50L project" beats "Senior Manager"</li>
+        <li><strong>AI skills in demand</strong> — 99% of 6,300+ open roles list AI as needed</li>
+        <li><strong>Career pivots made possible</strong> — transferable skills unlock new doors</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="winner rv d4">
+    <h3>🏆 The 2025 Verdict: The Hybrid Approach Wins</h3>
+    <p>Skills-first resume <em>formatting</em> works brilliantly — <strong>not because companies abandoned resumes, but because of how recruiters search ATS systems.</strong> Format your resume with skills first, back every claim with measurable outcomes, and keep your LinkedIn perfectly aligned. That's the winning formula.</p>
+  </div>
+
+  <div class="bq rv">
+    <p>"Degrees alone no longer guarantee an interview. Employers are prioritizing candidates' abilities and practical experience over credentials, making skills the new hiring currency."</p>
+    <cite>— Huntr.co Research Report, 2025</cite>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ ATS SECTION ═══════════════ -->
+<div class="ats-bg" id="ats">
+  <div style="max-width:1200px;margin:0 auto">
+    <span class="stag rv">THE INVISIBLE GATEKEEPER</span>
+    <h2 class="sh1 rv d1">Beat the ATS:<br/>Stop Getting Ghosted by a Bot</h2>
+    <p class="ssub rv d2">Your resume might be perfect — but if it can't pass an Applicant Tracking System, no human will ever read it. Here's exactly what happens when you hit submit.</p>
+
+    <div class="ats-flow rv d3">
+      <div class="af">
+        <div class="af-ic">📤</div>
+        <h4>You Submit</h4>
+        <p>Your resume enters the company's ATS portal</p>
+      </div>
+      <div class="af-arr">→</div>
+      <div class="af">
+        <div class="af-ic">🤖</div>
+        <h4>ATS Scans</h4>
+        <p>Bot parses your text, extracts keywords & sections</p>
+      </div>
+      <div class="af-arr">→</div>
+      <div class="af">
+        <div class="af-ic">❌</div>
+        <h4>75% Rejected</h4>
+        <p>Filtered out before any human reviews your profile</p>
+      </div>
+      <div class="af-arr">→</div>
+      <div class="af">
+        <div class="af-ic">✅</div>
+        <h4>Recruiter Sees You</h4>
+        <p>Only the top 25% reach a human — for a 6-second scan</p>
+      </div>
+    </div>
+
+    <h3 class="rv" style="font-family:var(--FD);font-size:1.4rem;font-weight:700;margin-bottom:24px;color:var(--text)">6 Rules to Pass Every ATS ↓</h3>
+    <div class="ats-tips">
+      <div class="at rv">
+        <div class="at-i">🔑</div>
+        <div>
+          <h4>Mirror Job Description Keywords</h4>
+          <p>ATS platforms scan for exact phrases. If the posting says "financial analysis" — use those exact words. Both acronym and full form: "AI" <em>and</em> "Artificial Intelligence".</p>
+        </div>
+      </div>
+      <div class="at rv d1">
+        <div class="at-i">📐</div>
+        <div>
+          <h4>No Tables, Columns or Graphics</h4>
+          <p>Two-column formats, text boxes, and images confuse ATS parsers. Use a clean single-column layout. Fancy = filtered. Simple = seen.</p>
+        </div>
+      </div>
+      <div class="at rv d2">
+        <div class="at-i">🏷️</div>
+        <div>
+          <h4>Use Standard Section Headings</h4>
+          <p>Stick to "Work Experience", "Education", "Skills", "Certifications". Creative headings like "My Journey" won't be recognized by the system.</p>
+        </div>
+      </div>
+      <div class="at rv d3">
+        <div class="at-i">📁</div>
+        <div>
+          <h4>Save as .DOCX or Simple PDF</h4>
+          <p>Some ATS systems struggle with complex PDFs. When in doubt, .docx wins. Name your file: <strong>FirstName_LastName_Role.pdf</strong> — not "final_v3_new.pdf".</p>
+        </div>
+      </div>
+      <div class="at rv d4">
+        <div class="at-i">🎯</div>
+        <div>
+          <h4>Tailor Every Single Application</h4>
+          <p>One generic resume won't pass many ATS systems. Customize for each role. 30 minutes of tailoring is worth more than 30 applications with the same resume.</p>
+        </div>
+      </div>
+      <div class="at rv d5">
+        <div class="at-i">📏</div>
+        <div>
+          <h4>One Page (Freshers) / Two Max (Exp.)</h4>
+          <p>Recruiters spend 6 seconds. Freshers: 1 page always. Under 5 years exp: 1–2 pages. 10+ years: 2 pages, never 3. Every line must earn its spot.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="div-line"></div>
+
+<!-- ═══════════════ FRESHERS ═══════════════ -->
+<section id="freshers">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start" class="tw-col">
+    <div>
+      <span class="stag rv">FOR FRESHERS 🎓</span>
+      <h2 class="sh1 rv d1">Your First Resume:<br/>The 7-Step Playbook</h2>
+      <p class="ssub rv d2" style="margin-bottom:32px">Zero experience isn't zero value. Here's how to build a resume that makes recruiters stop scrolling — even without a single full-time job.</p>
+      <a href="https://banaoresumee.online" class="btn-a rv d3" target="_blank" style="display:inline-flex">🚀 Build Your Resume Free →</a>
+    </div>
+    <div class="timeline rv d3">
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 01</div>
+        <div class="ti-t">Write a Power Summary — Not an Objective</div>
+        <div class="ti-d">Ditch the old-school "seeking a position to grow" objective. Write 2–3 lines that say who you are, what you bring, and what role you target. Example: <em>"CS graduate skilled in Python and React. Built 3 live projects including an AI-powered chatbot. Seeking a backend developer role at a product-first company."</em></div>
+        <div class="ti-tag">🔥 MOST SKIPPED STEP</div>
+      </div>
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 02</div>
+        <div class="ti-t">Let Your Projects Be Your Portfolio</div>
+        <div class="ti-d">For freshers, strong projects can outweigh work experience. Include hackathon projects, academic capstone work, open-source contributions, college event projects. For each: Project name → Tech stack → What it does → Impact/users/metrics → GitHub link.</div>
+        <div class="ti-tag">⭐ RECRUITER FAVORITE</div>
+      </div>
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 03</div>
+        <div class="ti-t">Quantify Everything — Even Small Wins</div>
+        <div class="ti-d">"Improved app performance" → "Reduced API response time by 40%". "Managed social media" → "Grew Instagram following by 2,400 in 3 months". Numbers create credibility. If you don't have numbers, estimate conservatively.</div>
+        <div class="ti-tag">📊 INSTANTLY UPGRADES</div>
+      </div>
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 04</div>
+        <div class="ti-t">List Both Hard and Soft Skills Strategically</div>
+        <div class="ti-d">Technical skills first (Python, SQL, Figma, etc.) — these get ATS matches. Then soft skills, but <em>never list them as words alone</em>. Prove them: "Communication — Led 15-person college event team, managing vendors and logistics."</div>
+      </div>
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 05</div>
+        <div class="ti-t">Add Certifications, Courses & Achievements</div>
+        <div class="ti-d">Google, Coursera, NPTEL, Udemy, AWS — these signal hustle. LeetCode rankings, hackathon wins, scholarships, NSS leadership? Include them all. A "Certified" label beside your name builds instant credibility.</div>
+        <div class="ti-tag">✅ ATS BOOSTER</div>
+      </div>
+      <div class="ti">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 06</div>
+        <div class="ti-t">Tailor for Every Role — Not Just Once</div>
+        <div class="ti-d">Don't send the same resume for a frontend dev role and a data analyst role. You need role-specific versions. Tailor the summary, skills, and project highlights for each application. It takes 20 mins and 3× your response rate.</div>
+        <div class="ti-tag">🎯 GAME CHANGER</div>
+      </div>
+      <div class="ti" style="padding-bottom:0">
+        <div class="ti-dot"></div>
+        <div class="ti-n">STEP 07</div>
+        <div class="ti-t">Keep It to One Page. Always.</div>
+        <div class="ti-d">As a fresher, you have no reason to exceed one page. Recruiters decide in 6 seconds. Every word must earn its place. Use BanaoResume's free ATS templates — designed specifically to fit a powerful fresher resume on exactly one page.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ EXPERIENCED ═══════════════ -->
+<section id="experienced">
+  <span class="stag rv">FOR EXPERIENCED PROS 💼</span>
+  <h2 class="sh1 rv d1">You Have Experience.<br/>Now Make It Impossible to Ignore.</h2>
+  <p class="ssub rv d2">Mid-career job hunting is a different game. Recruiters assume competence — what they're hunting for is <em>impact.</em> Here's how to show it.</p>
+  <div class="exp-grid">
+    <div class="eg rv">
+      <div class="eg-h"><div class="eg-ic">💥</div><h3>Lead Every Bullet With Impact</h3></div>
+      <p>Not "Responsible for managing teams" — but "Led 12-person cross-functional team delivering a ₹2Cr product launch 3 weeks ahead of schedule." Action verb + team/scale + result. The formula that makes hiring managers pause mid-scroll.</p>
+    </div>
+    <div class="eg rv d1">
+      <div class="eg-h"><div class="eg-ic">⏱️</div><h3>Pass the 6-Second Test</h3></div>
+      <p>Your name, current/target role, and one powerful achievement must be visible in the top third of page 1. Don't bury the lead. Recruiters decide within seconds whether to read on — structure your resume so the best stuff is inescapable.</p>
+    </div>
+    <div class="eg rv d2">
+      <div class="eg-h"><div class="eg-ic">🧠</div><h3>Skills-First Summary Block</h3></div>
+      <p>Open with a 3-line professional summary that includes your specialisation, years of experience, and key achievement metric. Then a 6-10 keyword skills block. This section alone determines your ATS score — treat it like paid search ad copy.</p>
+    </div>
+    <div class="eg rv d3">
+      <div class="eg-h"><div class="eg-ic">🔗</div><h3>Align LinkedIn Perfectly</h3></div>
+      <p>Job seekers with fully aligned LinkedIn profiles are 71% more likely to land interviews. Your title, dates, and skills must match exactly across resume and LinkedIn. Even small discrepancies trigger ATS red flags — and recruiter suspicion.</p>
+    </div>
+    <div class="eg rv d4">
+      <div class="eg-h"><div class="eg-ic">📈</div><h3>Quantify 80% of Your Bullets</h3></div>
+      <p>"Improved customer satisfaction" means nothing. "Raised NPS from 38 to 67 over 2 quarters by redesigning onboarding flow" means everything. Numbers create credibility, scale, and proof. Aim for at least 8 out of 10 bullets to have a metric.</p>
+    </div>
+    <div class="eg rv d5">
+      <div class="eg-h"><div class="eg-ic">📝</div><h3>Two Pages Max — Make Both Count</h3></div>
+      <p>Under 5 years: 1 page. 5–10 years: 1–2 pages. 10+ years: exactly 2 pages. Cut the early career stuff from 10+ years ago. Recruiters care about the last 5–7 years. A tight, relevant 2-pager beats a bloated 4-pager every single time.</p>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ LINKEDIN ═══════════════ -->
+<section id="linkedin">
+  <span class="stag rv">DIGITAL PRESENCE</span>
+  <h2 class="sh1 rv d1">LinkedIn: Your Resume's<br/>Supercharged Twin</h2>
+  <p class="ssub rv d2">Your LinkedIn profile isn't just a digital resume — it's where recruiters verify, explore, and decide. Here's how to make yours a lead magnet.</p>
+  <div class="lk-card rv d3">
+    <span class="chip chip-blue" style="margin-bottom:16px;display:inline-block">71% more interview chances with an aligned profile</span>
+    <h3 style="font-family:var(--FD);font-size:1.4rem;font-weight:700;margin-bottom:8px">Make LinkedIn Work While You Sleep</h3>
+    <p style="color:var(--muted);font-size:.9rem;max-width:700px;line-height:1.8">With over 1 billion users and 58 million companies on LinkedIn, it's where recruiters hunt. Your profile is viewed 10–20 times before every interview. Every element sends a signal.</p>
+    <div class="lk-grid">
+      <div class="lkt rv">
+        <div class="lic">🎯</div>
+        <h4>Headline Formula That Works</h4>
+        <p>Don't write your job title alone. Use: <strong>[Role] | [Skill] | [Achievement/Niche]</strong>. Example: "Backend Dev | Python · AWS | Built systems serving 100K+ users". Recruiters search keywords — be discoverable.</p>
+      </div>
+      <div class="lkt rv d1">
+        <div class="lic">📝</div>
+        <h4>Your "About" Section = Cover Letter</h4>
+        <p>The About section (2,000 chars) is the most important on your profile. Tell your story: who you are, what you've achieved, what you want next. End with a clear call-to-action: "Open to [role type] opportunities — DM me."</p>
+      </div>
+      <div class="lkt rv d2">
+        <div class="lic">🔗</div>
+        <h4>Custom LinkedIn URL</h4>
+        <p>Change "linkedin.com/in/user1234" to "linkedin.com/in/yourname". It looks professional on your resume, in emails, and in Google searches. Takes 30 seconds. Do it now.</p>
+      </div>
+      <div class="lkt rv d3">
+        <div class="lic">🤝</div>
+        <h4>Personalize Every Request</h4>
+        <p>Generic connection requests get ignored. Mention where you found them, a mutual interest, or a specific reason. 3–4 personalized sentences dramatically increase acceptance rates.</p>
+      </div>
+      <div class="lkt rv d4">
+        <div class="lic">🔑</div>
+        <h4>Keyword-Rich Skills Section</h4>
+        <p>LinkedIn's AI search matches recruiters to candidates via skills. Add all relevant skills. Get endorsements from colleagues. Recruiters in 2025 use AI-powered search — your skills section is your ranking algorithm.</p>
+      </div>
+      <div class="lkt rv d5">
+        <div class="lic">📸</div>
+        <h4>Profile Picture = First Impression</h4>
+        <p>A professional headshot on a plain background. No sunglasses, group photos, or selfies. Your profile picture is "cemented in hiring managers' minds" — it colours their attitude more than you think.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ VIDEO RESOURCES ═══════════════ -->
+<div class="vid-bg" id="videos">
+  <div style="max-width:1200px;margin:0 auto">
+    <span class="stag rv">WATCH & LEARN</span>
+    <h2 class="sh1 rv d1">Video Resources That<br/>Actually Move the Needle</h2>
+    <p class="ssub rv d2">Hand-picked from the best career creators on YouTube — practical, no-fluff guidance for Indian job seekers in 2025.</p>
+    <div class="vid-grid">
+      <div class="vc rv" onclick="openVideo('XWVGZGrD45g')">
+        <div class="vth vth1">
+          <div class="vplay">▶</div>
+          <div class="vtag-label">Resume Tips</div>
+          <div class="vtag-dur">12:34</div>
+        </div>
+        <div class="vi">
+          <div class="vi-tag">🎓 Freshers Must-Watch</div>
+          <h3>Resume Tips for Freshers 2025 — Tailor Your Resume for Any Job Role</h3>
+          <p>Step-by-step guide to building a resume that actually gets shortlisted. Learn how to customize for different roles and make your profile stand out in a crowded field.</p>
+        </div>
+      </div>
+      <div class="vc rv d1" onclick="openVideo('H8BIFwfcBxs')">
+        <div class="vth vth2">
+          <div class="vplay">▶</div>
+          <div class="vtag-label">Resume Format</div>
+          <div class="vtag-dur">15:48</div>
+        </div>
+        <div class="vi">
+          <div class="vi-tag">🔥 2026 Edition</div>
+          <h3>Best Resume Format for Freshers in 2026 — Perfect Resume Tips</h3>
+          <p>The complete guide to resume format — what sections to include, what to skip, and the exact structure that hiring managers love and ATS systems approve.</p>
+        </div>
+      </div>
+      <div class="vc rv d2" onclick="openVideo('2KOyMJP16Ks')">
+        <div class="vth vth3">
+          <div class="vplay">▶</div>
+          <div class="vtag-label">Resume Samples</div>
+          <div class="vtag-dur">18:22</div>
+        </div>
+        <div class="vi">
+          <div class="vi-tag">📋 By Internshala</div>
+          <h3>Resume Samples for Freshers — Tips to Make a Resume for Your First Job</h3>
+          <p>Internshala's expert guide breaking down real resume samples with dos, don'ts, and practical writing tips for first-time job seekers and internship hunters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="vmodal" id="vmodal" onclick="closeVideo(event)">
+  <div class="vmodal-inner">
+    <button class="vmodal-close" onclick="document.getElementById('vmodal').classList.remove('open');document.getElementById('yt-frame').src=''">✕</button>
+    <iframe id="yt-frame" class="vmodal-iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ MISTAKES ═══════════════ -->
+<section id="mistakes">
+  <span class="stag rv">⚠️ RESUME KILLERS</span>
+  <h2 class="sh1 rv d1">7 Mistakes That Are<br/>Silently Destroying Your Chances</h2>
+  <p class="ssub rv d2">Recruiters see thousands of resumes. These are the patterns that make them click "No" in under 3 seconds — fix them before your next application.</p>
+  <div class="mk-grid">
+    <div class="mk rv">
+      <div class="mk-n">01</div>
+      <div>
+        <h4>The Generic Objective Statement</h4>
+        <p>"Seeking a challenging position to utilize my skills in a reputed organization" — every recruiter has seen this 10,000 times. It signals zero research and zero effort.</p>
+        <span class="fix">✓ FIX: Write a 2-line power summary with your exact target role and best achievement</span>
+      </div>
+    </div>
+    <div class="mk rv d1">
+      <div class="mk-n">02</div>
+      <div>
+        <h4>Saving as "resume_final_v3_NEW.pdf"</h4>
+        <p>The file name is the first thing recruiters see in their inbox or ATS system. This immediately signals disorganization. A small thing with big consequences.</p>
+        <span class="fix">✓ FIX: Save as FirstName_LastName_TargetRole.pdf — always</span>
+      </div>
+    </div>
+    <div class="mk rv d2">
+      <div class="mk-n">03</div>
+      <div>
+        <h4>Listing Duties Instead of Achievements</h4>
+        <p>"Responsible for managing social media accounts" tells recruiters nothing. What was the result? Without outcomes, your bullets are just a job description copy-paste.</p>
+        <span class="fix">✓ FIX: Action verb + scale + result. Every single bullet.</span>
+      </div>
+    </div>
+    <div class="mk rv d3">
+      <div class="mk-n">04</div>
+      <div>
+        <h4>Mismatched LinkedIn & Resume Details</h4>
+        <p>Job titles, dates, company names that differ between your resume and LinkedIn are instant red flags. 75% of ATS rejections happen due to these inconsistencies.</p>
+        <span class="fix">✓ FIX: Update both together. Check dates, titles, and skills for exact alignment</span>
+      </div>
+    </div>
+    <div class="mk rv d4">
+      <div class="mk-n">05</div>
+      <div>
+        <h4>Overusing Buzzwords Without Proof</h4>
+        <p>"Detail-oriented, hardworking team player with excellent communication skills" — every single word here is meaningless without evidence. Recruiters are desensitized to these.</p>
+        <span class="fix">✓ FIX: Replace buzzwords with specific examples and metrics that prove them</span>
+      </div>
+    </div>
+    <div class="mk rv d5">
+      <div class="mk-n">06</div>
+      <div>
+        <h4>Two-Column or Graphic-Heavy Formats</h4>
+        <p>They look great in Canva. They look like garbage in an ATS. Tables, text boxes, columns, and icons confuse parsers — your entire resume might be read as blank.</p>
+        <span class="fix">✓ FIX: Use clean single-column ATS-safe templates. Like BanaoResume's free ones.</span>
+      </div>
+    </div>
+    <div class="mk rv" style="grid-column: 1 / -1;max-width:450px">
+      <div class="mk-n">07</div>
+      <div>
+        <h4>Sending the Same Resume Everywhere</h4>
+        <p>One resume for 50 jobs = 50 ATS rejections. Every role has different keywords, priorities, and formats. A tailored resume 3× your response rate. It takes 20 minutes per application. It's worth it.</p>
+        <span class="fix">✓ FIX: Keep a master resume. Create tailored versions for each job cluster.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ═══════════════ CTA SECTION ═══════════════ -->
+<div class="cta-s">
+  <div class="cta-inner">
+    <span class="stag rv">FREE. ATS-READY. 5 MINUTES.</span>
+    <h2 class="sh1 rv d1" style="font-size:clamp(2.2rem,5vw,4rem)">Stop Reading.<br/><span class="grad-text">Start Building.</span></h2>
+    <p class="ssub rv d2" style="margin:0 auto 16px;max-width:560px">You now know everything. The ATS rules, the skills debate, the LinkedIn edge, the mistakes to avoid. The only thing left is to build the resume that gets you hired.</p>
+    <div class="cta-features rv d3">
+      <div class="cf"><span class="ck">✓</span> 100% Free — No signup needed</div>
+      <div class="cf"><span class="ck">✓</span> ATS-friendly templates</div>
+      <div class="cf"><span class="ck">✓</span> Fresher & Experienced modes</div>
+      <div class="cf"><span class="ck">✓</span> Download PDF in 5 minutes</div>
+    </div>
+    <div class="ctas rv d4">
+      <a href="https://banaoresumee.online" class="btn-a" target="_blank" style="font-size:1.05rem;padding:18px 40px">🚀 Build My Resume on BanaoResume</a>
+    </div>
+    <p class="rv d5" style="margin-top:20px;color:var(--muted);font-size:.82rem">Made for students & freshers in India 🇮🇳 · No credit card · No account · Just a great resume.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <a href="https://banaoresumee.online" class="fl">Banao<em>Resume</em></a>
+  <p>Free ATS resume builder for students &amp; freshers in India. Build yours in 5 minutes.</p>
+  <div class="flinks">
+    <a href="https://banaoresumee.online">Resume Builder</a>
+    <a href="https://banaoresumee.online">About</a>
+    <a href="mailto:support@banaoresumee.online">Contact</a>
+    <a href="https://banaoresumee.online">Privacy</a>
+  </div>
+</footer>
+
+<script>
+// SCROLL PROGRESS
+const pbar = document.getElementById('pbar');
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+  pbar.style.width = pct + '%';
+});
+
+// INTERSECTION OBSERVER — reveal animations
+const revels = document.querySelectorAll('.rv');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); } });
+}, { threshold: 0.12 });
+revels.forEach(el => io.observe(el));
+
+// COUNTER ANIMATION
+function animateCounter(el, target, suffix = '') {
+  let start = 0;
+  const dur = 1800;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const prog = Math.min((timestamp - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - prog, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (prog < 1) requestAnimationFrame(step);
+    else el.textContent = target + suffix;
+  };
+  requestAnimationFrame(step);
+}
+
+const statNums = document.querySelectorAll('.cnum');
+const statsSection = document.querySelector('.stats-band');
+let counted = false;
+const sio = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting && !counted) {
+    counted = true;
+    statNums.forEach(el => {
+      animateCounter(el, parseInt(el.dataset.to));
+    });
+  }
+}, { threshold: 0.3 });
+if (statsSection) sio.observe(statsSection);
+
+// VIDEO MODAL
+function openVideo(id) {
+  const modal = document.getElementById('vmodal');
+  document.getElementById('yt-frame').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo(e) {
+  if (e.target === document.getElementById('vmodal')) {
+    document.getElementById('vmodal').classList.remove('open');
+    document.getElementById('yt-frame').src = '';
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.getElementById('vmodal').classList.remove('open');
+    document.getElementById('yt-frame').src = '';
+    document.body.style.overflow = '';
+  }
+});
+
+// Smooth hero counter on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.hero-q .num[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const suffix = el.querySelector('.sunit') ? el.querySelector('.sunit').outerHTML : '';
+      const interval = setInterval(() => {
+        current += Math.ceil(target / 60);
+        if (current >= target) { current = target; clearInterval(interval); }
+        el.innerHTML = current + suffix;
+      }, 18);
+    });
+  }, 600);
+});
+
+// Two-column responsive fix
+const twoCol = document.querySelector('.tw-col');
+function checkTwoCol() {
+  if (twoCol) {
+    if (window.innerWidth < 860) {
+      twoCol.style.gridTemplateColumns = '1fr';
+    } else {
+      twoCol.style.gridTemplateColumns = '1fr 1fr';
+    }
+  }
+}
+checkTwoCol();
+window.addEventListener('resize', checkTwoCol);
+</script>
+</body>
+</html>
