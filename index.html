@@ -196,6 +196,7 @@ textarea{resize:vertical;min-height:75px;}
 .tpl-label .tpl-name{font-weight:700;font-size:0.72rem;color:var(--ink);}
 .tpl-label .tpl-desc{font-size:0.63rem;color:var(--muted);margin-top:1px;}
 .tpl-badge{position:absolute;top:0.4rem;right:0.4rem;background:var(--orange);color:white;font-size:0.55rem;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:0.04em;}
+.tpl-badge.hot{background:#e53e3e;}
 .tpl-check{position:absolute;top:0.4rem;left:0.4rem;width:18px;height:18px;border-radius:50%;background:var(--green);color:white;font-size:10px;display:none;align-items:center;justify-content:center;font-weight:700;}
 .tpl-card.selected .tpl-check{display:flex;}
 
@@ -242,7 +243,7 @@ textarea{resize:vertical;min-height:75px;}
 #phonepe-qr-modal .pp-card{animation:ppModalIn 0.3s cubic-bezier(0.22,1,0.36,1);}
 
 /* =====================
-   STATIC PAGES (About, Contact, Privacy, Blog, FAQ)
+   STATIC PAGES
    ===================== */
 .page-overlay{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;animation:pageSlideIn 0.3s cubic-bezier(0.22,1,0.36,1);}
 .page-overlay.open{display:block;}
@@ -335,6 +336,8 @@ footer a:hover{color:var(--orange);}
 /* =====================
    RESUME TEMPLATES
    ===================== */
+
+/* ---- MODERN ORANGE (default) ---- */
 .resume-doc{width:210mm;min-height:297mm;background:#fff;color:#1a1a1a;font-family:'DM Sans',sans-serif;}
 .resume-doc .resume-top{padding:22px 26px 16px;background:linear-gradient(135deg,#1A1008 0%,#3D1E08 100%);position:relative;overflow:hidden;}
 .resume-doc .resume-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF6B35,#FFD166,#2ECC71);}
@@ -368,19 +371,7 @@ footer a:hover{color:var(--orange);}
 .resume-doc .res-achievement{font-size:10.5px;color:#374151;line-height:1.6;margin-bottom:5px;padding-left:10px;position:relative;}
 .resume-doc .res-achievement::before{content:'▸';color:#FF6B35;position:absolute;left:0;top:0;font-size:8.5px;}
 
-/* Template variants */
-.resume-doc.tpl-classic .resume-top{background:linear-gradient(135deg,#1e3a5f,#2d5282)!important;}
-.resume-doc.tpl-classic .resume-top::after{background:linear-gradient(90deg,#3182ce,#63b3ed)!important;}
-.resume-doc.tpl-classic .res-role{color:#90cdf4!important;}
-.resume-doc.tpl-classic .res-contact-bar span{color:#a0aec0!important;}
-.resume-doc.tpl-classic .res-contact-bar a{color:#90cdf4!important;}
-.resume-doc.tpl-classic .res-sec-title{color:#2b6cb0!important;}
-.resume-doc.tpl-classic .res-sec-title::after{background:linear-gradient(90deg,#bee3f8,transparent)!important;}
-.resume-doc.tpl-classic .res-item-sub{color:#2b6cb0!important;}
-.resume-doc.tpl-classic .res-item-sub a{color:#2b6cb0!important;}
-.resume-doc.tpl-classic .res-skill-tag{background:#ebf8ff!important;color:#1a365d!important;}
-.resume-doc.tpl-classic .res-skill-tag.tools{background:#e6fffa!important;color:#065f46!important;}
-.resume-doc.tpl-classic .res-achievement::before{color:#2b6cb0!important;}
+/* ---- ATS MINIMAL ---- */
 .resume-doc.tpl-minimal .resume-top{background:#111!important;}
 .resume-doc.tpl-minimal .resume-top::after{background:#555!important;}
 .resume-doc.tpl-minimal .res-name{color:#fff!important;}
@@ -396,45 +387,48 @@ footer a:hover{color:var(--orange);}
 .resume-doc.tpl-minimal .res-skill-tag.soft{background:#e8e8e8!important;color:#333!important;}
 .resume-doc.tpl-minimal .res-achievement::before{color:#111!important;}
 .resume-doc.tpl-minimal .res-side{background:#f5f5f5!important;}
-.resume-doc.tpl-elegant .resume-top{background:linear-gradient(135deg,#1a3a2a,#2d5a3d)!important;}
-.resume-doc.tpl-elegant .resume-top::after{background:linear-gradient(90deg,#38a169,#68d391)!important;}
-.resume-doc.tpl-elegant .res-role{color:#9ae6b4!important;}
-.resume-doc.tpl-elegant .res-contact-bar span{color:#9ae6b4!important;}
-.resume-doc.tpl-elegant .res-contact-bar a{color:#9ae6b4!important;}
-.resume-doc.tpl-elegant .res-sec-title{color:#276749!important;}
-.resume-doc.tpl-elegant .res-sec-title::after{background:linear-gradient(90deg,#c6f6d5,transparent)!important;}
-.resume-doc.tpl-elegant .res-item-sub{color:#276749!important;}
-.resume-doc.tpl-elegant .res-item-sub a{color:#276749!important;}
-.resume-doc.tpl-elegant .res-skill-tag{background:#f0fff4!important;color:#1a4731!important;}
-.resume-doc.tpl-elegant .res-skill-tag.tools{background:#e6fffa!important;color:#065f46!important;}
-.resume-doc.tpl-elegant .res-achievement::before{color:#276749!important;}
-.resume-doc.tpl-elegant .res-side{background:#f0fff4!important;}
-.resume-doc.tpl-bold .resume-top{background:linear-gradient(135deg,#2d1b69,#553c9a)!important;}
-.resume-doc.tpl-bold .resume-top::after{background:linear-gradient(90deg,#805ad5,#b794f4)!important;}
-.resume-doc.tpl-bold .res-role{color:#d6bcfa!important;}
-.resume-doc.tpl-bold .res-contact-bar span{color:#b794f4!important;}
-.resume-doc.tpl-bold .res-contact-bar a{color:#d6bcfa!important;}
-.resume-doc.tpl-bold .res-sec-title{color:#553c9a!important;}
-.resume-doc.tpl-bold .res-sec-title::after{background:linear-gradient(90deg,#e9d8fd,transparent)!important;}
-.resume-doc.tpl-bold .res-item-sub{color:#6b46c1!important;}
-.resume-doc.tpl-bold .res-item-sub a{color:#6b46c1!important;}
-.resume-doc.tpl-bold .res-skill-tag{background:#faf5ff!important;color:#44337a!important;}
-.resume-doc.tpl-bold .res-skill-tag.tools{background:#e9d8fd!important;color:#44337a!important;}
-.resume-doc.tpl-bold .res-achievement::before{color:#6b46c1!important;}
-.resume-doc.tpl-bold .res-side{background:#faf5ff!important;}
-.resume-doc.tpl-warm .resume-top{background:linear-gradient(135deg,#6b2c13,#9c4221)!important;}
-.resume-doc.tpl-warm .resume-top::after{background:linear-gradient(90deg,#c05621,#f6ad55)!important;}
-.resume-doc.tpl-warm .res-role{color:#fbd38d!important;}
-.resume-doc.tpl-warm .res-contact-bar span{color:#fbd38d!important;}
-.resume-doc.tpl-warm .res-contact-bar a{color:#fbd38d!important;}
-.resume-doc.tpl-warm .res-sec-title{color:#c05621!important;}
-.resume-doc.tpl-warm .res-sec-title::after{background:linear-gradient(90deg,#feebc8,transparent)!important;}
-.resume-doc.tpl-warm .res-item-sub{color:#c05621!important;}
-.resume-doc.tpl-warm .res-item-sub a{color:#c05621!important;}
-.resume-doc.tpl-warm .res-skill-tag{background:#fffaf0!important;color:#7b341e!important;}
-.resume-doc.tpl-warm .res-skill-tag.tools{background:#fefcbf!important;color:#744210!important;}
-.resume-doc.tpl-warm .res-achievement::before{color:#c05621!important;}
-.resume-doc.tpl-warm .res-side{background:#fffaf0!important;}
+
+/* ---- IIT-TO-GOOGLE FORMAT (single column, classic ruling) ---- */
+.resume-doc.tpl-iitgoogle{font-family:'DM Sans',sans-serif;background:#fff;}
+.resume-doc.tpl-iitgoogle .resume-top{background:#fff!important;padding:20px 28px 10px!important;}
+.resume-doc.tpl-iitgoogle .resume-top::after{display:none!important;}
+.resume-doc.tpl-iitgoogle .res-name{color:#0d0d0d!important;font-size:26px!important;font-family:'Fraunces',serif;text-align:center;display:block;letter-spacing:-0.01em;}
+.resume-doc.tpl-iitgoogle .res-role{color:#444!important;font-size:11px!important;text-align:center;display:block;margin-top:3px;font-weight:400;}
+.resume-doc.tpl-iitgoogle .res-contact-bar{justify-content:center!important;margin-top:6px!important;gap:6px!important;padding-bottom:10px;border-bottom:2px solid #0d0d0d;}
+.resume-doc.tpl-iitgoogle .res-contact-bar span{color:#333!important;font-size:9px!important;font-family:'JetBrains Mono',monospace;}
+.resume-doc.tpl-iitgoogle .res-contact-bar a{color:#1155CC!important;}
+/* Override two-column layout to single column */
+.resume-doc.tpl-iitgoogle .res-body{display:block!important;}
+.resume-doc.tpl-iitgoogle .res-main{padding:0 28px!important;border-right:none!important;}
+.resume-doc.tpl-iitgoogle .res-side{padding:0 28px 20px!important;background:#fff!important;}
+/* Section headers: bold text + full-width rule */
+.resume-doc.tpl-iitgoogle .res-sec{margin-bottom:12px!important;}
+.resume-doc.tpl-iitgoogle .res-sec-title{font-size:10px!important;font-weight:800!important;letter-spacing:0.12em!important;text-transform:uppercase!important;color:#0d0d0d!important;padding-bottom:2px!important;border-bottom:1.5px solid #0d0d0d!important;margin-bottom:8px!important;display:block!important;}
+.resume-doc.tpl-iitgoogle .res-sec-title::after{display:none!important;}
+/* Item layout */
+.resume-doc.tpl-iitgoogle .res-item{margin-bottom:8px!important;}
+.resume-doc.tpl-iitgoogle .res-item-title{font-size:10.5px!important;font-weight:700!important;color:#0d0d0d!important;}
+.resume-doc.tpl-iitgoogle .res-item-date{font-size:9px!important;color:#444!important;}
+.resume-doc.tpl-iitgoogle .res-item-sub{color:#333!important;font-style:italic;font-weight:500!important;font-size:10px!important;}
+.resume-doc.tpl-iitgoogle .res-item-sub a{color:#1155CC!important;}
+.resume-doc.tpl-iitgoogle .res-item-desc{font-size:10px!important;color:#222!important;line-height:1.6!important;}
+.resume-doc.tpl-iitgoogle .res-about{font-size:10px!important;color:#222!important;line-height:1.7!important;}
+/* Skills as comma-separated inline text instead of tags */
+.resume-doc.tpl-iitgoogle .res-skill-tags{display:block!important;margin-top:0!important;}
+.resume-doc.tpl-iitgoogle .res-skill-tag{background:none!important;color:#0d0d0d!important;padding:0!important;border-radius:0!important;font-size:10px!important;font-weight:400!important;display:inline!important;}
+.resume-doc.tpl-iitgoogle .res-skill-tag::after{content:', ';}
+.resume-doc.tpl-iitgoogle .res-skill-tag:last-child::after{content:'';}
+.resume-doc.tpl-iitgoogle .res-skill-tag.tools{background:none!important;color:#0d0d0d!important;}
+.resume-doc.tpl-iitgoogle .res-skill-tag.soft{background:none!important;color:#0d0d0d!important;}
+.resume-doc.tpl-iitgoogle .res-skill-cat{font-size:9px!important;font-weight:700!important;color:#0d0d0d!important;display:inline!important;}
+.resume-doc.tpl-iitgoogle .res-skill-cat::after{content:': ';}
+/* Education */
+.resume-doc.tpl-iitgoogle .res-edu-deg{font-size:10.5px!important;font-weight:700!important;}
+.resume-doc.tpl-iitgoogle .res-edu-school{font-size:10px!important;color:#333!important;}
+.resume-doc.tpl-iitgoogle .res-edu-year{font-size:9px!important;color:#555!important;}
+/* Achievements */
+.resume-doc.tpl-iitgoogle .res-achievement{font-size:10px!important;color:#222!important;}
+.resume-doc.tpl-iitgoogle .res-achievement::before{color:#0d0d0d!important;}
 </style>
 </head>
 <body>
@@ -670,7 +664,9 @@ footer a:hover{color:var(--orange);}
   <div class="templates-section">
     <h3>Choose a Template</h3>
     <p>Click any template to apply it instantly — preview updates live.</p>
-    <div class="templates-grid">
+    <div class="templates-grid" style="grid-template-columns:repeat(3,1fr);">
+
+      <!-- Template 1: Modern Orange -->
       <div class="tpl-card selected" id="tpl-modern" onclick="applyTemplate('modern')">
         <div class="tpl-check">✓</div>
         <div class="tpl-badge">DEFAULT</div>
@@ -691,20 +687,8 @@ footer a:hover{color:var(--orange);}
         </div>
         <div class="tpl-label"><div class="tpl-name">Modern Orange</div><div class="tpl-desc">Bold · Colorful · Tech</div></div>
       </div>
-      <div class="tpl-card" id="tpl-classic" onclick="applyTemplate('classic')">
-        <div class="tpl-check">✓</div>
-        <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#1e3a5f,#2d5282);"></div>
-          <div style="position:absolute;bottom:0;left:0;height:4px;right:0;background:linear-gradient(90deg,#3182ce,#63b3ed);"></div>
-          <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
-          <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#90cdf4;">Target Role</div>
-          <div style="position:absolute;top:44px;left:10px;right:50%;display:flex;flex-direction:column;gap:3px;">
-            <div style="height:3px;background:#2b6cb0;border-radius:2px;width:40%;"></div>
-            <div style="height:2px;background:#e5e7eb;border-radius:1px;"></div>
-          </div>
-        </div>
-        <div class="tpl-label"><div class="tpl-name">Classic Blue</div><div class="tpl-desc">Professional · Finance · Corporate</div></div>
-      </div>
+
+      <!-- Template 2: ATS Minimal -->
       <div class="tpl-card" id="tpl-minimal" onclick="applyTemplate('minimal')">
         <div class="tpl-check">✓</div>
         <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
@@ -712,36 +696,43 @@ footer a:hover{color:var(--orange);}
           <div style="position:absolute;bottom:0;left:0;height:3px;right:0;background:#555;"></div>
           <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
           <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#bbb;">Target Role</div>
+          <div style="position:absolute;top:46px;left:10px;right:10px;display:flex;flex-direction:column;gap:3px;">
+            <div style="height:2px;background:#ccc;border-radius:1px;width:30%;"></div>
+            <div style="height:1.5px;background:#e0e0e0;border-radius:1px;"></div>
+            <div style="height:1.5px;background:#e0e0e0;border-radius:1px;width:80%;"></div>
+          </div>
         </div>
         <div class="tpl-label"><div class="tpl-name">ATS Minimal</div><div class="tpl-desc">Clean · Safe · Printer-friendly</div></div>
       </div>
-      <div class="tpl-card" id="tpl-elegant" onclick="applyTemplate('elegant')">
+
+      <!-- Template 3: IIT-to-Google Format -->
+      <div class="tpl-card" id="tpl-iitgoogle" onclick="applyTemplate('iitgoogle')">
         <div class="tpl-check">✓</div>
-        <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#1a3a2a,#2d5a3d);"></div>
-          <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
-          <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#9ae6b4;">Target Role</div>
+        <div class="tpl-badge hot">🔥 VIRAL</div>
+        <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;background:#fff;">
+          <!-- Simulated single-column classic resume -->
+          <div style="position:absolute;top:8px;left:0;right:0;text-align:center;font-size:8px;font-weight:800;color:#0d0d0d;font-family:serif;letter-spacing:-0.01em;">YOUR NAME</div>
+          <div style="position:absolute;top:19px;left:0;right:0;text-align:center;font-size:5px;color:#555;font-family:monospace;">email@gmail.com · +91 98765 · linkedin.com/in/you</div>
+          <div style="position:absolute;top:28px;left:10px;right:10px;height:1.5px;background:#0d0d0d;"></div>
+          <div style="position:absolute;top:33px;left:10px;font-size:5.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#0d0d0d;">Education</div>
+          <div style="position:absolute;top:40px;left:10px;right:10px;height:1px;background:#0d0d0d;"></div>
+          <div style="position:absolute;top:44px;left:10px;font-size:4.5px;color:#222;">B.Tech Computer Science — IIT Bombay</div>
+          <div style="position:absolute;top:51px;left:10px;font-size:5.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#0d0d0d;">Experience</div>
+          <div style="position:absolute;top:58px;left:10px;right:10px;height:1px;background:#0d0d0d;"></div>
+          <div style="position:absolute;top:62px;left:10px;font-size:4.5px;color:#222;font-weight:700;">Software Engineer Intern — Google</div>
+          <div style="position:absolute;top:69px;left:10px;font-size:4px;color:#555;">▸ Built a feature used by 1M+ users · Reduced latency by 40%</div>
+          <div style="position:absolute;top:78px;left:10px;font-size:5.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#0d0d0d;">Skills</div>
+          <div style="position:absolute;top:85px;left:10px;right:10px;height:1px;background:#0d0d0d;"></div>
+          <div style="position:absolute;top:89px;left:10px;font-size:4px;color:#222;"><strong>Languages:</strong> Python, Java, C++, JavaScript</div>
         </div>
-        <div class="tpl-label"><div class="tpl-name">Elegant Green</div><div class="tpl-desc">Sophisticated · Medical · Law</div></div>
+        <div class="tpl-label"><div class="tpl-name">IIT-to-Google Format</div><div class="tpl-desc">Used by IITians · FAANG-proven</div></div>
       </div>
-      <div class="tpl-card" id="tpl-bold" onclick="applyTemplate('bold')">
-        <div class="tpl-check">✓</div>
-        <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#2d1b69,#553c9a);"></div>
-          <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
-          <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#d6bcfa;">Target Role</div>
-        </div>
-        <div class="tpl-label"><div class="tpl-name">Bold Purple</div><div class="tpl-desc">Creative · Design · Marketing</div></div>
-      </div>
-      <div class="tpl-card" id="tpl-warm" onclick="applyTemplate('warm')">
-        <div class="tpl-check">✓</div>
-        <div class="tpl-preview" style="height:120px;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:38px;background:linear-gradient(135deg,#6b2c13,#9c4221);"></div>
-          <div style="position:absolute;top:10px;left:10px;font-size:7px;color:#fff;font-weight:700;font-family:serif;">YOUR NAME</div>
-          <div style="position:absolute;top:22px;left:10px;font-size:5px;color:#fbd38d;">Target Role</div>
-        </div>
-        <div class="tpl-label"><div class="tpl-name">Warm Terracotta</div><div class="tpl-desc">Warm · Arts · Hospitality</div></div>
-      </div>
+
+    </div>
+    <!-- Template info banners -->
+    <div id="tpl-info-iitgoogle" style="display:none;margin-top:0.75rem;background:linear-gradient(135deg,#f0f4ff,#e8f0fe);border:1.5px solid #c6d6f5;border-radius:10px;padding:0.75rem 1rem;font-size:0.76rem;color:#1a3a6e;line-height:1.7;">
+      <strong style="display:block;margin-bottom:4px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;">🎓 Why this format works at Google &amp; Microsoft</strong>
+      This is the exact single-column, section-ruled format used by IIT/NIT toppers who crack Google, Microsoft, and Amazon. Clean text, no colors — passes every ATS system perfectly. Trusted by placement cells across India's top colleges.
     </div>
   </div>
 
@@ -802,83 +793,36 @@ footer a:hover{color:var(--orange);}
     <p class="footer-faq-sub">Everything you need to know about BanaoResume</p>
 
     <div class="faq-item" id="faq-1">
-      <div class="faq-q" onclick="toggleFaq('faq-1')">
-        <span>Is BanaoResume really 100% free?</span>
-        <span class="faq-icon">+</span>
-      </div>
+      <div class="faq-q" onclick="toggleFaq('faq-1')"><span>Is BanaoResume really 100% free?</span><span class="faq-icon">+</span></div>
       <div class="faq-a">Yes, absolutely. BanaoResume is completely free — no credit card, no sign-up, no hidden charges. You can build and download as many resumes as you want at zero cost. We're supported by optional donations and non-intrusive ads, which keeps the tool free for everyone.</div>
     </div>
-
     <div class="faq-item" id="faq-2">
-      <div class="faq-q" onclick="toggleFaq('faq-2')">
-        <span>Is my data safe? Does BanaoResume store my information?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Your privacy is our top priority. All resume data (your name, email, work history, skills, etc.) is processed entirely in your browser and is never sent to our servers. When you close the tab, your data is gone. We only collect anonymous analytics via Google Analytics to improve the site.</div>
+      <div class="faq-q" onclick="toggleFaq('faq-2')"><span>Is my data safe? Does BanaoResume store my information?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Your privacy is our top priority. All resume data is processed entirely in your browser and is never sent to our servers. When you close the tab, your data is gone. We only collect anonymous analytics via Google Analytics to improve the site.</div>
     </div>
-
     <div class="faq-item" id="faq-3">
-      <div class="faq-q" onclick="toggleFaq('faq-3')">
-        <span>What is ATS and why does it matter?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">ATS stands for Applicant Tracking System — software used by most companies (especially MNCs and startups) to automatically screen resumes before a human ever sees them. If your resume isn't ATS-friendly, it gets filtered out even if you're the perfect candidate. BanaoResume templates are designed with clean formatting, standard section headers, and readable fonts to pass ATS scans. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full guide on ATS rejection →</a></div>
+      <div class="faq-q" onclick="toggleFaq('faq-3')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">ATS stands for Applicant Tracking System — software used by most companies to automatically screen resumes before a human ever sees them. BanaoResume templates are designed with clean formatting, standard section headers, and readable fonts to pass ATS scans. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full guide on ATS rejection →</a></div>
     </div>
-
     <div class="faq-item" id="faq-4">
-      <div class="faq-q" onclick="toggleFaq('faq-4')">
-        <span>I'm a fresher with no work experience. Can I still make a good resume?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Absolutely! Choose the "Fresher" mode and BanaoResume will prioritise your Projects, Skills, and Education sections — which matter most for freshers. Strong projects, internships, open-source contributions, or even college assignments can make your resume stand out. Recruiters reviewing fresher profiles expect this, so don't worry about the experience section being light.</div>
+      <div class="faq-q" onclick="toggleFaq('faq-4')"><span>I'm a fresher with no work experience. Can I still make a good resume?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely! Choose the "Fresher" mode and BanaoResume will prioritise your Projects, Skills, and Education sections. Strong projects, internships, or open-source contributions can make your resume stand out. Recruiters reviewing fresher profiles expect this.</div>
     </div>
-
     <div class="faq-item" id="faq-5">
-      <div class="faq-q" onclick="toggleFaq('faq-5')">
-        <span>How do I download my resume as a PDF?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Once you reach the final step, click "Download PDF (Colored)" or "Download PDF (B&W)". Your browser will open the print dialog — select "Save as PDF" as the destination, set Paper size to A4, Margins to None, and make sure Background graphics is enabled for the colored version. That's it — your resume downloads instantly!</div>
+      <div class="faq-q" onclick="toggleFaq('faq-5')"><span>How do I download my resume as a PDF?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Once you reach the final step, click "Download PDF". Your browser will open the print dialog — select "Save as PDF" as the destination, set Paper size to A4, Margins to None, and enable Background graphics. That's it!</div>
     </div>
-
     <div class="faq-item" id="faq-6">
-      <div class="faq-q" onclick="toggleFaq('faq-6')">
-        <span>Which resume template should I choose?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">It depends on the role and industry: <strong>Modern Orange</strong> works great for tech and startup roles. <strong>Classic Blue</strong> is ideal for corporate, finance, and government jobs. <strong>ATS Minimal</strong> is the safest choice if you're unsure — it's highly readable by all ATS systems. <strong>Elegant Green</strong> suits medical, legal, and academic positions. <strong>Bold Purple</strong> fits creative, design, and marketing roles. <strong>Warm Terracotta</strong> works for hospitality, arts, and NGO roles.</div>
+      <div class="faq-q" onclick="toggleFaq('faq-6')"><span>What is the IIT-to-Google Format template?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">It's the classic single-column, section-ruled resume format used by IIT, NIT, and BITS students who crack Google, Microsoft, and Amazon. Clean black &amp; white text, bold section headers with horizontal rules, centered name at the top — exactly what top placement cells teach and what FAANG ATS systems love most.</div>
     </div>
-
     <div class="faq-item" id="faq-7">
-      <div class="faq-q" onclick="toggleFaq('faq-7')">
-        <span>Can I edit my resume after downloading it?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Yes! Your browser tab stays active after downloading, so you can go back, make changes using the "Edit Your Resume" panel or the "Full Edit Mode" button, and download again — as many times as you need. We recommend keeping the tab open until you're fully satisfied with the output.</div>
+      <div class="faq-q" onclick="toggleFaq('faq-7')"><span>Can I edit my resume after downloading it?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes! Your browser tab stays active after downloading, so you can go back, make changes using the "Edit Your Resume" panel or the "Full Edit Mode" button, and download again — as many times as you need.</div>
     </div>
-
     <div class="faq-item" id="faq-8">
-      <div class="faq-q" onclick="toggleFaq('faq-8')">
-        <span>Does BanaoResume work on mobile?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. You can fill in all your details on mobile. However, for downloading as PDF, we recommend using a desktop or laptop browser (Chrome or Edge work best) for the cleanest print output. The "Save as PDF" print dialog works most reliably on desktop.</div>
-    </div>
-
-    <div class="faq-item" id="faq-9">
-      <div class="faq-q" onclick="toggleFaq('faq-9')">
-        <span>How long does it take to build a resume?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">Most users complete their resume in 5 to 10 minutes. The builder is designed to be fast — just fill in the fields, skip what doesn't apply, and you're done. If you have your details ready (education, skills, past experience), you can finish even faster. No account creation or email verification slows you down.</div>
-    </div>
-
-    <div class="faq-item" id="faq-10">
-      <div class="faq-q" onclick="toggleFaq('faq-10')">
-        <span>Is there a word limit or page limit?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a">There's no hard character limit, but we recommend keeping your resume to one page — especially for freshers and candidates with under 5 years of experience. Recruiters spend an average of 6 seconds scanning a resume, so concise and impactful beats lengthy every time. The A4 template is optimised to fit a full one-page resume elegantly.</div>
+      <div class="faq-q" onclick="toggleFaq('faq-8')"><span>Does BanaoResume work on mobile?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. However, for downloading as PDF, we recommend using a desktop or laptop browser (Chrome or Edge) for the cleanest print output.</div>
     </div>
 
     <div class="footer-faq-more">
@@ -925,7 +869,7 @@ footer a:hover{color:var(--orange);}
     <div class="page-section">
       <h3>What you get — 100% Free</h3>
       <ul>
-        <li>6 professionally designed templates</li>
+        <li>3 professionally designed templates including the viral IIT-to-Google format</li>
         <li>ATS-optimized formatting for Indian recruiters</li>
         <li>Instant PDF download — colored or black &amp; white</li>
         <li>No account needed, no data stored on servers</li>
@@ -938,7 +882,7 @@ footer a:hover{color:var(--orange);}
     </div>
     <div class="page-section">
       <h3>Support this project ☕</h3>
-      <p>BanaoResume is free and will always be free. If it helped you land a job or internship, consider supporting us via PhonePe — it helps keep the servers running and motivates us to add more templates and features.</p>
+      <p>BanaoResume is free and will always be free. If it helped you land a job or internship, consider supporting us via PhonePe.</p>
       <br>
       <button onclick="handlePhonePeClick(event)" style="display:inline-flex;align-items:center;gap:8px;background:#5f259f;color:white;font-weight:700;font-size:0.85rem;padding:0.65rem 1.25rem;border-radius:100px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(95,37,159,0.35);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
         💜 Support via PhonePe / UPI
@@ -946,7 +890,7 @@ footer a:hover{color:var(--orange);}
     </div>
     <div class="page-section">
       <h3>Get in touch</h3>
-      <p>Questions, suggestions, or just want to say thanks? <a href="#" onclick="showPage('contact');return false;">Contact us here</a> — we'd love to hear from you.</p>
+      <p>Questions, suggestions, or just want to say thanks? <a href="#" onclick="showPage('contact');return false;">Contact us here</a>.</p>
     </div>
   </div>
 </div>
@@ -955,7 +899,6 @@ footer a:hover{color:var(--orange);}
 <div class="page-overlay" id="page-blog">
   <div class="page-inner">
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
-
     <div class="blog-section-head">
       <div class="blog-section-icon">📝</div>
       <div>
@@ -963,10 +906,7 @@ footer a:hover{color:var(--orange);}
         <p style="font-size:0.78rem;color:var(--muted);">Expert advice to help you land your dream job</p>
       </div>
     </div>
-
     <div class="blog-grid">
-
-      <!-- Blog Post 1 -->
       <a class="blog-card" href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">
         <div class="blog-card-thumb ats-thumb">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;">
@@ -978,21 +918,15 @@ footer a:hover{color:var(--orange);}
             <circle cx="48" cy="44" r="12" fill="#E53E3E" opacity="0.9"/>
             <line x1="44" y1="44" x2="52" y2="44" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
             <line x1="48" y1="40" x2="48" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M42 38 L54 50" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
           </svg>
         </div>
         <div class="blog-card-body">
           <div class="blog-card-tag">ATS Guide</div>
           <div class="blog-card-title">Your Resume Is Getting Rejected by AI — Here's How to Fix It</div>
-          <div class="blog-card-desc">Most companies now use Applicant Tracking Systems to auto-filter resumes before a human even looks. Discover exactly why your resume fails ATS scans and the step-by-step fixes to get past the bots.</div>
-          <div class="blog-card-meta">
-            <span class="blog-card-read">Read article →</span>
-            <span class="blog-card-time">5 min read</span>
-          </div>
+          <div class="blog-card-desc">Most companies now use Applicant Tracking Systems to auto-filter resumes before a human even looks. Discover exactly why your resume fails ATS scans and the step-by-step fixes.</div>
+          <div class="blog-card-meta"><span class="blog-card-read">Read article →</span><span class="blog-card-time">5 min read</span></div>
         </div>
       </a>
-
-      <!-- Blog Post 2 -->
       <a class="blog-card" href="https://banaoresumee.online/free-ai-resumee-builder.html" target="_blank" rel="noopener">
         <div class="blog-card-thumb builder-thumb">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;">
@@ -1000,29 +934,21 @@ footer a:hover{color:var(--orange);}
             <rect x="16" y="16" width="20" height="2.5" rx="1.25" fill="#2ECC71" opacity="0.8"/>
             <rect x="16" y="22" width="14" height="2" rx="1" fill="#9ae6b4" opacity="0.7"/>
             <rect x="16" y="27" width="18" height="2" rx="1" fill="#9ae6b4" opacity="0.7"/>
-            <rect x="16" y="32" width="12" height="2" rx="1" fill="#9ae6b4" opacity="0.7"/>
             <circle cx="48" cy="46" r="12" fill="#2ECC71" opacity="0.9"/>
             <path d="M43 46l4 4 8-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="48" cy="18" r="6" fill="#FFD166" opacity="0.8"/>
-            <path d="M46 18h4M48 16v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="blog-card-body">
           <div class="blog-card-tag">Tool Review</div>
           <div class="blog-card-title">The Best Free AI Resume Builder for Students &amp; Freshers in India</div>
-          <div class="blog-card-desc">Comparing free resume builders is overwhelming. We break down the top options for Indian students and freshers — what makes a good ATS resume builder and why BanaoResume was built specifically for you.</div>
-          <div class="blog-card-meta">
-            <span class="blog-card-read">Read article →</span>
-            <span class="blog-card-time">4 min read</span>
-          </div>
+          <div class="blog-card-desc">Comparing free resume builders is overwhelming. We break down the top options for Indian students and freshers — and why BanaoResume was built specifically for you.</div>
+          <div class="blog-card-meta"><span class="blog-card-read">Read article →</span><span class="blog-card-time">4 min read</span></div>
         </div>
       </a>
-
     </div>
-
     <div style="margin-top:2rem;background:var(--orange-light);border:1.5px solid rgba(255,107,53,0.2);border-radius:var(--r);padding:1.25rem;text-align:center;">
       <div style="font-family:'Fraunces',serif;font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:0.35rem;">📬 More guides coming soon!</div>
-      <p style="font-size:0.78rem;color:var(--muted);line-height:1.7;">We're working on guides covering interview tips, LinkedIn profiles, salary negotiation, and more. <a href="#" onclick="showPage('contact');return false;">Subscribe to get notified</a> or reach out with a topic you'd like us to cover.</p>
+      <p style="font-size:0.78rem;color:var(--muted);line-height:1.7;">We're working on guides covering interview tips, LinkedIn profiles, salary negotiation, and more. <a href="#" onclick="showPage('contact');return false;">Subscribe to get notified</a>.</p>
     </div>
   </div>
 </div>
@@ -1033,91 +959,22 @@ footer a:hover{color:var(--orange);}
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">FAQ &amp; Resume Tips</h1>
     <p class="page-sub">Everything you need to know about building a winning resume 🎯</p>
-
-    <div class="page-section">
-      <h3>General Questions</h3>
-    </div>
-
-    <div class="faq-item" id="pfaq-1">
-      <div class="faq-q" onclick="toggleFaq('pfaq-1')"><span>Is BanaoResume really 100% free?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, absolutely. BanaoResume is completely free — no credit card, no sign-up, no hidden charges. You can build and download as many resumes as you want at zero cost. We're supported by optional donations and non-intrusive ads.</div>
-    </div>
-    <div class="faq-item" id="pfaq-2">
-      <div class="faq-q" onclick="toggleFaq('pfaq-2')"><span>Is my data safe? Does BanaoResume store my information?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">All resume data is processed entirely in your browser and never sent to our servers. When you close the tab, your data is gone. We only collect anonymous analytics via Google Analytics to improve the site. Read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details.</div>
-    </div>
-    <div class="faq-item" id="pfaq-3">
-      <div class="faq-q" onclick="toggleFaq('pfaq-3')"><span>Does BanaoResume work on mobile phones?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, the builder is fully responsive on Android and iOS. However, for downloading as PDF, a desktop browser (Chrome or Edge) gives the cleanest results. The "Save as PDF" print function is most reliable on desktop/laptop.</div>
-    </div>
-    <div class="faq-item" id="pfaq-4">
-      <div class="faq-q" onclick="toggleFaq('pfaq-4')"><span>How long does it take to build a resume?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Most users finish in 5–10 minutes. The builder is designed for speed — fill in your details, skip what doesn't apply, and you're done. No account creation or email verification required.</div>
-    </div>
-
-    <div class="page-section" style="margin-top:1.5rem;">
-      <h3>ATS &amp; Resume Formatting</h3>
-    </div>
-
-    <div class="faq-item" id="pfaq-5">
-      <div class="faq-q" onclick="toggleFaq('pfaq-5')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">ATS (Applicant Tracking System) is software used by most companies to auto-screen resumes before a human sees them. If your resume isn't ATS-friendly — wrong fonts, tables, images, or missing keywords — it gets filtered out automatically. BanaoResume templates use clean, ATS-readable formatting. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full ATS guide →</a></div>
-    </div>
-    <div class="faq-item" id="pfaq-6">
-      <div class="faq-q" onclick="toggleFaq('pfaq-6')"><span>Which template is most ATS-friendly?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">The <strong>ATS Minimal</strong> template is the safest choice for strict ATS environments. However, all BanaoResume templates use clean text-based formatting with no images, tables, or decorative elements that would confuse ATS parsers. For colored templates, enable "Background Graphics" when printing to PDF.</div>
-    </div>
-    <div class="faq-item" id="pfaq-7">
-      <div class="faq-q" onclick="toggleFaq('pfaq-7')"><span>Should my resume be one page or two pages?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">For freshers and candidates with under 5 years of experience: stick to one page. Recruiters spend 6–10 seconds scanning a resume — concise beats lengthy. For experienced professionals with 7+ years, two pages is acceptable. BanaoResume's A4 template is optimised for a clean one-page layout.</div>
-    </div>
-    <div class="faq-item" id="pfaq-8">
-      <div class="faq-q" onclick="toggleFaq('pfaq-8')"><span>Should I include a photo on my resume?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">For most Indian tech and corporate jobs, photos are not required and can actually hurt ATS parsing. BanaoResume intentionally doesn't include a photo field to keep your resume ATS-optimised. However, for roles where photos are expected (hospitality, aviation, some government roles), you can add it manually to the PDF after downloading.</div>
-    </div>
-
-    <div class="page-section" style="margin-top:1.5rem;">
-      <h3>Freshers &amp; Students</h3>
-    </div>
-
-    <div class="faq-item" id="pfaq-9">
-      <div class="faq-q" onclick="toggleFaq('pfaq-9')"><span>I have no work experience. What do I put on my resume?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Focus on: (1) Projects — personal, academic, or open source work; (2) Internships — even 1-month stints count; (3) Skills — technical tools you know; (4) Education — your degree, GPA if strong, relevant coursework; (5) Achievements — hackathons, certifications, LeetCode rank, scholarships. Recruiters expect freshers to have light experience sections — your projects tell the real story.</div>
-    </div>
-    <div class="faq-item" id="pfaq-10">
-      <div class="faq-q" onclick="toggleFaq('pfaq-10')"><span>What should I write in the Professional Summary section?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Keep it to 2–3 sentences. Structure: [Your role/status] + [your top 2–3 skills] + [what you're looking for]. Example: "Final-year CSE student at VIT specialising in React and Python, with hands-on experience building 3 full-stack projects. Passionate about building scalable web products. Seeking a Software Engineer role to contribute to a product-first team." Keep it specific, not generic.</div>
-    </div>
-    <div class="faq-item" id="pfaq-11">
-      <div class="faq-q" onclick="toggleFaq('pfaq-11')"><span>Should I include my GPA/CGPA on my resume?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Include it if it's above 7.5/10 or 75% — it signals academic rigor. If it's below that, leave it out (it's optional). You can also mention it only in the Education section if required by specific company forms during the application process.</div>
-    </div>
-    <div class="faq-item" id="pfaq-12">
-      <div class="faq-q" onclick="toggleFaq('pfaq-12')"><span>How do I write project descriptions that impress recruiters?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Use the "What + How + Impact" formula: <strong>What</strong> did you build? <strong>How</strong> did you build it (tech stack)? <strong>Impact</strong> — how many users, what problem it solved, any metrics. Example: "Built a real-time expense tracker using React and Firebase serving 200+ beta users, reducing manual expense logging time by 60%." Numbers and specifics always beat vague descriptions.</div>
-    </div>
-
-    <div class="page-section" style="margin-top:1.5rem;">
-      <h3>Downloading &amp; Technical</h3>
-    </div>
-
-    <div class="faq-item" id="pfaq-13">
-      <div class="faq-q" onclick="toggleFaq('pfaq-13')"><span>How do I download as PDF without the colors washing out?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">In the print dialog, make sure to: (1) Set Destination to "Save as PDF"; (2) Set Paper size to A4; (3) Set Margins to None; (4) Enable "Background graphics" checkbox. This ensures all colors, gradients, and backgrounds print correctly. If you want a black &amp; white version for printing, use the "Download PDF (B&amp;W)" button instead.</div>
-    </div>
-    <div class="faq-item" id="pfaq-14">
-      <div class="faq-q" onclick="toggleFaq('pfaq-14')"><span>Can I save my resume and come back to edit it later?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Currently, BanaoResume doesn't save data between sessions — all data lives in your browser tab. To avoid losing your work, download your PDF before closing. We're working on a save/export feature for future updates. For now, you can also keep the tab open and edit anytime using the "Edit Your Resume" panel on the final page.</div>
-    </div>
-    <div class="faq-item" id="pfaq-15">
-      <div class="faq-q" onclick="toggleFaq('pfaq-15')"><span>The PDF layout looks broken — what should I do?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Try these fixes: (1) Use Chrome or Edge browser (Firefox sometimes renders differently); (2) Make sure Margins is set to "None" in the print dialog; (3) Set Paper size to A4; (4) Set Scale to "Default" or 100% — don't auto-scale. If it still looks off, try zooming out on the page first (Ctrl + -) then downloading. For help, <a href="#" onclick="showPage('contact');return false;">contact us</a>.</div>
-    </div>
-
+    <div class="page-section"><h3>General Questions</h3></div>
+    <div class="faq-item" id="pfaq-1"><div class="faq-q" onclick="toggleFaq('pfaq-1')"><span>Is BanaoResume really 100% free?</span><span class="faq-icon">+</span></div><div class="faq-a">Yes, absolutely. No credit card, no sign-up, no hidden charges.</div></div>
+    <div class="faq-item" id="pfaq-2"><div class="faq-q" onclick="toggleFaq('pfaq-2')"><span>Is my data safe?</span><span class="faq-icon">+</span></div><div class="faq-a">All resume data is processed entirely in your browser and never sent to our servers. Read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details.</div></div>
+    <div class="faq-item" id="pfaq-3"><div class="faq-q" onclick="toggleFaq('pfaq-3')"><span>Does BanaoResume work on mobile phones?</span><span class="faq-icon">+</span></div><div class="faq-a">Yes, the builder is fully responsive. For downloading as PDF, a desktop browser (Chrome or Edge) gives the cleanest results.</div></div>
+    <div class="page-section" style="margin-top:1.5rem;"><h3>The IIT-to-Google Format</h3></div>
+    <div class="faq-item" id="pfaq-iit1"><div class="faq-q" onclick="toggleFaq('pfaq-iit1')"><span>What makes the IIT-to-Google format special?</span><span class="faq-icon">+</span></div><div class="faq-a">This is the classic single-column resume format that IIT, NIT, and BITS placement cells have taught for decades. It uses a centered name header, bold section titles with full-width horizontal rules, and clean black text — no columns, no colors. It's the format that has historically gotten Indian engineers into Google, Microsoft, Amazon, and other top companies because it's 100% ATS-safe and human-readable.</div></div>
+    <div class="faq-item" id="pfaq-iit2"><div class="faq-q" onclick="toggleFaq('pfaq-iit2')"><span>Should I use IIT-to-Google format or Modern Orange?</span><span class="faq-icon">+</span></div><div class="faq-a">Use <strong>IIT-to-Google Format</strong> if you're applying to product companies, MNCs, or any company with a strict ATS (Google, Microsoft, Amazon, Goldman Sachs, McKinsey, etc.). Use <strong>Modern Orange</strong> for startups, design-forward companies, or roles where standing out visually helps (UI/UX, product, growth). Use <strong>ATS Minimal</strong> when you want the safest B&W print.</div></div>
+    <div class="page-section" style="margin-top:1.5rem;"><h3>ATS &amp; Resume Formatting</h3></div>
+    <div class="faq-item" id="pfaq-5"><div class="faq-q" onclick="toggleFaq('pfaq-5')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div><div class="faq-a">ATS (Applicant Tracking System) is software used by most companies to auto-screen resumes. If your resume has wrong fonts, tables, or images, it gets filtered out automatically. All BanaoResume templates use clean, ATS-readable formatting. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full ATS guide →</a></div></div>
+    <div class="faq-item" id="pfaq-7"><div class="faq-q" onclick="toggleFaq('pfaq-7')"><span>Should my resume be one page or two pages?</span><span class="faq-icon">+</span></div><div class="faq-a">For freshers and candidates with under 5 years of experience: stick to one page. Recruiters spend 6–10 seconds scanning a resume. BanaoResume's A4 template is optimised for a clean one-page layout.</div></div>
+    <div class="page-section" style="margin-top:1.5rem;"><h3>Freshers &amp; Students</h3></div>
+    <div class="faq-item" id="pfaq-9"><div class="faq-q" onclick="toggleFaq('pfaq-9')"><span>I have no work experience. What do I put on my resume?</span><span class="faq-icon">+</span></div><div class="faq-a">Focus on: (1) Projects — personal, academic, or open source; (2) Internships; (3) Skills; (4) Education; (5) Achievements. Recruiters expect freshers to have light experience sections — your projects tell the real story.</div></div>
+    <div class="faq-item" id="pfaq-12"><div class="faq-q" onclick="toggleFaq('pfaq-12')"><span>How do I write project descriptions that impress recruiters?</span><span class="faq-icon">+</span></div><div class="faq-a">Use the "What + How + Impact" formula: <strong>What</strong> did you build? <strong>How</strong> (tech stack)? <strong>Impact</strong> — users, metrics, problem solved. Example: "Built a real-time expense tracker using React and Firebase serving 200+ beta users, reducing manual logging time by 60%."</div></div>
     <div style="margin-top:2rem;text-align:center;padding:1.25rem;background:var(--orange-light);border-radius:var(--r);border:1.5px solid rgba(255,107,53,0.2);">
       <p style="font-size:0.82rem;color:var(--ink-2);font-weight:600;margin-bottom:0.35rem;">Still have a question?</p>
-      <p style="font-size:0.75rem;color:var(--muted);margin-bottom:1rem;">We're happy to help — reach out directly and we'll get back to you within 24 hours.</p>
-      <a href="#" onclick="showPage('contact');return false;" style="display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:white;font-size:0.8rem;font-weight:700;padding:0.6rem 1.35rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(255,107,53,0.3);transition:all 0.2s;" onmouseover="this.style.background='#E85520'" onmouseout="this.style.background='var(--orange)'">📩 Contact Us →</a>
+      <a href="#" onclick="showPage('contact');return false;" style="display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:white;font-size:0.8rem;font-weight:700;padding:0.6rem 1.35rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(255,107,53,0.3);">📩 Contact Us →</a>
     </div>
   </div>
 </div>
@@ -1130,33 +987,15 @@ footer a:hover{color:var(--orange);}
     <p class="page-sub">We're here to help — reach out anytime 👋</p>
     <div class="page-section" style="margin-bottom:1.25rem;">
       <h3>Send us a message</h3>
-      <p style="margin-bottom:1rem;">Have a question, found a bug, or want to give feedback? Fill in the form below or email us directly at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+      <p style="margin-bottom:1rem;">Have a question, found a bug, or want to give feedback? Fill in the form below or email us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
     </div>
     <div class="contact-form">
-      <div class="field-group">
-        <label>Your Name</label>
-        <input type="text" id="cf-name" placeholder="Arjun Sharma"/>
-      </div>
-      <div class="field-group">
-        <label>Your Email <span class="req">*</span></label>
-        <input type="email" id="cf-email" placeholder="arjun@gmail.com"/>
-      </div>
-      <div class="field-group">
-        <label>Subject</label>
-        <input type="text" id="cf-subject" placeholder="Bug report / Feedback / Question"/>
-      </div>
-      <div class="field-group">
-        <label>Message <span class="req">*</span></label>
-        <textarea id="cf-message" rows="5" placeholder="Write your message here..."></textarea>
-      </div>
+      <div class="field-group"><label>Your Name</label><input type="text" id="cf-name" placeholder="Arjun Sharma"/></div>
+      <div class="field-group"><label>Your Email <span class="req">*</span></label><input type="email" id="cf-email" placeholder="arjun@gmail.com"/></div>
+      <div class="field-group"><label>Subject</label><input type="text" id="cf-subject" placeholder="Bug report / Feedback / Question"/></div>
+      <div class="field-group"><label>Message <span class="req">*</span></label><textarea id="cf-message" rows="5" placeholder="Write your message here..."></textarea></div>
       <button class="contact-submit" onclick="submitContact()">Send Message →</button>
-      <div class="contact-success" id="cf-success">
-        ✅ Thanks for reaching out! We'll get back to you at <strong id="cf-reply-email"></strong> within 24–48 hours.
-      </div>
-    </div>
-    <div class="page-section" style="margin-top:1.5rem;">
-      <h3>Direct contact</h3>
-      <p>📧 Email: <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
+      <div class="contact-success" id="cf-success">✅ Thanks! We'll get back to you at <strong id="cf-reply-email"></strong> within 24–48 hours.</div>
     </div>
   </div>
 </div>
@@ -1167,71 +1006,37 @@ footer a:hover{color:var(--orange);}
     <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
     <h1 class="page-title">Privacy Policy</h1>
     <p class="page-sub">Last updated: January 2025 · BanaoResume (banaoresumee.online)</p>
-    <div class="page-section">
-      <h3>1. Overview</h3>
-      <p>BanaoResume ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our website at banaoresumee.online.</p>
-    </div>
-    <div class="page-section">
-      <h3>2. Data We Do NOT Collect</h3>
-      <p>We do not collect, store, or transmit any personal information you enter into the resume builder. All resume data (your name, email, work history, skills, etc.) is processed entirely in your browser and is never sent to our servers.</p>
-    </div>
-    <div class="page-section">
-      <h3>3. Information We Do Collect</h3>
-      <p>We use Google Analytics (Google Tag Manager) to collect anonymous usage data, including:</p>
-      <ul>
-        <li>Pages visited and time spent on site</li>
-        <li>Browser type and device type</li>
-        <li>Country/region (approximate, not precise location)</li>
-        <li>Referral source (how you found us)</li>
-      </ul>
-      <p style="margin-top:0.5rem;">This data is aggregated and anonymous — we cannot identify you from it.</p>
-    </div>
-    <div class="page-section">
-      <h3>4. Cookies</h3>
-      <p>We use cookies through Google Analytics to understand how visitors use our site. These are standard analytics cookies and do not contain personal information. You can disable cookies in your browser settings at any time.</p>
-    </div>
-    <div class="page-section">
-      <h3>5. Third-Party Services</h3>
-      <p>We use the following third-party services:</p>
-      <ul>
-        <li><strong>Google Analytics</strong> — anonymous website traffic analysis (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>)</li>
-        <li><strong>Google Fonts</strong> — fonts loaded from Google's CDN</li>
-        <li><strong>PhonePe / UPI</strong> — optional donation platform (only if you tap the support button)</li>
-      </ul>
-    </div>
-    <div class="page-section">
-      <h3>6. Children's Privacy</h3>
-      <p>BanaoResume is intended for users aged 16 and above. We do not knowingly collect information from children under 13.</p>
-    </div>
-    <div class="page-section">
-      <h3>7. Changes to This Policy</h3>
-      <p>We may update this Privacy Policy occasionally. Changes will be posted on this page with an updated date. Continued use of the site after changes means you accept the updated policy.</p>
-    </div>
-    <div class="page-section">
-      <h3>8. Contact</h3>
-      <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
-    </div>
-    <div class="page-section">
-      <h3>9. Google Analytics</h3>
-      <p>We use Google Analytics to understand how visitors interact with our website. Google Analytics collects data such as how long you spend on the site, which pages you visit, and your approximate location (country/city level only). This data is anonymous and aggregated. You can opt out by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
-    </div>
-    <div class="page-section">
-      <h3>10. Cookies</h3>
-      <p>This website uses cookies to improve user experience. We use the following types:</p>
-      <ul>
-        <li><strong>Analytics cookies</strong> — set by Google Analytics to track usage patterns (anonymous)</li>
-        <li><strong>Preference cookies</strong> — to remember if you've accepted our cookie notice</li>
-      </ul>
-      <p style="margin-top:0.5rem;">You can disable cookies in your browser settings.</p>
-    </div>
-    <div class="page-section">
-      <h3>11. Google AdSense</h3>
-      <p>We may use Google AdSense to display advertisements on this website. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</p>
-    </div>
-    <div class="page-section">
-      <h3>12. Data Collection &amp; Sale</h3>
-      <p>We do not sell, trade, or rent your personal information to third parties. Any data collected through analytics is used solely to improve the website experience.</p>
-    </div>
+    <div class="page-section"><h3>1. Overview</h3><p>BanaoResume is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use banaoresumee.online.</p></div>
+    <div class="page-section"><h3>2. Data We Do NOT Collect</h3><p>We do not collect, store, or transmit any personal information you enter into the resume builder. All data is processed entirely in your browser.</p></div>
+    <div class="page-section"><h3>3. Information We Do Collect</h3><p>We use Google Analytics to collect anonymous usage data: pages visited, browser type, device type, and approximate location. This data is aggregated and cannot identify you.</p></div>
+    <div class="page-section"><h3>4. Google AdSense</h3><p>We may use Google AdSense to display advertisements. You may opt out of personalised advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</p></div>
+    <div class="page-section"><h3>5. Contact</h3><p>Questions? Email <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p></div>
+  </div>
+</div>
+
+<!-- ===================== TERMS PAGE ===================== -->
+<div class="page-overlay" id="page-terms">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Terms &amp; Conditions</h1>
+    <p class="page-sub">Last updated: January 2025</p>
+    <div class="page-section"><h3>1. Use of Website</h3><p>You may use BanaoResume for personal resume creation only. You agree not to use the website for any unlawful purpose or scrape it using automated tools.</p></div>
+    <div class="page-section"><h3>2. No Job Guarantee</h3><p>BanaoResume is a tool to help you create a resume. We do not guarantee interviews, job placements, or any employment outcome.</p></div>
+    <div class="page-section"><h3>3. Intellectual Property</h3><p>The BanaoResume name, logo, design, and templates are our intellectual property. You may not use them for commercial purposes without permission.</p></div>
+    <div class="page-section"><h3>4. Governing Law</h3><p>These terms are governed by the laws of India.</p></div>
+    <div class="page-section"><h3>5. Contact</h3><p><a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p></div>
+  </div>
+</div>
+
+<!-- ===================== DISCLAIMER PAGE ===================== -->
+<div class="page-overlay" id="page-disclaimer">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">Disclaimer</h1>
+    <p class="page-sub">Last updated: January 2025</p>
+    <div class="page-section"><h3>General Disclaimer</h3><p>Information on BanaoResume is for general resume-building purposes only. We make no warranty regarding accuracy or completeness of any information on the site.</p></div>
+    <div class="page-section"><h3>No Employment Guarantee</h3><p>Use of BanaoResume does not guarantee employment, interviews, or any specific career outcome.</p></div>
+    <div class="page-section"><h3>Contact</h3><p><a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p></div>
   </div>
 </div>
 
@@ -1250,111 +1055,10 @@ footer a:hover{color:var(--orange);}
 <!-- PRINT TARGET -->
 <div id="resume-print-area"></div>
 
-<!-- ===================== TERMS PAGE ===================== -->
-<div class="page-overlay" id="page-terms">
-  <div class="page-inner">
-    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
-    <h1 class="page-title">Terms &amp; Conditions</h1>
-    <p class="page-sub">Last updated: January 2025 · Please read these terms carefully before using BanaoResume.</p>
-    <div class="page-section">
-      <h3>1. Acceptance of Terms</h3>
-      <p>By accessing or using BanaoResume at banaoresumee.online, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the website.</p>
-    </div>
-    <div class="page-section">
-      <h3>2. Use of Website</h3>
-      <p>You may use BanaoResume for personal and professional resume creation purposes only. You agree not to:</p>
-      <ul>
-        <li>Use the website for any unlawful purpose</li>
-        <li>Attempt to gain unauthorized access to any part of the website</li>
-        <li>Reproduce, duplicate, or copy any part of the website without permission</li>
-        <li>Use the website to transmit spam, malware, or harmful content</li>
-        <li>Scrape or crawl the website using automated tools</li>
-      </ul>
-    </div>
-    <div class="page-section">
-      <h3>3. No Job Guarantee</h3>
-      <p>BanaoResume is a tool to help you create a resume. We do not guarantee interviews, job placements, or any employment outcome. The quality and success of your job application depends entirely on your own qualifications and the requirements of employers.</p>
-    </div>
-    <div class="page-section">
-      <h3>4. User Responsibility</h3>
-      <p>You are solely responsible for the accuracy, completeness, and legality of all information you enter into your resume. BanaoResume does not verify, endorse, or take responsibility for any content you create using this tool.</p>
-    </div>
-    <div class="page-section">
-      <h3>5. Intellectual Property</h3>
-      <p>The BanaoResume name, logo, website design, templates, and all associated content are the intellectual property of BanaoResume. You may not copy, modify, distribute, or use our branding or templates for commercial purposes without written permission.</p>
-    </div>
-    <div class="page-section">
-      <h3>6. Privacy &amp; Data</h3>
-      <p>Your resume data is processed entirely in your browser and is never stored on our servers. Please read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details.</p>
-    </div>
-    <div class="page-section">
-      <h3>7. Third-Party Links</h3>
-      <p>Our website may contain links to third-party websites. We are not responsible for the content, privacy practices, or reliability of any third-party websites.</p>
-    </div>
-    <div class="page-section">
-      <h3>8. Limitation of Liability</h3>
-      <p>BanaoResume is provided "as is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for any direct, indirect, incidental, or consequential losses resulting from your use of this website.</p>
-    </div>
-    <div class="page-section">
-      <h3>9. Service Availability</h3>
-      <p>We do not guarantee that the website will be available 100% of the time. We may suspend, discontinue, or modify the service at any time without notice.</p>
-    </div>
-    <div class="page-section">
-      <h3>10. Changes to Terms</h3>
-      <p>We reserve the right to update these Terms and Conditions at any time. Continued use of the website after changes constitutes your acceptance of the new terms.</p>
-    </div>
-    <div class="page-section">
-      <h3>11. Governing Law</h3>
-      <p>These terms are governed by the laws of India. Any disputes arising from use of this website will be subject to the jurisdiction of Indian courts.</p>
-    </div>
-    <div class="page-section">
-      <h3>12. Contact</h3>
-      <p>For any questions regarding these Terms, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== DISCLAIMER PAGE ===================== -->
-<div class="page-overlay" id="page-disclaimer">
-  <div class="page-inner">
-    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
-    <h1 class="page-title">Disclaimer</h1>
-    <p class="page-sub">Last updated: January 2025 · banaoresumee.online</p>
-    <div class="page-section">
-      <h3>General Disclaimer</h3>
-      <p>The information provided by BanaoResume on banaoresumee.online is for general informational and resume-building purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy, adequacy, validity, reliability, or completeness of any information on the site.</p>
-    </div>
-    <div class="page-section">
-      <h3>No Professional Advice</h3>
-      <p>The resume templates, tips, and suggestions provided by BanaoResume do not constitute professional career advice, legal advice, or HR consulting. You should consult a qualified career counsellor or HR professional for advice specific to your situation.</p>
-    </div>
-    <div class="page-section">
-      <h3>No Employment Guarantee</h3>
-      <p>Use of BanaoResume does not guarantee employment, interviews, or any specific career outcome. Job market success depends on many factors outside our control.</p>
-    </div>
-    <div class="page-section">
-      <h3>External Links</h3>
-      <p>Our website may contain links to external websites. These links are provided for convenience only. We have no control over the content of those sites and accept no responsibility for them.</p>
-    </div>
-    <div class="page-section">
-      <h3>Errors and Omissions</h3>
-      <p>While we strive to keep the information on BanaoResume up-to-date and correct, we make no representations about the completeness, accuracy, or suitability of the information. Any reliance you place on such information is strictly at your own risk.</p>
-    </div>
-    <div class="page-section">
-      <h3>Advertising Disclaimer</h3>
-      <p>BanaoResume may display advertisements through Google AdSense or other networks. The display of ads does not constitute an endorsement of those products or services.</p>
-    </div>
-    <div class="page-section">
-      <h3>Contact</h3>
-      <p>If you have any questions about this Disclaimer, please contact us at <a href="mailto:support@banaoresumee.online">support@banaoresumee.online</a></p>
-    </div>
-  </div>
-</div>
-
 <!-- ===================== COOKIE BANNER ===================== -->
 <div id="cookieBanner" style="position:fixed;bottom:20px;left:20px;right:20px;background:#1A1008;color:#EDE3D9;padding:14px 18px;border-radius:12px;z-index:9999;font-size:0.78rem;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1.5px solid #3D2E1E;max-width:680px;margin:0 auto;">
   <span>This website uses cookies and Google Analytics to improve your experience. <a href="#" onclick="showPage('privacy');return false;" style="color:#FF6B35;text-decoration:underline;">Learn more</a></span>
-  <button onclick="acceptCookies()" style="background:#FF6B35;color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;white-space:nowrap;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='#E85520'" onmouseout="this.style.background='#FF6B35'">Accept</button>
+  <button onclick="acceptCookies()" style="background:#FF6B35;color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;white-space:nowrap;flex-shrink:0;">Accept</button>
 </div>
 
 <script>
@@ -1383,7 +1087,6 @@ function toggleFaq(id) {
   const item = document.getElementById(id);
   if (!item) return;
   const isOpen = item.classList.contains('open');
-  // Close all in same container
   const parent = item.parentElement;
   parent.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
@@ -1421,12 +1124,9 @@ function handlePhonePeClick(e) {
   const phonePeUrl  = 'phonepe://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&cu=INR&tn=' + encodeURIComponent(UPI_NOTE);
   const upiUrl      = 'upi://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&cu=INR&tn=' + encodeURIComponent(UPI_NOTE);
   const isMobile    = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
   if (isMobile) {
     window.location.href = phonePeUrl;
-    setTimeout(function () {
-      if (!document.hidden) window.location.href = upiUrl;
-    }, 1500);
+    setTimeout(function () { if (!document.hidden) window.location.href = upiUrl; }, 1500);
   } else {
     const existing = document.getElementById('phonepe-qr-modal');
     if (existing) { existing.remove(); return; }
@@ -1436,26 +1136,24 @@ function handlePhonePeClick(e) {
     modal.id = 'phonepe-qr-modal';
     modal.style.cssText = 'position:fixed;inset:0;background:rgba(10,5,20,0.65);z-index:2000;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);';
     modal.innerHTML = [
-      '<div class="pp-card" style="background:#fff;border-radius:22px;padding:1.75rem 1.5rem 1.5rem;max-width:290px;width:100%;text-align:center;box-shadow:0 28px 60px rgba(95,37,159,0.22),0 6px 20px rgba(0,0,0,0.15);position:relative;">',
-        '<button onclick="document.getElementById(\'phonepe-qr-modal\').remove()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#9C8677;line-height:1;transition:color 0.2s;" onmouseover="this.style.color=\'#5f259f\'" onmouseout="this.style.color=\'#9C8677\'">&times;</button>',
-        '<div style="width:50px;height:50px;border-radius:14px;background:#5f259f;display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;box-shadow:0 4px 14px rgba(95,37,159,0.4);">',
+      '<div class="pp-card" style="background:#fff;border-radius:22px;padding:1.75rem 1.5rem 1.5rem;max-width:290px;width:100%;text-align:center;box-shadow:0 28px 60px rgba(95,37,159,0.22);position:relative;">',
+        '<button onclick="document.getElementById(\'phonepe-qr-modal\').remove()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#9C8677;">&times;</button>',
+        '<div style="width:50px;height:50px;border-radius:14px;background:#5f259f;display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;">',
           '<svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M22 8h-7.5C12 8 10 10 10 12.5c0 2 1.2 3.7 3 4.3l-3.5 7.2h3.2l3.3-6.8H18v6.8h3V8z" fill="white"/></svg>',
         '</div>',
         '<div style="font-family:\'Fraunces\',serif;font-size:1.1rem;font-weight:900;color:#1A1008;margin-bottom:0.2rem;">Support BanaoResume</div>',
-        '<div style="font-size:0.72rem;color:#9C8677;margin-bottom:1.1rem;line-height:1.5;">Open PhonePe → tap <strong style="color:#5f259f;">Scan QR</strong> → scan below</div>',
-        '<div style="background:linear-gradient(135deg,#f5eeff,#ede0ff);border-radius:16px;padding:1rem;margin-bottom:1rem;display:inline-block;box-shadow:inset 0 2px 8px rgba(95,37,159,0.08);">',
-          '<img src="', qrSrc, '" alt="Scan with PhonePe" style="width:180px;height:180px;border-radius:10px;display:block;" onerror="this.parentElement.innerHTML=\'<div style=&quot;width:180px;height:180px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#5f259f;line-height:1.6;&quot;>QR unavailable.<br>Use UPI ID below.</div>\'"/>',
+        '<div style="font-size:0.72rem;color:#9C8677;margin-bottom:1.1rem;">Open PhonePe → tap <strong style="color:#5f259f;">Scan QR</strong> → scan below</div>',
+        '<div style="background:linear-gradient(135deg,#f5eeff,#ede0ff);border-radius:16px;padding:1rem;margin-bottom:1rem;display:inline-block;">',
+          '<img src="', qrSrc, '" alt="Scan with PhonePe" style="width:180px;height:180px;border-radius:10px;display:block;"/>',
         '</div>',
-        '<div style="background:#f5eeff;border-radius:12px;padding:0.65rem 0.9rem;margin-bottom:0.75rem;border:1.5px solid rgba(95,37,159,0.15);">',
-          '<div style="font-size:0.6rem;color:#9C8677;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">Or pay manually · UPI ID</div>',
-          '<div style="font-weight:700;color:#5f259f;font-family:\'JetBrains Mono\',monospace;font-size:0.95rem;letter-spacing:0.03em;">', UPI_ID, '</div>',
+        '<div style="background:#f5eeff;border-radius:12px;padding:0.65rem 0.9rem;margin-bottom:0.75rem;">',
+          '<div style="font-size:0.6rem;color:#9C8677;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">UPI ID</div>',
+          '<div style="font-weight:700;color:#5f259f;font-family:\'JetBrains Mono\',monospace;">', UPI_ID, '</div>',
         '</div>',
-        '<div style="font-size:0.63rem;color:#C4B4A4;line-height:1.7;">Pay any amount — even ₹10 helps 💜<br>Keeps BanaoResume free for everyone</div>',
+        '<div style="font-size:0.63rem;color:#C4B4A4;">Pay any amount — even ₹10 helps 💜</div>',
       '</div>'
     ].join('');
     modal.addEventListener('click', function (ev) { if (ev.target === modal) modal.remove(); });
-    function escClose(ev) { if (ev.key === 'Escape') { modal.remove(); document.removeEventListener('keydown', escClose); } }
-    document.addEventListener('keydown', escClose);
     document.body.appendChild(modal);
   }
 }
@@ -1504,6 +1202,10 @@ function applyTemplate(tpl) {
   currentTemplate = tpl;
   document.querySelectorAll('.tpl-card').forEach(c => c.classList.remove('selected'));
   document.getElementById('tpl-' + tpl).classList.add('selected');
+  // Show/hide info banners
+  document.querySelectorAll('[id^="tpl-info-"]').forEach(el => el.style.display = 'none');
+  const infoEl = document.getElementById('tpl-info-' + tpl);
+  if (infoEl) infoEl.style.display = 'block';
   refreshPreview();
 }
 
@@ -1624,12 +1326,100 @@ function getData() {
   return data;
 }
 
+/* =====================================================
+   IIT-TO-GOOGLE FORMAT: single-column HTML builder
+===================================================== */
+function buildIITGoogleHTML(d) {
+  const pLink = '#1155CC';
+  const contactBits = [
+    d.email    && `<span><a href="mailto:${d.email}" style="color:${pLink};">${d.email}</a></span>`,
+    d.phone    && `<span>${d.phone}</span>`,
+    d.location && `<span>${d.location}</span>`,
+    d.website  && `<span><a href="${d.website.startsWith('http')?d.website:'https://'+d.website}" target="_blank" style="color:${pLink};">${d.website}</a></span>`,
+    d.github   && `<span><a href="${d.github.startsWith('http')?d.github:'https://'+d.github}" target="_blank" style="color:${pLink};">${d.github}</a></span>`,
+  ].filter(Boolean).join(' &nbsp;·&nbsp; ');
+
+  const secTitle = (t) => `<div style="font-size:9.5px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#0d0d0d;padding-bottom:2px;border-bottom:1.5px solid #0d0d0d;margin-bottom:7px;margin-top:12px;">${t}</div>`;
+
+  let html = `<div class="resume-doc tpl-iitgoogle" style="padding:22px 28px 28px;">
+    <div style="text-align:center;padding-bottom:10px;border-bottom:2px solid #0d0d0d;margin-bottom:4px;">
+      <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:800;color:#0d0d0d;letter-spacing:-0.01em;line-height:1;">${d.name || 'YOUR NAME'}</div>
+      ${d.jobTitle ? `<div style="font-size:11px;color:#444;margin-top:3px;font-weight:400;">${d.jobTitle}</div>` : ''}
+      ${contactBits ? `<div style="font-size:9px;color:#333;margin-top:6px;font-family:'JetBrains Mono',monospace;line-height:1.8;">${contactBits}</div>` : ''}
+    </div>`;
+
+  // Education first for freshers, experience first for experienced
+  const eduSection = d.education.filter(e => e.degree || e.institution).length ? `
+    ${secTitle('Education')}
+    ${d.education.filter(e => e.degree || e.institution).map(e => `
+      <div style="margin-bottom:7px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div style="font-size:10.5px;font-weight:700;color:#0d0d0d;">${e.degree || ''}</div>
+          <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;">${e.year || ''}</div>
+        </div>
+        <div style="font-size:10px;color:#333;">${e.institution || ''}${e.gpa ? ' &nbsp;·&nbsp; <strong>' + e.gpa + '</strong>' : ''}</div>
+      </div>`).join('')}` : '';
+
+  const expSection = d.experience.filter(e => e.title || e.company).length ? `
+    ${secTitle('Experience')}
+    ${d.experience.filter(e => e.title || e.company).map(e => `
+      <div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div style="font-size:10.5px;font-weight:700;color:#0d0d0d;">${e.title || ''}</div>
+          <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;">${e.start || ''}${e.end ? ' – ' + e.end : ''}</div>
+        </div>
+        ${e.company ? `<div style="font-size:10px;color:#333;font-style:italic;">${e.company}</div>` : ''}
+        ${e.desc    ? `<div style="font-size:10px;color:#222;line-height:1.65;margin-top:2px;padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#555;">▸</span>${e.desc}</div>` : ''}
+      </div>`).join('')}` : '';
+
+  const projSection = d.projects.filter(p => p.name).length ? `
+    ${secTitle('Projects')}
+    ${d.projects.filter(p => p.name).map(p => `
+      <div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div style="font-size:10.5px;font-weight:700;color:#0d0d0d;">${p.name}${p.tech ? ` <span style="font-weight:400;color:#555;font-size:9px;">| ${p.tech}</span>` : ''}</div>
+          <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;">${p.year || ''}${p.link ? ` · <a href="${p.link.startsWith('http')?p.link:'https://'+p.link}" target="_blank" style="color:${pLink};">${p.link}</a>` : ''}</div>
+        </div>
+        ${p.desc ? `<div style="font-size:10px;color:#222;line-height:1.65;margin-top:2px;padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#555;">▸</span>${p.desc}</div>` : ''}
+      </div>`).join('')}` : '';
+
+  const skillsSection = d.skills.tech.length ? `
+    ${secTitle('Technical Skills')}
+    <div style="font-size:10px;color:#222;line-height:1.8;">
+      ${d.skills.tech.length    ? `<div><strong style="font-size:9.5px;">Languages/Frameworks:</strong> ${d.skills.tech.join(', ')}</div>` : ''}
+      ${d.skills.tools.length   ? `<div><strong style="font-size:9.5px;">Tools &amp; Platforms:</strong> ${d.skills.tools.join(', ')}</div>` : ''}
+      ${d.skills.soft.length    ? `<div><strong style="font-size:9.5px;">Soft Skills:</strong> ${d.skills.soft.join(', ')}</div>` : ''}
+      ${d.skills.langs.length   ? `<div><strong style="font-size:9.5px;">Languages:</strong> ${d.skills.langs.join(', ')}</div>` : ''}
+    </div>` : '';
+
+  const achSection = d.achievements.length ? `
+    ${secTitle('Achievements & Certifications')}
+    ${d.achievements.map(a => `<div style="font-size:10px;color:#222;line-height:1.65;margin-bottom:4px;padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#555;">▸</span>${a}</div>`).join('')}` : '';
+
+  const aboutSection = d.about ? `
+    ${secTitle('Summary')}
+    <div style="font-size:10px;color:#222;line-height:1.75;">${d.about}</div>` : '';
+
+  if (userMode === 'fresher') {
+    html += aboutSection + eduSection + projSection + expSection + skillsSection + achSection;
+  } else {
+    html += aboutSection + expSection + projSection + eduSection + skillsSection + achSection;
+  }
+  html += '</div>';
+  return html;
+}
+
 function buildResumeHTML(d, bw) {
+  // IIT-to-Google always uses its own builder (always B&W by design)
+  if (currentTemplate === 'iitgoogle') {
+    return buildIITGoogleHTML(d);
+  }
+
   let tplClass = '';
   if (bw) tplClass = ' tpl-minimal';
   else if (currentTemplate !== 'modern') tplClass = ' tpl-' + currentTemplate;
-  const hLink = bw ? '#ccc' : (currentTemplate === 'classic' ? '#90cdf4' : currentTemplate === 'elegant' ? '#9ae6b4' : currentTemplate === 'bold' ? '#d6bcfa' : currentTemplate === 'warm' ? '#fbd38d' : '#FFB899');
-  const pLink = bw ? '#333' : (currentTemplate === 'classic' ? '#2b6cb0' : currentTemplate === 'elegant' ? '#276749' : currentTemplate === 'bold' ? '#6b46c1' : currentTemplate === 'warm' ? '#c05621' : '#FF6B35');
+  const hLink = bw ? '#ccc' : '#FFB899';
+  const pLink = bw ? '#333' : '#FF6B35';
   const contactBits = [
     d.email    && `<span>✉ <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
     d.phone    && `<span>✆ ${d.phone}</span>`,
@@ -1707,6 +1497,7 @@ function refreshPreview() {
 
 function downloadResume(bw) {
   bw = bw || false;
+  // IIT-to-Google is always its own format (no forced B&W override — already black)
   const d         = getData();
   const html      = buildResumeHTML(d, bw);
   const printArea = document.getElementById('resume-print-area');
