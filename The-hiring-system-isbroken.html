@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Hiring System Is Broken | BanaoResume Investigates</title>
+<meta name="description" content="Ghost jobs, AI screening, 3.3% response rates — the job market is rigged. Here's the data, the cheat code, and how to win anyway. By BanaoResume."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080708;
+  --surface:#101010;
+  --surface2:#181718;
+  --cream:#F2EBDB;
+  --dim:rgba(242,235,219,.55);
+  --dimmer:rgba(242,235,219,.28);
+  --yellow:#FFE033;
+  --yellow-dim:rgba(255,224,51,.1);
+  --yellow-glow:rgba(255,224,51,.2);
+  --red:#FF2C20;
+  --red-dim:rgba(255,44,32,.09);
+  --green:#00D97E;
+  --green-dim:rgba(0,217,126,.08);
+  --border:rgba(242,235,219,.1);
+  --border2:rgba(242,235,219,.2);
+  --FD:'Oswald',sans-serif;
+  --FB:'Lora',serif;
+  --FA:'Bebas Neue',cursive;
+  --FM:'DM Mono',monospace
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--FB);font-size:17px;line-height:1.78;overflow-x:hidden}
+
+/* PROGRESS */
+#pb{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--yellow);z-index:9999;transition:width .08s linear}
+
+/* TICKER */
+.ticker{background:var(--yellow);color:#080708;overflow:hidden;height:34px;display:flex;align-items:center;position:relative}
+.ticker-label{background:#080708;color:var(--yellow);font-family:var(--FM);font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:0 16px;height:100%;display:flex;align-items:center;flex-shrink:0;z-index:2;white-space:nowrap}
+.ticker-track{display:flex;animation:ticker 32s linear infinite;gap:0}
+.ticker-text{white-space:nowrap;font-family:var(--FM);font-size:.7rem;font-weight:500;padding:0 40px;letter-spacing:.04em}
+.ticker-sep{color:rgba(8,7,8,.4);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NAV */
+nav{position:sticky;top:0;left:0;right:0;z-index:998;display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 5%;background:rgba(8,7,8,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nl{font-family:var(--FD);font-weight:700;font-size:1.1rem;color:var(--cream);text-decoration:none;letter-spacing:.04em}
+.nl span{color:var(--yellow)}
+.nlinks{display:flex;align-items:center;gap:22px;list-style:none}
+.nlinks a{color:var(--dim);text-decoration:none;font-family:var(--FM);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nlinks a:hover{color:var(--cream)}
+.ncta{background:var(--yellow)!important;color:#080708!important;padding:7px 18px;border-radius:4px;font-weight:500!important;transition:opacity .2s!important}
+.ncta:hover{opacity:.88!important}
+
+/* RULES */
+.rule{width:100%;height:1px;background:var(--border);display:block}
+.rule-y{height:1px;background:linear-gradient(90deg,transparent,var(--yellow-glow),transparent);display:block;width:100%}
+
+/* HERO */
+.hero{padding:80px 8% 70px;position:relative;border-bottom:2px solid var(--cream)}
+.hero-eyebrow{font-family:var(--FM);font-size:.72rem;letter-spacing:.18em;color:var(--yellow);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--yellow);opacity:.35}
+.hero-headline{font-family:var(--FD);font-weight:700;font-size:clamp(3rem,9vw,8rem);line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:20px;color:var(--cream)}
+.hero-headline em{color:var(--yellow);font-style:normal;display:block}
+.hero-deck{font-family:var(--FB);font-style:italic;font-size:clamp(1rem,2.2vw,1.3rem);color:var(--dim);max-width:820px;line-height:1.7;border-top:2px solid var(--cream);padding-top:24px;margin-top:30px}
+.hero-deck strong{color:var(--cream);font-style:normal}
+.hero-meta{display:flex;align-items:center;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-byline{font-family:var(--FM);font-size:.68rem;letter-spacing:.08em;color:var(--dimmer);text-transform:uppercase}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-family:var(--FM);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border2);color:var(--dim);padding:4px 12px;border-radius:2px}
+.pill.y{border-color:rgba(255,224,51,.4);color:var(--yellow)}
+.hero-stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:56px;border:1px solid var(--border)}
+.hs{background:var(--bg);padding:28px 32px}
+.hs-num{font-family:var(--FA);font-size:3.8rem;line-height:1;color:var(--yellow)}
+.hs-lbl{font-family:var(--FM);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+
+/* PULL QUOTE */
+.pq{padding:70px 8%;text-align:center;border-bottom:1px solid var(--border)}
+.pq blockquote{font-family:var(--FD);font-weight:700;font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.15;letter-spacing:.01em;text-transform:uppercase;color:var(--cream);max-width:900px;margin:0 auto}
+.pq blockquote em{color:var(--yellow);font-style:normal}
+.pq cite{display:block;font-family:var(--FM);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer);margin-top:24px}
+
+/* SECTIONS */
+.sec{padding:80px 8%;border-bottom:1px solid var(--border)}
+.sec-inner{max-width:1160px;margin:0 auto}
+.sec-label{font-family:var(--FM);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sec-label::before{content:'';width:32px;height:1px;background:var(--yellow)}
+.sec-h{font-family:var(--FD);font-weight:700;font-size:clamp(2rem,5vw,4rem);line-height:1.05;text-transform:uppercase;letter-spacing:.01em;margin-bottom:20px;color:var(--cream)}
+.sec-sub{font-family:var(--FB);font-style:italic;font-size:1.05rem;color:var(--dim);margin-bottom:52px;max-width:680px;line-height:1.75}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.25s}.rv.d4{transition-delay:.35s}.rv.d5{transition-delay:.45s}
+
+/* CRASH STATS - numbered editorial list */
+.crash-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.crash-item{display:grid;grid-template-columns:72px 1fr;gap:28px;align-items:start;padding:32px 0;border-bottom:1px solid var(--border)}
+.crash-item:last-child{border-bottom:none}
+.crash-n{font-family:var(--FA);font-size:3.2rem;color:rgba(242,235,219,.18);line-height:1}
+.crash-body{padding-top:6px}
+.crash-body h3{font-family:var(--FD);font-weight:600;font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px;color:var(--cream)}
+.crash-body h3 strong{color:var(--yellow)}
+.crash-body p{font-size:.9rem;color:var(--dim);line-height:1.75}
+
+/* BIG DATA CALLOUT */
+.bdc{padding:60px 8%;text-align:center;background:var(--yellow);position:relative;overflow:hidden}
+.bdc-num{font-family:var(--FA);font-size:clamp(6rem,18vw,14rem);line-height:.85;color:#080708;display:block}
+.bdc-label{font-family:var(--FD);font-weight:700;font-size:clamp(1.2rem,3vw,2rem);text-transform:uppercase;letter-spacing:.05em;color:#080708;margin-top:16px}
+.bdc-sub{font-family:var(--FB);font-size:.95rem;color:rgba(8,7,8,.65);margin-top:8px;font-style:italic}
+
+/* MYTH VS REALITY FLIP CARDS */
+.myth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+.fc{perspective:1000px;height:200px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.fc:hover .fc-inner,.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:4px;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.fc-front{background:var(--surface);border:1px solid var(--border2)}
+.fc-back{background:var(--surface2);border:1px solid rgba(0,217,126,.3);transform:rotateY(180deg)}
+.fc-tag{font-family:var(--FM);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:2px;display:inline-block;margin-bottom:10px}
+.fc-front .fc-tag{background:rgba(255,44,32,.12);color:var(--red);border:1px solid rgba(255,44,32,.25)}
+.fc-back .fc-tag{background:rgba(0,217,126,.12);color:var(--green);border:1px solid rgba(0,217,126,.25)}
+.fc-body{font-family:var(--FD);font-weight:600;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.35;color:var(--cream)}
+.fc-back .fc-body{color:var(--green)}
+.fc-hint{font-family:var(--FM);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer);margin-top:auto}
+
+/* GHOST JOBS WARNING */
+.ghost-bg{background:var(--red-dim);border-top:2px solid rgba(255,44,32,.35);border-bottom:2px solid rgba(255,44,32,.35)}
+.ghost-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+.ghost-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.ghost-list li{font-size:.9rem;color:var(--dim);padding-left:24px;position:relative;line-height:1.7}
+.ghost-list li::before{content:'!';position:absolute;left:0;color:var(--red);font-family:var(--FM);font-weight:700;font-size:.75rem}
+.ghost-stat-card{background:rgba(255,44,32,.1);border:1px solid rgba(255,44,32,.3);border-radius:4px;padding:28px;text-align:center;margin-bottom:20px}
+.ghost-stat-num{font-family:var(--FA);font-size:4rem;color:var(--red);line-height:1}
+.ghost-stat-lbl{font-family:var(--FM);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,44,32,.7);margin-top:6px}
+.warn-box{background:rgba(255,44,32,.08);border-left:4px solid var(--red);padding:20px 24px;border-radius:0 4px 4px 0;margin-top:24px}
+.warn-box h4{font-family:var(--FD);font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin-bottom:8px}
+.warn-box p{font-size:.85rem;color:var(--dim);line-height:1.7}
+
+/* HIDDEN MARKET */
+.hm-bg{background:var(--green-dim);border-top:1px solid rgba(0,217,126,.2);border-bottom:1px solid rgba(0,217,126,.2)}
+.hm-pull{font-family:var(--FD);font-weight:700;font-size:clamp(3rem,8vw,7rem);line-height:.9;text-transform:uppercase;color:var(--green);letter-spacing:-.01em;margin-bottom:40px}
+.hm-pull small{font-size:.28em;color:var(--dim);display:block;letter-spacing:.12em;font-weight:400;margin-bottom:8px;text-transform:uppercase}
+.hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+.hm-step{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(0,217,126,.12)}
+.hm-step:last-child{border-bottom:none}
+.hm-step-n{font-family:var(--FA);font-size:2rem;color:rgba(0,217,126,.3);flex-shrink:0;width:48px;line-height:1}
+.hm-step h4{font-family:var(--FD);font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;color:var(--green);margin-bottom:6px}
+.hm-step p{font-size:.85rem;color:var(--dim);line-height:1.72}
+
+/* 15x NETWORKING */
+.net-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.net-big{font-family:var(--FA);font-size:clamp(7rem,18vw,12rem);line-height:.85;color:var(--yellow);display:block}
+.net-lbl{font-family:var(--FD);font-size:1.3rem;text-transform:uppercase;letter-spacing:.06em;color:var(--cream);margin-top:12px}
+.net-src{font-family:var(--FM);font-size:.65rem;letter-spacing:.1em;color:var(--dimmer);margin-top:8px;text-transform:uppercase}
+.net-compare{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;margin-top:24px}
+.nc-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.nc-row:last-child{border-bottom:none}
+.nc-label{font-family:var(--FM);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--dim)}
+.nc-val{font-family:var(--FD);font-size:1.1rem;font-weight:700;letter-spacing:.02em}
+.nc-val.bad{color:var(--red)}
+.nc-val.good{color:var(--green)}
+.nc-val.great{color:var(--yellow)}
+.net-steps{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.ns{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border)}
+.ns:last-child{border-bottom:none}
+.ns-n{font-family:var(--FA);font-size:2.2rem;color:var(--yellow);line-height:1;flex-shrink:0;width:44px}
+.ns h4{font-family:var(--FD);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:5px}
+.ns p{font-size:.85rem;color:var(--dim);line-height:1.7}
+
+/* PERSONAL BRAND */
+.pb-split{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.pb-quote{font-family:var(--FD);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.8rem);line-height:1.15;text-transform:uppercase;letter-spacing:.01em;color:var(--cream)}
+.pb-quote em{color:var(--yellow);font-style:normal;display:block}
+.pb-stat-stack{display:flex;flex-direction:column;gap:16px}
+.pb-stat{border:1px solid var(--border);border-radius:4px;padding:22px 24px;background:var(--surface);transition:border-color .3s,background .3s}
+.pb-stat:hover{border-color:rgba(255,224,51,.3);background:var(--surface2)}
+.pb-stat-n{font-family:var(--FA);font-size:2.8rem;color:var(--yellow);line-height:1}
+.pb-stat-lbl{font-family:var(--FM);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+
+/* WIN SYSTEM */
+.win-steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.win-step{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background .3s}
+.win-step:last-child{border-bottom:none}
+.win-step:hover{background:var(--surface2)}
+.win-n-box{background:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:var(--FA);font-size:2.8rem;color:#080708;padding:24px 0}
+.win-content{padding:24px 28px}
+.win-content h3{font-family:var(--FD);font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:8px}
+.win-content p{font-size:.88rem;color:var(--dim);line-height:1.72}
+.win-tag{display:inline-block;margin-top:10px;font-family:var(--FM);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--yellow-dim);border:1px solid rgba(255,224,51,.25);color:var(--yellow);padding:4px 12px;border-radius:2px}
+
+/* VIDEOS */
+.vid-bg{background:var(--surface)}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.vc{background:var(--bg);border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;transition:border-color .3s,transform .3s}
+.vc:hover{border-color:rgba(255,224,51,.4);transform:translateY(-4px)}
+.vt{aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vt1{background:#0a0a18}
+.vt2{background:#0f0808}
+.vt3{background:#060d06}
+.vt-num{font-family:var(--FA);font-size:6rem;opacity:.12;color:var(--cream);position:absolute;bottom:-10px;right:10px;line-height:1}
+.vplay{width:56px;height:56px;border:2px solid rgba(255,255,255,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;z-index:2;transition:all .25s;color:var(--cream)}
+.vc:hover .vplay{background:var(--yellow);border-color:var(--yellow);color:#080708}
+.vt-label{position:absolute;bottom:10px;left:10px;font-family:var(--FM);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.65);color:var(--cream);padding:3px 9px;border-radius:2px}
+.vi{padding:20px}
+.vi-cat{font-family:var(--FM);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
+.vi h3{font-family:var(--FD);font-size:1rem;text-transform:uppercase;letter-spacing:.03em;color:var(--cream);margin-bottom:8px;line-height:1.35}
+.vi p{font-size:.8rem;color:var(--dim);line-height:1.65}
+
+/* CTA */
+.cta-s{padding:100px 8%;text-align:center;border-top:2px solid var(--cream);position:relative;overflow:hidden}
+.cta-s::before{content:'RESUME';position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);font-family:var(--FA);font-size:20rem;color:rgba(242,235,219,.025);white-space:nowrap;pointer-events:none}
+.cta-s .sec-label{justify-content:center}
+.cta-s .sec-label::before{display:none}
+.cta-h{font-family:var(--FD);font-weight:700;font-size:clamp(2.5rem,7vw,6rem);text-transform:uppercase;letter-spacing:-.01em;color:var(--cream);margin:16px 0}
+.cta-h em{color:var(--yellow);font-style:normal}
+.cta-p{font-family:var(--FB);font-style:italic;font-size:1.05rem;color:var(--dim);max-width:580px;margin:0 auto 40px;line-height:1.75}
+.cta-feats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.cf{font-family:var(--FM);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:8px}
+.cf::before{content:'✓';color:var(--green);font-size:.9rem}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:#080708;font-family:var(--FD);font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding:18px 44px;border-radius:4px;transition:transform .22s,box-shadow .22s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,224,51,.25)}
+
+/* FOOTER */
+footer{background:var(--surface);padding:40px 8%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.fl{font-family:var(--FD);font-weight:700;font-size:1rem;text-decoration:none;color:var(--cream);letter-spacing:.04em}
+.fl span{color:var(--yellow)}
+footer p{font-family:var(--FM);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dimmer)}
+.flinks{display:flex;gap:20px}
+.flinks a{font-family:var(--FM);font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--dimmer);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--cream)}
+
+/* FAB */
+.fab{position:fixed;bottom:24px;right:24px;z-index:950;background:var(--yellow);color:#080708;font-family:var(--FD);font-weight:700;font-size:.88rem;text-transform:uppercase;letter-spacing:.06em;padding:13px 22px;border-radius:4px;text-decoration:none;box-shadow:0 6px 28px rgba(255,224,51,.3);transition:transform .22s,box-shadow .22s;display:flex;align-items:center;gap:8px;animation:fabpop .5s ease .5s both}
+@keyframes fabpop{from{opacity:0;transform:scale(.75) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.fab:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,224,51,.4)}
+
+/* MODAL */
+.vmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9000;align-items:center;justify-content:center;padding:20px}
+.vmodal.open{display:flex}
+.vmod-inner{background:var(--surface);border-radius:4px;overflow:hidden;max-width:900px;width:100%;position:relative;border:1px solid var(--border2)}
+.vmod-x{position:absolute;top:10px;right:12px;background:rgba(255,255,255,.1);border:none;color:var(--cream);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;z-index:10;transition:background .2s}
+.vmod-x:hover{background:var(--red)}
+.vmod-frame{width:100%;aspect-ratio:16/9;border:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .ghost-grid,.hm-grid,.net-layout,.pb-split{grid-template-columns:1fr}
+  .hero-stats-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  nav{padding:0 5%}
+  .nlinks{display:none}
+  .hero,.sec,.bdc,.pq,.cta-s{padding-left:5%;padding-right:5%}
+  .win-step{grid-template-columns:60px 1fr}
+  .win-n-box{font-size:2rem;padding:20px 0}
+  footer{flex-direction:column;text-align:center}
+  .flinks{justify-content:center}
+  .hero-stats-row{grid-template-columns:1fr}
+  .fab{bottom:16px;right:16px;font-size:.8rem;padding:11px 18px}
+}
+</style>
+</head>
+<body>
+
+<div id="pb"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">⚠ BREAKING</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <span class="ticker-text">70% of jobs are NEVER posted publicly &nbsp;<span class="ticker-sep">●</span>&nbsp; Job board response rate: just 3.3% &nbsp;<span class="ticker-sep">●</span>&nbsp; Referred candidates are 15× more likely to be hired &nbsp;<span class="ticker-sep">●</span>&nbsp; 30–60% of job listings are ghost jobs &nbsp;<span class="ticker-sep">●</span>&nbsp; AI writes cover letters — AI ignores them &nbsp;<span class="ticker-sep">●</span>&nbsp; 70% of professionals ghosted by employers &nbsp;<span class="ticker-sep">●</span>&nbsp; Entry-level hiring down 20% since ChatGPT launched &nbsp;<span class="ticker-sep">●</span>&nbsp; 85% of job seekers take 9+ months to land a role &nbsp;<span class="ticker-sep">●</span>&nbsp;</span>
+      <span class="ticker-text">70% of jobs are NEVER posted publicly &nbsp;<span class="ticker-sep">●</span>&nbsp; Job board response rate: just 3.3% &nbsp;<span class="ticker-sep">●</span>&nbsp; Referred candidates are 15× more likely to be hired &nbsp;<span class="ticker-sep">●</span>&nbsp; 30–60% of job listings are ghost jobs &nbsp;<span class="ticker-sep">●</span>&nbsp; AI writes cover letters — AI ignores them &nbsp;<span class="ticker-sep">●</span>&nbsp; 70% of professionals ghosted by employers &nbsp;<span class="ticker-sep">●</span>&nbsp; Entry-level hiring down 20% since ChatGPT launched &nbsp;<span class="ticker-sep">●</span>&nbsp; 85% of job seekers take 9+ months to land a role &nbsp;<span class="ticker-sep">●</span>&nbsp;</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://banaoresumee.online" class="nl">BANAO<span>RESUME</span></a>
+  <ul class="nlinks">
+    <li><a href="#evidence">The Evidence</a></li>
+    <li><a href="#ghost">Ghost Jobs</a></li>
+    <li><a href="#hidden">Hidden Market</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#win">Win System</a></li>
+    <li><a href="https://banaoresumee.online" class="ncta">Build Resume →</a></li>
+  </ul>
+</nav>
+
+<!-- FLOATING CTA -->
+<a href="https://banaoresumee.online" class="fab" target="_blank">🚀 Build Free Resume</a>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero">
+  <div class="hero-eyebrow rv">Exclusive Investigation &nbsp;·&nbsp; BanaoResume Research Desk &nbsp;·&nbsp; 2025</div>
+  <h1 class="hero-headline rv d1">
+    The Hiring<br/>
+    System Is<br/>
+    <em>Broken.</em>
+  </h1>
+  <p class="hero-deck rv d2">
+    <strong>We have the evidence. And the cheat code.</strong> Ghost jobs are flooding job boards. AI screens what AI writes. Job board response rates collapsed to 3.3%. And 70% of all positions are filled before they're ever posted. Everything your career counsellor told you about job hunting is wrong — and this investigation proves it.
+  </p>
+  <div class="hero-meta rv d3">
+    <span class="hero-byline">Published June 2025 &nbsp;·&nbsp; BanaoResume Research Desk</span>
+    <div class="hero-pills">
+      <span class="pill y">Freshers</span>
+      <span class="pill">Experienced</span>
+      <span class="pill">Job Switchers</span>
+      <span class="pill">India</span>
+    </div>
+  </div>
+  <div class="hero-stats-row rv d4">
+    <div class="hs">
+      <div class="hs-num"><span class="cnum" data-to="80">0</span>%</div>
+      <div class="hs-lbl">of jobs never posted publicly — they're filled through the "hidden market"</div>
+    </div>
+    <div class="hs">
+      <div class="hs-num">3.3%</div>
+      <div class="hs-lbl">average response rate on LinkedIn job applications in Q2 2025 (HUNTR.co data)</div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE 1 -->
+<div class="pq rv">
+  <blockquote>"For every <em>100 job applications</em> you sent, you got 2 interviews. The rest went to a bot, a ghost listing, or silence."</blockquote>
+  <cite>— CareerSprout Survey of 500 job seekers, 2025</cite>
+</div>
+
+<!-- ═══════ THE EVIDENCE ═══════ -->
+<div class="sec" id="evidence">
+  <div class="sec-inner">
+    <div class="sec-label rv">The Evidence</div>
+    <h2 class="sec-h rv d1">5 Numbers That Prove<br/>The System Is Rigged</h2>
+    <p class="sec-sub rv d2">This isn't pessimism. This is data. And once you understand what's happening, you can stop wasting time on broken strategies and start winning.</p>
+    <ul class="crash-list">
+      <li class="crash-item rv">
+        <span class="crash-n">01</span>
+        <div class="crash-body">
+          <h3><strong>70–80%</strong> of jobs are never posted online</h3>
+          <p>The "hidden job market" isn't a myth — it's where the best opportunities live. CNBC data confirms 70% of positions are filled through referrals, internal promotions, and quiet outreach before a single job board posting ever appears. If you're applying cold on Indeed or LinkedIn, you're competing for the scraps.</p>
+        </div>
+      </li>
+      <li class="crash-item rv d1">
+        <span class="crash-n">02</span>
+        <div class="crash-body">
+          <h3><strong>3.3%</strong> — the real job board response rate</h3>
+          <p>HUNTR.co analysed Q2 2025 job board response rates and found LinkedIn at 3.3%, ZipRecruiter at 3.8%, and Indeed at 4.7%. That means if you applied to 100 jobs on a job board, you heard back from 3–5. The rest disappeared. Ghosting isn't rude — it's the new normal.</p>
+        </div>
+      </li>
+      <li class="crash-item rv d2">
+        <span class="crash-n">03</span>
+        <div class="crash-body">
+          <h3>Referred candidates are <strong>15× more likely to be hired</strong></h3>
+          <p>Jobvite's research showed that referred applicants are 15 times more likely to be hired than candidates from job boards. And networking success rates hover between 33–80%, compared to the 4–10% rate on traditional boards. This isn't a marginal improvement — it's a completely different game.</p>
+        </div>
+      </li>
+      <li class="crash-item rv d3">
+        <span class="crash-n">04</span>
+        <div class="crash-body">
+          <h3><strong>30–60%</strong> of advertised jobs are ghost listings</h3>
+          <p>Four in 10 companies posted fake job listings in 2024. Some use them for market intelligence — to gauge salary expectations without hiring. Others have frozen budgets. Whatever the reason, you could spend weeks tailoring your resume for a role that was never going to be filled. That's the ghost job epidemic.</p>
+        </div>
+      </li>
+      <li class="crash-item rv d4">
+        <span class="crash-n">05</span>
+        <div class="crash-body">
+          <h3><strong>AI killed the cover letter</strong> — officially</h3>
+          <p>A Wharton economist declared it in 2026: cover letters are dying. Why? Because AI writes them and AI reads them — and neither side believes in them anymore. After ChatGPT launched, cover letters got longer and better-written, but companies stopped trusting them entirely. The signal-to-noise ratio collapsed to zero.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- BIG DATA CALLOUT -->
+<div class="bdc rv">
+  <span class="bdc-num"><span class="cnum2" data-to="15">0</span>×</span>
+  <div class="bdc-label">More likely to be hired through a referral than a job board</div>
+  <div class="bdc-sub">Jobvite Recruiter Nation Survey — consistent across 10 years of data</div>
+</div>
+
+<!-- ═══════ MYTH vs REALITY ═══════ -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-label rv">Myth vs Reality</div>
+    <h2 class="sec-h rv d1">4 Career Myths That Are<br/>Costing You Jobs Right Now</h2>
+    <p class="sec-sub rv d2">Hover each card to flip between what everyone <em>thinks</em> is true — and what the data actually shows.</p>
+    <div class="myth-grid">
+      <div class="fc rv">
+        <div class="fc-inner">
+          <div class="fc-front"><span class="fc-tag">❌ The Myth</span><div class="fc-body">"Apply to more jobs and you'll get more interviews."</div><div class="fc-hint">Hover to reveal the truth →</div></div>
+          <div class="fc-back"><span class="fc-tag">✓ The Reality</span><div class="fc-body">For every 100 applications: 2 interviews. Volume without network = 98% silence. Quality connections beat quantity of clicks.</div></div>
+        </div>
+      </div>
+      <div class="fc rv d1">
+        <div class="fc-inner">
+          <div class="fc-front"><span class="fc-tag">❌ The Myth</span><div class="fc-body">"A great resume is all you need to get hired."</div><div class="fc-hint">Hover to reveal the truth →</div></div>
+          <div class="fc-back"><span class="fc-tag">✓ The Reality</span><div class="fc-body">70% of jobs never reach job boards. Your resume is invisible if the job you want never gets posted. Network first. Resume second.</div></div>
+        </div>
+      </div>
+      <div class="fc rv d2">
+        <div class="fc-inner">
+          <div class="fc-front"><span class="fc-tag">❌ The Myth</span><div class="fc-body">"Write a standout cover letter to get noticed."</div><div class="fc-hint">Hover to reveal the truth →</div></div>
+          <div class="fc-back"><span class="fc-tag">✓ The Reality</span><div class="fc-body">AI writes them. AI reads them. Recruiters skip them. The cover letter is the most time-consuming part of a job application that barely anyone reads. Invest that time in networking instead.</div></div>
+        </div>
+      </div>
+      <div class="fc rv d3">
+        <div class="fc-inner">
+          <div class="fc-front"><span class="fc-tag">❌ The Myth</span><div class="fc-body">"The best candidate always gets the job."</div><div class="fc-hint">Hover to reveal the truth →</div></div>
+          <div class="fc-back"><span class="fc-tag">✓ The Reality</span><div class="fc-body">85% of positions are filled through networking. The best-connected candidate wins. "It's not what you know" is no longer a cynical cliché — it's statistically verified hiring data.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule rv"></div>
+
+<!-- ═══════ GHOST JOBS ═══════ -->
+<div class="sec ghost-bg" id="ghost">
+  <div class="sec-inner">
+    <div class="sec-label rv" style="color:var(--red)">⚠ Warning: Ghost Job Epidemic</div>
+    <h2 class="sec-h rv d1" style="color:var(--red)">You Spent 3 Hours on That<br/>Application. The Job Didn't Exist.</h2>
+    <p class="sec-sub rv d2">Ghost jobs are real, widespread, and quietly destroying job seekers' mental health. Here's how to spot them — and how to avoid wasting time on them.</p>
+    <div class="ghost-grid">
+      <div>
+        <div class="ghost-stat-card rv d3">
+          <div class="ghost-stat-num"><span class="cnum3" data-to="40">0</span>%</div>
+          <div class="ghost-stat-lbl">of companies admitted posting fake job listings in 2024</div>
+        </div>
+        <div class="ghost-stat-card rv d4" style="margin-top:0">
+          <div class="ghost-stat-num"><span class="cnum4" data-to="60">0</span>%</div>
+          <div class="ghost-stat-lbl">of listings in some sectors are ghost jobs that will never be filled</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="rv" style="font-family:var(--FD);font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em;color:var(--red);margin-bottom:16px">Why Companies Post Ghost Jobs</h3>
+        <ul class="ghost-list rv d1">
+          <li><strong>Market intelligence</strong> — gauging salary expectations and talent availability without committing to hire</li>
+          <li><strong>Budget theater</strong> — role approved but budget not released yet; they "look" like they're hiring</li>
+          <li><strong>Pipeline building</strong> — collecting CVs of strong candidates for future roles</li>
+          <li><strong>Investor optics</strong> — posting jobs signals growth to investors and the market</li>
+          <li><strong>Abandoned searches</strong> — the hiring manager left, the role was filled internally, or the team restructured</li>
+        </ul>
+        <div class="warn-box rv d2">
+          <h4>🕵️ How to Spot a Ghost Job</h4>
+          <p>Posting is older than 30 days with no update. Company has recent layoff news. Vague job description. No specific team or manager mentioned. Suspiciously broad requirements. When in doubt: find an actual employee at the company on LinkedIn and ask directly. Real roles have real people behind them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ HIDDEN MARKET ═══════ -->
+<div class="sec hm-bg" id="hidden">
+  <div class="sec-inner">
+    <div class="sec-label rv" style="color:var(--green)">The Opportunity</div>
+    <div class="hm-pull rv d1"><small>The hidden job market</small>80%</div>
+    <p class="sec-sub rv d2">80% of jobs are never posted publicly. This isn't depressing — it's the biggest opportunity in your job search. The hidden job market is where most hires happen, and almost nobody is competing for those roles on a job board.</p>
+    <div class="hm-grid">
+      <div>
+        <p class="rv" style="font-family:var(--FB);font-style:italic;font-size:1rem;color:var(--dim);line-height:1.82;margin-bottom:24px">"When companies need to fill a role, the last thing they want is to post it publicly and deal with 300 unqualified applications. Instead, smart hiring managers ask their network: 'Do you know anyone perfect for this?'"</p>
+        <p class="rv d1" style="font-size:.9rem;color:var(--dim);line-height:1.8">The success rate gap is staggering: traditional job board applications convert at <strong style="color:var(--cream)">4–10%</strong>. Networking and referrals convert at <strong style="color:var(--green)">33–80%</strong>. That's not a better strategy — it's a completely different game with almost no competitors.</p>
+      </div>
+      <div>
+        <h3 class="rv" style="font-family:var(--FD);font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em;color:var(--green);margin-bottom:4px">How to Access It</h3>
+        <div class="hm-steps">
+          <div class="hm-step rv d1">
+            <span class="hm-step-n">01</span>
+            <div><h4>Alumni Network</h4><p>Reach out to alumni from your college or previous companies. These are warm connections by default — most people are happy to help fellow graduates. Start with "I'd love 15 minutes to learn about your experience at [Company]."</p></div>
+          </div>
+          <div class="hm-step rv d2">
+            <span class="hm-step-n">02</span>
+            <div><h4>Informational Interviews</h4><p>Don't ask for a job. Ask for insight. "I admire the work your team does in [area]. Would you have 20 minutes to share your experience?" This conversation is often what puts you on the shortlist when a role opens up.</p></div>
+          </div>
+          <div class="hm-step rv d3">
+            <span class="hm-step-n">03</span>
+            <div><h4>LinkedIn Outreach Done Right</h4><p>Personalize every request. Mention where you saw their work, a shared interest, or a specific reason you're reaching out. Generic requests get ignored. Three genuine sentences unlock 80% of responses.</p></div>
+          </div>
+          <div class="hm-step rv d4">
+            <span class="hm-step-n">04</span>
+            <div><h4>Industry Communities</h4><p>Join Discord servers, Slack groups, Subreddits, and professional associations in your field. These are where jobs get shared informally — often before they're posted anywhere else.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ NETWORKING: 15x ═══════ -->
+<div class="sec" id="network">
+  <div class="sec-inner">
+    <div class="sec-label rv">The 15× Advantage</div>
+    <h2 class="sec-h rv d1">Stop Applying.<br/>Start Connecting.</h2>
+    <div class="net-layout rv d2">
+      <div>
+        <span class="net-big">15×</span>
+        <div class="net-lbl">More likely to be hired through a referral</div>
+        <div class="net-src">Source: Jobvite Recruiter Nation Survey</div>
+        <div class="net-compare">
+          <div class="nc-row">
+            <span class="nc-label">Job board (LinkedIn)</span>
+            <span class="nc-val bad">3.3% response</span>
+          </div>
+          <div class="nc-row">
+            <span class="nc-label">Job board (Indeed)</span>
+            <span class="nc-val bad">4.7% response</span>
+          </div>
+          <div class="nc-row">
+            <span class="nc-label">Networking / referral</span>
+            <span class="nc-val great">33–80% success</span>
+          </div>
+          <div class="nc-row">
+            <span class="nc-label">Referred vs board</span>
+            <span class="nc-val great">15× more likely hired</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--FD);font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:4px;margin-top:8px">5 Ways to Network Without Being Awkward</h3>
+        <div class="net-steps">
+          <div class="ns rv">
+            <span class="ns-n">01</span>
+            <div><h4>The Learning Ask (not the job ask)</h4><p>Open with "I'd love to learn from your experience" — not "Can you refer me?" People want to help those who are curious. The referral comes naturally after relationship is built.</p></div>
+          </div>
+          <div class="ns rv d1">
+            <span class="ns-n">02</span>
+            <div><h4>Target 3–5 Dream Companies</h4><p>Map out your target companies before they post jobs. Find employees in your target role on LinkedIn. Build a relationship before you need it — not after.</p></div>
+          </div>
+          <div class="ns rv d2">
+            <span class="ns-n">03</span>
+            <div><h4>Deliver Value First</h4><p>Comment thoughtfully on their posts. Share a useful article. Congratulate them on a work milestone. Show up in their world before asking for anything. Give first.</p></div>
+          </div>
+          <div class="ns rv d3">
+            <span class="ns-n">04</span>
+            <div><h4>Weak Ties Are Your Secret Weapon</h4><p>Harvard research found that "weak ties" — loose connections, not close friends — are more likely to help you land jobs. Your hairdresser, old classmate, and former professor might be your best leads.</p></div>
+          </div>
+          <div class="ns rv d4">
+            <span class="ns-n">05</span>
+            <div><h4>Ask for Introductions, Not Jobs</h4><p>"I noticed you know [Person at Company X]. Would you be comfortable connecting us?" This is far more effective than asking for a job referral cold. Let the connection happen first.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PERSONAL BRAND ═══════ -->
+<div class="sec" style="background:var(--surface)">
+  <div class="sec-inner">
+    <div class="sec-label rv">Your Invisible Application</div>
+    <h2 class="sec-h rv d1">Personal Brand =<br/>The New Resume</h2>
+    <div class="pb-split rv d2">
+      <div>
+        <p class="pb-quote"><em>81% of recruiters</em> check your online presence before they ever read your application.</p>
+        <p style="font-size:.9rem;color:var(--dim);line-height:1.82;margin-top:24px;font-family:var(--FB)">Your LinkedIn profile, your posts, your comments, and your public projects are working for you — or against you — 24 hours a day. A strong personal brand turns you from an applicant into a known quantity. And known quantities get referrals, get messaged first, and skip the queue.</p>
+        <p style="font-size:.9rem;color:var(--dim);line-height:1.82;margin-top:16px;font-family:var(--FB)">The winning formula in 2025: <strong style="color:var(--cream)">Build in public. Share what you learn. Be findable for the role you want — before you need a job.</strong></p>
+      </div>
+      <div class="pb-stat-stack">
+        <div class="pb-stat">
+          <div class="pb-stat-n">84%</div>
+          <div class="pb-stat-lbl">of hiring managers check LinkedIn before a formal interview — SHRM 2026 research</div>
+        </div>
+        <div class="pb-stat">
+          <div class="pb-stat-n">71%</div>
+          <div class="pb-stat-lbl">more interview chances for job seekers with fully aligned LinkedIn + resume</div>
+        </div>
+        <div class="pb-stat">
+          <div class="pb-stat-n">3×</div>
+          <div class="pb-stat-lbl">more recruiter messages for profiles that post weekly vs those that don't</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE 2 -->
+<div class="pq rv">
+  <blockquote>"Networking isn't about collecting contacts. It's about building <em>meaningful relationships</em> before you need them."</blockquote>
+  <cite>— OpenArc Research Report, 2025</cite>
+</div>
+
+<!-- ═══════ 5-STEP WIN SYSTEM ═══════ -->
+<div class="sec" id="win">
+  <div class="sec-inner">
+    <div class="sec-label rv">The Cheat Code</div>
+    <h2 class="sec-h rv d1">The 5-Step System<br/>That Actually Works in 2025</h2>
+    <p class="sec-sub rv d2">Combine this strategy with a sharp, ATS-ready resume and you have a complete job search system that beats the bots and the broken process.</p>
+    <div class="win-steps rv d3">
+      <div class="win-step">
+        <div class="win-n-box">1</div>
+        <div class="win-content">
+          <h3>Map Your Target Companies (Before They Post)</h3>
+          <p>Identify 10–20 companies you want to work at. Research their team, culture, and growth areas on LinkedIn. Follow their pages. Set up Google Alerts. Know their business before the job exists — so when it does, you're already a known presence in their world.</p>
+          <span class="win-tag">The Proactive Phase</span>
+        </div>
+      </div>
+      <div class="win-step">
+        <div class="win-n-box">2</div>
+        <div class="win-content">
+          <h3>Find & Connect With Real Employees</h3>
+          <p>Find 3–5 people at each target company in roles you aspire to. Connect with a personalized message. Mention their specific work. Don't ask for a job — ask for a conversation. "I've been following your team's work on [X] and would love to learn more about your experience there."</p>
+          <span class="win-tag">The Relationship Phase</span>
+        </div>
+      </div>
+      <div class="win-step">
+        <div class="win-n-box">3</div>
+        <div class="win-content">
+          <h3>Request an Informational Interview</h3>
+          <p>After 2–3 touchpoints, ask for a 15–20 minute conversation. "I'm exploring opportunities in [area] and would love your perspective. Would you be open to a quick virtual coffee?" Most people say yes. This conversation alone can put you at the top of their mental shortlist for the next opening.</p>
+          <span class="win-tag">The Access Phase</span>
+        </div>
+      </div>
+      <div class="win-step">
+        <div class="win-n-box">4</div>
+        <div class="win-content">
+          <h3>Build Your Personal Brand Publicly</h3>
+          <p>Post once a week on LinkedIn — share what you're learning, a project you're working on, or a hot take on your industry. Comment thoughtfully on posts from people at your target companies. Your name becomes familiar before you apply. Recruiters find you, not the other way around.</p>
+          <span class="win-tag">The Visibility Phase</span>
+        </div>
+      </div>
+      <div class="win-step">
+        <div class="win-n-box">5</div>
+        <div class="win-content">
+          <h3>Now Apply — With a Warm Referral & Sharp Resume</h3>
+          <p>Once you've built a relationship, ask naturally: "I noticed [Company] has a [Role] opening — would you be comfortable putting in a good word, or could you connect me with the hiring manager?" Then back it up with an ATS-optimised, tailored resume from BanaoResume. You're now 15× more likely to be hired than a cold applicant.</p>
+          <span class="win-tag">🔥 The Winning Phase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule-y rv"></div>
+
+<!-- ═══════ VIDEOS ═══════ -->
+<div class="sec vid-bg" id="videos">
+  <div class="sec-inner">
+    <div class="sec-label rv">Watch & Learn</div>
+    <h2 class="sec-h rv d1">Video Resources That<br/>Move the Needle</h2>
+    <p class="sec-sub rv d2">Curated from the best career channels — practical, no-fluff guidance for Indian job seekers in 2025.</p>
+    <div class="vid-grid">
+      <a class="vc rv" href="https://www.youtube.com/results?search_query=hidden+job+market+networking+strategy+2025" target="_blank">
+        <div class="vt vt1">
+          <div class="vt-num">01</div>
+          <div class="vplay">▶</div>
+          <div class="vt-label">🕵️ Hidden Market</div>
+        </div>
+        <div class="vi">
+          <div class="vi-cat">Strategy</div>
+          <h3>The Hidden Job Market: How 70% of Roles Are Filled Before They're Posted</h3>
+          <p>Discover how to access unadvertised jobs through strategic networking, alumni outreach, and building warm connections that bypass the ATS entirely.</p>
+        </div>
+      </a>
+      <a class="vc rv d1" href="https://www.youtube.com/results?search_query=resume+tips+freshers+ATS+2025+india" target="_blank">
+        <div class="vt vt2">
+          <div class="vt-num">02</div>
+          <div class="vplay">▶</div>
+          <div class="vt-label">📄 Resume Tips</div>
+        </div>
+        <div class="vi">
+          <div class="vi-cat">Resume</div>
+          <h3>Resume Tips for Freshers 2025 — ATS-Ready, One-Page, Gets Interviews</h3>
+          <p>Even with the best networking, your resume must be sharp. Learn the ATS rules, the one-page format, and how to make every bullet count for recruiters.</p>
+        </div>
+      </a>
+      <a class="vc rv d2" href="https://www.youtube.com/results?search_query=LinkedIn+personal+brand+job+search+2025+india" target="_blank">
+        <div class="vt vt3">
+          <div class="vt-num">03</div>
+          <div class="vplay">▶</div>
+          <div class="vt-label">🔗 LinkedIn Brand</div>
+        </div>
+        <div class="vi">
+          <div class="vi-cat">Personal Brand</div>
+          <h3>LinkedIn Personal Brand for Job Seekers — Build It Before You Need It</h3>
+          <p>84% of hiring managers look at LinkedIn before interviews. Learn how to build a profile that recruits for you passively — every single day, whether you're job hunting or not.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA ═══════ -->
+<div class="cta-s" id="cta">
+  <div class="sec-label rv" style="justify-content:center"><span style="margin-right:8px">●</span>Your Resume Still Matters</div>
+  <h2 class="cta-h rv d1">Your Network Gets<br/>You the Interview.<br/>Your Resume <em>Closes</em> It.</h2>
+  <p class="cta-p rv d2">The networking strategy above is how you get in the room. But once you're there, you need an ATS-friendly, impactful resume that proves you're the hire. BanaoResume builds it for free — in 5 minutes, no signup required.</p>
+  <div class="cta-feats rv d3">
+    <span class="cf">100% Free, no signup</span>
+    <span class="cf">ATS-optimised templates</span>
+    <span class="cf">Fresher & Experienced modes</span>
+    <span class="cf">Download PDF instantly</span>
+  </div>
+  <a href="https://banaoresumee.online" class="cta-btn rv d4" target="_blank">🚀 Build My Resume on BanaoResume</a>
+  <p class="rv d5" style="margin-top:22px;font-family:var(--FM);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)">Made for students & freshers in India 🇮🇳 · Free forever · No credit card</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://banaoresumee.online" class="fl">BANAO<span>RESUME</span></a>
+  <p>Free ATS resume builder for students & freshers across India</p>
+  <div class="flinks">
+    <a href="https://banaoresumee.online">Resume Builder</a>
+    <a href="#">About</a>
+    <a href="mailto:support@banaoresumee.online">Contact</a>
+    <a href="#">Privacy</a>
+  </div>
+</footer>
+
+<script>
+// PROGRESS BAR
+const pb = document.getElementById('pb');
+window.addEventListener('scroll',()=>{
+  const s = document.documentElement;
+  pb.style.width = (s.scrollTop/(s.scrollHeight-s.clientHeight)*100)+'%'
+});
+
+// REVEAL ON SCROLL
+const rvEls = document.querySelectorAll('.rv');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})
+},{threshold:.1});
+rvEls.forEach(el=>io.observe(el));
+
+// COUNTER ANIMATION
+function countUp(el,target,suffix=''){
+  let start = null;
+  const dur = 1600;
+  const ease = t=>1-Math.pow(1-t,3);
+  const step = ts=>{
+    if(!start)start=ts;
+    const p = Math.min((ts-start)/dur,1);
+    el.textContent = Math.round(ease(p)*target)+suffix;
+    if(p<1)requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Observe counter elements
+const counters = [
+  {selector:'.cnum',target:80,triggered:false},
+  {selector:'.cnum2',target:15,triggered:false},
+  {selector:'.cnum3',target:40,triggered:false},
+  {selector:'.cnum4',target:60,triggered:false},
+];
+const cio = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el = e.target;
+    const target = parseInt(el.dataset.to);
+    if(!el.dataset.counted){
+      el.dataset.counted='1';
+      countUp(el,target);
+    }
+  })
+},{threshold:.4});
+document.querySelectorAll('[data-to]').forEach(el=>cio.observe(el));
+
+// FLIP CARDS - click on mobile
+document.querySelectorAll('.fc').forEach(card=>{
+  card.addEventListener('click',()=>card.classList.toggle('flipped'));
+});
+
+// TICKER duplicate for smooth loop
+</script>
+</body>
+</html>
