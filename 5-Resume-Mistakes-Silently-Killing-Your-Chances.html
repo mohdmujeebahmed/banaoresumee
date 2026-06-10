@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5 Resume Mistakes Silently Killing Your Chances | BanaoResume</title>
+  <meta name="description" content="75% of resumes never reach a human. Here are the 5 silent mistakes killing Indian job seekers — and the exact 5-minute fix for each one."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --bg:      #FAFBFF;
+      --ink:     #0D1117;
+      --indigo:  #4338CA;
+      --indigo2: #3730A3;
+      --rose:    #E11D48;
+      --green:   #059669;
+      --amber:   #D97706;
+      --surface: #F3F4F6;
+      --border:  #E5E7EB;
+      --muted:   #6B7280;
+      --light:   #EEF2FF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      background: rgba(250,251,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 900;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo em { color: var(--indigo); font-style: normal; }
+    .nav-right {
+      display: flex; gap: 1.4rem; align-items: center; list-style: none;
+    }
+    .nav-right a {
+      font-size: 0.8rem; color: var(--muted); text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+    }
+    .nav-right a:hover { color: var(--ink); }
+    .nav-pill {
+      background: var(--indigo) !important; color: #fff !important;
+      padding: 0.4rem 1rem; border-radius: 100px;
+    }
+    .nav-pill:hover { opacity: 0.88; }
+
+    /* ─── INTRO BAND ──────────────────────────────────────── */
+    .intro-band {
+      background: var(--indigo);
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .intro-band::before {
+      content: "RESUME";
+      position: absolute; bottom: -1rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Fraunces', serif;
+      font-size: min(22vw, 200px); font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      white-space: nowrap; pointer-events: none; user-select: none;
+      letter-spacing: -0.04em;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 1rem; border-radius: 100px;
+      margin-bottom: 1.6rem;
+    }
+    .intro-band h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      color: #fff; letter-spacing: -0.03em;
+      max-width: 800px; margin: 0 auto 1.4rem;
+    }
+    .intro-band h1 span { color: #A5B4FC; }
+    .intro-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.7);
+      max-width: 540px; margin: 0 auto 2.4rem; line-height: 1.7;
+    }
+    .intro-sub strong { color: #fff; }
+    .intro-stats {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+      margin-top: 1rem;
+    }
+    .istat {
+      text-align: center;
+    }
+    .istat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem; font-weight: 900;
+      color: #A5B4FC; line-height: 1; letter-spacing: -0.03em;
+    }
+    .istat-label {
+      font-size: 0.75rem; color: rgba(255,255,255,0.6);
+      margin-top: 0.2rem; max-width: 120px; line-height: 1.4;
+    }
+    .divider-wave {
+      background: var(--indigo);
+      height: 40px; position: relative; overflow: hidden;
+    }
+    .divider-wave::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: var(--bg);
+      border-radius: 100% 100% 0 0 / 40px 40px 0 0;
+    }
+
+    /* ─── WRAPPER ─────────────────────────────────────────── */
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ─── REALITY CHECK ───────────────────────────────────── */
+    .reality {
+      padding: 4rem 2rem;
+      max-width: 780px; margin: 0 auto;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--indigo); margin-bottom: 0.8rem;
+    }
+    .reality h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      font-weight: 900; letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .reality p {
+      font-size: 1rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto; line-height: 1.75;
+    }
+    .reality p strong { color: var(--ink); }
+
+    /* ─── MISTAKE PANELS ──────────────────────────────────── */
+    .mistake {
+      padding: 4.5rem 2rem;
+      border-top: 1px solid var(--border);
+      max-width: 780px; margin: 0 auto;
+      position: relative; overflow: hidden;
+    }
+    .ghost-num {
+      position: absolute; top: 50%; right: -1rem;
+      transform: translateY(-50%);
+      font-family: 'Fraunces', serif;
+      font-size: min(28vw, 240px); font-weight: 900;
+      color: var(--border);
+      line-height: 1; pointer-events: none; user-select: none;
+      letter-spacing: -0.04em;
+    }
+    .mistake-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1rem;
+    }
+    .mistake-tag .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--rose);
+    }
+    .mistake h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 1rem;
+      max-width: 560px; position: relative; z-index: 1;
+    }
+    .mistake-body {
+      font-size: 1rem; color: var(--muted);
+      max-width: 540px; line-height: 1.75;
+      margin-bottom: 1.8rem; position: relative; z-index: 1;
+    }
+    .mistake-body strong { color: var(--ink); }
+
+    /* ─── BAD / GOOD COMPARISON ───────────────────────────── */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      max-width: 620px;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 540px) {
+      .compare { grid-template-columns: 1fr; }
+    }
+    .compare-side {
+      background: var(--bg); padding: 1.4rem;
+    }
+    .compare-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .compare-label.bad  { color: var(--rose); }
+    .compare-label.good { color: var(--green); }
+    .compare-label .icon { font-size: 0.9rem; }
+    .compare-text {
+      font-size: 0.88rem; line-height: 1.6; color: var(--ink);
+    }
+    .compare-text .strike {
+      text-decoration: line-through; color: var(--muted);
+    }
+    .compare-text .em {
+      background: #ECFDF5; color: var(--green);
+      padding: 0 0.2em; border-radius: 2px; font-weight: 500;
+    }
+    .compare-text .bad-em {
+      background: #FFF1F2; color: var(--rose);
+      padding: 0 0.2em; border-radius: 2px; font-weight: 500;
+    }
+
+    /* ─── STAT PILL ───────────────────────────────────────── */
+    .stat-pill {
+      display: inline-block;
+      background: var(--light);
+      border: 1px solid #C7D2FE;
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.82rem;
+      color: var(--indigo);
+      font-weight: 600;
+      margin-top: 1rem;
+      position: relative; z-index: 1;
+    }
+    .stat-pill.danger {
+      background: #FFF1F2; border-color: #FECDD3; color: var(--rose);
+    }
+    .stat-pill.good {
+      background: #ECFDF5; border-color: #A7F3D0; color: var(--green);
+    }
+
+    /* ─── FIX STRIP ───────────────────────────────────────── */
+    .fix-strip {
+      margin-top: 1.8rem;
+      background: var(--light);
+      border-left: 3px solid var(--indigo);
+      padding: 1.2rem 1.4rem;
+      border-radius: 0 6px 6px 0;
+      position: relative; z-index: 1; max-width: 560px;
+    }
+    .fix-strip .fix-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--indigo); margin-bottom: 0.4rem;
+    }
+    .fix-strip p {
+      font-size: 0.9rem; color: var(--ink); line-height: 1.6;
+    }
+    .fix-strip p strong { color: var(--indigo); }
+
+    /* ─── PROGRESS BAR SECTION ────────────────────────────── */
+    .score-section {
+      background: var(--surface);
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .score-inner { max-width: 780px; margin: 0 auto; }
+    .score-inner h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .score-inner > p {
+      color: var(--muted); font-size: 0.95rem; margin-bottom: 2.4rem;
+      max-width: 520px;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 60px;
+      align-items: center; gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    @media (max-width: 540px) {
+      .score-row { grid-template-columns: 1fr 80px; }
+      .score-desc { display: none; }
+    }
+    .score-label { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
+    .score-track {
+      background: var(--border); height: 8px;
+      border-radius: 100px; overflow: hidden;
+    }
+    .score-fill {
+      height: 100%; border-radius: 100px;
+      background: var(--rose); width: 0;
+      transition: width 1.1s cubic-bezier(.16,1,.3,1);
+    }
+    .score-fill.good { background: var(--green); }
+    .score-fill.warn { background: var(--amber); }
+    .score-pct {
+      font-size: 0.82rem; font-weight: 600;
+      text-align: right; color: var(--rose);
+    }
+    .score-pct.good { color: var(--green); }
+    .score-pct.warn { color: var(--amber); }
+
+    /* ─── CTA ─────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--indigo);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: "GO.";
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: 'Fraunces', serif;
+      font-size: min(40vw,380px); font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      pointer-events: none; user-select: none;
+      letter-spacing: -0.05em; white-space: nowrap;
+    }
+    .cta-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 5vw, 3.4rem);
+      font-weight: 900; color: #fff;
+      letter-spacing: -0.03em; line-height: 1.1;
+      max-width: 600px; margin: 0 auto 1rem;
+      position: relative; z-index: 1;
+    }
+    .cta-section h2 span { color: #A5B4FC; }
+    .cta-section p {
+      color: rgba(255,255,255,0.65); font-size: 1rem;
+      max-width: 440px; margin: 0 auto 2rem;
+      position: relative; z-index: 1;
+    }
+    .feat-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.6rem; margin-bottom: 2rem;
+      position: relative; z-index: 1;
+    }
+    .feat-tag {
+      font-size: 0.72rem; font-weight: 500;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.35rem 0.9rem; border-radius: 100px;
+    }
+    .feat-tag::before { content: "✓  "; color: #A5B4FC; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--indigo2);
+      font-family: 'Fraunces', serif;
+      font-weight: 900; font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      padding: 0.9rem 2.6rem;
+      border-radius: 100px;
+      text-decoration: none;
+      position: relative; z-index: 1;
+      transition: transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      text-decoration: none;
+    }
+    .cta-note {
+      display: block;
+      font-size: 0.73rem; color: rgba(255,255,255,0.45);
+      margin-top: 0.8rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 2rem;
+      max-width: 780px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 900; font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .footer-logo em { color: var(--indigo); font-style: normal; }
+    .footer-links {
+      display: flex; gap: 1.4rem; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.78rem; color: var(--muted); text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-note {
+      font-size: 0.65rem; color: var(--muted);
+      text-align: center; width: 100%;
+    }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.on { opacity: 1; transform: none; }
+
+    @media (max-width: 640px) {
+      .nav-right { display: none; }
+      .mistake { padding: 3rem 1.2rem; }
+      .intro-band { padding: 3.5rem 1.2rem 3rem; }
+      .reality { padding: 3rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://banaoresumee.online" class="logo">Banao<em>Resume</em></a>
+  <ul class="nav-right">
+    <li><a href="#mistake1">Mistake 1</a></li>
+    <li><a href="#mistake2">Mistake 2</a></li>
+    <li><a href="#mistake3">Mistake 3</a></li>
+    <li><a href="https://banaoresumee.online" class="nav-pill">Build Free →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="intro-band">
+  <span class="eyebrow">BanaoResume · 2026 Guide</span>
+  <h1>5 Resume Mistakes<br/>Silently Killing<br/><span>Your Chances</span></h1>
+  <p class="intro-sub">
+    <strong>Your resume isn't bad. It's broken in 5 very specific ways.</strong>
+    Most Indian job seekers make every single one. Here's how to fix all of them — in minutes.
+  </p>
+  <div class="intro-stats">
+    <div class="istat">
+      <div class="istat-num">75%</div>
+      <div class="istat-label">Resumes never reach a human recruiter</div>
+    </div>
+    <div class="istat">
+      <div class="istat-num">52%</div>
+      <div class="istat-label">Of job keywords missing from the average resume</div>
+    </div>
+    <div class="istat">
+      <div class="istat-num">3%</div>
+      <div class="istat-label">Of applications result in an interview</div>
+    </div>
+  </div>
+</div>
+<div class="divider-wave"></div>
+
+<!-- REALITY CHECK -->
+<div class="reality reveal">
+  <p class="section-eyebrow">Before We Start</p>
+  <h2>You're Not Getting Rejected.<br/>You're Getting Skipped.</h2>
+  <p>
+    ATS systems don't dramatically reject your resume. They <strong>rank it so low</strong> it never gets seen.
+    The average resume is missing more than half the keywords a recruiter searches for.
+    The average resume score before optimisation? <strong>48 out of 100.</strong>
+    These 5 mistakes are why.
+  </p>
+</div>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- MISTAKE 1 -->
+<!-- ──────────────────────────────────────────────────────── -->
+<div class="mistake reveal" id="mistake1">
+  <div class="ghost-num">1</div>
+  <div class="mistake-tag"><span class="dot"></span>Mistake 01 of 05</div>
+  <h2>You Included a Photo,<br/>DOB, and Religion.</h2>
+  <p class="mistake-body">
+    Indian freshers are taught to fill every field — photo, date of birth, gender, religion, marital status.
+    It feels complete. But to a modern recruiter, it's a red flag and a <strong>space waste.</strong>
+    Global companies that use ATS systems sometimes auto-filter resumes that include images — because images break parsing.
+    And every line of personal info is a line that could have been an achievement.
+  </p>
+  <div class="compare">
+    <div class="compare-side">
+      <div class="compare-label bad"><span class="icon">✕</span> What Most Resumes Show</div>
+      <div class="compare-text">
+        <span class="bad-em">Photo (passport size)</span><br/>
+        D.O.B: 14 March 2002<br/>
+        Gender: Male<br/>
+        Religion: Hindu<br/>
+        Marital Status: Unmarried<br/>
+        Father's Name: Rajesh Kumar
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-label good"><span class="icon">✓</span> What It Should Be</div>
+      <div class="compare-text">
+        <span class="em">Name · Phone · Email</span><br/>
+        <span class="em">LinkedIn URL · City</span><br/><br/>
+        That's it. That's the section.<br/><br/>
+        Use the freed space for<br/>
+        <span class="em">one more achievement.</span>
+      </div>
+    </div>
+  </div>
+  <span class="stat-pill danger">Photos cause ATS parsing to fail in up to 23% of cases</span>
+  <div class="fix-strip">
+    <div class="fix-label">⚡ The 2-Minute Fix</div>
+    <p>Delete everything except name, phone, email, LinkedIn, and city. No photo. No DOB. No personal details. <strong>You are not an ID form. You are a professional.</strong></p>
+  </div>
+</div>
+
+<!-- MISTAKE 2 -->
+<div class="mistake reveal" id="mistake2">
+  <div class="ghost-num">2</div>
+  <div class="mistake-tag"><span class="dot"></span>Mistake 02 of 05</div>
+  <h2>Your Resume Has<br/>Tables, Columns,<br/>or a Fancy Template.</h2>
+  <p class="mistake-body">
+    That beautiful two-column template you downloaded? The one with the sidebar for skills and the
+    dark header? <strong>ATS systems read it as scrambled nonsense.</strong>
+    Tables and multi-column layouts cause critical parsing failures. Your name might end up in
+    the skills section. Your job title might disappear entirely.
+    Single-column plain formatting has <strong>93% ATS parsing accuracy</strong>
+    — two-column drops to 86%. That 7% gap is the difference between seen and invisible.
+  </p>
+  <div class="compare">
+    <div class="compare-side">
+      <div class="compare-label bad"><span class="icon">✕</span> ATS Reads This As</div>
+      <div class="compare-text">
+        <span class="bad-em">Column 1 + Column 2 merged:</span><br/>
+        "Arjun SharmaSkillsReactJSBTech CSE 2024Node.jsIIT DelhiPythonInternAbcCorp"<br/><br/>
+        <span style="color:var(--muted); font-size:0.8rem;">Completely unreadable. Scored 12/100.</span>
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-label good"><span class="icon">✓</span> What ATS Needs</div>
+      <div class="compare-text">
+        <span class="em">Single column. Clean flow.</span><br/>
+        Name → Contact → Summary →<br/>
+        Experience → Education → Skills<br/><br/>
+        <span style="color:var(--green); font-size:0.8rem;">Scored 87/100. Seen by recruiter.</span>
+      </div>
+    </div>
+  </div>
+  <span class="stat-pill danger">DOCX: 4% failure rate &nbsp;·&nbsp; PDF with design: 18% failure rate</span>
+  <div class="fix-strip">
+    <div class="fix-label">⚡ The 3-Minute Fix</div>
+    <p>Use a <strong>single-column, plain-text-friendly template</strong>. Submit as DOCX unless the posting specifically asks for PDF. No tables. No text boxes. No images. Use BanaoResume's templates — built for exactly this.</p>
+  </div>
+</div>
+
+<!-- MISTAKE 3 -->
+<div class="mistake reveal" id="mistake3">
+  <div class="ghost-num">3</div>
+  <div class="mistake-tag"><span class="dot"></span>Mistake 03 of 05</div>
+  <h2>You Wrote "Responsible<br/>For" Instead of<br/>What You Actually Did.</h2>
+  <p class="mistake-body">
+    "Responsible for managing social media."<br/>
+    "Worked on backend development."<br/>
+    "Assisted in project completion."<br/><br/>
+    Every recruiter has read these 10,000 times. They mean nothing.
+    <strong>The average resume is missing 52% of the job description's keywords</strong> — but
+    even the keywords that ARE there are buried in passive, vague language that signals
+    zero impact. Recruiters spend 7 seconds on your resume. Vague bullets get skipped.
+    Numbers get read.
+  </p>
+  <div class="compare">
+    <div class="compare-side">
+      <div class="compare-label bad"><span class="icon">✕</span> What You Wrote</div>
+      <div class="compare-text">
+        • <span class="bad-em">Responsible for</span> managing the Instagram account<br/><br/>
+        • <span class="bad-em">Worked on</span> improving website performance<br/><br/>
+        • <span class="bad-em">Assisted</span> team with data analysis tasks
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-label good"><span class="icon">✓</span> What It Should Say</div>
+      <div class="compare-text">
+        • <span class="em">Grew Instagram</span> from 2K to 18K followers in 4 months<br/><br/>
+        • <span class="em">Reduced load time 40%</span> using lazy loading &amp; CDN optimisation<br/><br/>
+        • <span class="em">Analysed 50K+ rows</span> of sales data, identified ₹2L cost saving
+      </div>
+    </div>
+  </div>
+  <span class="stat-pill">Resumes with a number in the summary get 1.46× more interviews</span>
+  <div class="fix-strip">
+    <div class="fix-label">⚡ The Formula</div>
+    <p>For every bullet: <strong>Action Verb + What You Did + The Result (with a number).</strong> If you can't think of a number, estimate. "Approximately 40%" is better than nothing. Impact beats description every time.</p>
+  </div>
+</div>
+
+<!-- MISTAKE 4 -->
+<div class="mistake reveal" id="mistake4">
+  <div class="ghost-num">4</div>
+  <div class="mistake-tag"><span class="dot"></span>Mistake 04 of 05</div>
+  <h2>You Send the<br/>Same Resume<br/>to Every Job.</h2>
+  <p class="mistake-body">
+    One resume. 200 applications. Wonder why nothing works?
+    ATS systems score your resume against each specific job description.
+    A resume tailored to that job's keywords and requirements scores dramatically higher —
+    often the difference between page 1 and never being seen.
+    The research is decisive: <strong>tailored resumes interview at 2× the rate of untailored ones.</strong>
+    The same experience. The same skills. Just different words.
+  </p>
+  <div class="compare">
+    <div class="compare-side">
+      <div class="compare-label bad"><span class="icon">✕</span> Mass Apply Strategy</div>
+      <div class="compare-text">
+        1 resume → sent to 200 jobs<br/><br/>
+        <span class="bad-em">Average ATS score: 38/100</span><br/>
+        Response rate: ~2%<br/><br/>
+        Result: 4 replies.<br/>0 interviews.
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-label good"><span class="icon">✓</span> Targeted Strategy</div>
+      <div class="compare-text">
+        Tailored resume → sent to 30 jobs<br/><br/>
+        <span class="em">Average ATS score: 82/100</span><br/>
+        Response rate: ~18%<br/><br/>
+        Result: 5–6 interviews.<br/>Same experience.
+      </div>
+    </div>
+  </div>
+  <span class="stat-pill good">Tailored resumes = 2× interview rate (Huntr.co, 139K applications)</span>
+  <div class="fix-strip">
+    <div class="fix-label">⚡ The 5-Minute Tailoring Method</div>
+    <p>Copy the job description. Find the <strong>5–7 key skills and phrases</strong> they repeat. Mirror those exact words in your resume — in your summary, skills, and bullets. Don't lie. Just use their language for real things you've done.</p>
+  </div>
+</div>
+
+<!-- MISTAKE 5 -->
+<div class="mistake reveal" id="mistake5">
+  <div class="ghost-num">5</div>
+  <div class="mistake-tag"><span class="dot"></span>Mistake 05 of 05</div>
+  <h2>Your Summary Says<br/>Absolutely Nothing.</h2>
+  <p class="mistake-body">
+    "A motivated and hardworking fresher seeking a challenging position where I can
+    utilise my skills and grow as a professional."
+    This is on 80% of Indian freshers' resumes. Word for word.
+    Recruiters don't read it. They physically skip it.
+    <strong>Your summary is your 30-word pitch.</strong> It's the one thing a rushed recruiter
+    reads when they have 7 seconds. Make it specific. Make it about what you bring,
+    not what you want.
+  </p>
+  <div class="compare">
+    <div class="compare-side">
+      <div class="compare-label bad"><span class="icon">✕</span> The Cliché (Yours Right Now)</div>
+      <div class="compare-text">
+        <span class="bad-em">"A motivated and hardworking</span> fresher seeking a challenging position in a growth-oriented organisation where I can utilise my skills and contribute to the company's success."<br/><br/>
+        <span style="color:var(--muted);font-size:0.8rem;">Time recruiter spent: 0 seconds.</span>
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-label good"><span class="icon">✓</span> What Actually Gets Read</div>
+      <div class="compare-text">
+        <span class="em">"BTech CSE (2024), MERN stack developer</span> with 2 internships and a live product used by 3,000+ users. Built 4 full-stack projects. Looking to join a product team where I can own features end-to-end."<br/><br/>
+        <span style="color:var(--green);font-size:0.8rem;">Time recruiter spent: all 7 seconds.</span>
+      </div>
+    </div>
+  </div>
+  <span class="stat-pill">A specific, number-backed summary increases callbacks by up to 40%</span>
+  <div class="fix-strip">
+    <div class="fix-label">⚡ The Summary Formula</div>
+    <p><strong>[Degree/Title] + [Key Skill/Stack] + [One Specific Achievement] + [What You Want].</strong> Four parts. Two sentences. Maximum. No adjectives like "hardworking" — let the achievement prove it.</p>
+  </div>
+</div>
+
+<!-- SCORE TRACKER -->
+<div class="score-section">
+  <div class="score-inner reveal">
+    <p class="section-eyebrow">The Damage Report</p>
+    <h2>How Much Each Mistake Hurts Your ATS Score</h2>
+    <p>Based on parsed data from 1 million+ applications. Fix all five and your score can jump from 38 to 85+.</p>
+    <div class="score-row">
+      <div class="score-label">Photo + Personal Details</div>
+      <div class="score-track"><div class="score-fill" data-w="72"></div></div>
+      <div class="score-pct">–18 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Multi-column / Table Format</div>
+      <div class="score-track"><div class="score-fill" data-w="88"></div></div>
+      <div class="score-pct">–25 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Vague Bullets, No Numbers</div>
+      <div class="score-track"><div class="score-fill" data-w="80"></div></div>
+      <div class="score-pct">–20 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Same Resume, Every Job</div>
+      <div class="score-track"><div class="score-fill warn" data-w="60"></div></div>
+      <div class="score-pct warn">–15 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Generic Summary</div>
+      <div class="score-track"><div class="score-fill warn" data-w="44"></div></div>
+      <div class="score-pct warn">–10 pts</div>
+    </div>
+    <div class="score-row" style="margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--border)">
+      <div class="score-label" style="font-weight:600; color:var(--green)">Fix All Five ✓</div>
+      <div class="score-track"><div class="score-fill good" data-w="88" style="background:var(--green)"></div></div>
+      <div class="score-pct good">85+ ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Fix All 5 Mistakes.<br/><span>Right Now. For Free.</span></h2>
+  <p>BanaoResume templates are built for ATS — single column, clean format, keyword-ready. Build yours in 5 minutes and download instantly. No signup needed.</p>
+  <div class="feat-row">
+    <span class="feat-tag">ATS-Optimised Format</span>
+    <span class="feat-tag">Single Column Templates</span>
+    <span class="feat-tag">Fresher &amp; Experienced Modes</span>
+    <span class="feat-tag">Download PDF Instantly</span>
+    <span class="feat-tag">Free Forever · Made for India 🇮🇳</span>
+  </div>
+  <a href="https://banaoresumee.online" class="cta-btn">Build My Free Resume →</a>
+  <span class="cta-note">Thousands of Indian job seekers already using it · 100% free · No account needed</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Banao<em>Resume</em></span>
+  <ul class="footer-links">
+    <li><a href="https://banaoresumee.online">Resume Builder</a></li>
+    <li><a href="https://www.banaoresumee.online/The-hiring-system-isbroken.html">Hiring Broken</a></li>
+    <li><a href="https://www.banaoresumee.online/Your-Resume-Has-6-Seconds-to-Impress-Make-Every-Word-Count.html">6-Second Rule</a></li>
+  </ul>
+  <p class="footer-note">Data: Jobscan 2024–2026 · Huntr.co Q1 2026 · ResumeAdapter · CoverSentry · EDLIGO · SHRM · BanaoResume Blog · June 2026</p>
+</footer>
+
+<script>
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => ro.observe(el));
+
+  /* Score bar animation */
+  const fills = document.querySelectorAll('.score-fill');
+  const so = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        fills.forEach(f => {
+          const w = f.dataset.w;
+          setTimeout(() => { f.style.width = w + '%'; }, 150);
+        });
+        so.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const ss = document.querySelector('.score-section');
+  if (ss) so.observe(ss);
+</script>
+</body>
+</html>
