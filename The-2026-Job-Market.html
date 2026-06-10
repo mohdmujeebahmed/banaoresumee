@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 2026 Job Market Dossier | BanaoResume</title>
+  <meta name="description" content="108 days. 17 hires. Offers pulled after you said yes. The 2026 job market is the most broken in history — and we have the classified files to prove it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       TOKEN SYSTEM — WARM DARK / ORANGE DOSSIER PALETTE
+       ============================================================ */
+    :root {
+      --bg:        #0d0b09;
+      --surface:   #191410;
+      --surface2:  #221c16;
+      --border:    #2e2620;
+      --orange:    #f05a22;
+      --amber:     #ffb800;
+      --red:       #e63946;
+      --text:      #f0ebe4;
+      --muted:     #8c7e6f;
+      --stamp:     rgba(240, 90, 34, 0.12);
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       TICKER
+       ============================================================ */
+    .ticker-wrap {
+      background: var(--orange);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.55rem 0;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      gap: 0;
+      animation: ticker 38s linear infinite;
+    }
+    .ticker-inner span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #fff;
+      padding: 0 2.5rem;
+      text-transform: uppercase;
+    }
+    .ticker-inner span::before { content: "◆  "; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,11,9,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo em { color: var(--orange); font-style: normal; }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none !important; }
+
+    /* ============================================================
+       HERO / DOSSIER HEADER
+       ============================================================ */
+    .hero {
+      position: relative;
+      padding: 5rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "CLASSIFIED";
+      position: absolute;
+      top: 2.5rem;
+      right: -1rem;
+      font-family: var(--font-display);
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--orange);
+      opacity: 0.04;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      user-select: none;
+      text-transform: uppercase;
+      transform: rotate(-12deg);
+      white-space: nowrap;
+    }
+    .case-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      border-left: 2px solid var(--orange);
+      padding-left: 0.75rem;
+      line-height: 2;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 .accent { color: var(--orange); }
+    .hero h1 .amber { color: var(--amber); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-sub strong { color: var(--text); }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      color: var(--muted);
+    }
+    .tag.hot { border-color: var(--orange); color: var(--orange); }
+    .hero-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, var(--orange), transparent);
+      margin-top: 3rem;
+    }
+
+    /* ============================================================
+       SECTION LAYOUT
+       ============================================================ */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+    .exhibit-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .section-title .accent { color: var(--orange); }
+    .section-title .amber  { color: var(--amber); }
+    .section-title .red    { color: var(--red); }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 660px;
+      margin-bottom: 2.2rem;
+      line-height: 1.75;
+    }
+    .lead strong { color: var(--text); }
+
+    /* ============================================================
+       REDACTED REVEAL — SIGNATURE ELEMENT
+       ============================================================ */
+    .redacted {
+      display: inline;
+      background: var(--text);
+      color: var(--text);
+      border-radius: 2px;
+      padding: 0 0.3em;
+      cursor: pointer;
+      transition: background 0.35s ease, color 0.35s ease;
+      font-weight: 700;
+      position: relative;
+    }
+    .redacted:hover, .redacted.revealed {
+      background: var(--orange);
+      color: #fff;
+    }
+    .redacted-hint {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.3rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       EVIDENCE CARDS
+       ============================================================ */
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .evidence-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      padding: 1.5rem;
+      position: relative;
+    }
+    .evidence-card::before {
+      content: "EVIDENCE";
+      position: absolute;
+      top: 0.6rem;
+      right: 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .evidence-stat {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.03em;
+    }
+    .evidence-stat.amber { color: var(--amber); }
+    .evidence-stat.red   { color: var(--red); }
+    .evidence-label {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .evidence-source {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       TIMELINE / DETERIORATION CHART (Exhibit A)
+       ============================================================ */
+    .timeline-chart {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .timeline-chart h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 70px;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .tl-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .tl-bar-wrap {
+      background: var(--surface2);
+      height: 28px;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .tl-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--orange) 0%, #ff8c4a 100%);
+      display: flex;
+      align-items: center;
+      padding-left: 0.5rem;
+      transition: width 1s ease;
+    }
+    .tl-bar.peak {
+      background: linear-gradient(90deg, var(--red) 0%, #ff5757 100%);
+    }
+    .tl-days {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      text-align: right;
+    }
+    .tl-days.peak { color: var(--red); }
+    .tl-warning {
+      grid-column: 1 / -1;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--red);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: -0.4rem;
+      padding-left: 80px;
+    }
+
+    /* ============================================================
+       WITNESS BOX (pull quotes)
+       ============================================================ */
+    .witness-box {
+      border-left: 3px solid var(--orange);
+      padding: 1.2rem 1.5rem;
+      background: var(--surface);
+      margin: 2rem 0;
+    }
+    .witness-box .label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .witness-box blockquote {
+      font-size: 1.1rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+    .witness-box cite {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    /* ============================================================
+       INDIA FILE (the "17" bombshell)
+       ============================================================ */
+    .india-file {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .india-file::after {
+      content: "🇮🇳 INDIA";
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1rem;
+      font-size: 7rem;
+      opacity: 0.04;
+      pointer-events: none;
+      user-select: none;
+    }
+    .india-file-header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .india-file-header span {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .india-file-header .dot {
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .india-file-body {
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 600px) { .india-file-body { grid-template-columns: 1fr; } }
+    .india-stat {
+      text-align: center;
+    }
+    .india-num {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--red);
+      letter-spacing: -0.04em;
+    }
+    .india-num span { font-size: 2.5rem; }
+    .india-desc {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .india-vs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .vs-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.7rem;
+    }
+    .vs-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .vs-label { font-size: 0.8rem; color: var(--muted); }
+    .vs-val { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; }
+    .vs-val.good { color: var(--amber); }
+    .vs-val.bad  { color: var(--red); }
+
+    /* ============================================================
+       HORROR GRID (Exhibit C / D)
+       ============================================================ */
+    .horror-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .horror-cell {
+      background: var(--surface);
+      padding: 1.5rem;
+      position: relative;
+    }
+    .horror-num {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .horror-num.amber { color: var(--amber); }
+    .horror-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .horror-source {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       SURVIVAL PROTOCOL STEPS
+       ============================================================ */
+    .protocol-list {
+      counter-reset: protocol;
+      margin: 2rem 0;
+    }
+    .protocol-step {
+      counter-increment: protocol;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .protocol-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--orange);
+      opacity: 0.6;
+      line-height: 1;
+      text-align: center;
+    }
+    .step-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .step-content p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .step-content p strong { color: var(--text); }
+    .step-badge {
+      display: inline-block;
+      background: var(--stamp);
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ============================================================
+       CTA BLOCK
+       ============================================================ */
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--orange);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 900px;
+    }
+    .cta-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+    }
+    .cta-block h2 em { color: var(--orange); font-style: normal; }
+    .cta-block p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .cta-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+    .cta-feat {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+    }
+    .cta-feat::before { content: "✓  "; color: var(--orange); }
+    .cta-btn {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      padding: 0.9rem 2.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; text-decoration: none; }
+    .cta-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    /* ============================================================
+       VERDICT STAMP SECTION
+       ============================================================ */
+    .verdict {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    .verdict::before {
+      content: "VERDICT";
+      position: absolute;
+      top: 2rem; left: 50%;
+      transform: translateX(-50%) rotate(-6deg);
+      font-family: var(--font-display);
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--orange);
+      opacity: 0.05;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .verdict-inner {
+      border: 2px solid var(--orange);
+      padding: 2rem;
+      position: relative;
+    }
+    .verdict-inner .vl {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .verdict-inner p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 0.8rem;
+    }
+    .verdict-inner p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .footer-logo em { color: var(--orange); font-style: normal; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      text-align: center;
+      width: 100%;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       MOBILE ADJUSTMENTS
+       ============================================================ */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.2rem 2rem; }
+      .section { padding: 2rem 1.2rem; }
+      .tl-row { grid-template-columns: 60px 1fr 55px; gap: 0.6rem; }
+      .tl-warning { padding-left: 60px; }
+      .evidence-grid { grid-template-columns: 1fr 1fr; }
+      .india-file-body { grid-template-columns: 1fr; }
+      .cta-block { padding: 2rem 1.2rem; }
+      footer { padding: 1.5rem 1.2rem; }
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>108 Days to first offer — Q1 2026 record</span>
+    <span>India's top 5 IT firms net hired just 17 people in 9 months</span>
+    <span>1 in 5 job offers pulled after acceptance — Q1 2026</span>
+    <span>93% of seekers suspect ghost jobs</span>
+    <span>Entry-level postings down 35% since Jan 2023</span>
+    <span>84% of Indian professionals feel unprepared to job hunt</span>
+    <span>Only 1% trust online job listings completely</span>
+    <span>AI contributed to 4.5% of all job losses in 2025</span>
+    <span>108 Days to first offer — Q1 2026 record</span>
+    <span>India's top 5 IT firms net hired just 17 people in 9 months</span>
+    <span>1 in 5 job offers pulled after acceptance — Q1 2026</span>
+    <span>93% of seekers suspect ghost jobs</span>
+    <span>Entry-level postings down 35% since Jan 2023</span>
+    <span>84% of Indian professionals feel unprepared to job hunt</span>
+    <span>Only 1% trust online job listings completely</span>
+    <span>AI contributed to 4.5% of all job losses in 2025</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://banaoresumee.online" class="nav-logo">Banao<em>Resume</em></a>
+  <ul class="nav-links">
+    <li><a href="#exhibit-a">The Timeline</a></li>
+    <li><a href="#exhibit-b">India's 17</a></li>
+    <li><a href="#exhibit-c">Pulled Offers</a></li>
+    <li><a href="#exhibit-d">AI Weapon</a></li>
+    <li><a href="#protocol">Survive</a></li>
+    <li><a href="https://banaoresumee.online" class="nav-cta">Build Resume →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="case-meta">
+    Case No. BR-2026-Q1 &nbsp;|&nbsp; Classification: Urgent &nbsp;|&nbsp; Filed: June 2026 &nbsp;|&nbsp; BanaoResume Research Desk
+  </div>
+  <h1>
+    The <span class="accent">2026</span><br/>
+    Job Market<br/>
+    <span class="amber">Dossier.</span>
+  </h1>
+  <p class="hero-sub">
+    <strong>108 days. 17 hires. Offers pulled after you said yes.</strong> We cracked open the classified files on the most broken hiring market in history — and what we found will change how you job hunt forever.
+  </p>
+  <div class="tags">
+    <span class="tag hot">🔴 Breaking 2026</span>
+    <span class="tag">India Focus</span>
+    <span class="tag">AI Impact</span>
+    <span class="tag">Data Backed</span>
+    <span class="tag">Freshers + Experienced</span>
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- CASE OVERVIEW: Redacted Reveals -->
+<section class="section reveal" id="overview">
+  <div class="exhibit-label">Case Overview — Declassify to Read</div>
+  <h2 class="section-title">Five Facts They Buried.<br/><span class="accent">Hover to Unredact.</span></h2>
+  <p class="lead">
+    The job market data coming out of Q1 2026 reads like a thriller. Every single number below was sitting in plain sight — in research reports, LinkedIn surveys, and hiring platform data — but nobody packaged it like this. <strong>Hover each redacted block to reveal the truth.</strong>
+  </p>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <div class="evidence-stat"><span class="redacted" onclick="this.classList.toggle('revealed')">108</span></div>
+      <div class="evidence-label">Days is now the median job search length — a 56% jump from Q2 2025. That's 3.5 months of your life for one offer.</div>
+      <div class="evidence-source">Source: Huntr.co Q1 2026 Report (139,927 applications)</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat amber"><span class="redacted" onclick="this.classList.toggle('revealed')">17</span></div>
+      <div class="evidence-label">Net new employees hired by India's top 5 IT companies in the first 9 months of FY26. Not 17,000. Not 1,700. Seventeen.</div>
+      <div class="evidence-source">Source: NewsLaundry, April 2026</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat red"><span class="redacted" onclick="this.classList.toggle('revealed')">18%</span></div>
+      <div class="evidence-label">Of job seekers had their offer <em>withdrawn</em> in Q1 2026 — after they'd already said yes. Nearly double the 2025 rate.</div>
+      <div class="evidence-source">Source: Huntr.co Q1 2026 Survey</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat"><span class="redacted" onclick="this.classList.toggle('revealed')">93%</span></div>
+      <div class="evidence-label">Of job seekers have applied to or suspect a ghost job. And only 1% trust online listings completely. The system has lost all credibility.</div>
+      <div class="evidence-source">Source: Huntr.co Q1 2026 Survey, 593 respondents</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat red"><span class="redacted" onclick="this.classList.toggle('revealed')">84%</span></div>
+      <div class="evidence-label">Of Indian professionals say they feel completely unprepared to job hunt in 2026 — even as 87% say they use AI comfortably at work.</div>
+      <div class="evidence-source">Source: LinkedIn India Survey, January 2026</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat amber"><span class="redacted" onclick="this.classList.toggle('revealed')">35%</span></div>
+      <div class="evidence-label">Drop in entry-level job postings since January 2023. Junior roles are quietly disappearing — and AI is the prime suspect.</div>
+      <div class="evidence-source">Source: Revelio Labs / CNBC, Sept 2025</div>
+      <span class="redacted-hint">↑ hover to reveal</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXHIBIT A: THE 108-DAY CLOCK -->
+<section class="section reveal" id="exhibit-a">
+  <div class="exhibit-label">📂 Exhibit A — The Timeline</div>
+  <h2 class="section-title">The Clock Is<br/><span class="accent">Broken.</span></h2>
+  <p class="lead">
+    In Q2 2025, the median job search took 69 days. Still brutal. But manageable. Then something shifted. By Q1 2026, that number hit <strong>108 days</strong> — the longest ever recorded. This is not a blip. This is a new normal you need to plan for.
+  </p>
+
+  <div class="timeline-chart reveal">
+    <h4>📈 Median Days from Search Start to First Offer — Q2 2025 to Q1 2026 (Huntr.co)</h4>
+    <div class="tl-row">
+      <div class="tl-label">Q2 2025</div>
+      <div class="tl-bar-wrap">
+        <div class="tl-bar" style="width: 63.9%"></div>
+      </div>
+      <div class="tl-days">69</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-label">Q3 2025</div>
+      <div class="tl-bar-wrap">
+        <div class="tl-bar" style="width: 62%"></div>
+      </div>
+      <div class="tl-days">67</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-label">Q4 2025</div>
+      <div class="tl-bar-wrap">
+        <div class="tl-bar" style="width: 76.9%"></div>
+      </div>
+      <div class="tl-days">83</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-label">Q1 2026 ◀</div>
+      <div class="tl-bar-wrap">
+        <div class="tl-bar peak" style="width: 100%"></div>
+      </div>
+      <div class="tl-days peak">108</div>
+    </div>
+    <div class="tl-warning">⚠ All-time record · +56% jump in just three quarters</div>
+  </div>
+
+  <div class="witness-box">
+    <div class="label">🎙️ What This Means in Real Life</div>
+    <blockquote>"Two-thirds of successful searches in Q1 2026 ended within 50 applications — meaning volume alone won't save you. The winners sent fewer, smarter applications. 26 to 50 targeted applications outperformed blasting 100+."</blockquote>
+    <cite>— Huntr.co Q1 2026 Trends Report</cite>
+  </div>
+
+  <p class="lead" style="margin-top:1.5rem; margin-bottom:0">
+    Here's the dark punchline: the bottleneck isn't the interview itself. It's the time between applying and <em>getting</em> an interview. The hiring process is slow because companies are paralysed — doing AI-replacement math while pretending to recruit. <strong>Plan for 4 months. Prepare for 3. Hope for 2.</strong>
+  </p>
+</section>
+
+<!-- EXHIBIT B: INDIA'S "17" -->
+<section class="section reveal" id="exhibit-b">
+  <div class="exhibit-label">📂 Exhibit B — India's 17-Hire Scandal</div>
+  <h2 class="section-title">India's Top IT Giants<br/>Hired <span class="red">17 People.</span><br/>In Nine Months.</h2>
+  <p class="lead">
+    This is not a typo. India's five largest IT companies — the backbone of the ₹25 lakh crore outsourcing industry — collectively netted just <strong>17 new employees</strong> across nine months of FY26. The previous year in the same period: <strong>18,000 net hires.</strong>
+    That's a 99.9% collapse.
+  </p>
+
+  <div class="india-file reveal">
+    <div class="india-file-header">
+      <div class="dot"></div>
+      <span>Active File — India IT Sector FY26</span>
+    </div>
+    <div class="india-file-body">
+      <div class="india-stat">
+        <div class="india-num"><span>↓</span>17</div>
+        <div class="india-desc">Net new hires by India's top 5 IT companies<br/>in the first 9 months of FY26</div>
+      </div>
+      <div class="india-vs">
+        <div class="vs-row">
+          <div class="vs-label">Net hires, same period FY25</div>
+          <div class="vs-val good">~18,000</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-label">Net hires, FY26 so far</div>
+          <div class="vs-val bad">17</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-label">Wipro fresher target FY27</div>
+          <div class="vs-val bad">ZERO</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-label">Wipro freshers hired FY26</div>
+          <div class="vs-val good">7,500</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-label">Global tech layoffs, Jan–Apr 2026</div>
+          <div class="vs-val bad">73,000+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="witness-box" style="margin-top:2rem">
+    <div class="label">📌 The "Big Freeze" — The Real Threat to Indian Freshers</div>
+    <blockquote>"The primary threat to Indian freshers is not a wave of layoffs — it's a hiring freeze. Companies are using AI to expand the capacity of existing staff, eliminating the need for junior recruits. AI is automating the exact 'gateway jobs' that graduates have historically used to enter the workforce."</blockquote>
+    <cite>— TechieGigs India Workforce Analysis, 2026</cite>
+  </div>
+
+  <p class="lead" style="margin-top:1.5rem; margin-bottom:0">
+    The message? <strong>If you're waiting for TCS, Infosys, or Wipro to post that mass fresher drive, it may not come.</strong> Among CS graduates, unemployment is nearly double the national average in some regions. The traditional IT onboarding machine is broken. The pivot you need isn't optional anymore.
+  </p>
+</section>
+
+<!-- EXHIBIT C: PULLED OFFERS -->
+<section class="section reveal" id="exhibit-c">
+  <div class="exhibit-label">📂 Exhibit C — The Pulled Offer Plague</div>
+  <h2 class="section-title">You Got the Job.<br/>Then They <span class="red">Took It Back.</span></h2>
+  <p class="lead">
+    Imagine grinding through 108 days of applications, rejections, and interviews. You finally get an offer. You say yes. You maybe even quit your old job. <strong>Then the email arrives: "Due to unforeseen circumstances..."</strong> This is now happening to 1 in 5 job seekers.
+  </p>
+
+  <div class="horror-grid reveal">
+    <div class="horror-cell">
+      <div class="horror-num">18%</div>
+      <div class="horror-text">Of job seekers had an offer withdrawn in Q1 2026</div>
+      <div class="horror-source">Huntr.co Q1 2026 Survey · 593 respondents</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num">2×</div>
+      <div class="horror-text">The Q1 2026 pulled-offer rate vs the full-year 2025 average of 11%</div>
+      <div class="horror-source">Huntr.co Q1 2026 Report</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num amber">72%</div>
+      <div class="horror-text">Of job seekers encountered a job scam during their Q1 2026 search</div>
+      <div class="horror-source">Huntr.co Q1 2026 Survey</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num">1%</div>
+      <div class="horror-text">Of job seekers fully trust the job listings they see online. One. Percent.</div>
+      <div class="horror-source">Huntr.co Q1 2026 Survey</div>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-bottom:0">
+    Why is this happening? Companies are approving headcount, starting interviews, extending offers — and then having budget cut mid-process. They're doing AI-replacement calculations that weren't in the plan when the role was first posted. The result: <strong>you become collateral damage in a corporate spreadsheet decision.</strong> Protect yourself by never quitting your current role until you have a signed contract and a confirmed start date.
+  </p>
+</section>
+
+<!-- EXHIBIT D: THE AI WEAPON -->
+<section class="section reveal" id="exhibit-d">
+  <div class="exhibit-label">📂 Exhibit D — The AI Weapon</div>
+  <h2 class="section-title">AI Isn't Stealing<br/>Your Future Job.<br/>It's <span class="accent">Already Gone.</span></h2>
+  <p class="lead">
+    The narrative has always been "AI will take jobs someday." The data from 2026 says "someday" arrived about 18 months ago — especially for young people and entry-level roles. Here's what the numbers actually look like.
+  </p>
+
+  <div class="horror-grid reveal">
+    <div class="horror-cell">
+      <div class="horror-num red">16%</div>
+      <div class="horror-text">Drop in employment among 22–25 year olds in AI-exposed roles since 2022</div>
+      <div class="horror-source">Goldman Sachs Research</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num red">20%</div>
+      <div class="horror-text">Decline specifically among young software developers — the "safe" career everyone recommended</div>
+      <div class="horror-source">Goldman Sachs Research</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num amber">1 in 6</div>
+      <div class="horror-text">Employers actively plan to reduce headcount using AI in 2026</div>
+      <div class="horror-source">Wearetenet.com Statistics Report 2026</div>
+    </div>
+    <div class="horror-cell">
+      <div class="horror-num">4.5%</div>
+      <div class="horror-text">Of total 2025 job losses directly attributed to AI — a measurable, trackable number for the first time</div>
+      <div class="horror-source">Industry HR Survey, 2025</div>
+    </div>
+  </div>
+
+  <div class="witness-box" style="margin-top:2rem">
+    <div class="label">🔮 But Here's the Twist</div>
+    <blockquote>"AI is reshaping roles, not just eliminating them. In software engineering, lower production costs driven by AI are actually increasing total demand for senior engineers — creating 'amplified roles' rather than mass unemployment. The people who learn to orchestrate AI agents will become the most valuable workers of the decade."</blockquote>
+    <cite>— TechieGigs India Workforce Outlook, 2026</cite>
+  </div>
+
+  <p class="lead" style="margin-top:1.5rem; margin-bottom:0">
+    The real divide isn't human vs AI. It's <strong>AI-fluent vs AI-ignorant.</strong> India already commands 16% of global AI talent — expected to hit 1.25 million professionals by 2027. The professionals who learn to use AI as a weapon in their own arsenal (not just worry about it) are the ones who will skip the 108-day search entirely.
+  </p>
+</section>
+
+<!-- EXHIBIT E: THE TRUST COLLAPSE -->
+<section class="section reveal" id="exhibit-e">
+  <div class="exhibit-label">📂 Exhibit E — India's Hidden Anxiety</div>
+  <h2 class="section-title">76% Say It Got Harder.<br/><span class="amber">Nobody Warned Them.</span></h2>
+  <p class="lead">
+    LinkedIn surveyed Indian professionals in January 2026 and the results were staggering. This wasn't a niche survey of the unemployed — these are working professionals across every generation, from Gen Z to Baby Boomers. And the anxiety is universal.
+  </p>
+
+  <div class="evidence-grid reveal">
+    <div class="evidence-card">
+      <div class="evidence-stat">84%</div>
+      <div class="evidence-label">Of Indian professionals feel unprepared to find a new job in 2026</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat amber">76%</div>
+      <div class="evidence-label">Say finding a new job has become significantly harder over the past year</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat">77%</div>
+      <div class="evidence-label">Say hiring processes now involve too many stages — interview loops have become marathons</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat red">48%</div>
+      <div class="evidence-label">Struggle to make their applications stand out — regardless of how much experience they have</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat amber">94%</div>
+      <div class="evidence-label">Of Indian job seekers plan to use AI tools in their search — the only bright spot in the data</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+    <div class="evidence-card">
+      <div class="evidence-stat">72%</div>
+      <div class="evidence-label">Report that delayed responses and lack of feedback are making the process deeply impersonal</div>
+      <div class="evidence-source">LinkedIn India Survey, Jan 2026</div>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-bottom:0">
+    The silver lining? <strong>94% of Indian job seekers plan to use AI in their search.</strong> That number is the highest in the world. India's workforce isn't giving up — it's adapting faster than anywhere else. The gig and freelance economy is set to hit 23.5 million by 2030. Project-based hiring is up 38%. <strong>The traditional job ladder is getting replaced by a lattice — and the people who understand this first will win.</strong>
+  </p>
+</section>
+
+<!-- SURVIVAL PROTOCOL -->
+<section class="section reveal" id="protocol">
+  <div class="exhibit-label">🛡️ Survival Protocol — The Only Playbook That Works in 2026</div>
+  <h2 class="section-title">Stop Playing By<br/>The <span class="red">Old Rules.</span></h2>
+  <p class="lead">
+    The data is out. The old playbook — apply everywhere, hope for the best, wait — is statistically dead. Here is the 2026 protocol that actually moves the needle, backed by what the research shows converts to interviews.
+  </p>
+
+  <div class="protocol-list">
+    <div class="protocol-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <span class="step-badge">2× Interview Rate</span>
+        <h3>Tailor. Every. Single. Application.</h3>
+        <p>Tailored resumes interview at <strong>2× the rate of untailored ones</strong> — and resumes with a dollar figure in the summary convert at <strong>1.46× the rate of those without numbers.</strong> Stop sending the same CV to 50 jobs. Spend 30 minutes customising each one. Use keywords from the job description. Add a metric that proves your impact. That half-hour beats 50 mass applications every single time.</p>
+      </div>
+    </div>
+    <div class="protocol-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <span class="step-badge">2.4× Callback Rate</span>
+        <h3>Switch to Google Jobs First — Not LinkedIn.</h3>
+        <p>Everyone knows LinkedIn. That's the problem. Huntr.co's Q1 2026 data shows <strong>Google Jobs converts at 2.4× the rate of LinkedIn</strong> for actual interview callbacks. Why? Less competition, better listing quality, and Google's direct ATS integration. Start your job search on Google Jobs, then use LinkedIn for networking (not applications).</p>
+      </div>
+    </div>
+    <div class="protocol-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <span class="step-badge">The 50-Application Sweet Spot</span>
+        <h3>Send Fewer. Send Smarter. Move On.</h3>
+        <p>Two-thirds of successful Q1 2026 searches ended within 50 applications — and only applied once per company. <strong>Applying to the same company twice massively drops your conversion rate.</strong> Apply once with a killer tailored resume. If you hear nothing in 2 weeks, move on. Depth beats volume. Also: don't wait longer than 3 days to apply after seeing a job — applications older than that see significantly lower response rates.</p>
+      </div>
+    </div>
+    <div class="protocol-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <span class="step-badge">Build Now — Before You Need It</span>
+        <h3>Access the Hidden Market Before the Job Exists.</h3>
+        <p>With 70–80% of roles still filled before they're posted publicly, the hidden job market is your biggest opportunity — and your least-used weapon. <strong>Map 10–15 target companies. Find employees in your target role. Send personalised outreach — not job requests, learning requests.</strong> "I've been following your team's work and would love 15 minutes to learn from your experience." Build the relationship. The referral comes naturally. Referred candidates are 15× more likely to be hired than cold applicants.</p>
+      </div>
+    </div>
+    <div class="protocol-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <span class="step-badge">Your Most Important Tool</span>
+        <h3>Make Your Resume ATS-Bulletproof Before Anything Else.</h3>
+        <p>Everything above works harder when your resume is razor-sharp. <strong>Single column. Keywords from the job description. Quantified bullets. A dollar figure in your summary. Standard headings ATS systems recognise.</strong> A weak resume makes every other strategy fail — because it's the thing that gets you in front of a human or keeps you in a bot's trash folder. Build yours in 5 minutes for free on BanaoResume — ATS-optimised templates, fresher and experienced modes, download as PDF instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<div class="verdict reveal">
+  <div class="verdict-inner">
+    <div class="vl">⚖️ The Verdict — BanaoResume Research Desk</div>
+    <p>
+      The 2026 job market didn't just get harder — it got structurally different. The rules that worked in 2022, 2023, even 2024 are actively working against you now. Mass applying is statistically futile. Ghost jobs are near-universal. AI is eliminating the entry points before you even reach them in India's largest IT sector. And companies are pulling offers like it's a stock market trade.
+    </p>
+    <p>
+      But here's what the data also shows: the people who know how the system actually works are still winning. Tailored resumes beat generic ones 2:1. Google Jobs outperforms LinkedIn. Referred candidates skip the queue entirely. The hidden job market is enormous and nearly uncontested.
+    </p>
+    <p>
+      <strong>The job market is broken for people using old strategies. For everyone else, it's wide open.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block reveal">
+  <h2>Your Resume Is the<br/><em>First Move</em> That Beats the System.</h2>
+  <p>Every strategy above starts with a sharp, ATS-ready resume. Build yours for free — no signup, no credit card, just a resume that works.</p>
+  <div class="cta-features">
+    <span class="cta-feat">100% Free, No Signup</span>
+    <span class="cta-feat">ATS-Optimised Templates</span>
+    <span class="cta-feat">Fresher & Experienced Modes</span>
+    <span class="cta-feat">Download PDF Instantly</span>
+    <span class="cta-feat">Made for India 🇮🇳</span>
+  </div>
+  <a href="https://banaoresumee.online" class="cta-btn">🚀 Build My Free Resume</a>
+  <p class="cta-note">Free forever · No account needed · Built for students & freshers across India</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Banao<em>Resume</em></div>
+  <ul class="footer-links">
+    <li><a href="https://banaoresumee.online">Resume Builder</a></li>
+    <li><a href="https://www.banaoresumee.online/The-hiring-system-isbroken.html">Hiring Broken</a></li>
+    <li><a href="https://www.banaoresumee.online/Your-Resume-Has-6-Seconds-to-Impress-Make-Every-Word-Count.html">6-Second Rule</a></li>
+    <li><a href="mailto:support@banaoresumee.online">Contact</a></li>
+  </ul>
+  <p class="footer-note">Research sourced from Huntr.co Q1 2026, LinkedIn India Survey Jan 2026, Goldman Sachs, NewsLaundry, Revelio Labs & LinkedIn Jobs on the Rise 2026 · BanaoResume Blog · June 2026</p>
+</footer>
+
+<script>
+  /* =========================================================
+     Scroll Reveal Observer
+  ========================================================= */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* =========================================================
+     Animate timeline bars on scroll
+  ========================================================= */
+  const bars = document.querySelectorAll('.tl-bar');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        // bars already have their widths set in inline styles,
+        // we just ensure they animate from zero
+        bars.forEach(bar => {
+          const target = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = target; }, 120);
+        });
+        barObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const chartEl = document.querySelector('.timeline-chart');
+  if (chartEl) barObserver.observe(chartEl);
+
+  /* =========================================================
+     Stat counter (animated numbers)
+  ========================================================= */
+  function animateCount(el, target, suffix, duration) {
+    let start = 0;
+    const step = Math.ceil(target / (duration / 16));
+    function tick() {
+      start = Math.min(start + step, target);
+      el.textContent = start + suffix;
+      if (start < target) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* Optional: auto-reveal redacted on mobile tap already handled by onclick */
+</script>
+</body>
+</html>
