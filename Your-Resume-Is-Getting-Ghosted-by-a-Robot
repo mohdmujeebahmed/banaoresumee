@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Resume Is Getting Ghosted by a Robot — Here's the Truth | BanaoResumee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080811;
+      --surface: #0f0f1e;
+      --surface2: #171728;
+      --violet: #7B2FFF;
+      --violet-glow: rgba(123, 47, 255, 0.25);
+      --pink: #FF3D7F;
+      --cyan: #00D4FF;
+      --gold: #FFD166;
+      --text: #F0F0FF;
+      --muted: #8888AA;
+      --border: rgba(123, 47, 255, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 8, 17, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--violet); }
+
+    .nav-pill {
+      background: var(--violet);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+    .nav-pill:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 100px 40px 80px;
+      max-width: 860px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(123, 47, 255, 0.15);
+      border: 1px solid rgba(123, 47, 255, 0.4);
+      color: #C09FFF;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+    }
+
+    .hero-eyebrow::before { content: '🔥'; }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+
+    h1 .highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+      border-radius: 3px;
+      z-index: -1;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta .dot { color: var(--violet); }
+
+    /* ─── BREAKING STAT BANNER ─── */
+    .stat-banner {
+      background: linear-gradient(135deg, #1a0836, #0d1a3a);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--pink);
+      margin: 0 auto 64px;
+      max-width: 860px;
+      padding: 28px 40px;
+      border-radius: 0 16px 16px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .stat-number.pink { color: var(--pink); }
+    .stat-number.violet { color: #A97BFF; }
+    .stat-number.cyan { color: var(--cyan); }
+    .stat-number.gold { color: var(--gold); }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── ARTICLE BODY ─── */
+    .article-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px 120px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── SECTION MARKERS ─── */
+    .section-marker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 72px 0 32px;
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--violet-glow);
+      border: 1px solid rgba(123, 47, 255, 0.4);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── PROSE ─── */
+    .prose p {
+      margin-bottom: 22px;
+      color: #D0D0EE;
+      font-size: 1.05rem;
+    }
+
+    .prose strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ─── CALLOUT / REDDIT QUOTE ─── */
+    .reddit-quote {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 36px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reddit-quote::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+    }
+
+    .reddit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 70, 45, 0.15);
+      border: 1px solid rgba(255, 70, 45, 0.3);
+      color: #FF7B5F;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .reddit-badge::before { content: '⬆'; font-size: 0.85rem; }
+
+    .reddit-quote blockquote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: #C8C8E8;
+    }
+
+    .reddit-source {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ─── CALLOUT BOXES ─── */
+    .callout {
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+
+    .callout.violet {
+      background: rgba(123, 47, 255, 0.1);
+      border: 1px solid rgba(123, 47, 255, 0.35);
+    }
+
+    .callout.pink {
+      background: rgba(255, 61, 127, 0.1);
+      border: 1px solid rgba(255, 61, 127, 0.35);
+    }
+
+    .callout.gold {
+      background: rgba(255, 209, 102, 0.08);
+      border: 1px solid rgba(255, 209, 102, 0.3);
+    }
+
+    .callout-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .callout.violet .callout-label { color: #A97BFF; }
+    .callout.pink .callout-label { color: var(--pink); }
+    .callout.gold .callout-label { color: var(--gold); }
+
+    .callout p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: #D0D0EE;
+      margin: 0;
+    }
+
+    /* ─── TIP LIST ─── */
+    .tip-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .tip-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+      transition: border-color 0.2s;
+    }
+
+    .tip-list li:hover { border-color: var(--border); }
+
+    .tip-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--violet-glow);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tip-content strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .tip-content span {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─── HORROR VISUAL (Robot Audit Section) ─── */
+    .bot-audit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bot-audit-card::before {
+      content: 'ATS';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(123, 47, 255, 0.06);
+      pointer-events: none;
+    }
+
+    .audit-verdict {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .verdict-item {
+      background: rgba(0,0,0,0.25);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 3px solid transparent;
+    }
+
+    .verdict-item.fail { border-color: var(--pink); }
+    .verdict-item.pass { border-color: #00E096; }
+
+    .verdict-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .verdict-item.fail .verdict-tag { color: var(--pink); }
+    .verdict-item.pass .verdict-tag { color: #00E096; }
+
+    .verdict-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ─── BIG TRUTH CARD ─── */
+    .truth-card {
+      background: linear-gradient(135deg, #1a0438 0%, #0d1545 100%);
+      border: 1px solid rgba(123, 47, 255, 0.4);
+      border-radius: 20px;
+      padding: 48px;
+      margin: 48px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .truth-card::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(123,47,255,0.2) 0%, transparent 70%);
+      bottom: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .truth-card .big-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .truth-card .big-quote em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .truth-card .attribution {
+      margin-top: 16px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── RESUME CHECKLIST ─── */
+    .checklist-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .checklist-header {
+      background: linear-gradient(90deg, var(--violet), #4A00E0);
+      padding: 20px 28px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .checklist-body {
+      padding: 8px 0;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+
+    .check-row:last-child { border-bottom: none; }
+    .check-row:hover { background: rgba(123,47,255,0.05); }
+
+    .check-box {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .check-box.done {
+      background: var(--violet);
+      border-color: var(--violet);
+    }
+
+    .check-text {
+      font-size: 0.92rem;
+      color: #D0D0EE;
+    }
+
+    .check-text.striked {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, #1a0438, #0a1a3d);
+      border: 1px solid rgba(123,47,255,0.3);
+      border-radius: 24px;
+      padding: 60px 48px;
+      text-align: center;
+      margin: 72px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(123,47,255,0.15), transparent 70%);
+      top: -150px; left: -150px;
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,61,127,0.12), transparent 70%);
+      bottom: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .cta-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #A97BFF;
+      margin-bottom: 16px;
+    }
+
+    .cta-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 999px;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 32px rgba(123,47,255,0.35);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 48px rgba(123,47,255,0.55);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a { color: #A97BFF; text-decoration: none; }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 48px 0;
+    }
+
+    /* ─── GLOW BLOBS ─── */
+    .glow-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+    }
+    .blob-1 {
+      width: 500px; height: 500px;
+      background: var(--violet);
+      top: -200px; right: -200px;
+    }
+    .blob-2 {
+      width: 400px; height: 400px;
+      background: var(--pink);
+      bottom: 20%; left: -200px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .hero, .article-body { padding-left: 20px; padding-right: 20px; }
+      .hero { padding-top: 60px; }
+      .stat-banner { padding: 24px 20px; margin-left: 20px; margin-right: 20px; }
+      .bot-audit-card, .truth-card, .cta-section { padding: 28px 20px; }
+      .checklist-header, .check-row { padding-left: 20px; padding-right: 20px; }
+    }
+
+    /* ─── ANIMATED GRADIENT TEXT ─── */
+    @keyframes gradShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .grad-text {
+      background: linear-gradient(270deg, #7B2FFF, #FF3D7F, #00D4FF, #7B2FFF);
+      background-size: 300% 300%;
+      animation: gradShift 6s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glow blobs -->
+  <div class="glow-blob blob-1"></div>
+  <div class="glow-blob blob-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">banao<span>resumee</span>.online</div>
+    <a class="nav-pill" href="https://banaoresumee.online">Build Your Resume →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Deep Dive · June 2026</div>
+    <h1>Your Resume Is Getting <span class="highlight">Ghosted</span> by a Robot —<br/>and Nobody Told You 💀</h1>
+    <p class="hero-sub">
+      No cap — 53% of job seekers got zero response last year. Not from a recruiter. From a <em>bot</em>.
+      Here's the unfiltered Reddit-researched truth about what's actually happening to your applications,
+      and how to make your resume so good even the machines have to say yes.
+    </p>
+    <div class="hero-meta">
+      <span>By the BanaoResumee Team</span>
+      <span class="dot">◆</span>
+      <span>8 min read</span>
+      <span class="dot">◆</span>
+      <span>Jobs & Career · 2026</span>
+    </div>
+  </section>
+
+  <!-- BREAKING STATS BANNER -->
+  <div class="stat-banner">
+    <div class="stat-item">
+      <div class="stat-number pink">53%</div>
+      <div class="stat-label">Job seekers ghosted in 2026 — a 3-year peak</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number violet">81%</div>
+      <div class="stat-label">Companies posting "ghost jobs" that don't exist</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number cyan">&lt;2%</div>
+      <div class="stat-label">Interview rate in cities like NYC right now</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number gold">1,000+</div>
+      <div class="stat-label">Applications one Gen Z grad sent before giving up</div>
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <!-- ░░ SECTION 1 ░░ -->
+    <div class="section-marker">
+      <div class="section-icon">😤</div>
+      <h2 class="section-title">Okay Real Talk. The Hiring Game Is Rigged.</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        You know that feeling where you spend three hours tailoring a resume, perfecting every bullet point,
+        sending it off into the void... and then absolutely nothing? Not even a "thanks but no thanks."
+        Just <strong>silence.</strong> Radio silence. Ghost-mode activated.
+      </p>
+      <p>
+        That's not in your head. That's the <em>system</em>. And Reddit has been screaming about this for years
+        while the rest of the internet kept handing out "top 5 resume tips" that do absolutely nothing.
+      </p>
+    </div>
+
+    <div class="reddit-quote">
+      <div class="reddit-badge">r/jobs · top post</div>
+      <blockquote>"Been doing this for almost two years now for similar jobs. Ghost postings are killing my job search. The market is bleak and it's not getting better."</blockquote>
+      <div class="reddit-source">— u/frustrated_applicant · 4.2k upvotes on r/jobs</div>
+    </div>
+
+    <div class="prose">
+      <p>
+        Here's the brutal data: <strong>over 53% of job seekers were ghosted in 2026</strong>, the highest in three years.
+        And get this — it's not even always a lazy recruiter. A huge chunk of it is <strong>ghost jobs</strong>:
+        fake listings companies post to look like they're growing, or roles that were already filled three weeks ago.
+        81% of recruiters admitted their company posts them. Let that sink in.
+      </p>
+    </div>
+
+    <div class="callout violet">
+      <div class="callout-label">🤖 The Plot Twist</div>
+      <p>Your resume isn't just being ignored by humans. It's being <strong>auto-rejected by AI software</strong> (called ATS — Applicant Tracking Systems) before a single human ever sees it. If your resume isn't formatted for the bots, you never even got a chance.</p>
+    </div>
+
+    <!-- ░░ SECTION 2 ░░ -->
+    <div class="section-marker">
+      <div class="section-icon">🤖</div>
+      <h2 class="section-title">The ATS Bot: Your New, Least Favourite Gatekeeper</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Let's talk about the thing nobody explains in school. When you hit "Apply" on LinkedIn or Indeed,
+        your resume doesn't go to a person. It goes to a piece of software that's basically vibes-checking
+        your document against a list of keywords from the job description.
+        No keywords? <strong>Bye, bestie.</strong> Auto-rejected.
+      </p>
+      <p>
+        The CEO of Greenhouse (a major recruiting platform) literally called this a <strong>"mad arms race"</strong> —
+        candidates spam AI-written resumes at scale, companies fight back with AI screening bots,
+        and actual qualified humans fall through the cracks on both sides.
+        It's chaotic, it's broken, and if you're playing by the old rules, you're losing by default.
+      </p>
+    </div>
+
+    <div class="bot-audit-card">
+      <strong style="font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:700;">
+        What an ATS Bot Actually Judges Your Resume On 👇
+      </strong>
+      <div class="audit-verdict">
+        <div class="verdict-item fail">
+          <div class="verdict-tag">❌ Instant Fail</div>
+          <p>Graphics, tables, columns, fancy icons — robots can't read them and just skip over your content entirely.</p>
+        </div>
+        <div class="verdict-item fail">
+          <div class="verdict-tag">❌ Instant Fail</div>
+          <p>Wrong keywords. If the job says "project management" and you wrote "managing projects," the bot doesn't care.</p>
+        </div>
+        <div class="verdict-item pass">
+          <div class="verdict-tag">✅ Gets You Through</div>
+          <p>Clean formatting, exact keyword matches from the job description, proper section headers (Experience, Education, Skills).</p>
+        </div>
+        <div class="verdict-item pass">
+          <div class="verdict-tag">✅ Gets You Through</div>
+          <p>Quantified results ("increased sales by 30%") and clear job titles that match what they're searching for.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>
+        The truly wild part? Some applicants found the <strong>"white font" hack</strong> — hiding keywords in white text on a white background so bots pick them up. But HR professionals are now wise to it, and it backfires badly.
+        The answer isn't to game the system with tricks. It's to build a resume that's genuinely optimised <em>and</em> genuinely good. That's the move.
+      </p>
+    </div>
+
+    <!-- ░░ SECTION 3 ░░ -->
+    <div class="section-marker">
+      <div class="section-icon">📊</div>
+      <h2 class="section-title">Why Everyone Sounds Exactly The Same (And That's Deadly)</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Here's the other crisis nobody's talking about. AI tools made it <em>so easy</em> to write a resume
+        that now everybody's resume sounds identical. Same buzzwords. Same "results-driven professional
+        with a passion for excellence." Same bullet structure. Hundreds of applications for one role,
+        and a hiring manager says — <strong>"they all sound the same, and that makes it harder to hire."</strong>
+      </p>
+    </div>
+
+    <div class="truth-card">
+      <p class="big-quote">
+        "We've seen it first-hand. Hundreds of applications for one job opening, many of them almost identical. It's not that people are unqualified. It's that their applications all <em>sound the same.</em>"
+      </p>
+      <p class="attribution">— Pamela Skillings, Co-founder at Big Interview · Fortune, Sept 2025</p>
+    </div>
+
+    <div class="prose">
+      <p>
+        The irony is devastating. Everyone used ChatGPT to stand out, and now <em>everybody</em> stands out
+        in the same way — which means nobody does. Your resume now has to do something different.
+        It has to actually sound like <strong>you</strong>. Specific. Real. Human.
+      </p>
+    </div>
+
+    <div class="callout pink">
+      <div class="callout-label">🔥 Hot Reddit Take</div>
+      <p>r/cscareerquestions: <strong>"Essential — optimize your LinkedIn profile or die."</strong> The consensus from experienced devs and recruiters is clear: if you're not showing up in LinkedIn searches AND your resume isn't ATS-clean, you're basically invisible in 2026.</p>
+    </div>
+
+    <!-- ░░ SECTION 4 ░░ -->
+    <div class="section-marker">
+      <div class="section-icon">🎯</div>
+      <h2 class="section-title">So How Do You Actually WIN? The Real Moves.</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Okay enough doom. Let's get into what actually works — researched from Reddit's most upvoted threads,
+        industry data, and what hiring pros in 2026 are actually responding to.
+      </p>
+    </div>
+
+    <ul class="tip-list">
+      <li>
+        <div class="tip-icon">🔑</div>
+        <div class="tip-content">
+          <strong>Mirror the job description, word for word</strong>
+          <span>Read the job post carefully. Note the exact keywords they use. Use those exact words in your resume — not synonyms, not paraphrases. The bot is doing exact-match searches.</span>
+        </div>
+      </li>
+      <li>
+        <div class="tip-icon">📏</div>
+        <div class="tip-content">
+          <strong>One page, clean format, no graphics</strong>
+          <span>No columns, no fancy icons, no text boxes. Bots read top-to-bottom in a single column. Any deviation confuses them. Keep it clean, keep it scannable.</span>
+        </div>
+      </li>
+      <li>
+        <div class="tip-icon">📈</div>
+        <div class="tip-content">
+          <strong>Quantify everything like it's your job (it is)</strong>
+          <span>"Managed social media" = trash. "Grew Instagram engagement by 47% in 3 months through reels strategy" = hire this person immediately. Numbers make you real.</span>
+        </div>
+      </li>
+      <li>
+        <div class="tip-icon">🔗</div>
+        <div class="tip-content">
+          <strong>LinkedIn is not optional anymore</strong>
+          <span>r/cscareerquestions is unanimous: recruiter DMs come from LinkedIn, not Indeed. Optimise your headline, have the same job title as your resume, and get those keywords into your About section.</span>
+        </div>
+      </li>
+      <li>
+        <div class="tip-icon">🧠</div>
+        <div class="tip-content">
+          <strong>Use AI to help you, not to replace you</strong>
+          <span>The people winning? They use AI to refine their ideas, fix their bullet points, and catch gaps — not to write everything from scratch. Your unique voice + AI polish = unstoppable.</span>
+        </div>
+      </li>
+      <li>
+        <div class="tip-icon">🙋</div>
+        <div class="tip-content">
+          <strong>Apply with referrals wherever possible</strong>
+          <span>Reddit's best advice in 2026: go through referral links. A resume with a referral skips the first 3 rounds of AI screening at most companies. Build that network, even if it's uncomfortable.</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="callout gold">
+      <div class="callout-label">💡 The Underrated Move</div>
+      <p>That one Gen Z grad who carried a sign on Wall Street after 1,000 applications? He went viral and got job offers. The lesson isn't "do stunts" — it's that <strong>being human and specific breaks through noise</strong> when everything else feels automated and identical.</p>
+    </div>
+
+    <!-- ░░ SECTION 5 ░░ -->
+    <div class="section-marker">
+      <div class="section-icon">✅</div>
+      <h2 class="section-title">The 2026 Resume Checklist (No Cap, Use This)</h2>
+    </div>
+
+    <div class="prose">
+      <p>Before you hit send on your next application, run through this. Every single point. Non-negotiable.</p>
+    </div>
+
+    <div class="checklist-wrapper">
+      <div class="checklist-header">🗂️ BanaoResumee — Resume Audit Checklist 2026</div>
+      <div class="checklist-body">
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">Single-column format with no tables, columns or graphics</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">Keywords from the job description are included word-for-word</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">At least 3 bullet points have real numbers / percentages</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">Contact section has LinkedIn URL and a professional email</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">Summary/Objective is specific to this role — not copy-pasted</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box">✓</div>
+          <span class="check-text striked">Funky Canva template with coloured side panels and icons</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box">✓</div>
+          <span class="check-text striked">"Hardworking team player with a passion for excellence" (delete this forever)</span>
+        </div>
+        <div class="check-row">
+          <div class="check-box done">✓</div>
+          <span class="check-text">Saved as PDF with proper file name (not "resume_final_v4_ACTUAL_FINAL.pdf")</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="prose">
+      <p>
+        Look — the market in 2026 is genuinely rough. BlackRock's CEO literally warned the class of 2026
+        could face the highest unemployment in years. But here's the thing nobody says:
+        <strong>rough markets punish generic applications hardest.</strong>
+        The people landing jobs are the ones whose resumes are doing the right work — clean, specific,
+        keyword-matched, and unmistakably human.
+      </p>
+      <p>
+        Don't spend another weekend applying blindly to ghost jobs with a resume that bots are
+        quietly rejecting at 2am. Do the work once. Build the right resume.
+        Then let your applications actually go somewhere.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="cta-eyebrow">🚀 Ready to Stop Getting Ghosted?</div>
+      <h2 class="cta-heading">Build a Resume That <span class="grad-text">Actually Gets Read</span></h2>
+      <p class="cta-sub">
+        BanaoResumee helps you create ATS-friendly, recruiter-approved resumes in minutes —
+        so you can stop applying into the void and start getting callbacks.
+      </p>
+      <a class="cta-btn" href="https://banaoresumee.online">Build My Resume Free →</a>
+    </div>
+
+  </article>
+
+  <footer>
+    <p>© 2026 <a href="https://banaoresumee.online">banaoresumee.online</a> — Made with 🔥 for every Gen Z job seeker who deserves better than radio silence.</p>
+  </footer>
+
+</body>
+</html>
