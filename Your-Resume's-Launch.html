@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Sequence: The Resume That Gets You Hired — Banao Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#03040f;
+    --deep:#0a0e2a;
+    --panel:#10153a;
+    --purple:#8b6bff;
+    --cyan:#5eead4;
+    --pink:#ff6f9c;
+    --gold:#ffcb6b;
+    --star:#eef1ff;
+    --muted:#8d93c4;
+    --line:rgba(142,150,255,0.18);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--void);
+    color:var(--star);
+    font-family:'Inter',sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ===== BACKGROUND LAYERS ===== */
+  .starfield{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+  }
+  .star{
+    position:absolute;
+    background:var(--star);
+    border-radius:50%;
+    animation:twinkle ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:.15; transform:scale(1);}
+    50%{opacity:1; transform:scale(1.4);}
+  }
+
+  .nebula{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    z-index:0;
+    pointer-events:none;
+    opacity:.35;
+  }
+  .nebula--a{
+    width:46vw; height:46vw;
+    top:-10vw; right:-12vw;
+    background:radial-gradient(circle, var(--purple), transparent 70%);
+    animation:drift1 50s ease-in-out infinite alternate;
+  }
+  .nebula--b{
+    width:38vw; height:38vw;
+    bottom:5vh; left:-10vw;
+    background:radial-gradient(circle, var(--pink), transparent 70%);
+    animation:drift2 60s ease-in-out infinite alternate;
+  }
+  .nebula--c{
+    width:30vw; height:30vw;
+    top:55vh; right:10vw;
+    background:radial-gradient(circle, var(--cyan), transparent 70%);
+    opacity:.18;
+    animation:drift1 70s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes drift1{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(-6vw,8vw) scale(1.15);}
+  }
+  @keyframes drift2{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(8vw,-6vw) scale(1.1);}
+  }
+
+  .shooting-star{
+    position:fixed;
+    top:12%;
+    left:-10%;
+    width:140px;
+    height:2px;
+    background:linear-gradient(90deg, var(--star), transparent);
+    z-index:1;
+    pointer-events:none;
+    opacity:0;
+    animation:shoot 9s ease-in infinite;
+    animation-delay:3s;
+  }
+  .shooting-star--two{
+    top:38%;
+    animation-delay:7.5s;
+    animation-duration:11s;
+  }
+  @keyframes shoot{
+    0%{ transform: translateX(0) translateY(0) rotate(18deg); opacity:0; }
+    4%{ opacity:1; }
+    18%{ transform: translateX(120vw) translateY(45vh) rotate(18deg); opacity:0; }
+    100%{ opacity:0; }
+  }
+
+  /* ===== HUD ===== */
+  .hud{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px clamp(20px,5vw,64px);
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    background:linear-gradient(to bottom, rgba(3,4,15,.85), transparent);
+    backdrop-filter:blur(4px);
+  }
+  .hud strong{color:var(--cyan); font-weight:600;}
+  .hud .altitude{display:flex; align-items:center; gap:8px;}
+  .hud .altitude::before{
+    content:'';
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px var(--gold);
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.3;}}
+
+  /* ===== SCROLL ROCKET TRACK ===== */
+  .flight-track{
+    position:fixed;
+    left:28px;
+    top:14vh;
+    bottom:14vh;
+    width:2px;
+    z-index:40;
+    background:var(--line);
+  }
+  .flight-track__fill{
+    position:absolute;
+    bottom:0; left:0; width:100%;
+    height:0%;
+    background:linear-gradient(to top, var(--cyan), var(--purple));
+    transition:height .1s linear;
+  }
+  .flight-track__rocket{
+    position:absolute;
+    left:50%;
+    bottom:0%;
+    transform:translate(-50%, 50%) rotate(-45deg);
+    font-size:1.3rem;
+    filter:drop-shadow(0 0 8px var(--cyan));
+    transition:bottom .1s linear;
+  }
+  @media (max-width: 900px){
+    .flight-track{display:none;}
+  }
+
+  /* ===== LAYOUT ===== */
+  main{
+    position:relative;
+    z-index:2;
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 clamp(20px,6vw,64px);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:80px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .eyebrow::before{
+    content:'';
+    display:block;
+    width:40px; height:1px;
+    background:var(--cyan);
+  }
+  .hero h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    max-width:14ch;
+    background:linear-gradient(135deg, #fff 30%, var(--cyan) 60%, var(--purple) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero p{
+    margin-top:28px;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:var(--muted);
+  }
+  .hero p strong{color:var(--star); font-weight:600;}
+  .scroll-cue{
+    margin-top:64px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .scroll-cue span{
+    display:inline-block;
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  /* ===== STAGE SECTIONS ===== */
+  .stage{
+    padding:min(14vh,140px) 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:48px;
+  }
+  @media (max-width:760px){
+    .stage{grid-template-columns:1fr; gap:20px;}
+  }
+  .stage-marker{
+    position:relative;
+  }
+  .stage-num{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(3rem,8vw,5.5rem);
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--line);
+    display:block;
+  }
+  .stage-tag{
+    display:block;
+    margin-top:14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    max-width:14ch;
+  }
+  .stage-content h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:clamp(1.6rem,4vw,2.4rem);
+    margin-bottom:18px;
+    letter-spacing:-.01em;
+  }
+  .stage-content p{
+    color:var(--muted);
+    max-width:62ch;
+    margin-bottom:18px;
+  }
+  .stage-content p strong{color:var(--star);}
+
+  /* reveal animation */
+  .reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity .9s cubic-bezier(.2,.6,.2,1), transform .9s cubic-bezier(.2,.6,.2,1);
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ===== PANEL LIST (toggles) ===== */
+  .panel-list{
+    list-style:none;
+    display:grid;
+    gap:12px;
+    margin-top:24px;
+  }
+  .panel-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    background:linear-gradient(135deg, rgba(139,107,255,.08), rgba(94,234,212,.04));
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:.95rem;
+    transition:border-color .25s, transform .25s;
+  }
+  .panel-list li:hover{
+    border-color:var(--cyan);
+    transform:translateX(4px);
+  }
+  .switch{
+    flex-shrink:0;
+    margin-top:3px;
+    width:30px; height:16px;
+    border-radius:20px;
+    background:rgba(94,234,212,.15);
+    border:1px solid var(--cyan);
+    position:relative;
+  }
+  .switch::after{
+    content:'';
+    position:absolute;
+    top:2px; right:2px;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 6px var(--cyan);
+  }
+
+  /* ===== TRANSMISSION LOGS ===== */
+  .transmission-grid{
+    display:grid;
+    gap:16px;
+    margin-top:24px;
+  }
+  .transmission{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.88rem;
+    padding:18px 20px;
+    border-radius:10px;
+    border-left:3px solid;
+    background:rgba(255,255,255,.02);
+  }
+  .transmission.weak{
+    border-color:var(--pink);
+    color:var(--muted);
+  }
+  .transmission.strong{
+    border-color:var(--cyan);
+    color:var(--star);
+  }
+  .signal-label{
+    display:block;
+    letter-spacing:.18em;
+    font-size:.68rem;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .transmission.weak .signal-label{color:var(--pink);}
+  .transmission.strong .signal-label{color:var(--cyan);}
+
+  /* ===== FUEL FORMULA ===== */
+  .formula{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.05rem;
+    color:var(--gold);
+    background:rgba(255,203,107,.08);
+    border:1px dashed var(--gold);
+    border-radius:10px;
+    padding:14px 20px;
+    display:inline-block;
+    margin:18px 0 28px;
+    letter-spacing:.04em;
+  }
+
+  /* ===== MANIFEST ===== */
+  .manifest{
+    margin-top:24px;
+    display:grid;
+    gap:14px;
+  }
+  .manifest-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:16px;
+    padding:16px 20px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:rgba(255,255,255,.015);
+    transition:transform .25s, border-color .25s;
+  }
+  .manifest-item:hover{
+    transform:translateX(4px);
+    border-color:var(--purple);
+  }
+  .manifest-check{
+    width:22px; height:22px;
+    border-radius:5px;
+    border:1px solid var(--cyan);
+    color:var(--cyan);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.8rem;
+    font-weight:700;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .manifest-item h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .manifest-item p{
+    color:var(--muted);
+    font-size:.92rem;
+    margin:0;
+  }
+
+  /* ===== TAILORING STEPS ===== */
+  .steps{
+    margin-top:24px;
+    display:grid;
+    gap:18px;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:40px 1fr;
+    gap:18px;
+    align-items:start;
+  }
+  .step-dot{
+    width:40px; height:40px;
+    border-radius:50%;
+    border:1px solid var(--purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.78rem;
+    color:var(--purple);
+    flex-shrink:0;
+    box-shadow:0 0 14px rgba(139,107,255,.25);
+  }
+  .step p{margin:0; color:var(--muted);}
+  .step p strong{color:var(--star);}
+
+  /* ===== FOOTER / LAUNCH ===== */
+  .launch{
+    padding:min(18vh,180px) 0 100px;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .launch .stage-tag{
+    display:inline-block;
+    margin-bottom:18px;
+  }
+  .launch h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.2rem,6vw,4rem);
+    margin-bottom:20px;
+    background:linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .launch p{
+    max-width:50ch;
+    margin:0 auto 36px;
+    color:var(--muted);
+  }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--void);
+    background:linear-gradient(135deg, var(--cyan), var(--purple));
+    padding:18px 36px;
+    border-radius:999px;
+    font-weight:700;
+    transition:transform .25s, box-shadow .25s;
+    box-shadow:0 0 0 rgba(94,234,212,0);
+  }
+  .cta:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(94,234,212,.25);
+  }
+  .footer-note{
+    margin-top:48px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="starfield" aria-hidden="true"></div>
+<div class="nebula nebula--a" aria-hidden="true"></div>
+<div class="nebula nebula--b" aria-hidden="true"></div>
+<div class="nebula nebula--c" aria-hidden="true"></div>
+<div class="shooting-star" aria-hidden="true"></div>
+<div class="shooting-star shooting-star--two" aria-hidden="true"></div>
+
+<div class="hud">
+  <span><strong>BANAO RESUME</strong> · LAUNCH SEQUENCE</span>
+  <span class="altitude">ALTITUDE <span id="altitude-readout">0%</span></span>
+</div>
+
+<div class="flight-track" aria-hidden="true">
+  <div class="flight-track__fill" id="track-fill"></div>
+  <div class="flight-track__rocket" id="track-rocket">🚀</div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Mission briefing</div>
+    <h1>T-Minus: Your Resume's Launch Sequence</h1>
+    <p>
+      Most resumes never make it to orbit — not because the candidate isn't
+      qualified, but because the resume gets <strong>scrubbed at the launchpad</strong>
+      before a human ever reads it. Below is the exact seven-stage sequence
+      recruiters and applicant tracking systems run on every resume that
+      lands on their desk in 2026. Clear each stage, and yours gets cleared
+      for takeoff.
+    </p>
+    <div class="scroll-cue"><span>↓</span> Begin pre-flight checklist</div>
+  </section>
+
+  <!-- STAGE 01 -->
+  <section class="stage reveal" id="stage-01">
+    <div class="stage-marker">
+      <span class="stage-num">01</span>
+      <span class="stage-tag">ATS Compatibility</span>
+    </div>
+    <div class="stage-content">
+      <h2>Clear the Launchpad</h2>
+      <p>
+        Before a recruiter ever sees your resume, it usually passes through
+        an <strong>Applicant Tracking System (ATS)</strong> — automated
+        software that scans structure and keywords. Think of it as ground
+        control: if the scanner can't parse your layout, your mission gets
+        scrubbed before liftoff, no matter how strong your profile is.
+      </p>
+      <ul class="panel-list">
+        <li><span class="switch"></span> <span><strong>Single-column layout</strong> — no tables, side columns, or graphics that scramble during a scan.</span></li>
+        <li><span class="switch"></span> <span><strong>Standard section headings</strong> — "Experience," "Education," "Skills," not creative renames.</span></li>
+        <li><span class="switch"></span> <span><strong>Simple fonts</strong> — Calibri or Arial, 10–12pt, for clean parsing across systems.</span></li>
+        <li><span class="switch"></span> <span><strong>Export as a text-based PDF</strong> — unless the employer specifically asks for a Word file.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STAGE 02 -->
+  <section class="stage reveal" id="stage-02">
+    <div class="stage-marker">
+      <span class="stage-num">02</span>
+      <span class="stage-tag">Human Review Window</span>
+    </div>
+    <div class="stage-content">
+      <h2>The 6-Second Orbital Window</h2>
+      <p>
+        Once your resume clears the ATS, it enters orbit around a recruiter's
+        attention — for about <strong>six seconds</strong> on the first pass.
+        That's not enough time to read. It's only enough time to scan. Design
+        for that.
+      </p>
+      <ul class="panel-list">
+        <li><span class="switch"></span> <span>Keep it to <strong>one page</strong> if you have under 5–7 years of experience.</span></li>
+        <li><span class="switch"></span> <span>Use <strong>bullet points</strong>, never dense paragraphs, for experience and projects.</span></li>
+        <li><span class="switch"></span> <span>Open every line with an <strong>action verb</strong> — Built, Led, Designed, Automated, Improved.</span></li>
+        <li><span class="switch"></span> <span>Put your <strong>strongest line first</strong> in every section — that's what gets scanned.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STAGE 03 -->
+  <section class="stage reveal" id="stage-03">
+    <div class="stage-marker">
+      <span class="stage-num">03</span>
+      <span class="stage-tag">Mission Briefing</span>
+    </div>
+    <div class="stage-content">
+      <h2>Transmit Your Mission Briefing</h2>
+      <p>
+        Skip the recycled opening line every recruiter has read a thousand
+        times. Your summary is a 2–3 line transmission: who you are, what
+        you do best, and where you're headed — stated specifically enough
+        that someone could only be talking about <strong>you</strong>.
+      </p>
+      <div class="transmission-grid">
+        <div class="transmission weak">
+          <span class="signal-label">Weak signal</span>
+          "Hardworking fresher seeking opportunities in the IT industry."
+        </div>
+        <div class="transmission strong">
+          <span class="signal-label">Strong signal</span>
+          "Final-year Computer Science student with hands-on experience in
+          Python and machine learning, seeking a Data Analyst role to apply
+          project work in predictive modeling."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 04 -->
+  <section class="stage reveal" id="stage-04">
+    <div class="stage-marker">
+      <span class="stage-num">04</span>
+      <span class="stage-tag">Propulsion</span>
+    </div>
+    <div class="stage-content">
+      <h2>The Fuel Formula</h2>
+      <p>
+        This is the single biggest shift between an average resume and one
+        that generates real thrust. Most people describe what they
+        <em>did</em>. Strong resumes describe what <strong>changed because
+        of it</strong>.
+      </p>
+      <div class="formula">ACTION + WHAT YOU WORKED ON + RESULT</div>
+      <div class="transmission-grid">
+        <div class="transmission weak">
+          <span class="signal-label">Before</span>
+          "Worked on a website for a college project."
+        </div>
+        <div class="transmission strong">
+          <span class="signal-label">After</span>
+          "Built a responsive event website using HTML, CSS, and
+          JavaScript, cutting page load time by 30% through image
+          optimization."
+        </div>
+        <div class="transmission weak">
+          <span class="signal-label">Before</span>
+          "Responsible for handling customer queries."
+        </div>
+        <div class="transmission strong">
+          <span class="signal-label">After</span>
+          "Resolved 40+ customer queries daily, maintaining a 95%
+          satisfaction rating across the quarter."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 05 -->
+  <section class="stage reveal" id="stage-05">
+    <div class="stage-marker">
+      <span class="stage-num">05</span>
+      <span class="stage-tag">First-Time Crew</span>
+    </div>
+    <div class="stage-content">
+      <h2>First-Time Astronauts</h2>
+      <p>
+        No work experience? That's completely normal — recruiters know it.
+        The fix isn't padding your resume with irrelevant detail; it's
+        leading with what you actually have. Here's the flight manifest
+        that works for freshers:
+      </p>
+      <div class="manifest">
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Contact Info</h3><p>Name, phone, email, LinkedIn, city. Skip the photo, date of birth, and marital status — they add nothing and invite bias.</p></div>
+        </div>
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Summary</h3><p>2–3 lines: your degree, top skills, and target role. See Stage 03.</p></div>
+        </div>
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Skills</h3><p>Grouped clearly — Programming Languages, Tools, Frameworks. Only list what you can defend in an interview.</p></div>
+        </div>
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Projects</h3><p>2–3 strong projects, each with the tech stack and a measurable result. This often outperforms a thin "experience" section.</p></div>
+        </div>
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Education</h3><p>Reverse chronological. Include your percentage or CGPA if it strengthens your profile.</p></div>
+        </div>
+        <div class="manifest-item">
+          <div class="manifest-check">✓</div>
+          <div><h3>Certifications</h3><p>Only the ones relevant to your target role — quality over quantity.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 06 -->
+  <section class="stage reveal" id="stage-06">
+    <div class="stage-marker">
+      <span class="stage-num">06</span>
+      <span class="stage-tag">Trajectory Lock</span>
+    </div>
+    <div class="stage-content">
+      <h2>Recalibrate for Each Mission</h2>
+      <p>
+        Sending the same resume to every job is the quiet reason many
+        applications go unanswered. You don't need to rebuild it from
+        scratch — just recalibrate the trajectory before each launch.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot">1</div>
+          <p>Read the job description and pull out <strong>4–5 recurring keywords</strong> — skills, tools, and qualifications it repeats.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">2</div>
+          <p>Work those exact terms naturally into your <strong>skills section or experience bullets</strong> — only where they genuinely apply.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">3</div>
+          <p>Adjust your <strong>summary line</strong> to reflect the specific role title and what that company seems to value most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 07 -->
+  <section class="stage reveal" id="stage-07">
+    <div class="stage-marker">
+      <span class="stage-num">07</span>
+      <span class="stage-tag">T-10 Seconds</span>
+    </div>
+    <div class="stage-content">
+      <h2>Final Systems Check</h2>
+      <p>
+        Small details, big consequences. Run through this list before you
+        hit submit — these are often the difference between "shortlisted"
+        and "rejected."
+      </p>
+      <ul class="panel-list">
+        <li><span class="switch"></span> <span>No spelling or grammar errors — read it aloud, it catches what your eyes skip.</span></li>
+        <li><span class="switch"></span> <span>Consistent formatting — same date format, bullet style, and font throughout.</span></li>
+        <li><span class="switch"></span> <span>File named professionally — e.g. <strong>Riya_Sharma_Resume.pdf</strong>, not <em>Resume_final_v3.pdf</em>.</span></li>
+        <li><span class="switch"></span> <span>All links — LinkedIn, portfolio, GitHub — are live and point to updated profiles.</span></li>
+        <li><span class="switch"></span> <span>No leftover placeholder text from a template.</span></li>
+        <li><span class="switch"></span> <span>Saved as PDF unless the employer asked for something else.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LAUNCH -->
+  <section class="launch reveal">
+    <span class="stage-tag">T-0</span>
+    <h2>Cleared for Launch</h2>
+    <p>
+      A great resume isn't longer, louder, or more colorful — it's clearer.
+      It survives the scanner, respects the recruiter's six seconds, and
+      makes your strengths obvious on sight. Run through these seven stages,
+      and you're already ahead of most of the field.
+    </p>
+    <a class="cta" href="https://banaoresumee.online">Build my resume →</a>
+    <div class="footer-note">Banao Resume · Mission Control for Your Career</div>
+  </section>
+
+</main>
+
+<script>
+  // Generate starfield
+  const starfield = document.querySelector('.starfield');
+  const STAR_COUNT = 140;
+  for (let i = 0; i < STAR_COUNT; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = (Math.random() * 2 + 1).toFixed(1);
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDuration = (Math.random() * 3 + 2).toFixed(1) + 's';
+    star.style.animationDelay = (Math.random() * 5).toFixed(1) + 's';
+    starfield.appendChild(star);
+  }
+
+  // Scroll progress -> rocket + altitude readout
+  const fill = document.getElementById('track-fill');
+  const rocket = document.getElementById('track-rocket');
+  const altitude = document.getElementById('altitude-readout');
+
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    fill.style.height = pct + '%';
+    rocket.style.bottom = pct + '%';
+    altitude.textContent = Math.round(pct) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
