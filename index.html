@@ -1677,12 +1677,26 @@ setupTagInput('langsInput',     'langsWrap',      skillTags.langs);
 
 function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
-function linkify(text, c) {
+     ////m
+function linkify(text, c, label) {
   if (!text) return '';
   const href = text.startsWith('http') ? text : 'https://' + text;
-  return `<a href="${href}" target="_blank" style="color:${c || '#FFB899'};text-decoration:underline;text-underline-offset:2px;">${text}</a>`;
+  let displayText = label || text;
+  if (!label) {
+    const lower = text.toLowerCase();
+    if (lower.includes('linkedin.com')) displayText = 'LinkedIn';
+    else if (lower.includes('github.com')) displayText = 'GitHub';
+    else if (lower.includes('behance.net')) displayText = 'Behance';
+    else if (lower.includes('dribbble.com')) displayText = 'Dribbble';
+    else if (lower.includes('portfolio') || lower.includes('vercel') || lower.includes('netlify')) displayText = 'Portfolio';
+    else {
+      // Show just domain, e.g. "yoursite.com" without https://www.
+      try { displayText = new URL(href).hostname.replace('www.',''); } catch(e) { displayText = text; }
+    }
+  }
+  return `<a href="${href}" target="_blank" style="color:${c || '#FFB899'};text-decoration:underline;text-underline-offset:2px;">${displayText}</a>`;
 }
-
+///m
 function getData() {
   const data = {
     name: val('name'), jobTitle: val('jobTitle'), email: val('email'),
@@ -1730,8 +1744,8 @@ function buildIITGoogleHTML(d) {
     d.email    && `<a href="mailto:${d.email}" style="color:${pLink};text-decoration:none;">${d.email}</a>`,
     d.phone    && d.phone,
     d.location && d.location,
-    d.website  && `<a href="${d.website.startsWith('http')?d.website:'https://'+d.website}" target="_blank" style="color:${pLink};text-decoration:none;">${d.website}</a>`,
-    d.github   && `<a href="${d.github.startsWith('http')?d.github:'https://'+d.github}" target="_blank" style="color:${pLink};text-decoration:none;">${d.github}</a>`,
+    d.website  && `<a href="${d.website.startsWith('http')?d.website:'https://'+d.website}" target="_blank" style="color:${pLink};text-decoration:none;">${d.website.toLowerCase().includes('linkedin') ? 'LinkedIn' : (() => { try { return new URL(d.website.startsWith('http')?d.website:'https://'+d.website).hostname.replace('www.',''); } catch(e){ return d.website; } })()}</a>`,
+    d.github   && `<a href="${d.github.startsWith('http')?d.github:'https://'+d.github}" target="_blank" style="color:${pLink};text-decoration:none;">GitHub</a>`,
   ].filter(Boolean).join(' &nbsp;|&nbsp; ');
 
   let html = `<div style="${S.wrap}">`;
