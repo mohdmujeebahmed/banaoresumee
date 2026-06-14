@@ -280,6 +280,36 @@ textarea{resize:vertical;min-height:75px;}
 .faq-item.open .faq-a{display:block;animation:fadeUp 0.25s ease;}
 .faq-a a{color:var(--orange);text-decoration:underline;text-underline-offset:2px;}
 
+/* Home FAQ section (home page only) */
+.home-faq-section{background:#111;border-radius:var(--r);padding:1.75rem 1.1rem;margin-top:2rem;text-align:left;}
+.home-faq-title{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:900;color:white;text-align:center;margin-bottom:0.35rem;}
+.home-faq-title span{color:var(--orange);}
+.home-faq-sub{font-size:0.75rem;color:#9C8677;text-align:center;margin-bottom:1.5rem;}
+.home-faq-section .faq-item{border-color:#2d2018;background:#1a1008;}
+.home-faq-section .faq-q{background:#1a1008;color:#EDE3D9;}
+.home-faq-section .faq-q:hover{background:#2d1e10;}
+.home-faq-section .faq-item.open{border-color:var(--orange);}
+.home-faq-section .faq-a{background:#120c04;color:#CCA890;border-color:#2d2018;}
+.home-faq-section .faq-a a{color:var(--orange);}
+
+/* =====================
+   TESTIMONIALS (home page only)
+   ===================== */
+.testimonials-section{margin-top:2rem;text-align:left;}
+.testimonials-head{text-align:center;margin-bottom:1.25rem;}
+.testimonials-head h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:900;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.01em;}
+.testimonials-head h3 span{color:var(--orange);}
+.testimonials-head p{font-size:0.78rem;color:var(--muted);}
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:0.75rem;}
+@media(min-width:540px){.testimonials-grid{grid-template-columns:1fr 1fr;}}
+.testimonial-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:1rem 1.1rem;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0.6rem;}
+.testimonial-stars{color:#FFD166;font-size:0.8rem;letter-spacing:2px;}
+.testimonial-quote{font-size:0.82rem;color:#4A3A2E;line-height:1.7;flex:1;}
+.testimonial-person{display:flex;align-items:center;gap:0.6rem;}
+.testimonial-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;color:#fff;flex-shrink:0;}
+.testimonial-name{font-size:0.8rem;font-weight:700;color:var(--ink);line-height:1.3;}
+.testimonial-role{font-size:0.66rem;color:var(--muted);}
+
 /* Footer FAQ strip */
 .footer-faq-strip{background:#111;border-top:1px solid #2d2018;padding:2.5rem 1rem;}
 .footer-faq-inner{max-width:680px;margin:0 auto;}
@@ -540,6 +570,87 @@ footer a:hover{color:var(--orange);}
       <div class="mode-arrow">→</div>
     </div>
   </div>
+
+  <!-- TESTIMONIALS (home page only) -->
+  <div class="testimonials-section">
+    <div class="testimonials-head">
+      <h3>Loved by students <span>across India</span></h3>
+      <p>A few words from people who built their resume here</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"Got 3 interview calls within a week of switching to the BanaoResume template. Clean, simple, and recruiters actually noticed it."</div>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" style="background:#FF6B35;">PN</div>
+          <div>
+            <div class="testimonial-name">Priya Nair</div>
+            <div class="testimonial-role">Final Year CSE, NIT Trichy</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"I had zero idea how to format a resume. This builder made it so easy — looked professional in under 10 minutes."</div>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" style="background:#2ECC71;">RV</div>
+          <div>
+            <div class="testimonial-name">Rahul Verma</div>
+            <div class="testimonial-role">B.Tech Fresher, Pune</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"Free, fast, and no annoying sign-up. Exactly what a college student on a tight budget needs."</div>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" style="background:#FFD166;color:#7A5E00;">SI</div>
+          <div>
+            <div class="testimonial-name">Sneha Iyer</div>
+            <div class="testimonial-role">Marketing Intern, Bengaluru</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★☆</div>
+        <div class="testimonial-quote">"The single-column layout helped my resume pass through ATS screening for the first time. Finally started getting replies."</div>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" style="background:#5f259f;">MS</div>
+          <div>
+            <div class="testimonial-name">Mohit Sharma</div>
+            <div class="testimonial-role">MBA Aspirant, Delhi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME FAQ (home page only) -->
+  <div class="home-faq-section">
+    <div class="home-faq-title">Frequently Asked <span>Questions</span></div>
+    <p class="home-faq-sub">Quick answers before you get started</p>
+
+    <div class="faq-item" id="hfaq-1">
+      <div class="faq-q" onclick="toggleFaq('hfaq-1')"><span>Is my data safe? Does BanaoResume store my information?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Your privacy is our top priority. All resume data is processed entirely in your browser and is never sent to our servers. When you close the tab, your data is gone. We only collect anonymous analytics via Google Analytics to improve the site.</div>
+    </div>
+    <div class="faq-item" id="hfaq-2">
+      <div class="faq-q" onclick="toggleFaq('hfaq-2')"><span>Is downloading my resume free for all templates?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">The Modern Orange and ATS Minimal templates are completely free to download as PDF, with no limits and no sign-up. The IIT-to-Google Format is a premium template that requires a small one-time unlock fee to download.</div>
+    </div>
+    <div class="faq-item" id="hfaq-3">
+      <div class="faq-q" onclick="toggleFaq('hfaq-3')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">ATS stands for Applicant Tracking System — software used by most companies to automatically screen resumes before a human ever sees them. BanaoResume templates are designed with clean formatting, standard section headers, and readable fonts to pass ATS scans.</div>
+    </div>
+    <div class="faq-item" id="hfaq-4">
+      <div class="faq-q" onclick="toggleFaq('hfaq-4')"><span>I'm a fresher with no work experience. Can I still make a good resume?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely! Choose the "Fresher" mode and BanaoResume will prioritise your Projects, Skills, and Education sections. Strong projects, internships, or open-source contributions can make your resume stand out.</div>
+    </div>
+    <div class="faq-item" id="hfaq-5">
+      <div class="faq-q" onclick="toggleFaq('hfaq-5')"><span>Does BanaoResume work on mobile?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. However, for downloading as PDF, we recommend using a desktop or laptop browser (Chrome or Edge) for the cleanest print output.</div>
+    </div>
+  </div>
 </div>
 
 <!-- STEP 1: PERSONAL -->
@@ -796,51 +907,6 @@ footer a:hover{color:var(--orange);}
 
 </main>
 
-<!-- ===================== FOOTER FAQ STRIP ===================== -->
-<div class="footer-faq-strip">
-  <div class="footer-faq-inner">
-    <div class="footer-faq-title">Frequently Asked <span>Questions</span></div>
-    <p class="footer-faq-sub">Everything you need to know about BanaoResume</p>
-
-    <div class="faq-item" id="faq-1">
-      <div class="faq-q" onclick="toggleFaq('faq-1')"><span>Is BanaoResume really 100% free?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, absolutely. BanaoResume is completely free — no credit card, no sign-up, no hidden charges. You can build and download as many resumes as you want at zero cost. We're supported by optional donations and non-intrusive ads, which keeps the tool free for everyone.</div>
-    </div>
-    <div class="faq-item" id="faq-2">
-      <div class="faq-q" onclick="toggleFaq('faq-2')"><span>Is my data safe? Does BanaoResume store my information?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Your privacy is our top priority. All resume data is processed entirely in your browser and is never sent to our servers. When you close the tab, your data is gone. We only collect anonymous analytics via Google Analytics to improve the site.</div>
-    </div>
-    <div class="faq-item" id="faq-3">
-      <div class="faq-q" onclick="toggleFaq('faq-3')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">ATS stands for Applicant Tracking System — software used by most companies to automatically screen resumes before a human ever sees them. BanaoResume templates are designed with clean formatting, standard section headers, and readable fonts to pass ATS scans. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full guide on ATS rejection →</a></div>
-    </div>
-    <div class="faq-item" id="faq-4">
-      <div class="faq-q" onclick="toggleFaq('faq-4')"><span>I'm a fresher with no work experience. Can I still make a good resume?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Absolutely! Choose the "Fresher" mode and BanaoResume will prioritise your Projects, Skills, and Education sections. Strong projects, internships, or open-source contributions can make your resume stand out. Recruiters reviewing fresher profiles expect this.</div>
-    </div>
-    <div class="faq-item" id="faq-5">
-      <div class="faq-q" onclick="toggleFaq('faq-5')"><span>How do I download my resume as a PDF?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Once you reach the final step, click "Download PDF". Your browser will open the print dialog — select "Save as PDF" as the destination, set Paper size to A4, Margins to None, and enable Background graphics. That's it!</div>
-    </div>
-    <div class="faq-item" id="faq-6">
-      <div class="faq-q" onclick="toggleFaq('faq-6')"><span>What is the IIT-to-Google Format template?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">It's the classic single-column, section-ruled resume format used by IIT, NIT, and BITS students who crack Google, Microsoft, and Amazon. Clean black &amp; white text, bold section headers with horizontal rules, centered name at the top — exactly what top placement cells teach and what FAANG ATS systems love most.</div>
-    </div>
-    <div class="faq-item" id="faq-7">
-      <div class="faq-q" onclick="toggleFaq('faq-7')"><span>Can I edit my resume after downloading it?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes! Your browser tab stays active after downloading, so you can go back, make changes using the "Edit Your Resume" panel or the "Full Edit Mode" button, and download again — as many times as you need.</div>
-    </div>
-    <div class="faq-item" id="faq-8">
-      <div class="faq-q" onclick="toggleFaq('faq-8')"><span>Does BanaoResume work on mobile?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. However, for downloading as PDF, we recommend using a desktop or laptop browser (Chrome or Edge) for the cleanest print output.</div>
-    </div>
-
-    <div class="footer-faq-more">
-      <a href="#" onclick="showPage('faq');return false;">View all FAQs &amp; tips →</a>
-    </div>
-  </div>
-</div>
-
 <!-- ===================== FOOTER ===================== -->
 <footer id="mainFooter">
   <div class="footer-brand">Banao<span>Resume</span></div>
@@ -848,7 +914,6 @@ footer a:hover{color:var(--orange);}
   <br><br>
   <a href="#" onclick="showPage('about');return false;">About</a> ·
   <a href="#" onclick="showPage('blog');return false;">Blog</a> ·
-  <a href="#" onclick="showPage('faq');return false;">FAQ</a> ·
   <a href="#" onclick="showPage('contact');return false;">Contact</a> ·
   <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> ·
   <a href="#" onclick="showPage('terms');return false;">Terms</a> ·
@@ -1064,32 +1129,6 @@ footer a:hover{color:var(--orange);}
     <div style="margin-top:2rem;background:var(--orange-light);border:1.5px solid rgba(255,107,53,0.2);border-radius:var(--r);padding:1.25rem;text-align:center;">
       <div style="font-family:'Fraunces',serif;font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:0.35rem;">📬 More guides coming soon!</div>
       <p style="font-size:0.78rem;color:var(--muted);line-height:1.7;">We're working on guides covering interview tips, LinkedIn profiles, salary negotiation, and more. <a href="#" onclick="showPage('contact');return false;">Subscribe to get notified</a>.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== FAQ FULL PAGE ===================== -->
-<div class="page-overlay" id="page-faq">
-  <div class="page-inner">
-    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
-    <h1 class="page-title">FAQ &amp; Resume Tips</h1>
-    <p class="page-sub">Everything you need to know about building a winning resume 🎯</p>
-    <div class="page-section"><h3>General Questions</h3></div>
-    <div class="faq-item" id="pfaq-1"><div class="faq-q" onclick="toggleFaq('pfaq-1')"><span>Is BanaoResume really 100% free?</span><span class="faq-icon">+</span></div><div class="faq-a">Yes, absolutely. No credit card, no sign-up, no hidden charges.</div></div>
-    <div class="faq-item" id="pfaq-2"><div class="faq-q" onclick="toggleFaq('pfaq-2')"><span>Is my data safe?</span><span class="faq-icon">+</span></div><div class="faq-a">All resume data is processed entirely in your browser and never sent to our servers. Read our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> for full details.</div></div>
-    <div class="faq-item" id="pfaq-3"><div class="faq-q" onclick="toggleFaq('pfaq-3')"><span>Does BanaoResume work on mobile phones?</span><span class="faq-icon">+</span></div><div class="faq-a">Yes, the builder is fully responsive. For downloading as PDF, a desktop browser (Chrome or Edge) gives the cleanest results.</div></div>
-    <div class="page-section" style="margin-top:1.5rem;"><h3>The IIT-to-Google Format</h3></div>
-    <div class="faq-item" id="pfaq-iit1"><div class="faq-q" onclick="toggleFaq('pfaq-iit1')"><span>What makes the IIT-to-Google format special?</span><span class="faq-icon">+</span></div><div class="faq-a">This is the classic single-column resume format that IIT, NIT, and BITS placement cells have taught for decades. It uses a centered name header, bold section titles with full-width horizontal rules, and clean black text — no columns, no colors. It's the format that has historically gotten Indian engineers into Google, Microsoft, Amazon, and other top companies because it's 100% ATS-safe and human-readable.</div></div>
-    <div class="faq-item" id="pfaq-iit2"><div class="faq-q" onclick="toggleFaq('pfaq-iit2')"><span>Should I use IIT-to-Google format or Modern Orange?</span><span class="faq-icon">+</span></div><div class="faq-a">Use <strong>IIT-to-Google Format</strong> if you're applying to product companies, MNCs, or any company with a strict ATS (Google, Microsoft, Amazon, Goldman Sachs, McKinsey, etc.). Use <strong>Modern Orange</strong> for startups, design-forward companies, or roles where standing out visually helps (UI/UX, product, growth). Use <strong>ATS Minimal</strong> when you want the safest B&W print.</div></div>
-    <div class="page-section" style="margin-top:1.5rem;"><h3>ATS &amp; Resume Formatting</h3></div>
-    <div class="faq-item" id="pfaq-5"><div class="faq-q" onclick="toggleFaq('pfaq-5')"><span>What is ATS and why does it matter?</span><span class="faq-icon">+</span></div><div class="faq-a">ATS (Applicant Tracking System) is software used by most companies to auto-screen resumes. If your resume has wrong fonts, tables, or images, it gets filtered out automatically. All BanaoResume templates use clean, ATS-readable formatting. <a href="https://banaoresumee.online/Your-Resume-Is-Getting-Rejected-by-AI---Here's-How-to-Fix-It.html" target="_blank" rel="noopener">Read our full ATS guide →</a></div></div>
-    <div class="faq-item" id="pfaq-7"><div class="faq-q" onclick="toggleFaq('pfaq-7')"><span>Should my resume be one page or two pages?</span><span class="faq-icon">+</span></div><div class="faq-a">For freshers and candidates with under 5 years of experience: stick to one page. Recruiters spend 6–10 seconds scanning a resume. BanaoResume's A4 template is optimised for a clean one-page layout.</div></div>
-    <div class="page-section" style="margin-top:1.5rem;"><h3>Freshers &amp; Students</h3></div>
-    <div class="faq-item" id="pfaq-9"><div class="faq-q" onclick="toggleFaq('pfaq-9')"><span>I have no work experience. What do I put on my resume?</span><span class="faq-icon">+</span></div><div class="faq-a">Focus on: (1) Projects — personal, academic, or open source; (2) Internships; (3) Skills; (4) Education; (5) Achievements. Recruiters expect freshers to have light experience sections — your projects tell the real story.</div></div>
-    <div class="faq-item" id="pfaq-12"><div class="faq-q" onclick="toggleFaq('pfaq-12')"><span>How do I write project descriptions that impress recruiters?</span><span class="faq-icon">+</span></div><div class="faq-a">Use the "What + How + Impact" formula: <strong>What</strong> did you build? <strong>How</strong> (tech stack)? <strong>Impact</strong> — users, metrics, problem solved. Example: "Built a real-time expense tracker using React and Firebase serving 200+ beta users, reducing manual logging time by 60%."</div></div>
-    <div style="margin-top:2rem;text-align:center;padding:1.25rem;background:var(--orange-light);border-radius:var(--r);border:1.5px solid rgba(255,107,53,0.2);">
-      <p style="font-size:0.82rem;color:var(--ink-2);font-weight:600;margin-bottom:0.35rem;">Still have a question?</p>
-      <a href="#" onclick="showPage('contact');return false;" style="display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:white;font-size:0.8rem;font-weight:700;padding:0.6rem 1.35rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(255,107,53,0.3);">📩 Contact Us →</a>
     </div>
   </div>
 </div>
