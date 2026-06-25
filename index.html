@@ -1115,11 +1115,17 @@ let currentStep = 0, userMode = 'fresher', currentTemplate = 'modern';
 const skillTags = { tech: [], tools: [], soft: [], langs: [] };
 let expCount = 0, projCount = 0, eduCount = 0, achCount = 0;
 
-function showPage(pageId) {
+/* ---- History entry for the very first view (home/builder step 0) ---- */
+history.replaceState({ type: 'step', step: 0 }, '');
+
+function showPage(pageId, fromPopstate) {
   document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
   if (pageId) {
     const page = document.getElementById('page-' + pageId);
     if (page) { page.classList.add('open'); page.scrollTop = 0; }
+  }
+  if (!fromPopstate) {
+    history.pushState({ type: pageId ? 'page' : 'step', page: pageId, step: currentStep }, '');
   }
 }
 
@@ -1200,7 +1206,7 @@ function buildPills() {
   document.getElementById('progFill').style.width = (((currentStep - 1) / 6) * 100) + '%';
 }
 
-function goTo(n) {
+function goTo(n, fromPopstate) {
   if (n === 7) buildResume();
   const fl = document.getElementById('flashEl');
   fl.classList.add('on');
@@ -1210,8 +1216,38 @@ function goTo(n) {
   document.getElementById(`step-${currentStep}`).classList.add('active');
   buildPills();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (!fromPopstate) {
+    history.pushState({ type: 'step', step: n }, '');
+  }
 }
 buildPills();
+
+/* ---- Handles device/browser back & forward buttons ---- */
+window.addEventListener('popstate', (e) => {
+  const state = e.state;
+  if (!state) {
+    document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
+    goTo(0, true);
+    return;
+  }
+  if (state.type === 'page') {
+    document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
+    if (state.page) {
+      const page = document.getElementById('page-' + state.page);
+      if (page) { page.classList.add('open'); page.scrollTop = 0; }
+    }
+    if (typeof state.step === 'number' && currentStep !== state.step) {
+      // keep underlying builder step in sync without re-pushing history
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep = state.step;
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+      buildPills();
+    }
+  } else if (state.type === 'step') {
+    document.querySelectorAll('.page-overlay').forEach(p => p.classList.remove('open'));
+    if (currentStep !== state.step) goTo(state.step, true);
+  }
+});
 
 function applyTemplate(tpl) {
   currentTemplate = tpl;
