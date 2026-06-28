@@ -1,1032 +1,909 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume Writing Tips, Templates & Career Advice | BanaoResume Blog</title>
-  <meta name="description" content="Expert resume writing tips, free resume templates, ATS-friendly resume formats, and career advice. Learn how to create a professional resume that gets you hired in 2025." />
-  <meta name="keywords" content="resume builder, free resume, how to write a resume, resume format 2025, ATS resume, professional resume template, resume tips, fresher resume, cover letter, CV format, resume maker online, resume examples" />
-  <meta property="og:title" content="Resume Writing Tips & Career Advice | BanaoResume Blog" />
-  <meta property="og:description" content="Free resume writing guides, templates and career tips to help you land your dream job." />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://banaoresumee.online/blog" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Resume Builder Tips & Career Advice | BanaoResume</title>
+<meta name="description" content="Expert resume writing tips, free ATS resume templates, cover letter guides and career advice. Trusted by 1M+ job seekers. Build your resume free at BanaoResume."/>
+<meta name="keywords" content="resume builder free, how to write a resume, ATS resume, fresher resume format, professional resume template, cover letter, resume tips 2025, resume maker online, free resume templates, career advice"/>
+<link rel="canonical" href="https://banaoresumee.online/blog"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#111827;--ink2:#374151;--muted:#6B7280;--border:#E5E7EB;
+  --bg:#fff;--soft:#F9FAFB;--card:#fff;
+  --indigo:#4F46E5;--indigo-l:#EEF2FF;--indigo-d:#3730A3;
+  --amber:#D97706;--amber-l:#FFFBEB;
+  --green:#059669;--green-l:#ECFDF5;
+  --coral:#DC2626;--coral-l:#FEF2F2;
+  --teal:#0891B2;--teal-l:#E0F2FE;
+  --purple:#7C3AED;--purple-l:#F5F3FF;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── TOPBAR ── */
+.topbar{background:#312e81;color:rgba(255,255,255,.9);text-align:center;padding:8px 16px;font-size:13px;font-weight:500}
+.topbar a{color:#fde68a;font-weight:700;text-decoration:underline}
 
-    :root {
-      --ink:      #111827;
-      --ink2:     #374151;
-      --muted:    #6B7280;
-      --border:   #E5E7EB;
-      --bg:       #FFFFFF;
-      --bg-soft:  #F9FAFB;
-      --bg-card:  #FFFFFF;
-      --indigo:   #4F46E5;
-      --indigo-l: #EEF2FF;
-      --indigo-d: #3730A3;
-      --amber:    #D97706;
-      --amber-l:  #FFFBEB;
-      --green:    #059669;
-      --green-l:  #ECFDF5;
-      --coral:    #DC2626;
-      --coral-l:  #FEF2F2;
-      --teal:     #0891B2;
-      --teal-l:   #E0F2FE;
-      --radius:   10px;
-      --shadow:   0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.05);
-    }
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:800;color:var(--indigo);cursor:pointer}
+.logo-box{width:33px;height:33px;background:var(--indigo);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links button{background:none;border:none;padding:7px 13px;border-radius:7px;font-size:14px;font-weight:500;color:var(--ink2);transition:.15s}
+.nav-links button:hover,.nav-links button.active{background:var(--indigo-l);color:var(--indigo)}
+.nav-cta{background:var(--indigo)!important;color:#fff!important;padding:8px 18px!important;font-weight:700!important}
+.nav-cta:hover{background:var(--indigo-d)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:absolute;top:62px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;flex-direction:column;gap:4px;z-index:199}
+.mobile-menu button{background:none;border:none;text-align:left;padding:10px 12px;border-radius:7px;font-size:15px;font-weight:500;color:var(--ink2);width:100%}
+.mobile-menu button:hover{background:var(--indigo-l);color:var(--indigo)}
+.mobile-menu .m-cta{background:var(--indigo);color:#fff;border-radius:8px;font-weight:700}
 
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+/* ── PAGES ── */
+.page{display:none}
+.page.active{display:block}
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 55%,#4338ca 100%);color:#fff;padding:64px 24px 52px;text-align:center}
+.hero h1{font-size:clamp(26px,5vw,50px);font-weight:800;line-height:1.15;max-width:740px;margin:0 auto 14px}
+.hero h1 span{color:#fde68a}
+.hero p{font-size:clamp(14px,2vw,17px);opacity:.82;max-width:560px;margin:0 auto 26px}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.btn-primary{background:var(--amber);color:#fff;border:none;padding:13px 26px;border-radius:9px;font-size:15px;font-weight:700;transition:.15s}
+.btn-primary:hover{background:#b45309}
+.btn-secondary{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35);padding:13px 26px;border-radius:9px;font-size:15px;font-weight:600;transition:.15s}
+.btn-secondary:hover{background:rgba(255,255,255,.25)}
+.hero-stats{display:flex;gap:36px;justify-content:center;flex-wrap:wrap}
+.stat strong{display:block;font-size:26px;font-weight:800;color:#fde68a}
+.stat span{font-size:12px;opacity:.7}
 
-    /* ── NAV ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 20px; font-weight: 800; color: var(--indigo);
-    }
-    .logo-dot { color: var(--amber); }
-    .logo-icon {
-      width: 34px; height: 34px; background: var(--indigo);
-      border-radius: 8px; display: flex; align-items: center;
-      justify-content: center; color: #fff; font-size: 16px; font-weight: 800;
-    }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--ink2);
-      transition: color .15s;
-    }
-    .nav-links a:hover { color: var(--indigo); }
-    .btn-cta {
-      background: var(--indigo); color: #fff;
-      padding: 8px 18px; border-radius: 8px;
-      font-size: 14px; font-weight: 600;
-      transition: background .15s;
-    }
-    .btn-cta:hover { background: var(--indigo-d); }
+/* ── WRAP ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* ── HERO BAND ── */
-    .hero-band {
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
-      color: #fff; padding: 60px 24px;
-      text-align: center;
-    }
-    .hero-band h1 {
-      font-size: clamp(28px,5vw,52px); font-weight: 800; line-height: 1.15;
-      max-width: 760px; margin: 0 auto 16px;
-    }
-    .hero-band h1 span { color: #fde68a; }
-    .hero-band p {
-      font-size: clamp(15px,2vw,18px); opacity: .85;
-      max-width: 580px; margin: 0 auto 28px;
-    }
-    .hero-search {
-      max-width: 520px; margin: 0 auto;
-      display: flex; gap: 8px;
-    }
-    .hero-search input {
-      flex: 1; padding: 12px 16px; border-radius: 8px;
-      border: none; font-size: 15px;
-      font-family: inherit; outline: none;
-    }
-    .hero-search button {
-      background: var(--amber); color: #fff; border: none;
-      padding: 12px 20px; border-radius: 8px;
-      font-size: 15px; font-weight: 600;
-      cursor: pointer; font-family: inherit;
-      transition: background .15s;
-    }
-    .hero-search button:hover { background: #b45309; }
-    .hero-stats {
-      display: flex; gap: 32px; justify-content: center;
-      margin-top: 36px; flex-wrap: wrap;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat strong { display: block; font-size: 26px; font-weight: 800; color: #fde68a; }
-    .hero-stat span { font-size: 13px; opacity: .75; }
+/* ── SECTION HEADER ── */
+.sh{display:flex;align-items:center;gap:12px;padding-top:48px;margin-bottom:26px}
+.sh h2{font-size:21px;font-weight:800}
+.sh .pill{background:var(--indigo-l);color:var(--indigo);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.sh .line{flex:1;height:1px;background:var(--border)}
 
-    /* ── WRAPPER ── */
-    .wrap {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-    }
+/* ── FEATURED ── */
+.featured{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:48px;cursor:pointer;transition:.2s}
+.featured:hover{box-shadow:0 8px 32px rgba(79,70,229,.18)}
+.feat-left{background:linear-gradient(145deg,#312e81,#4f46e5);padding:44px 36px;display:flex;flex-direction:column;justify-content:center}
+.resume-mock{background:#fff;border-radius:10px;padding:18px;box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.rm-head{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.rm-av{width:34px;height:34px;border-radius:50%;background:var(--indigo-l);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--indigo);flex-shrink:0}
+.rm-n{font-size:12px;font-weight:700;color:#111}
+.rm-r{font-size:10px;color:#6b7280}
+.bar{height:5px;border-radius:3px;background:#e5e7eb;margin-bottom:5px}
+.bar.a{background:var(--indigo)}.bar.w90{width:90%}.bar.w80{width:80%}.bar.w70{width:70%}.bar.w60{width:60%}.bar.w50{width:50%}
+.rm-s{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--indigo);margin:8px 0 5px}
+.rm-b{display:inline-block;background:var(--indigo-l);color:var(--indigo);font-size:8px;font-weight:600;padding:2px 6px;border-radius:10px;margin:1px}
+.feat-right{background:#fff;padding:44px 36px;display:flex;flex-direction:column;justify-content:center}
+.cat{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.cat.guide{background:var(--indigo-l);color:var(--indigo)}
+.cat.tips{background:var(--green-l);color:var(--green)}
+.cat.ats{background:var(--teal-l);color:var(--teal)}
+.cat.err{background:var(--coral-l);color:var(--coral)}
+.cat.career{background:var(--amber-l);color:var(--amber)}
+.cat.fmt{background:var(--purple-l);color:var(--purple)}
+.feat-right h2{font-size:24px;font-weight:800;line-height:1.25;margin-bottom:12px}
+.feat-right p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);margin-bottom:22px}
+.read-btn{display:inline-flex;align-items:center;gap:8px;background:var(--indigo);color:#fff;padding:11px 20px;border-radius:8px;font-size:14px;font-weight:700;border:none;transition:.15s;width:fit-content}
+.read-btn:hover{background:var(--indigo-d)}
 
-    /* ── SECTION LABEL ── */
-    .sec-label {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 28px; padding-top: 52px;
-    }
-    .sec-label h2 {
-      font-size: 22px; font-weight: 800; color: var(--ink);
-    }
-    .sec-label .pill {
-      background: var(--indigo-l); color: var(--indigo);
-      font-size: 12px; font-weight: 700; padding: 3px 10px;
-      border-radius: 20px; text-transform: uppercase; letter-spacing: .04em;
-    }
-    .sec-label .line {
-      flex: 1; height: 1px; background: var(--border);
-    }
+/* ── BLOG GRID ── */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:48px}
+.bcard{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;box-shadow:var(--sh);transition:.2s;cursor:pointer;display:flex;flex-direction:column}
+.bcard:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.ct{height:5px}.ct.indigo{background:var(--indigo)}.ct.green{background:var(--green)}.ct.coral{background:var(--coral)}.ct.amber{background:var(--amber)}.ct.teal{background:var(--teal)}.ct.purple{background:var(--purple)}
+.cb{padding:20px;flex:1;display:flex;flex-direction:column}
+.cb h3{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);margin:10px 0 9px}
+.cb p{font-size:13px;color:var(--muted);line-height:1.65;flex:1}
+.cf{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+.arr{width:26px;height:26px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:14px;transition:.15s}
+.bcard:hover .arr{background:var(--indigo-l);color:var(--indigo)}
 
-    /* ── FEATURED CARD ── */
-    .featured {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      margin-bottom: 52px;
-    }
-    .featured-visual {
-      background: linear-gradient(145deg, #312e81, #4f46e5);
-      padding: 48px 40px;
-      display: flex; flex-direction: column; justify-content: center;
-      color: #fff; position: relative; overflow: hidden;
-    }
-    .featured-visual::before {
-      content: '';
-      position: absolute; right: -60px; top: -60px;
-      width: 240px; height: 240px;
-      border-radius: 50%; background: rgba(255,255,255,.06);
-    }
-    .featured-visual::after {
-      content: '';
-      position: absolute; left: -40px; bottom: -40px;
-      width: 160px; height: 160px;
-      border-radius: 50%; background: rgba(255,255,255,.04);
-    }
-    .resume-mock {
-      background: #fff; border-radius: 10px;
-      padding: 18px; box-shadow: 0 8px 32px rgba(0,0,0,.25);
-      position: relative; z-index: 1;
-    }
-    .rm-header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
-    .rm-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--indigo-l); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--indigo); flex-shrink: 0; }
-    .rm-name { font-size: 13px; font-weight: 700; color: #111; }
-    .rm-role { font-size: 11px; color: #6b7280; }
-    .rm-bar { height: 6px; border-radius: 3px; background: #e5e7eb; margin-bottom: 6px; }
-    .rm-bar.w80 { width: 80%; } .rm-bar.w60 { width: 60%; } .rm-bar.w90 { width: 90%; } .rm-bar.w50 { width: 50%; } .rm-bar.w70 { width: 70%; }
-    .rm-bar.accent { background: var(--indigo); }
-    .rm-section { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--indigo); margin: 10px 0 6px; }
-    .rm-badge { display: inline-block; background: var(--indigo-l); color: var(--indigo); font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 12px; margin: 2px; }
+/* ── DARK TIPS ── */
+.dark-sec{background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:18px;padding:48px;margin-bottom:48px;color:#fff}
+.dark-sec .dh{text-align:center;margin-bottom:36px}
+.dark-sec .dh h2{font-size:26px;font-weight:800;margin-bottom:8px}
+.dark-sec .dh h2 span{color:#fde68a}
+.dark-sec .dh p{color:rgba(255,255,255,.6);font-size:15px}
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.tip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:20px}
+.tip-n{font-size:11px;font-weight:800;color:#a5b4fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.tip h3{font-size:14px;font-weight:700;margin-bottom:7px}
+.tip p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.65}
 
-    .featured-content {
-      background: var(--bg-card); padding: 48px 40px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .cat-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .06em; padding: 4px 12px; border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    .cat-badge.guide { background: var(--indigo-l); color: var(--indigo); }
-    .cat-badge.tips  { background: var(--green-l);  color: var(--green); }
-    .cat-badge.ats   { background: var(--teal-l);   color: var(--teal); }
-    .cat-badge.error { background: var(--coral-l);  color: var(--coral); }
-    .cat-badge.career{ background: var(--amber-l);  color: var(--amber); }
-    .cat-badge.format{ background: #f0fdf4; color: #16a34a; }
+/* ── TOPICS ── */
+.topics{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:48px}
+.tpill{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:24px;border:1px solid var(--border);background:var(--soft);font-size:13px;color:var(--ink2);font-weight:500;cursor:pointer;transition:.15s}
+.tpill:hover{border-color:var(--indigo);color:var(--indigo);background:var(--indigo-l)}
+.tpill .tc{font-size:11px;color:var(--muted)}
 
-    .featured-content h2 {
-      font-size: 26px; font-weight: 800; line-height: 1.25;
-      color: var(--ink); margin-bottom: 12px;
-    }
-    .featured-content p {
-      font-size: 15px; color: var(--muted); line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .meta-row {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 13px; color: var(--muted); margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    .meta-row .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border); }
-    .read-more {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--indigo); color: #fff;
-      padding: 11px 22px; border-radius: 8px;
-      font-size: 14px; font-weight: 600; width: fit-content;
-      transition: background .15s;
-    }
-    .read-more:hover { background: var(--indigo-d); }
-    .read-more svg { transition: transform .15s; }
-    .read-more:hover svg { transform: translateX(4px); }
+/* ── TWO COL ── */
+.twocol{display:grid;grid-template-columns:1fr 320px;gap:28px;margin-bottom:48px}
+.art-list{display:flex;flex-direction:column;gap:16px}
+.aitem{display:flex;gap:14px;padding:18px;border:1px solid var(--border);border-radius:11px;background:#fff;cursor:pointer;transition:.15s}
+.aitem:hover{border-color:var(--indigo)}
+.an{font-size:26px;font-weight:800;color:var(--border);flex-shrink:0;min-width:34px;line-height:1;transition:.15s}
+.aitem:hover .an{color:var(--indigo-l)}
+.ai h3{font-size:14px;font-weight:700;margin-bottom:5px;color:var(--ink)}
+.ai p{font-size:13px;color:var(--muted);line-height:1.6}
+.ai .am{font-size:11px;color:var(--muted);margin-top:7px;display:flex;gap:8px}
+.sidebar{display:flex;flex-direction:column;gap:18px}
+.scard{border:1px solid var(--border);border-radius:11px;padding:20px;background:#fff}
+.scard h3{font-size:13px;font-weight:700;margin-bottom:13px}
+.slist{list-style:none;display:flex;flex-direction:column;gap:9px}
+.slist li{display:flex;gap:7px;align-items:flex-start}
+.slist li::before{content:'→';color:var(--indigo);font-size:13px;flex-shrink:0;margin-top:1px}
+.slist li button{background:none;border:none;font-size:13px;color:var(--ink2);text-align:left;cursor:pointer;line-height:1.4;transition:.15s;font-family:inherit}
+.slist li button:hover{color:var(--indigo)}
+.cta-card{background:var(--indigo);color:#fff;border-radius:11px;padding:22px;text-align:center}
+.cta-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.cta-card p{font-size:12px;opacity:.8;margin-bottom:15px}
+.cta-card a{display:block;background:#fff;color:var(--indigo);padding:10px;border-radius:7px;font-size:13px;font-weight:700;transition:.15s}
+.cta-card a:hover{opacity:.9}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:4px 10px;border-radius:20px;background:var(--soft);color:var(--ink2);border:1px solid var(--border);cursor:pointer;transition:.15s}
+.tag:hover{background:var(--indigo-l);color:var(--indigo);border-color:var(--indigo)}
+.stats-mini{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.sm{border-top:1px solid var(--border);padding-top:10px}
+.sm:first-child{border-top:none;padding-top:0}
+.sm strong{display:block;font-size:22px;font-weight:800;color:var(--indigo)}
+.sm span{font-size:12px;color:var(--muted)}
 
-    /* ── BLOG GRID ── */
-    .blog-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-      margin-bottom: 52px;
-    }
-    .blog-card {
-      border: 1px solid var(--border); border-radius: 12px;
-      background: var(--bg-card); overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .2s, box-shadow .2s;
-      cursor: pointer;
-      display: flex; flex-direction: column;
-    }
-    .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.1); }
-    .card-top {
-      height: 6px;
-    }
-    .card-top.indigo { background: var(--indigo); }
-    .card-top.green  { background: var(--green); }
-    .card-top.teal   { background: var(--teal); }
-    .card-top.coral  { background: var(--coral); }
-    .card-top.amber  { background: var(--amber); }
-    .card-top.purple { background: #7c3aed; }
+/* ── CHECKLIST ── */
+.checklist-sec{background:var(--soft);border-radius:18px;padding:44px;margin-bottom:48px}
+.checklist-sec h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.checklist-sec>p{font-size:14px;color:var(--muted);margin-bottom:24px}
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ci{display:flex;gap:11px;background:#fff;border:1px solid var(--border);border-radius:9px;padding:14px}
+.ci-icon{width:30px;height:30px;border-radius:7px;background:var(--green-l);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ci h4{font-size:12px;font-weight:700;margin-bottom:3px}
+.ci p{font-size:11px;color:var(--muted);line-height:1.5}
 
-    .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-    .card-body h3 {
-      font-size: 16px; font-weight: 700; line-height: 1.4;
-      color: var(--ink); margin: 12px 0 10px;
-    }
-    .card-body p { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
-    .card-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 22px; border-top: 1px solid var(--border);
-      font-size: 13px; color: var(--muted);
-    }
-    .card-footer .arrow {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--bg-soft); display: flex; align-items: center; justify-content: center;
-      transition: background .15s;
-    }
-    .blog-card:hover .arrow { background: var(--indigo-l); color: var(--indigo); }
+/* ── TEMPLATES PAGE ── */
+.tmpl-hero{background:linear-gradient(135deg,#064e3b,#059669);color:#fff;padding:52px 24px;text-align:center}
+.tmpl-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px}
+.tmpl-hero p{font-size:16px;opacity:.85;max-width:520px;margin:0 auto}
+.tmpl-cats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:28px 0 0}
+.tc-btn{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 18px;border-radius:24px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.tc-btn:hover,.tc-btn.active{background:#fff;color:var(--green)}
+.tmpl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:36px 0 52px}
+.tcard{border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--sh);cursor:pointer;transition:.2s;background:#fff}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.tpreview{height:200px;display:flex;align-items:center;justify-content:center;padding:16px;position:relative}
+.tpreview.ind{background:linear-gradient(135deg,var(--indigo-l),#c7d2fe)}
+.tpreview.grn{background:linear-gradient(135deg,var(--green-l),#a7f3d0)}
+.tpreview.amb{background:linear-gradient(135deg,var(--amber-l),#fde68a)}
+.tpreview.cor{background:linear-gradient(135deg,var(--coral-l),#fca5a5)}
+.tpreview.tel{background:linear-gradient(135deg,var(--teal-l),#a5f3fc)}
+.tpreview.pur{background:linear-gradient(135deg,var(--purple-l),#ddd6fe)}
+.tmini{background:#fff;border-radius:8px;padding:14px;box-shadow:0 4px 16px rgba(0,0,0,.12);width:120px}
+.tmini-h{height:8px;border-radius:4px;background:#e5e7eb;margin-bottom:6px}
+.tmini-h.col{background:var(--indigo)}
+.tmini-l{height:4px;border-radius:2px;background:#f3f4f6;margin-bottom:4px}
+.tmini-l.w80{width:80%}.tmini-l.w60{width:60%}.tmini-l.w90{width:90%}.tmini-l.w70{width:70%}
+.free-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase}
+.tinfo{padding:16px}
+.tinfo h3{font-size:14px;font-weight:700;margin-bottom:5px}
+.tinfo p{font-size:12px;color:var(--muted);margin-bottom:12px}
+.use-btn{display:block;width:100%;background:var(--indigo);color:#fff;border:none;padding:10px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;text-align:center}
+.use-btn:hover{background:var(--indigo-d)}
 
-    /* ── TIPS SECTION ── */
-    .tips-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      border-radius: 20px; padding: 52px 48px;
-      margin-bottom: 52px; color: #fff;
-    }
-    .tips-header { text-align: center; margin-bottom: 40px; }
-    .tips-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-    .tips-header h2 span { color: #fde68a; }
-    .tips-header p { color: rgba(255,255,255,.65); font-size: 16px; }
-    .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .tip-card {
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px; padding: 22px;
-    }
-    .tip-num {
-      font-size: 12px; font-weight: 800; color: #a5b4fc;
-      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;
-    }
-    .tip-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .tip-card p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.65; }
+/* ── CAREER PAGE ── */
+.career-hero{background:linear-gradient(135deg,#92400e,#d97706);color:#fff;padding:52px 24px;text-align:center}
+.career-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px}
+.career-hero p{font-size:16px;opacity:.85;max-width:500px;margin:0 auto}
+.career-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:36px 0 48px}
+.career-card{border:1px solid var(--border);border-radius:12px;padding:24px;background:#fff;cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.career-card:hover{border-color:var(--amber);transform:translateY(-2px)}
+.cc-icon{font-size:28px;margin-bottom:12px}
+.career-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.career-card p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.cc-tag{display:inline-block;background:var(--amber-l);color:var(--amber);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
 
-    /* ── KEYWORDS / TOPICS ── */
-    .topics-row {
-      margin-bottom: 52px;
-    }
-    .topics-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
-    .topic-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 14px; border-radius: 24px;
-      border: 1px solid var(--border); background: var(--bg-soft);
-      font-size: 14px; color: var(--ink2); font-weight: 500;
-      cursor: pointer; transition: all .15s;
-    }
-    .topic-pill:hover { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-l); }
-    .topic-pill .count { font-size: 12px; color: var(--muted); }
+/* ── COVER LETTER PAGE ── */
+.cl-hero{background:linear-gradient(135deg,#1e3a5f,#0891b2);color:#fff;padding:52px 24px;text-align:center}
+.cl-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px}
+.cl-hero p{font-size:16px;opacity:.85;max-width:520px;margin:0 auto}
+.cl-builder{max-width:800px;margin:0 auto;padding:36px 24px 52px}
+.cl-step{border:1px solid var(--border);border-radius:12px;padding:24px;background:#fff;margin-bottom:20px;box-shadow:var(--sh)}
+.cl-step h3{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-row label,.form-single label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.form-row input,.form-single input,.form-single select{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:7px;font-size:14px;font-family:inherit;outline:none;transition:.15s}
+.form-row input:focus,.form-single input:focus,.form-single select:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-l)}
+.form-single{margin-bottom:12px}
+.gen-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:14px;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;transition:.15s;margin-top:8px}
+.gen-btn:hover{background:#0e7490}
+.cl-output{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:28px;white-space:pre-wrap;font-size:14px;line-height:1.8;color:var(--ink);margin-top:20px;display:none}
+.cl-output.show{display:block}
+.copy-btn{background:var(--teal-l);color:var(--teal);border:1px solid var(--teal);padding:9px 18px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;margin-top:12px;display:none}
+.copy-btn.show{display:inline-block}
 
-    /* ── TWO COL LAYOUT ── */
-    .two-col { display: grid; grid-template-columns: 1fr 340px; gap: 32px; margin-bottom: 52px; }
+/* ── NEWSLETTER ── */
+.nl{background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:18px;padding:44px;text-align:center;margin-bottom:48px;border:1px solid #fcd34d}
+.nl h2{font-size:24px;font-weight:800;color:#92400e;margin-bottom:10px}
+.nl p{font-size:14px;color:#78350f;margin-bottom:22px}
+.nl-form{display:flex;gap:9px;max-width:420px;margin:0 auto}
+.nl-form input{flex:1;padding:11px 15px;border-radius:7px;border:1px solid #fcd34d;font-size:14px;font-family:inherit;outline:none}
+.nl-form button{background:#d97706;color:#fff;border:none;padding:11px 18px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer}
 
-    /* ── LONG ARTICLE TEASER ── */
-    .article-list { display: flex; flex-direction: column; gap: 20px; }
-    .article-item {
-      display: flex; gap: 16px; padding: 20px;
-      border: 1px solid var(--border); border-radius: 12px;
-      background: var(--bg-card); transition: border-color .15s;
-    }
-    .article-item:hover { border-color: var(--indigo); }
-    .article-num {
-      font-size: 28px; font-weight: 800; color: var(--border);
-      flex-shrink: 0; min-width: 36px; line-height: 1;
-    }
-    .article-item:hover .article-num { color: var(--indigo-l); }
-    .article-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .article-info p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .article-meta { font-size: 12px; color: var(--muted); margin-top: 8px; display: flex; gap: 10px; }
+/* ── FAQ ── */
+.faq{margin-bottom:48px}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fi{border:1px solid var(--border);border-radius:11px;padding:20px;background:#fff}
+.fq{font-size:14px;font-weight:700;margin-bottom:9px}
+.fa{font-size:13px;color:var(--muted);line-height:1.7}
+.fa strong{color:var(--ink2)}
 
-    /* ── SIDEBAR ── */
-    .sidebar { display: flex; flex-direction: column; gap: 20px; }
-    .side-card {
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 22px; background: var(--bg-card);
-    }
-    .side-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--ink); }
-    .side-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .side-list li { display: flex; gap: 8px; align-items: flex-start; }
-    .side-list li::before {
-      content: '→'; color: var(--indigo); font-size: 14px; flex-shrink: 0; margin-top: 1px;
-    }
-    .side-list a { font-size: 13px; color: var(--ink2); line-height: 1.4; transition: color .15s; }
-    .side-list a:hover { color: var(--indigo); }
-    .cta-card {
-      background: var(--indigo); color: #fff;
-      border-radius: 12px; padding: 24px; text-align: center;
-    }
-    .cta-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .cta-card p { font-size: 13px; opacity: .8; margin-bottom: 16px; }
-    .cta-card a {
-      display: block; background: #fff; color: var(--indigo);
-      padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 700;
-      transition: opacity .15s;
-    }
-    .cta-card a:hover { opacity: .9; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size: 12px; padding: 4px 10px; border-radius: 20px; background: var(--bg-soft); color: var(--ink2); border: 1px solid var(--border); cursor: pointer; transition: all .15s; }
-    .tag:hover { background: var(--indigo-l); color: var(--indigo); border-color: var(--indigo); }
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:820px;width:100%;padding:0;overflow:hidden;position:relative;margin:auto}
+.modal-header{background:linear-gradient(135deg,#312e81,#4f46e5);color:#fff;padding:32px 36px 28px}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.2);color:#fff;border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.modal-close:hover{background:rgba(255,255,255,.35)}
+.modal-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a5b4fc;margin-bottom:10px}
+.modal-header h2{font-size:22px;font-weight:800;line-height:1.25;margin-bottom:10px}
+.modal-meta{font-size:12px;opacity:.7;display:flex;gap:14px}
+.modal-body{padding:32px 36px;max-height:70vh;overflow-y:auto;font-size:15px;line-height:1.8;color:var(--ink2)}
+.modal-body h3{font-size:17px;font-weight:700;color:var(--ink);margin:24px 0 10px}
+.modal-body p{margin-bottom:14px}
+.modal-body ul{padding-left:20px;margin-bottom:14px}
+.modal-body ul li{margin-bottom:7px}
+.modal-body .tip-box{background:var(--indigo-l);border-left:4px solid var(--indigo);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+.modal-body .tip-box strong{color:var(--indigo-d)}
+.modal-body .warn-box{background:var(--amber-l);border-left:4px solid var(--amber);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+.modal-footer{padding:20px 36px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.modal-cta{background:var(--indigo);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+.modal-cta:hover{background:var(--indigo-d)}
+.modal-close-btn{background:var(--soft);color:var(--ink2);border:1px solid var(--border);padding:12px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
 
-    /* ── CHECKLIST SECTION ── */
-    .checklist-section {
-      background: var(--bg-soft); border-radius: 20px;
-      padding: 48px; margin-bottom: 52px;
-    }
-    .checklist-header { margin-bottom: 28px; }
-    .checklist-header h2 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
-    .checklist-header p { font-size: 15px; color: var(--muted); }
-    .checklist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .check-item {
-      display: flex; gap: 12px;
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 10px; padding: 16px;
-    }
-    .check-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: var(--green-l); color: var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
-    }
-    .check-text h4 { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-    .check-text p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+/* ── FOOTER ── */
+footer{background:#0f172a;color:rgba(255,255,255,.65);padding:48px 24px 28px}
+.fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.fl{color:#fff;font-size:18px;font-weight:800;margin-bottom:10px}
+.fd{font-size:13px;line-height:1.65}
+.fc h4{color:#fff;font-size:12px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.07em}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.fc button{background:none;border:none;font-size:13px;color:rgba(255,255,255,.65);cursor:pointer;text-align:left;transition:.15s;font-family:inherit;padding:0}
+.fc button:hover{color:#fff}
+.fb{max-width:1200px;margin:0 auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-wrap:wrap;gap:6px}
 
-    /* ── NEWSLETTER ── */
-    .newsletter {
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-      border-radius: 20px; padding: 48px;
-      text-align: center; margin-bottom: 52px;
-      border: 1px solid #fcd34d;
-    }
-    .newsletter h2 { font-size: 26px; font-weight: 800; color: #92400e; margin-bottom: 10px; }
-    .newsletter p { font-size: 15px; color: #78350f; margin-bottom: 24px; }
-    .nl-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
-    .nl-form input {
-      flex: 1; padding: 11px 16px; border-radius: 8px;
-      border: 1px solid #fcd34d; font-size: 15px;
-      font-family: inherit; background: #fff; outline: none;
-    }
-    .nl-form button {
-      background: #d97706; color: #fff; border: none;
-      padding: 11px 20px; border-radius: 8px;
-      font-size: 14px; font-weight: 700; cursor: pointer;
-      font-family: inherit;
-    }
-
-    /* ── FAQ ── */
-    .faq-section { margin-bottom: 52px; }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .faq-item {
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 22px; background: var(--bg-card);
-    }
-    .faq-q { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
-    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .faq-a strong { color: var(--ink2); }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: #0f172a; color: rgba(255,255,255,.7);
-      padding: 52px 24px 32px;
-    }
-    .footer-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-logo { color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-    .footer-desc { font-size: 13px; line-height: 1.65; }
-    .footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .06em; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .footer-col a { font-size: 13px; transition: color .15s; }
-    .footer-col a:hover { color: #fff; }
-    .footer-bottom {
-      max-width: 1200px; margin: 0 auto;
-      padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1);
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 12px; flex-wrap: wrap; gap: 8px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .featured { grid-template-columns: 1fr; }
-      .featured-visual { padding: 32px 28px; min-height: 240px; }
-      .blog-grid { grid-template-columns: repeat(2, 1fr); }
-      .tips-grid { grid-template-columns: 1fr; }
-      .two-col { grid-template-columns: 1fr; }
-      .checklist-grid { grid-template-columns: repeat(2, 1fr); }
-      .faq-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .blog-grid { grid-template-columns: 1fr; }
-      .checklist-grid { grid-template-columns: 1fr; }
-      .tips-section { padding: 32px 20px; }
-      .newsletter { padding: 32px 20px; }
-      .nl-form { flex-direction: column; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 20px; }
-      .nav-links { display: none; }
-    }
-  </style>
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .featured{grid-template-columns:1fr}
+  .feat-left{min-height:200px}
+  .grid3{grid-template-columns:repeat(2,1fr)}
+  .tips-grid{grid-template-columns:1fr}
+  .twocol{grid-template-columns:1fr}
+  .cl-grid{grid-template-columns:1fr}
+  .career-grid{grid-template-columns:1fr}
+  .tmpl-grid{grid-template-columns:repeat(2,1fr)}
+  .cl-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .cl-grid{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr}
+  .checklist-sec{padding:28px 20px}
+  .cl-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .grid3{grid-template-columns:1fr}
+  .cl-grid{grid-template-columns:1fr}
+  .tmpl-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .dark-sec{padding:28px 20px}
+  .nl{padding:28px 20px}
+  .nl-form{flex-direction:column}
+  .fg{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .cl-grid{grid-template-columns:1fr}
+  .checklist-sec .cl-grid{grid-template-columns:1fr}
+}
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.cl-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cl-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
+<!-- TOPBAR -->
+<div class="topbar">
+  🚀 Create your professional resume FREE in 5 minutes — <a href="https://banaoresumee.online" target="_blank">Start Now at BanaoResume →</a>
+</div>
+
+<!-- NAV -->
+<nav>
   <div class="nav-inner">
-    <a href="https://banaoresumee.online" class="logo">
-      <div class="logo-icon">BR</div>
-      Banao<span class="logo-dot">Resume</span>
-    </a>
-    <div class="nav-links">
-      <a href="/blog">Blog</a>
-      <a href="/resume-templates">Templates</a>
-      <a href="/resume-examples">Examples</a>
-      <a href="/cover-letter">Cover Letter</a>
-      <a href="/career-tips">Career Tips</a>
-      <a href="https://banaoresumee.online/create" class="btn-cta">Build Free Resume →</a>
+    <div class="logo" onclick="showPage('blog')">
+      <div class="logo-box">BR</div>
+      BanaoResume
     </div>
+    <div class="nav-links">
+      <button onclick="showPage('blog')" id="nav-blog" class="active">📝 Blog</button>
+      <button onclick="showPage('templates')" id="nav-templates">📄 Templates</button>
+      <button onclick="showPage('career')" id="nav-career">💼 Career Tips</button>
+      <button onclick="showPage('coverletter')" id="nav-cover">✉️ Cover Letter</button>
+      <button class="nav-cta" onclick="window.open('https://banaoresumee.online','_blank')">🚀 Build Free Resume</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button onclick="showPage('blog');toggleMenu()">📝 Blog</button>
+    <button onclick="showPage('templates');toggleMenu()">📄 Templates</button>
+    <button onclick="showPage('career');toggleMenu()">💼 Career Tips</button>
+    <button onclick="showPage('coverletter');toggleMenu()">✉️ Cover Letter</button>
+    <button class="m-cta" onclick="window.open('https://banaoresumee.online','_blank')">🚀 Build Free Resume</button>
   </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<header class="hero-band" role="banner">
-  <h1>Free Resume Tips &amp; Career Advice<br /><span>That Actually Get You Hired</span></h1>
-  <p>Expert guides on resume writing, ATS optimization, cover letters, and interview tips — trusted by 1M+ job seekers.</p>
-  <div class="hero-search" role="search">
-    <input type="search" placeholder="Search: ATS resume, fresher format, cover letter…" aria-label="Search blog articles" />
-    <button type="submit">Search</button>
+<!-- ══════════════════════════════════════ -->
+<!--              BLOG PAGE               -->
+<!-- ══════════════════════════════════════ -->
+<div class="page active" id="page-blog">
+
+<header class="hero">
+  <h1>Free Resume Builder Tips &amp;<br/><span>Career Advice That Gets You Hired</span></h1>
+  <p>Expert guides on resume writing, ATS optimization, cover letters &amp; interview tips — trusted by 1M+ job seekers.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="window.open('https://banaoresumee.online','_blank')">🚀 Build My Resume Free</button>
+    <button class="btn-secondary" onclick="showPage('templates')">📄 Browse Templates</button>
   </div>
-  <div class="hero-stats" role="list" aria-label="Platform statistics">
-    <div class="hero-stat" role="listitem">
-      <strong>1M+</strong>
-      <span>Resumes Created</span>
-    </div>
-    <div class="hero-stat" role="listitem">
-      <strong>150+</strong>
-      <span>Free Templates</span>
-    </div>
-    <div class="hero-stat" role="listitem">
-      <strong>94%</strong>
-      <span>ATS Pass Rate</span>
-    </div>
-    <div class="hero-stat" role="listitem">
-      <strong>48hr</strong>
-      <span>Avg. Time to Interview</span>
-    </div>
+  <div class="hero-stats">
+    <div class="stat"><strong>1M+</strong><span>Resumes Created</span></div>
+    <div class="stat"><strong>150+</strong><span>Free Templates</span></div>
+    <div class="stat"><strong>94%</strong><span>ATS Pass Rate</span></div>
+    <div class="stat"><strong>48hr</strong><span>Avg. to Interview</span></div>
   </div>
 </header>
 
-<main>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- ═══════════════ FEATURED ═══════════════ -->
-    <div class="sec-label">
-      <h2>Featured Guide</h2>
-      <div class="pill">Editor's Pick</div>
-      <div class="line"></div>
-    </div>
-
-    <article class="featured" aria-label="Featured article">
-      <div class="featured-visual" aria-hidden="true">
-        <div class="resume-mock">
-          <div class="rm-header">
-            <div class="rm-avatar">AK</div>
-            <div>
-              <div class="rm-name">Ananya Kumar</div>
-              <div class="rm-role">Software Engineer · Bengaluru</div>
-            </div>
-          </div>
-          <div class="rm-bar w90 accent"></div>
-          <div class="rm-bar w60"></div>
-          <div class="rm-section">Work Experience</div>
-          <div class="rm-bar w80"></div>
-          <div class="rm-bar w70"></div>
-          <div class="rm-bar w50"></div>
-          <div class="rm-section">Skills</div>
-          <div>
-            <span class="rm-badge">Python</span>
-            <span class="rm-badge">React</span>
-            <span class="rm-badge">SQL</span>
-            <span class="rm-badge">AWS</span>
-            <span class="rm-badge">Git</span>
-          </div>
-          <div class="rm-section">Education</div>
-          <div class="rm-bar w75"></div>
-          <div class="rm-bar w55"></div>
+  <!-- FEATURED -->
+  <div class="sh"><h2>Featured Guide</h2><div class="pill">Editor's Pick</div><div class="line"></div></div>
+  <div class="featured" onclick="openArticle('featured')" role="button" tabindex="0">
+    <div class="feat-left">
+      <div class="resume-mock">
+        <div class="rm-head">
+          <div class="rm-av">AK</div>
+          <div><div class="rm-n">Ananya Kumar</div><div class="rm-r">Software Engineer · Bengaluru</div></div>
         </div>
-      </div>
-      <div class="featured-content">
-        <div class="cat-badge guide">📋 Complete Guide</div>
-        <h2>How to Write a Professional Resume in 2025: The Ultimate Step-by-Step Guide</h2>
-        <p>Whether you're a fresher writing your first resume or a professional switching careers, this comprehensive guide walks you through every section — from contact info to skills — with real examples and ATS-friendly tips.</p>
-        <div class="meta-row">
-          <span>✍️ By Resume Experts</span>
-          <span class="dot"></span>
-          <span>📅 June 2025</span>
-          <span class="dot"></span>
-          <span>⏱ 12 min read</span>
-          <span class="dot"></span>
-          <span>🔥 68,400 reads</span>
-        </div>
-        <a href="/blog/how-to-write-a-resume-2025" class="read-more">
-          Read the Full Guide
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <!-- ═══════════════ BLOG GRID ═══════════════ -->
-    <div class="sec-label">
-      <h2>Latest Articles</h2>
-      <div class="pill">Updated Weekly</div>
-      <div class="line"></div>
-    </div>
-
-    <section class="blog-grid" aria-label="Blog articles">
-
-      <!-- Card 1 -->
-      <article class="blog-card">
-        <div class="card-top teal"></div>
-        <div class="card-body">
-          <div class="cat-badge ats">🤖 ATS Tips</div>
-          <h3>ATS-Friendly Resume: How to Beat Applicant Tracking Systems in 2025</h3>
-          <p>Over 90% of Fortune 500 companies use ATS software to filter resumes before a human ever sees them. Learn exactly which keywords, formats, and file types get you through the filter — with a free ATS checklist.</p>
-        </div>
-        <div class="card-footer">
-          <span>8 min · 42,100 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="blog-card">
-        <div class="card-top green"></div>
-        <div class="card-body">
-          <div class="cat-badge tips">✅ Resume Tips</div>
-          <h3>Best Resume Format for Freshers &amp; Students (With Free Templates)</h3>
-          <p>No work experience? No problem. Discover which resume format works best for freshers, how to highlight your college projects and internships, and download ready-to-use templates for 2025.</p>
-        </div>
-        <div class="card-footer">
-          <span>7 min · 55,300 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="blog-card">
-        <div class="card-top coral"></div>
-        <div class="card-body">
-          <div class="cat-badge error">⚠️ Mistakes</div>
-          <h3>10 Common Resume Mistakes That Are Costing You Interviews (Fix Them Now)</h3>
-          <p>Typos? Generic objectives? Wrong file format? These are the silent resume killers. Recruiters spend just 7 seconds on a resume — make sure yours doesn't get rejected for these avoidable errors.</p>
-        </div>
-        <div class="card-footer">
-          <span>6 min · 38,700 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-      <!-- Card 4 -->
-      <article class="blog-card">
-        <div class="card-top amber"></div>
-        <div class="card-body">
-          <div class="cat-badge career">💼 Cover Letter</div>
-          <h3>How to Write a Cover Letter That Gets Noticed (Examples &amp; Templates 2025)</h3>
-          <p>A great cover letter can make the difference between landing an interview and being ignored. Learn the exact structure, key phrases, and common mistakes to avoid — with 5 real examples across industries.</p>
-        </div>
-        <div class="card-footer">
-          <span>9 min · 29,500 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-      <!-- Card 5 -->
-      <article class="blog-card">
-        <div class="card-top indigo"></div>
-        <div class="card-body">
-          <div class="cat-badge guide">📋 Comparison</div>
-          <h3>Resume vs CV: Key Differences You Need to Know Before Applying</h3>
-          <p>Should you send a resume or a CV? Many applicants confuse the two — and use the wrong one. Learn the key differences in length, content, purpose, and when to use each format in India and abroad.</p>
-        </div>
-        <div class="card-footer">
-          <span>5 min · 21,800 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-      <!-- Card 6 -->
-      <article class="blog-card">
-        <div class="card-top purple"></div>
-        <div class="card-body">
-          <div class="cat-badge format">🛠 Skills</div>
-          <h3>Top 50 Resume Skills That Employers Are Looking for in 2025</h3>
-          <p>Not sure what skills to put on your resume? We analyzed 10,000+ job descriptions to compile the most in-demand hard skills and soft skills — sorted by industry, from tech to marketing to finance.</p>
-        </div>
-        <div class="card-footer">
-          <span>10 min · 47,600 reads</span>
-          <div class="arrow">→</div>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- ═══════════════ TIPS SECTION ═══════════════ -->
-    <section class="tips-section" aria-labelledby="tips-heading">
-      <div class="tips-header">
-        <h2 id="tips-heading">⚡ Quick Resume Tips That <span>Actually Work</span></h2>
-        <p>Evidence-backed tips from recruiters at Google, Microsoft, Amazon &amp; top Indian companies</p>
-      </div>
-      <div class="tips-grid">
-        <div class="tip-card">
-          <div class="tip-num">Tip 01 — Contact Information</div>
-          <h3>Add a LinkedIn URL &amp; GitHub (if applicable)</h3>
-          <p>Resumes with a complete LinkedIn profile link get 40% more recruiter responses. Make sure your LinkedIn headline matches your resume title exactly — consistency builds credibility.</p>
-        </div>
-        <div class="tip-card">
-          <div class="tip-num">Tip 02 — Resume Summary</div>
-          <h3>Write a 3-line professional summary, not an objective</h3>
-          <p>Objective statements are outdated. A modern resume summary shows who you are, what you've done, and what value you bring — in under 50 words. Lead with your biggest achievement.</p>
-        </div>
-        <div class="tip-card">
-          <div class="tip-num">Tip 03 — Work Experience</div>
-          <h3>Use the X-Y-Z formula for every bullet point</h3>
-          <p>"Accomplished [X] as measured by [Y] by doing [Z]." Example: "Increased sales by 32% in Q3 by launching a targeted email campaign for high-value customers." Quantify everything you can.</p>
-        </div>
-        <div class="tip-card">
-          <div class="tip-num">Tip 04 — ATS Optimization</div>
-          <h3>Mirror exact keywords from the job description</h3>
-          <p>Copy and paste the job description into a word-frequency tool. The top nouns and verbs are your ATS keywords. Include them naturally in your summary, skills section, and experience bullets.</p>
-        </div>
-        <div class="tip-card">
-          <div class="tip-num">Tip 05 — Resume Length</div>
-          <h3>Keep it to 1 page (under 10 years experience)</h3>
-          <p>Unless you're a senior leader or academic, a one-page resume is the gold standard. Use tight margins (0.5"), 10-11pt font, and cut any experience older than 10 years ruthlessly.</p>
-        </div>
-        <div class="tip-card">
-          <div class="tip-num">Tip 06 — File Format</div>
-          <h3>Always submit a .PDF — unless told otherwise</h3>
-          <p>PDFs preserve your formatting across all devices and operating systems. Word documents (.docx) can shift fonts and margins. Name your file: FirstName-LastName-Resume.pdf for professionalism.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════ BROWSE BY TOPIC ═══════════════ -->
-    <div class="sec-label">
-      <h2>Browse by Topic</h2>
-      <div class="line"></div>
-    </div>
-    <div class="topics-row">
-      <div class="topics-wrap" role="list" aria-label="Browse topics">
-        <a href="/blog/ats-resume" class="topic-pill" role="listitem">🤖 ATS Resume <span class="count">(24)</span></a>
-        <a href="/blog/fresher-resume" class="topic-pill" role="listitem">🎓 Fresher Resume <span class="count">(18)</span></a>
-        <a href="/blog/resume-format" class="topic-pill" role="listitem">📄 Resume Format <span class="count">(15)</span></a>
-        <a href="/blog/cover-letter" class="topic-pill" role="listitem">✉️ Cover Letter <span class="count">(12)</span></a>
-        <a href="/blog/resume-skills" class="topic-pill" role="listitem">💡 Resume Skills <span class="count">(20)</span></a>
-        <a href="/blog/career-change" class="topic-pill" role="listitem">🔄 Career Change <span class="count">(9)</span></a>
-        <a href="/blog/job-interview" class="topic-pill" role="listitem">🎤 Interview Tips <span class="count">(16)</span></a>
-        <a href="/blog/linkedin-profile" class="topic-pill" role="listitem">🔗 LinkedIn Tips <span class="count">(11)</span></a>
-        <a href="/blog/remote-jobs" class="topic-pill" role="listitem">🌍 Remote Jobs <span class="count">(8)</span></a>
-        <a href="/blog/salary-negotiation" class="topic-pill" role="listitem">💰 Salary Tips <span class="count">(7)</span></a>
-        <a href="/blog/it-resume" class="topic-pill" role="listitem">💻 IT Resume <span class="count">(14)</span></a>
-        <a href="/blog/mba-resume" class="topic-pill" role="listitem">📊 MBA Resume <span class="count">(6)</span></a>
+        <div class="bar a w90"></div><div class="bar w60"></div>
+        <div class="rm-s">Work Experience</div>
+        <div class="bar w80"></div><div class="bar w70"></div><div class="bar w50"></div>
+        <div class="rm-s">Skills</div>
+        <span class="rm-b">Python</span><span class="rm-b">React</span><span class="rm-b">SQL</span><span class="rm-b">AWS</span>
+        <div class="rm-s">Education</div>
+        <div class="bar w75"></div><div class="bar w55"></div>
       </div>
     </div>
-
-    <!-- ═══════════════ TWO COLUMN ═══════════════ -->
-    <div class="sec-label">
-      <h2>Top Resume Guides</h2>
-      <div class="pill">Most Read</div>
-      <div class="line"></div>
+    <div class="feat-right">
+      <div class="cat guide">📋 Complete Guide</div>
+      <h2>How to Write a Professional Resume in 2025: The Ultimate Step-by-Step Guide</h2>
+      <p>Whether you're a fresher writing your first resume or a professional switching careers, this guide walks you through every section — with real examples and ATS-friendly tips that get results.</p>
+      <div class="meta"><span>✍️ Resume Experts</span><span>📅 June 2025</span><span>⏱ 12 min</span><span>🔥 68,400 reads</span></div>
+      <button class="read-btn">Read the Full Guide →</button>
     </div>
+  </div>
 
-    <div class="two-col">
-      <!-- Article List -->
-      <div class="article-list" role="list" aria-label="Top resume articles">
-
-        <article class="article-item" role="listitem">
-          <div class="article-num">01</div>
-          <div class="article-info">
-            <h3><a href="/blog/resume-with-no-experience">How to Write a Resume With No Work Experience (2025 Guide)</a></h3>
-            <p>Just graduated? Changing careers? Learn how to write a powerful resume without a single job title — using internships, projects, volunteering, and coursework to impress employers.</p>
-            <div class="article-meta"><span>7 min read</span><span>·</span><span>52,100 reads</span><span>·</span><span>Fresher Guide</span></div>
-          </div>
-        </article>
-
-        <article class="article-item" role="listitem">
-          <div class="article-num">02</div>
-          <div class="article-info">
-            <h3><a href="/blog/resume-objective-vs-summary">Resume Objective vs Professional Summary: Which Should You Use?</a></h3>
-            <p>The resume objective is dead — but most freshers don't know it yet. Discover what a modern professional summary looks like and get 10 copy-paste templates sorted by industry.</p>
-            <div class="article-meta"><span>5 min read</span><span>·</span><span>33,800 reads</span><span>·</span><span>Resume Writing</span></div>
-          </div>
-        </article>
-
-        <article class="article-item" role="listitem">
-          <div class="article-num">03</div>
-          <div class="article-info">
-            <h3><a href="/blog/action-verbs-for-resume">250 Power Action Verbs to Make Your Resume Stand Out</a></h3>
-            <p>Replace weak words like "helped" and "worked on" with impactful action verbs. Organized by category: leadership, communication, technical, analytical, creative, and more.</p>
-            <div class="article-meta"><span>6 min read</span><span>·</span><span>44,200 reads</span><span>·</span><span>Resume Writing</span></div>
-          </div>
-        </article>
-
-        <article class="article-item" role="listitem">
-          <div class="article-num">04</div>
-          <div class="article-info">
-            <h3><a href="/blog/chronological-vs-functional-resume">Chronological vs Functional vs Combination Resume Format Explained</a></h3>
-            <p>Each format works best for a different situation. Find out which resume format is right for you — whether you're a fresher, have gaps in employment, or are switching industries.</p>
-            <div class="article-meta"><span>8 min read</span><span>·</span><span>28,600 reads</span><span>·</span><span>Resume Format</span></div>
-          </div>
-        </article>
-
-        <article class="article-item" role="listitem">
-          <div class="article-num">05</div>
-          <div class="article-info">
-            <h3><a href="/blog/free-resume-templates">50 Free Professional Resume Templates for 2025 (ATS-Optimized)</a></h3>
-            <p>Download professionally designed resume templates in Word and PDF formats. Includes templates for IT, marketing, finance, engineering, healthcare, and more — all 100% free.</p>
-            <div class="article-meta"><span>3 min read</span><span>·</span><span>88,400 reads</span><span>·</span><span>Templates</span></div>
-          </div>
-        </article>
-
+  <!-- BLOG GRID -->
+  <div class="sh"><h2>Latest Articles</h2><div class="pill">Updated Weekly</div><div class="line"></div></div>
+  <div class="grid3">
+    <div class="bcard" onclick="openArticle('ats')" role="button" tabindex="0">
+      <div class="ct teal"></div>
+      <div class="cb">
+        <div class="cat ats">🤖 ATS Tips</div>
+        <h3>ATS-Friendly Resume: How to Beat Applicant Tracking Systems in 2025</h3>
+        <p>Over 90% of Fortune 500 companies use ATS software to filter resumes. Learn exactly which keywords and formats get you through the filter — with a free checklist.</p>
       </div>
-
-      <!-- Sidebar -->
-      <aside class="sidebar" role="complementary" aria-label="Sidebar">
-        <div class="cta-card">
-          <h3>🚀 Build Your Resume Free</h3>
-          <p>Create an ATS-optimized resume in under 10 minutes. No credit card needed.</p>
-          <a href="https://banaoresumee.online/create">Start Building — It's Free →</a>
-        </div>
-
-        <div class="side-card">
-          <h3>🔥 Trending Now</h3>
-          <ul class="side-list">
-            <li><a href="/blog/ai-resume">How to Use AI to Write Your Resume in 2025</a></li>
-            <li><a href="/blog/gap-year-resume">How to Explain Employment Gaps on a Resume</a></li>
-            <li><a href="/blog/it-skills-resume">Best IT Skills to Add to Your Resume Right Now</a></li>
-            <li><a href="/blog/remote-work-resume">Remote Job Resume: What to Include</a></li>
-            <li><a href="/blog/two-page-resume">Should Your Resume Be 1 or 2 Pages?</a></li>
-          </ul>
-        </div>
-
-        <div class="side-card">
-          <h3>🏷️ Popular Tags</h3>
-          <div class="tag-cloud">
-            <span class="tag">ATS</span>
-            <span class="tag">Fresher</span>
-            <span class="tag">Templates</span>
-            <span class="tag">Cover Letter</span>
-            <span class="tag">Skills</span>
-            <span class="tag">IT Resume</span>
-            <span class="tag">PDF</span>
-            <span class="tag">Summary</span>
-            <span class="tag">LinkedIn</span>
-            <span class="tag">Interview</span>
-            <span class="tag">Career Change</span>
-            <span class="tag">MBA</span>
-          </div>
-        </div>
-
-        <div class="side-card">
-          <h3>📊 Resume Stats You Should Know</h3>
-          <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
-            <div>
-              <div style="font-size:22px;font-weight:800;color:var(--indigo);">7 sec</div>
-              <div style="font-size:12px;color:var(--muted);">Average recruiter scan time</div>
-            </div>
-            <div style="height:1px;background:var(--border);"></div>
-            <div>
-              <div style="font-size:22px;font-weight:800;color:var(--coral);">75%</div>
-              <div style="font-size:12px;color:var(--muted);">Of resumes rejected by ATS before a human reads them</div>
-            </div>
-            <div style="height:1px;background:var(--border);"></div>
-            <div>
-              <div style="font-size:22px;font-weight:800;color:var(--green);">40%</div>
-              <div style="font-size:12px;color:var(--muted);">More interviews with a tailored resume vs generic one</div>
-            </div>
-          </div>
-        </div>
-      </aside>
+      <div class="cf"><span>8 min · 42,100 reads</span><div class="arr">→</div></div>
     </div>
-
-    <!-- ═══════════════ CHECKLIST ═══════════════ -->
-    <section class="checklist-section" aria-labelledby="checklist-heading">
-      <div class="checklist-header">
-        <h2 id="checklist-heading">✅ Resume Writing Checklist — Before You Submit</h2>
-        <p>Run through this quick checklist every time you send out a job application. Recruiters notice these details.</p>
+    <div class="bcard" onclick="openArticle('fresher')" role="button" tabindex="0">
+      <div class="ct green"></div>
+      <div class="cb">
+        <div class="cat tips">✅ Resume Tips</div>
+        <h3>Best Resume Format for Freshers &amp; Students (With Free Templates)</h3>
+        <p>No work experience? No problem. Discover which resume format works best for freshers and how to highlight college projects, internships, and certifications.</p>
       </div>
-      <div class="checklist-grid">
-        <div class="check-item">
-          <div class="check-icon">📧</div>
-          <div class="check-text">
-            <h4>Professional email address</h4>
-            <p>firstname.lastname@gmail.com — not nicknames or numbers from 2008.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">📍</div>
-          <div class="check-text">
-            <h4>City &amp; state (not full address)</h4>
-            <p>Bengaluru, Karnataka is enough. Full addresses look dated and waste space.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">📁</div>
-          <div class="check-text">
-            <h4>Correct file name</h4>
-            <p>Save as "FirstName-LastName-Resume.pdf" — never "Resume Final v3 NEW.docx".</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">🔢</div>
-          <div class="check-text">
-            <h4>Quantify achievements</h4>
-            <p>Every bullet should answer "so what?" with a number, percentage, or dollar amount.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">🔤</div>
-          <div class="check-text">
-            <h4>Consistent formatting</h4>
-            <p>Same font family, date format, and bullet style throughout. Inconsistency signals carelessness.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">🔍</div>
-          <div class="check-text">
-            <h4>Spell check &amp; grammar</h4>
-            <p>Read it backwards to catch typos. Ask a friend to review. A single typo can disqualify you.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">🤖</div>
-          <div class="check-text">
-            <h4>ATS keywords included</h4>
-            <p>Match at least 70% of the key terms from the job description in your resume.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">📏</div>
-          <div class="check-text">
-            <h4>Right length</h4>
-            <p>1 page for &lt;10 years experience. 2 pages max for senior roles. Never 3+ pages.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">🎨</div>
-          <div class="check-text">
-            <h4>Clean, readable design</h4>
-            <p>No fancy graphics, tables, or text boxes that ATS systems can't read. Simple is powerful.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════ FAQ ═══════════════ -->
-    <div class="sec-label">
-      <h2>Frequently Asked Questions</h2>
-      <div class="line"></div>
+      <div class="cf"><span>7 min · 55,300 reads</span><div class="arr">→</div></div>
     </div>
-    <section class="faq-section" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" style="display:none;">Resume FAQ</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <div class="faq-q">How long should a resume be in 2025?</div>
-          <div class="faq-a">For most job seekers with under 10 years of experience, <strong>one page is ideal</strong>. Senior professionals (10+ years) may use two pages if every line adds real value. Academic CVs can be longer. The rule: include only what helps you get the interview.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What is an ATS-friendly resume?</div>
-          <div class="faq-a">An ATS (Applicant Tracking System) friendly resume uses <strong>simple formatting, standard section headings, and job-specific keywords</strong>. Avoid tables, text boxes, headers/footers, and graphics. Use .PDF or .DOCX as specified by the employer. BanaoResume templates are all ATS-tested.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Should I include a photo on my resume?</div>
-          <div class="faq-a">In <strong>India</strong>, a professional photo is commonly accepted and often expected. In the <strong>US, UK, Canada, and Australia</strong>, photos are typically omitted to prevent unconscious bias during hiring. Follow the norms of the country you're applying to.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">How do I write a resume with no experience?</div>
-          <div class="faq-a">Focus on <strong>transferable skills, academic projects, internships, certifications, and volunteer work</strong>. Use a functional or skills-based resume format. Lead with a strong summary that highlights your potential. A fresher resume should emphasize relevant coursework and achievements.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What's the best resume format for freshers in India?</div>
-          <div class="faq-a">A <strong>reverse-chronological format</strong> with a strong education section at the top works best. Include projects, internships, skills, and certifications. Keep it to one page. Use clean, ATS-compatible templates available free on BanaoResume.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Is it necessary to write a cover letter?</div>
-          <div class="faq-a">While not always mandatory, a cover letter <strong>significantly increases your chances</strong> when it's thoughtfully written. It lets you explain your motivation, address gaps, and show personality. For competitive roles, always include one. For mass applications, a strong cover letter template works well.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What font should I use on my resume?</div>
-          <div class="faq-a">Stick to <strong>professional, ATS-readable fonts</strong> like Calibri (11pt), Arial (11pt), Garamond (11pt), or Georgia (11pt). Avoid decorative or script fonts. Use 10.5–12pt for body text and 14–16pt for your name at the top. Consistent font usage signals professionalism.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">How do I tailor my resume for each job?</div>
-          <div class="faq-a">Read the job description carefully and <strong>mirror the exact language</strong> used for required skills and responsibilities. Adjust your professional summary to address the specific role. Move the most relevant experience to the top. This takes 10–15 minutes but can double your response rate.</div>
+    <div class="bcard" onclick="openArticle('mistakes')" role="button" tabindex="0">
+      <div class="ct coral"></div>
+      <div class="cb">
+        <div class="cat err">⚠️ Mistakes</div>
+        <h3>10 Common Resume Mistakes That Are Costing You Interviews</h3>
+        <p>Recruiters spend just 7 seconds on a resume. These silent resume killers get you rejected before a human ever reads your qualifications.</p>
+      </div>
+      <div class="cf"><span>6 min · 38,700 reads</span><div class="arr">→</div></div>
+    </div>
+    <div class="bcard" onclick="showPage('coverletter')" role="button" tabindex="0">
+      <div class="ct amber"></div>
+      <div class="cb">
+        <div class="cat career">💼 Cover Letter</div>
+        <h3>How to Write a Cover Letter That Gets Noticed (Examples &amp; Templates 2025)</h3>
+        <p>A great cover letter makes the difference between landing an interview and being ignored. Learn the exact structure with 5 real examples across industries.</p>
+      </div>
+      <div class="cf"><span>9 min · 29,500 reads</span><div class="arr">→</div></div>
+    </div>
+    <div class="bcard" onclick="openArticle('resumevcv')" role="button" tabindex="0">
+      <div class="ct indigo"></div>
+      <div class="cb">
+        <div class="cat guide">📋 Comparison</div>
+        <h3>Resume vs CV: Key Differences You Need to Know Before Applying</h3>
+        <p>Many applicants use the wrong one and get instantly rejected. Learn the key differences in length, content, purpose, and when to use each format in India and abroad.</p>
+      </div>
+      <div class="cf"><span>5 min · 21,800 reads</span><div class="arr">→</div></div>
+    </div>
+    <div class="bcard" onclick="openArticle('skills')" role="button" tabindex="0">
+      <div class="ct purple"></div>
+      <div class="cb">
+        <div class="cat fmt">🛠 Skills</div>
+        <h3>Top 50 Resume Skills Employers Are Looking for in 2025</h3>
+        <p>We analyzed 10,000+ job descriptions to compile the most in-demand hard and soft skills — sorted by industry, from tech to marketing to finance.</p>
+      </div>
+      <div class="cf"><span>10 min · 47,600 reads</span><div class="arr">→</div></div>
+    </div>
+  </div>
+
+  <!-- TIPS DARK -->
+  <section class="dark-sec">
+    <div class="dh">
+      <h2>⚡ Quick Resume Tips That <span>Actually Work</span></h2>
+      <p>Evidence-backed tips from recruiters at top companies</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip"><div class="tip-n">Tip 01 — Contact Info</div><h3>Add LinkedIn URL &amp; GitHub</h3><p>Resumes with a complete LinkedIn link get 40% more recruiter responses. Match your headline to your resume title exactly.</p></div>
+      <div class="tip"><div class="tip-n">Tip 02 — Summary</div><h3>Write a 3-line summary, not an objective</h3><p>Objective statements are outdated. Show who you are, what you've done, and what value you bring — in under 50 words.</p></div>
+      <div class="tip"><div class="tip-n">Tip 03 — Experience</div><h3>Use the X-Y-Z formula for bullets</h3><p>"Accomplished [X] as measured by [Y] by doing [Z]." Example: Increased sales by 32% in Q3 by launching a targeted email campaign.</p></div>
+      <div class="tip"><div class="tip-n">Tip 04 — ATS</div><h3>Mirror exact keywords from job description</h3><p>Copy the job description into a word-frequency tool. The top nouns and verbs are your ATS keywords. Include them naturally.</p></div>
+      <div class="tip"><div class="tip-n">Tip 05 — Length</div><h3>Keep it to 1 page (under 10 years)</h3><p>Unless you're a senior leader, one page is gold standard. Use 0.5" margins, 10-11pt font, cut anything older than 10 years.</p></div>
+      <div class="tip"><div class="tip-n">Tip 06 — Format</div><h3>Always submit PDF unless told otherwise</h3><p>PDFs preserve formatting across devices. Name your file: FirstName-LastName-Resume.pdf for a professional touch.</p></div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <div class="sh"><h2>Browse by Topic</h2><div class="line"></div></div>
+  <div class="topics">
+    <div class="tpill" onclick="openArticle('ats')">🤖 ATS Resume <span class="tc">(24)</span></div>
+    <div class="tpill" onclick="openArticle('fresher')">🎓 Fresher Resume <span class="tc">(18)</span></div>
+    <div class="tpill" onclick="showPage('templates')">📄 Resume Format <span class="tc">(15)</span></div>
+    <div class="tpill" onclick="showPage('coverletter')">✉️ Cover Letter <span class="tc">(12)</span></div>
+    <div class="tpill" onclick="openArticle('skills')">💡 Resume Skills <span class="tc">(20)</span></div>
+    <div class="tpill" onclick="showPage('career')">🔄 Career Change <span class="tc">(9)</span></div>
+    <div class="tpill" onclick="showPage('career')">🎤 Interview Tips <span class="tc">(16)</span></div>
+    <div class="tpill" onclick="showPage('career')">🔗 LinkedIn Tips <span class="tc">(11)</span></div>
+    <div class="tpill" onclick="showPage('career')">🌍 Remote Jobs <span class="tc">(8)</span></div>
+    <div class="tpill" onclick="showPage('career')">💰 Salary Tips <span class="tc">(7)</span></div>
+    <div class="tpill" onclick="showPage('templates')">💻 IT Resume <span class="tc">(14)</span></div>
+    <div class="tpill" onclick="showPage('templates')">📊 MBA Resume <span class="tc">(6)</span></div>
+  </div>
+
+  <!-- TWO COL -->
+  <div class="sh"><h2>Top Resume Guides</h2><div class="pill">Most Read</div><div class="line"></div></div>
+  <div class="twocol">
+    <div class="art-list">
+      <div class="aitem" onclick="openArticle('noexp')"><div class="an">01</div><div class="ai"><h3>How to Write a Resume With No Work Experience (2025)</h3><p>Just graduated? Learn how to write a powerful resume using internships, projects, volunteering, and coursework.</p><div class="am"><span>7 min</span><span>·</span><span>52,100 reads</span></div></div></div>
+      <div class="aitem" onclick="openArticle('summary')"><div class="an">02</div><div class="ai"><h3>Resume Objective vs Professional Summary: Which to Use?</h3><p>The resume objective is dead. Discover what a modern professional summary looks like with 10 copy-paste templates.</p><div class="am"><span>5 min</span><span>·</span><span>33,800 reads</span></div></div></div>
+      <div class="aitem" onclick="openArticle('verbs')"><div class="an">03</div><div class="ai"><h3>250 Power Action Verbs to Make Your Resume Stand Out</h3><p>Replace "helped" and "worked on" with impactful action verbs organized by category: leadership, technical, creative and more.</p><div class="am"><span>6 min</span><span>·</span><span>44,200 reads</span></div></div></div>
+      <div class="aitem" onclick="openArticle('format')"><div class="an">04</div><div class="ai"><h3>Chronological vs Functional vs Combination Resume Format</h3><p>Find out which format is right for you — whether you're a fresher, have employment gaps, or are switching industries.</p><div class="am"><span>8 min</span><span>·</span><span>28,600 reads</span></div></div></div>
+      <div class="aitem" onclick="showPage('templates')"><div class="an">05</div><div class="ai"><h3>50 Free Professional Resume Templates for 2025 (ATS-Optimized)</h3><p>Download professionally designed resume templates in PDF formats — all 100% free and ATS tested across industries.</p><div class="am"><span>3 min</span><span>·</span><span>88,400 reads</span></div></div></div>
+    </div>
+    <div class="sidebar">
+      <div class="cta-card">
+        <h3>🚀 Build Your Resume Free</h3>
+        <p>Create an ATS-optimized resume in under 10 minutes. No credit card needed.</p>
+        <a href="https://banaoresumee.online" target="_blank">Start Building — It's Free →</a>
+      </div>
+      <div class="scard">
+        <h3>🔥 Trending Now</h3>
+        <ul class="slist">
+          <li><button onclick="openArticle('ai')">How to Use AI to Write Your Resume in 2025</button></li>
+          <li><button onclick="openArticle('gaps')">How to Explain Employment Gaps on a Resume</button></li>
+          <li><button onclick="openArticle('skills')">Best IT Skills to Add to Your Resume</button></li>
+          <li><button onclick="openArticle('format')">Should Your Resume Be 1 or 2 Pages?</button></li>
+          <li><button onclick="openArticle('summary')">Write a Professional Resume Summary</button></li>
+        </ul>
+      </div>
+      <div class="scard">
+        <h3>🏷️ Popular Tags</h3>
+        <div class="tags">
+          <span class="tag" onclick="openArticle('ats')">ATS</span>
+          <span class="tag" onclick="openArticle('fresher')">Fresher</span>
+          <span class="tag" onclick="showPage('templates')">Templates</span>
+          <span class="tag" onclick="showPage('coverletter')">Cover Letter</span>
+          <span class="tag" onclick="openArticle('skills')">Skills</span>
+          <span class="tag" onclick="showPage('templates')">IT Resume</span>
+          <span class="tag" onclick="openArticle('format')">PDF</span>
+          <span class="tag" onclick="openArticle('summary')">Summary</span>
+          <span class="tag" onclick="showPage('career')">LinkedIn</span>
+          <span class="tag" onclick="showPage('career')">Interview</span>
         </div>
       </div>
-    </section>
-
-    <!-- ═══════════════ NEWSLETTER ═══════════════ -->
-    <section class="newsletter" aria-labelledby="nl-heading">
-      <h2 id="nl-heading">📬 Get Weekly Career Tips in Your Inbox</h2>
-      <p>Join 200,000+ job seekers getting free resume tips, job alerts, and career advice every week. No spam, unsubscribe anytime.</p>
-      <div class="nl-form" role="form" aria-label="Newsletter signup">
-        <input type="email" placeholder="Your email address" aria-label="Email address" />
-        <button type="submit">Subscribe Free</button>
+      <div class="scard">
+        <h3>📊 Resume Stats</h3>
+        <div class="stats-mini">
+          <div class="sm"><strong>7 sec</strong><span>Average recruiter scan time</span></div>
+          <div class="sm"><strong style="color:var(--coral)">75%</strong><span>Resumes rejected by ATS before a human reads them</span></div>
+          <div class="sm"><strong style="color:var(--green)">40%</strong><span>More interviews with a tailored resume</span></div>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-  </div><!-- /wrap -->
-</main>
+  <!-- CHECKLIST -->
+  <section class="checklist-sec">
+    <h2>✅ Resume Checklist — Before You Submit</h2>
+    <p>Run through this checklist every time you send out a job application.</p>
+    <div class="cl-grid">
+      <div class="ci"><div class="ci-icon">📧</div><div><h4>Professional email</h4><p>firstname.lastname@gmail.com — no nicknames.</p></div></div>
+      <div class="ci"><div class="ci-icon">📍</div><div><h4>City &amp; state only</h4><p>Bengaluru, Karnataka is enough. No full address.</p></div></div>
+      <div class="ci"><div class="ci-icon">📁</div><div><h4>Correct file name</h4><p>FirstName-LastName-Resume.pdf</p></div></div>
+      <div class="ci"><div class="ci-icon">🔢</div><div><h4>Quantify achievements</h4><p>Every bullet needs a number, %, or impact.</p></div></div>
+      <div class="ci"><div class="ci-icon">🔤</div><div><h4>Consistent formatting</h4><p>Same font, dates, and bullet style throughout.</p></div></div>
+      <div class="ci"><div class="ci-icon">🔍</div><div><h4>Spell check done</h4><p>Read it backwards. One typo can disqualify you.</p></div></div>
+      <div class="ci"><div class="ci-icon">🤖</div><div><h4>ATS keywords</h4><p>Match 70%+ of key terms from the job description.</p></div></div>
+      <div class="ci"><div class="ci-icon">📏</div><div><h4>Right length</h4><p>1 page under 10 years. 2 pages max for seniors.</p></div></div>
+      <div class="ci"><div class="ci-icon">🎨</div><div><h4>Clean design</h4><p>No graphics or tables that ATS systems can't read.</p></div></div>
+    </div>
+  </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer class="footer" role="contentinfo">
-  <div class="footer-grid">
+  <!-- FAQ -->
+  <div class="sh"><h2>Frequently Asked Questions</h2><div class="line"></div></div>
+  <div class="faq">
+    <div class="faq-grid">
+      <div class="fi"><div class="fq">How long should a resume be in 2025?</div><div class="fa">For most job seekers with under 10 years of experience, <strong>one page is ideal</strong>. Senior professionals may use two pages if every line adds value. The rule: include only what helps you get the interview.</div></div>
+      <div class="fi"><div class="fq">What is an ATS-friendly resume?</div><div class="fa">An ATS friendly resume uses <strong>simple formatting, standard headings, and job-specific keywords</strong>. Avoid tables, text boxes, headers/footers, and graphics. BanaoResume templates are all ATS-tested.</div></div>
+      <div class="fi"><div class="fq">Should I include a photo on my resume?</div><div class="fa">In <strong>India</strong>, a professional photo is commonly accepted. In the <strong>US, UK, Canada, and Australia</strong>, photos are typically omitted to prevent unconscious bias. Follow norms of the country you're applying to.</div></div>
+      <div class="fi"><div class="fq">How do I write a resume with no experience?</div><div class="fa">Focus on <strong>transferable skills, academic projects, internships, certifications, and volunteer work</strong>. Use a skills-based format. Lead with a strong summary that highlights your potential.</div></div>
+      <div class="fi"><div class="fq">What font should I use on my resume?</div><div class="fa">Use <strong>ATS-readable fonts</strong> like Calibri (11pt), Arial (11pt), or Garamond (11pt). Avoid decorative fonts. Use 10.5–12pt for body, 14–16pt for your name at the top.</div></div>
+      <div class="fi"><div class="fq">How do I tailor my resume for each job?</div><div class="fa">Read the job description and <strong>mirror the exact language</strong> used for required skills. Adjust your summary to address the specific role. This takes 15 minutes but can double your response rate.</div></div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="nl">
+    <h2>📬 Get Weekly Career Tips in Your Inbox</h2>
+    <p>Join 200,000+ job seekers getting free resume tips, job alerts, and career advice every week.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Your email address" id="nl-email"/>
+      <button onclick="subscribeNL()">Subscribe Free</button>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+</div><!-- /page-blog -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!--           TEMPLATES PAGE             -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-templates">
+<div class="tmpl-hero">
+  <h1>📄 Free Resume Templates 2025</h1>
+  <p>150+ ATS-optimized, professionally designed templates — all 100% free. No signup required.</p>
+  <div class="tmpl-cats">
+    <button class="tc-btn active" onclick="filterTmpl(this,'all')">All Templates</button>
+    <button class="tc-btn" onclick="filterTmpl(this,'fresher')">Fresher</button>
+    <button class="tc-btn" onclick="filterTmpl(this,'professional')">Professional</button>
+    <button class="tc-btn" onclick="filterTmpl(this,'creative')">Creative</button>
+    <button class="tc-btn" onclick="filterTmpl(this,'it')">IT / Tech</button>
+    <button class="tc-btn" onclick="filterTmpl(this,'manager')">Manager</button>
+  </div>
+</div>
+<div class="wrap">
+  <div class="tmpl-grid" id="tmpl-grid">
+    <div class="tcard" data-cat="fresher professional">
+      <div class="tpreview ind"><div class="tmini"><div class="tmini-h col"></div><div class="tmini-l w90"></div><div class="tmini-l w70"></div><div class="tmini-l w80"></div><div class="tmini-l w60"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Classic Professional</h3><p>Clean, ATS-friendly. Perfect for corporate &amp; banking roles.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+    <div class="tcard" data-cat="fresher">
+      <div class="tpreview grn"><div class="tmini"><div class="tmini-h" style="background:var(--green)"></div><div class="tmini-l w80"></div><div class="tmini-l w60"></div><div class="tmini-l w90"></div><div class="tmini-l w70"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Fresh Graduate</h3><p>Highlights education, projects &amp; internships. No experience needed.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+    <div class="tcard" data-cat="creative">
+      <div class="tpreview amb"><div class="tmini"><div class="tmini-h" style="background:var(--amber)"></div><div class="tmini-l w70"></div><div class="tmini-l w90"></div><div class="tmini-l w60"></div><div class="tmini-l w80"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Creative Bold</h3><p>Stands out with modern design. Great for design &amp; marketing roles.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+    <div class="tcard" data-cat="it professional">
+      <div class="tpreview tel"><div class="tmini"><div class="tmini-h" style="background:var(--teal)"></div><div class="tmini-l w90"></div><div class="tmini-l w80"></div><div class="tmini-l w70"></div><div class="tmini-l w60"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Tech / Developer</h3><p>Optimized for software engineers, data scientists &amp; IT roles.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+    <div class="tcard" data-cat="manager professional">
+      <div class="tpreview cor"><div class="tmini"><div class="tmini-h" style="background:var(--coral)"></div><div class="tmini-l w80"></div><div class="tmini-l w60"></div><div class="tmini-l w90"></div><div class="tmini-l w70"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Senior Manager</h3><p>Executive-ready with achievement-focused layout. 2-page format.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+    <div class="tcard" data-cat="creative fresher">
+      <div class="tpreview pur"><div class="tmini"><div class="tmini-h" style="background:var(--purple)"></div><div class="tmini-l w70"></div><div class="tmini-l w80"></div><div class="tmini-l w60"></div><div class="tmini-l w90"></div></div><div class="free-badge">FREE</div></div>
+      <div class="tinfo"><h3>Modern Minimal</h3><p>Clean sidebar layout with great readability. Works for any industry.</p><button class="use-btn" onclick="window.open('https://banaoresumee.online','_blank')">Use This Template →</button></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-bottom:52px">
+    <p style="color:var(--muted);margin-bottom:18px;font-size:15px">Browse all 150+ templates on BanaoResume — free, no signup needed</p>
+    <button class="btn-primary" onclick="window.open('https://banaoresumee.online','_blank')" style="border:none;padding:14px 32px;border-radius:10px;font-size:15px">🚀 View All Templates at BanaoResume →</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--            CAREER PAGE               -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-career">
+<div class="career-hero">
+  <h1>💼 Career Tips &amp; Job Search Advice</h1>
+  <p>From interview preparation to salary negotiation — expert tips to help you land and grow in your dream career.</p>
+</div>
+<div class="wrap">
+  <div class="sh"><h2>Career Guides</h2><div class="pill">Expert Advice</div><div class="line"></div></div>
+  <div class="career-grid">
+    <div class="career-card" onclick="openArticle('interview')"><div class="cc-icon">🎤</div><h3>How to Ace Any Job Interview in 2025</h3><p>Prepare for behavioral, technical, and situational interview questions with the STAR method. Includes 50 most-asked interview questions with sample answers.</p><span class="cc-tag">Interview Prep</span></div>
+    <div class="career-card" onclick="openArticle('linkedin')"><div class="cc-icon">🔗</div><h3>LinkedIn Profile Optimization: Complete 2025 Guide</h3><p>A strong LinkedIn profile gets you 5x more recruiter messages. Learn how to write your headline, summary, and experiences to attract top employers.</p><span class="cc-tag">LinkedIn Tips</span></div>
+    <div class="career-card" onclick="openArticle('salary')"><div class="cc-icon">💰</div><h3>How to Negotiate Your Salary (Without Losing the Offer)</h3><p>Most people leave money on the table by not negotiating. Learn proven scripts, timing strategies, and how to research market rates confidently.</p><span class="cc-tag">Salary Tips</span></div>
+    <div class="career-card" onclick="openArticle('gaps')"><div class="cc-icon">📅</div><h3>How to Explain Employment Gaps on Your Resume</h3><p>Career gaps are more common than ever. Learn honest, professional ways to address gaps in your resume, cover letter, and interviews without hurting your chances.</p><span class="cc-tag">Career Change</span></div>
+    <div class="career-card" onclick="openArticle('remote')"><div class="cc-icon">🌍</div><h3>How to Find and Land Remote Jobs in 2025</h3><p>Remote work is the new normal. Discover the top platforms, resume tips specific to remote roles, and how to stand out in a virtual hiring process.</p><span class="cc-tag">Remote Jobs</span></div>
+    <div class="career-card" onclick="openArticle('ai')"><div class="cc-icon">🤖</div><h3>How to Use AI to Supercharge Your Job Search</h3><p>From AI-powered resume writers to interview simulators, discover the top AI tools that are revolutionizing how people find and land jobs in 2025.</p><span class="cc-tag">AI &amp; Tech</span></div>
+  </div>
+  <div class="nl">
+    <h2>📬 Get Weekly Career Tips</h2>
+    <p>Join 200,000+ professionals getting free career advice, job alerts, and resume tips every week.</p>
+    <div class="nl-form"><input type="email" placeholder="Your email address"/><button onclick="subscribeNL()">Subscribe Free</button></div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--         COVER LETTER PAGE            -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-coverletter">
+<div class="cl-hero">
+  <h1>✉️ Free Cover Letter Builder</h1>
+  <p>Create a professional, personalized cover letter in under 2 minutes. Fill in the form and download instantly.</p>
+</div>
+<div class="cl-builder">
+  <div class="cl-step">
+    <h3><div class="step-num">1</div>Your Details</h3>
+    <div class="form-row">
+      <div><label>Your Full Name</label><input type="text" id="cl-name" placeholder="e.g. Rahul Sharma"/></div>
+      <div><label>Your Job Title</label><input type="text" id="cl-title" placeholder="e.g. Software Engineer"/></div>
+    </div>
+    <div class="form-row">
+      <div><label>Your Email</label><input type="email" id="cl-email" placeholder="rahul@email.com"/></div>
+      <div><label>Phone Number</label><input type="text" id="cl-phone" placeholder="+91 98765 43210"/></div>
+    </div>
+  </div>
+  <div class="cl-step">
+    <h3><div class="step-num">2</div>Job You're Applying For</h3>
+    <div class="form-row">
+      <div><label>Company Name</label><input type="text" id="cl-company" placeholder="e.g. Infosys, Google, Tata"/></div>
+      <div><label>Job Title Applying For</label><input type="text" id="cl-jobtitle" placeholder="e.g. Senior Developer"/></div>
+    </div>
+    <div class="form-single">
+      <label>Hiring Manager Name (optional)</label>
+      <input type="text" id="cl-manager" placeholder="e.g. Mr. Suresh Kumar (or leave blank)"/>
+    </div>
+  </div>
+  <div class="cl-step">
+    <h3><div class="step-num">3</div>Your Key Strengths</h3>
+    <div class="form-row">
+      <div><label>Years of Experience</label><input type="text" id="cl-exp" placeholder="e.g. 3 years, Fresher"/></div>
+      <div><label>Top Skill / Expertise</label><input type="text" id="cl-skill" placeholder="e.g. React, Data Analysis"/></div>
+    </div>
+    <div class="form-single">
+      <label>Your Biggest Achievement (optional)</label>
+      <input type="text" id="cl-achievement" placeholder="e.g. Led a team that increased revenue by 25%"/>
+    </div>
+    <button class="gen-btn" onclick="generateCoverLetter()">✨ Generate My Cover Letter</button>
+  </div>
+  <div class="cl-output" id="cl-output"></div>
+  <button class="copy-btn" id="copy-btn" onclick="copyCL()">📋 Copy to Clipboard</button>
+  <div style="text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)">
+    <p style="color:var(--muted);font-size:14px;margin-bottom:14px">Want a full resume to go with your cover letter?</p>
+    <button class="btn-primary" onclick="window.open('https://banaoresumee.online','_blank')" style="border:none;padding:14px 30px;border-radius:10px;font-size:15px">🚀 Build My Resume Free at BanaoResume →</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--              FOOTER                  -->
+<!-- ══════════════════════════════════════ -->
+<footer>
+  <div class="fg">
     <div>
-      <div class="footer-logo">BanaoResume</div>
-      <p class="footer-desc">India's most loved free resume builder. Create ATS-friendly professional resumes in minutes. Trusted by over 1 million job seekers across India.</p>
-      <p style="margin-top:14px;font-size:13px;">📍 Made with ❤️ in India</p>
+      <div class="fl">BanaoResume</div>
+      <p class="fd">India's most loved free resume builder. Create ATS-friendly professional resumes in minutes. Trusted by over 1 million job seekers.</p>
+      <p style="margin-top:12px;font-size:13px">📍 Made with ❤️ in India</p>
     </div>
-    <div class="footer-col">
+    <div class="fc">
       <h4>Resume Tools</h4>
       <ul>
-        <li><a href="/create">Free Resume Builder</a></li>
-        <li><a href="/resume-templates">Resume Templates</a></li>
-        <li><a href="/resume-examples">Resume Examples</a></li>
-        <li><a href="/ats-check">ATS Resume Checker</a></li>
-        <li><a href="/cover-letter-builder">Cover Letter Builder</a></li>
+        <li><button onclick="window.open('https://banaoresumee.online','_blank')">Free Resume Builder</button></li>
+        <li><button onclick="showPage('templates')">Resume Templates</button></li>
+        <li><button onclick="showPage('templates')">Resume Examples</button></li>
+        <li><button onclick="openArticle('ats')">ATS Resume Checker</button></li>
+        <li><button onclick="showPage('coverletter')">Cover Letter Builder</button></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="fc">
       <h4>Resources</h4>
       <ul>
-        <li><a href="/blog">Career Blog</a></li>
-        <li><a href="/blog/how-to-write-a-resume">How to Write a Resume</a></li>
-        <li><a href="/blog/ats-resume">ATS Resume Guide</a></li>
-        <li><a href="/blog/cover-letter">Cover Letter Tips</a></li>
-        <li><a href="/blog/interview-tips">Interview Preparation</a></li>
+        <li><button onclick="showPage('blog')">Career Blog</button></li>
+        <li><button onclick="openArticle('featured')">How to Write a Resume</button></li>
+        <li><button onclick="openArticle('ats')">ATS Resume Guide</button></li>
+        <li><button onclick="showPage('coverletter')">Cover Letter Tips</button></li>
+        <li><button onclick="openArticle('interview')">Interview Preparation</button></li>
       </ul>
     </div>
-    <div class="footer-col">
-      <h4>Company</h4>
+    <div class="fc">
+      <h4>Quick Links</h4>
       <ul>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/privacy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-        <li><a href="/sitemap">Sitemap</a></li>
+        <li><button onclick="showPage('blog')">Blog Home</button></li>
+        <li><button onclick="showPage('templates')">Templates</button></li>
+        <li><button onclick="showPage('career')">Career Tips</button></li>
+        <li><button onclick="showPage('coverletter')">Cover Letter</button></li>
+        <li><button onclick="window.open('https://banaoresumee.online','_blank')">Build Free Resume</button></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="fb">
     <span>© 2025 BanaoResume · banaoresumee.online · All rights reserved.</span>
     <span>Free Resume Builder · ATS Resume · Resume Templates · Cover Letter</span>
   </div>
 </footer>
 
-<script>
-  document.querySelectorAll('.blog-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const link = card.querySelector('h3');
-      if (link) alert('Opening article: ' + link.textContent);
-    });
-  });
-</script>
+<!-- ══════════════════════════════════════ -->
+<!--              MODAL                   -->
+<!-- ══════════════════════════════════════ -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-cat" id="modal-cat"></div>
+      <h2 id="modal-title"></h2>
+      <div class="modal-meta" id="modal-meta"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="modal-cta" onclick="window.open('https://banaoresumee.online','_blank')">🚀 Build My Resume Free at BanaoResume →</button>
+      <button class="modal-close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
 
+<script>
+// ── PAGE NAVIGATION ──
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links button[id^="nav-"]').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('nav-'+id);
+  if(nb)nb.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMenu(){
+  const m=document.getElementById('mobile-menu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+// ── TEMPLATE FILTER ──
+function filterTmpl(btn,cat){
+  document.querySelectorAll('.tc-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tcard').forEach(c=>{
+    if(cat==='all'||c.dataset.cat.includes(cat)){c.style.display='block'}
+    else{c.style.display='none'}
+  });
+}
+
+// ── NEWSLETTER ──
+function subscribeNL(){
+  const i=document.getElementById('nl-email');
+  if(i&&i.value&&i.value.includes('@')){alert('🎉 Thank you! You\'ll receive your first career tip email shortly.');i.value='';}
+  else{alert('Please enter a valid email address.');}
+}
+
+// ── COVER LETTER GENERATOR ──
+function generateCoverLetter(){
+  const name=document.getElementById('cl-name').value||'[Your Name]';
+  const title=document.getElementById('cl-title').value||'[Your Title]';
+  const email=document.getElementById('cl-email').value||'[Your Email]';
+  const phone=document.getElementById('cl-phone').value||'[Your Phone]';
+  const company=document.getElementById('cl-company').value||'[Company Name]';
+  const jobtitle=document.getElementById('cl-jobtitle').value||'[Job Title]';
+  const manager=document.getElementById('cl-manager').value||'Hiring Manager';
+  const exp=document.getElementById('cl-exp').value||'several years of';
+  const skill=document.getElementById('cl-skill').value||'relevant skills';
+  const achievement=document.getElementById('cl-achievement').value;
+  const today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  let body=`${name}\n${title}\n${email} | ${phone}\n${today}\n\nDear ${manager},\n\nI am writing to express my strong interest in the ${jobtitle} position at ${company}. With ${exp} of experience and proven expertise in ${skill}, I am confident in my ability to contribute meaningfully to your team from day one.\n\n`;
+  if(achievement){body+=`In my previous role, I ${achievement.toLowerCase().startsWith('led')||achievement.toLowerCase().startsWith('built')||achievement.toLowerCase().startsWith('increased')?achievement:'delivered key results: '+achievement}. This experience has equipped me with the skills and mindset needed to excel in a fast-paced, results-oriented environment like ${company}.\n\n`;}
+  body+=`I am particularly excited about this opportunity at ${company} because of the company's commitment to excellence and innovation. I believe my background in ${skill} aligns perfectly with what you are looking for in an ideal candidate for the ${jobtitle} role.\n\nI would love the opportunity to discuss how my experience and skills can benefit your team. I am available at your earliest convenience for an interview and look forward to hearing from you.\n\nThank you for your time and consideration.\n\nWarm regards,\n${name}\n${email} | ${phone}`;
+  const out=document.getElementById('cl-output');
+  out.textContent=body;
+  out.classList.add('show');
+  document.getElementById('copy-btn').classList.add('show');
+  out.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function copyCL(){
+  const txt=document.getElementById('cl-output').textContent;
+  navigator.clipboard.writeText(txt).then(()=>alert('✅ Cover letter copied to clipboard!')).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('✅ Copied!');
+  });
+}
+
+// ── ARTICLES DATA ──
+const articles={
+  featured:{cat:'📋 Complete Guide',title:'How to Write a Professional Resume in 2025: The Ultimate Step-by-Step Guide',meta:'✍️ Resume Experts · 📅 June 2025 · ⏱ 12 min · 🔥 68,400 reads',body:`<p>Your resume is your personal marketing document — it's the first impression a recruiter has of you, and you only get one shot to make it count. In 2025, writing a resume that stands out means getting it right on two levels: passing ATS software AND impressing a human reader.</p><h3>1. Choose the Right Resume Format</h3><p>There are three main resume formats: <strong>Chronological</strong> (most common, great for continuous work history), <strong>Functional</strong> (focuses on skills, good for career changers), and <strong>Combination</strong> (blends both). For most job seekers, the reverse-chronological format is the gold standard.</p><h3>2. Contact Information Section</h3><p>Include: Full name, professional email (firstname.lastname@gmail.com), phone number, city/state (not full address), LinkedIn profile URL, and GitHub/portfolio if relevant. Keep it clean and at the very top.</p><div class="tip-box"><strong>💡 Pro Tip:</strong> Make sure your LinkedIn URL is customized (linkedin.com/in/yourname) not the default alphanumeric URL. It looks far more professional.</div><h3>3. Write a Strong Professional Summary</h3><p>Your summary is a 2-4 line overview of your career highlights. It should answer: Who are you? What do you bring? What are you looking for? Example: "Results-driven Software Engineer with 4+ years building scalable web applications in React and Node.js. Led a team that delivered 30% faster load times. Seeking senior engineering role in a growth-stage startup."</p><h3>4. Work Experience: The Heart of Your Resume</h3><p>List your jobs in reverse chronological order. For each role, include company name, job title, dates (Month Year – Month Year), and 3-5 bullet points using action verbs + quantified results.</p><div class="tip-box"><strong>💡 Use the X-Y-Z Formula:</strong> "Accomplished [X] as measured by [Y] by doing [Z]." Example: "Increased email conversion rate by 24% by implementing A/B testing across 3 campaigns."</div><h3>5. Skills Section</h3><p>Include a dedicated skills section with both hard skills (technical) and soft skills (leadership, communication). Always match your skills to keywords in the job description — this is critical for ATS.</p><h3>6. Education Section</h3><p>Include your degree, institution, graduation year, and GPA if above 8.0/3.5. Freshers should also include relevant coursework, achievements, and extracurricular activities.</p><div class="warn-box"><strong>⚠️ Common Mistake:</strong> Don't list "Microsoft Word" or "Internet Browsing" as skills in 2025. These are assumed basic competencies and waste valuable resume space.</div><h3>7. Additional Sections (Optional but Powerful)</h3><ul><li><strong>Certifications:</strong> AWS, Google Analytics, PMP, etc.</li><li><strong>Projects:</strong> Especially valuable for freshers and developers</li><li><strong>Volunteer Work:</strong> Shows character and leadership</li><li><strong>Publications or Awards:</strong> If relevant to the role</li></ul><h3>Final Step: Proofread &amp; Export as PDF</h3><p>Use Grammarly or read your resume backward to catch typos. Export as PDF (unless the employer specifically requests Word). Name the file: FirstName-LastName-Resume.pdf.</p>`},
+
+  ats:{cat:'🤖 ATS Tips',title:'ATS-Friendly Resume: How to Beat Applicant Tracking Systems in 2025',meta:'🤖 ATS Expert · ⏱ 8 min · 🔥 42,100 reads',body:`<p>Applicant Tracking Systems (ATS) are software tools used by recruiters to automatically scan, sort, and rank resumes before a human ever sees them. Studies show that <strong>75% of resumes are rejected by ATS</strong> before reaching a hiring manager. Here's how to beat the system.</p><h3>What Does ATS Software Do?</h3><p>ATS scans your resume for specific keywords, checks formatting compatibility, and scores your resume against the job description. Resumes that score low are automatically filtered out — regardless of how qualified you actually are.</p><h3>ATS-Friendly Formatting Rules</h3><ul><li>Use standard section headings: "Work Experience," "Education," "Skills" — not creative titles like "My Journey" or "What I've Done"</li><li>Avoid tables, text boxes, headers/footers, and columns (ATS can't read these)</li><li>Use standard fonts: Arial, Calibri, Garamond</li><li>Submit as .PDF (most modern ATS handle PDFs) or .DOCX if specified</li><li>No graphics, logos, or icons embedded in the resume</li></ul><div class="tip-box"><strong>💡 Quick Test:</strong> Copy and paste your resume into Notepad. If all the text appears correctly and in order, your resume is likely ATS-compatible. If text is missing or scrambled, the ATS will struggle to read it.</div><h3>Keyword Optimization: The Most Important Step</h3><p>The single biggest factor in ATS scoring is keyword matching. Here's how to do it right:</p><ul><li>Read the job description carefully and highlight every skill, tool, degree, and requirement mentioned</li><li>Mirror the exact phrasing — if the job says "project management" don't write "managing projects"</li><li>Include both spelled-out and abbreviated versions: "Search Engine Optimization (SEO)"</li><li>Place keywords naturally in your summary, skills section, and experience bullets</li></ul><h3>Free ATS Checklist</h3><ul><li>✅ Standard section headings used</li><li>✅ No tables or text boxes</li><li>✅ Keywords from job description included</li><li>✅ File saved as PDF or DOCX</li><li>✅ Font is standard and 10-12pt</li><li>✅ No images or graphics</li><li>✅ Clean, single-column layout</li></ul><div class="warn-box"><strong>⚠️ Warning:</strong> Don't "keyword stuff" by hiding white text with keywords on a white background. Modern ATS and recruiters catch this immediately and it results in instant rejection.</div>`},
+
+  fresher:{cat:'✅ Fresher Tips',title:'Best Resume Format for Freshers & Students (With Free Templates) 2025',meta:'🎓 Career Team · ⏱ 7 min · 🔥 55,300 reads',body:`<p>Writing your first resume with no work experience can feel impossible. But here's the truth: every professional started exactly where you are. The key is knowing what to highlight and how to present it compellingly.</p><h3>Which Resume Format Should Freshers Use?</h3><p>For freshers, a <strong>reverse-chronological format with Education first</strong> works best. This puts your strongest asset (your degree) front and center, followed by internships, projects, and skills.</p><h3>Structure of a Perfect Fresher Resume</h3><ul><li><strong>Header:</strong> Name, email, phone, LinkedIn, GitHub</li><li><strong>Career Objective / Summary (2-3 lines)</strong></li><li><strong>Education</strong> (with GPA if above 8.0)</li><li><strong>Internships / Training</strong></li><li><strong>Projects</strong> (with tech stack used and impact)</li><li><strong>Skills</strong> (technical + soft skills)</li><li><strong>Certifications</strong> (Coursera, NPTEL, AWS, etc.)</li><li><strong>Achievements &amp; Activities</strong></li></ul><div class="tip-box"><strong>💡 Fresher Tip:</strong> Your projects section is your work experience. Describe each project like a job: what was the problem, what did you build, what tech did you use, what was the outcome?</div><h3>What NOT to Include (Freshers)</h3><ul><li>❌ A photo (unless applying in India to traditional companies)</li><li>❌ "References available on request" (waste of space)</li><li>❌ Your Class 10 / 12th percentage if you have a degree</li><li>❌ Hobbies like "watching TV" or "listening to music"</li><li>❌ An objective that says "to work in a reputed organization and grow"</li></ul><h3>Sample Fresher Resume Objective</h3><p>"Recent Computer Science graduate from VIT University with strong foundations in Java, SQL, and data structures. Completed 2-month internship at Wipro building RESTful APIs. Eager to contribute as a backend developer at a product-based company."</p><h3>Top Certifications to Boost a Fresher Resume</h3><ul><li>Google IT Support Certificate</li><li>AWS Cloud Practitioner</li><li>HubSpot Content Marketing</li><li>Microsoft Azure Fundamentals</li><li>Meta Front-End Developer Certificate</li></ul>`},
+
+  mistakes:{cat:'⚠️ Common Mistakes',title:'10 Common Resume Mistakes That Are Costing You Interviews',meta:'📋 Recruiter Insights · ⏱ 6 min · 🔥 38,700 reads',body:`<p>You might have excellent qualifications but still not get calls. The culprit is often avoidable resume mistakes that signal carelessness to recruiters. Here are the 10 most common ones and how to fix them.</p><h3>Mistake 1: Using a Generic "Objective" Statement</h3><p>Phrases like "seeking a challenging position to grow and contribute" tell recruiters nothing. Replace with a specific professional summary that mentions your skills, experience level, and what you bring to this specific type of role.</p><h3>Mistake 2: No Quantifiable Achievements</h3><p>Saying "responsible for sales" is meaningless. Instead: "Grew regional sales by 34% in 6 months, generating ₹1.2 crore in new revenue." Numbers make your claims real and memorable.</p><div class="warn-box"><strong>⚠️ Red Flag:</strong> If every bullet on your resume starts with "Responsible for..." — you're describing your job description, not your achievements. Recruiters want impact, not duties.</div><h3>Mistake 3: Wrong File Format or File Name</h3><p>Sending "My Resume.docx" or "CV_FINAL_v3_USE_THIS_ONE.pdf" immediately signals disorganization. Always save as FirstName-LastName-Resume.pdf.</p><h3>Mistake 4: Typos and Grammatical Errors</h3><p>A single typo in your resume sends a message: "I don't pay attention to detail." Use Grammarly, read the resume backwards, and ask someone else to proof it before sending.</p><h3>Mistake 5: Using Tables, Text Boxes, or Columns</h3><p>These look great in Word but break completely when an ATS parses your resume. Content inside text boxes or tables is often completely invisible to ATS software.</p><h3>Mistake 6: Including Irrelevant Personal Information</h3><p>Don't include your date of birth, religion, marital status, or father's name on a modern resume (unless specifically required). These details invite bias and waste space.</p><h3>Mistake 7: One-Size-Fits-All Resume</h3><p>Sending the same resume to 50 different jobs is the biggest mistake of all. Tailor your summary and skills section for each role by matching the language and requirements in the job description.</p><h3>Mistake 8: Listing Duties Instead of Achievements</h3><p>Don't describe your job description — describe your impact. Transform "Managed social media accounts" into "Grew Instagram following by 12K in 3 months through consistent content strategy and hashtag optimization."</p><h3>Mistake 9: Resume Too Long or Too Short</h3><p>For under 10 years of experience: 1 page maximum. For senior professionals: 2 pages maximum. A 3-page resume will almost never be fully read by a recruiter.</p><h3>Mistake 10: Missing Contact Information</h3><p>Shockingly common: resumes without a phone number, or with an outdated email. Double-check that your contact details are current and professional before every application.</p>`},
+
+  noexp:{cat:'🎓 Fresher Guide',title:'How to Write a Resume With No Work Experience (2025)',meta:'🎓 Career Team · ⏱ 7 min · 🔥 52,100 reads',body:`<p>Having no formal work experience doesn't mean having nothing to show. Every skill you've developed, project you've built, and challenge you've overcome is resume-worthy when framed correctly.</p><h3>Lead with Education</h3><p>Put your education section right after the header. Include your degree, university, graduation year, GPA (if above 7.5 / 3.0), relevant coursework, and any academic honours or awards.</p><h3>Make Your Projects Section Your "Work Experience"</h3><p>Academic and personal projects are the most powerful section on a no-experience resume. For each project, describe: what problem it solved, what technologies or skills you used, and what the outcome was.</p><div class="tip-box"><strong>💡 Example Project Bullet:</strong> "Built a full-stack expense tracker using React, Node.js, and MongoDB. Implemented user authentication, data visualization charts, and CSV export. Deployed on AWS EC2 with CI/CD pipeline. Reduced manual expense tracking time by 80% in user testing."</div><h3>Turn Internships Into Experience</h3><p>Even a 2-week internship counts. List it in a "Internships & Training" section and describe your contributions with action verbs and specific outcomes.</p><h3>Include Volunteer Work and Extracurriculars</h3><p>Led the college coding club? Organized a fundraiser? Tutored classmates? These demonstrate leadership, teamwork, and initiative — qualities every employer values.</p><h3>Certifications Are Gold for Freshers</h3><p>Free or affordable certifications from Google, Coursera, LinkedIn Learning, or NPTEL can fill skills gaps and show employers you're proactive about learning.</p><h3>Sample No-Experience Resume Summary</h3><p>"Motivated B.Tech Computer Science graduate (2025) with hands-on experience in Python, machine learning, and web development through 3+ personal projects and NPTEL certifications. Dean's List student seeking entry-level data analyst role where I can apply my analytical skills to real-world business problems."</p>`},
+
+  summary:{cat:'📋 Resume Writing',title:'Resume Objective vs Professional Summary: Which Should You Use?',meta:'✍️ Resume Expert · ⏱ 5 min · 🔥 33,800 reads',body:`<p>One of the most debated questions in resume writing: should you start with an objective or a summary? The short answer: it depends on your experience level — but in 2025, the professional summary wins almost every time.</p><h3>What Is a Resume Objective?</h3><p>A resume objective is a 1-2 sentence statement about what YOU want from the job. Example: "To obtain a position at a reputed company where I can apply my skills and grow professionally." The problem? This tells recruiters nothing about what you bring to the table.</p><h3>What Is a Professional Summary?</h3><p>A professional summary is a 3-5 line overview of what YOU offer the employer. It highlights your experience, key skills, and biggest accomplishments. It's employer-focused, not self-focused.</p><div class="tip-box"><strong>💡 Formula for a Great Summary:</strong> [Job Title] with [X years] of experience in [Top Skills]. [Key Achievement or Strength]. Seeking to [Goal aligned with role].</div><h3>When to Use a Resume Objective (The Only Case)</h3><p>If you're a fresher with zero experience or making a complete career change to a field you haven't worked in, a brief, targeted objective can work. But even then, reframe it to be employer-focused: "Detail-oriented Computer Science graduate seeking a data analyst role where proven skills in Python and Excel can help [Company] improve reporting efficiency."</p><h3>10 Professional Summary Templates</h3><ul><li><strong>Software Engineer:</strong> "Full-stack developer with 5 years building scalable SaaS products in React and Python. Led a team of 4 that shipped 3 major product features ahead of schedule. Seeking senior engineering role in a product-led company."</li><li><strong>Marketing:</strong> "Digital marketing specialist with 3 years driving 200% ROI for B2B campaigns. Expert in Google Ads, content marketing, and HubSpot. Looking to grow a brand's digital presence at a data-driven company."</li><li><strong>Fresher:</strong> "Recent MBA graduate with specialization in Finance and internship experience at HDFC Bank. Strong analytical skills and proficiency in Excel and Power BI. Seeking entry-level financial analyst position."</li></ul>`},
+
+  verbs:{cat:'📋 Resume Writing',title:'250 Power Action Verbs to Make Your Resume Stand Out',meta:'✍️ Resume Expert · ⏱ 6 min · 🔥 44,200 reads',body:`<p>Your resume bullets are only as strong as the verbs that start them. Weak, passive verbs like "responsible for" or "helped with" make you sound like a bystander. Strong action verbs make you sound like someone who gets things done.</p><h3>Leadership Action Verbs</h3><p>Led, Managed, Directed, Supervised, Mentored, Coached, Oversaw, Spearheaded, Championed, Executed, Established, Founded, Launched, Delegated, Empowered</p><h3>Achievement &amp; Impact Verbs</h3><p>Increased, Improved, Reduced, Achieved, Delivered, Generated, Saved, Boosted, Accelerated, Maximized, Exceeded, Surpassed, Transformed, Doubled, Tripled</p><h3>Technical / Development Verbs</h3><p>Architected, Built, Coded, Deployed, Designed, Developed, Engineered, Implemented, Integrated, Migrated, Optimized, Programmed, Refactored, Scaled, Tested</p><div class="tip-box"><strong>💡 Golden Rule:</strong> Each bullet should start with a past-tense action verb (for previous jobs) or present-tense verb (for current job). Never start with "I" or "My responsibilities included."</div><h3>Communication &amp; Collaboration Verbs</h3><p>Collaborated, Coordinated, Facilitated, Liaised, Negotiated, Partnered, Presented, Pitched, Communicated, Consulted, Advised, Represented, Articulated</p><h3>Analysis &amp; Research Verbs</h3><p>Analyzed, Assessed, Audited, Evaluated, Forecasted, Identified, Investigated, Measured, Modeled, Researched, Reviewed, Studied, Surveyed, Tracked</p><h3>Creative &amp; Innovation Verbs</h3><p>Conceptualized, Crafted, Created, Designed, Developed, Devised, Envisioned, Formulated, Ideated, Illustrated, Innovated, Pioneered, Produced, Reimagined</p><div class="warn-box"><strong>⚠️ Avoid These Weak Verbs:</strong> "Helped," "Assisted," "Worked on," "Responsible for," "Participated in," "Was involved in." These signal passivity and vagueness.</div>`},
+
+  format:{cat:'📄 Resume Format',title:'Chronological vs Functional vs Combination Resume Format Explained',meta:'📋 Resume Expert · ⏱ 8 min · 🔥 28,600 reads',body:`<p>The format you choose for your resume can make or break your chances of getting an interview. Here's a clear breakdown of the three main resume formats and when to use each one.</p><h3>1. Reverse-Chronological Format (Most Popular)</h3><p>Lists work experience starting from the most recent, going backwards. This is the standard format preferred by 95% of recruiters and most ATS systems.</p><p><strong>Best for:</strong> People with steady work history in one field, professionals with 2+ years of experience, people applying to jobs in the same industry.</p><p><strong>Structure:</strong> Contact Info → Summary → Work Experience → Education → Skills → Certifications</p><div class="tip-box"><strong>💡 When in doubt, use chronological.</strong> It's the universal standard and what recruiters expect to see. Only deviate if you have a specific reason.</div><h3>2. Functional (Skills-Based) Format</h3><p>Groups experience by skill areas rather than by employer. De-emphasizes job titles and dates.</p><p><strong>Best for:</strong> Career changers entering a new field, people with significant employment gaps, recent graduates with limited work experience, those re-entering the workforce.</p><p><strong>Caution:</strong> Many recruiters and ATS systems are suspicious of functional resumes because they can hide a lack of relevant experience. Use with care.</p><h3>3. Combination (Hybrid) Format</h3><p>Opens with a strong skills summary, then lists work experience chronologically. Best of both worlds.</p><p><strong>Best for:</strong> Experienced professionals making a career change, people with diverse skill sets, senior-level candidates with 10+ years of experience.</p><h3>Which Format Is Best for ATS?</h3><p>Reverse-chronological is by far the most ATS-friendly format. Functional resumes can confuse ATS because they don't match the typical structure the software expects. If ATS compatibility is a priority (which it should be), stick with chronological.</p>`},
+
+  resumevcv:{cat:'📋 Comparison',title:'Resume vs CV: Key Differences You Need to Know Before Applying',meta:'📋 Career Expert · ⏱ 5 min · 🔥 21,800 reads',body:`<p>Using the wrong document for a job application can instantly disqualify you — even if you're perfectly qualified for the role. Here's everything you need to know about when to use a resume versus a CV.</p><h3>What Is a Resume?</h3><p>A resume is a concise, 1-2 page document summarizing your most relevant work experience, skills, and achievements for a specific job. It's tailored to the role you're applying for and focuses on impact and results.</p><h3>What Is a CV (Curriculum Vitae)?</h3><p>A CV (Latin: "course of life") is a comprehensive document covering your complete academic and professional history — including education, publications, presentations, research, awards, and more. It can be 5-10+ pages for senior academics.</p><h3>Key Differences at a Glance</h3><ul><li><strong>Length:</strong> Resume = 1-2 pages; CV = 2-10+ pages</li><li><strong>Purpose:</strong> Resume = job application; CV = academic, research, or international applications</li><li><strong>Content:</strong> Resume = tailored highlights; CV = complete history</li><li><strong>Customization:</strong> Resume = highly tailored per job; CV = mostly static</li><li><strong>Used in:</strong> Resume = India (private sector), USA, Canada; CV = Academia, Europe, Middle East, Government</li></ul><div class="tip-box"><strong>💡 India Tip:</strong> In India, "CV" and "resume" are often used interchangeably in casual conversation. However, in practice, most private sector companies expect a 1-2 page resume, not a comprehensive CV. Government and academic positions may require a full CV.</div><h3>When to Use a Resume</h3><p>Private sector jobs in India, US, Canada, Australia; startup and corporate roles; any application via job portals like Naukri, LinkedIn, Internshala.</p><h3>When to Use a CV</h3><p>Academic positions, research roles, PhD applications, fellowship applications, international jobs in Europe or Middle East, government or PSU positions.</p>`},
+
+  skills:{cat:'🛠 Resume Skills',title:'Top 50 Resume Skills Employers Are Looking for in 2025',meta:'💡 Skills Expert · ⏱ 10 min · 🔥 47,600 reads',body:`<p>Skills are the currency of the modern job market. The right skills on your resume can be the difference between the pile and the shortlist. Here are the most in-demand skills across industries in 2025.</p><h3>Top Technical (Hard) Skills in 2025</h3><ul><li><strong>Technology:</strong> Python, SQL, Machine Learning, Cloud (AWS/Azure/GCP), React, Node.js, DevOps, Cybersecurity, Blockchain</li><li><strong>Data &amp; Analytics:</strong> Data Analysis, Power BI, Tableau, Excel (Advanced), Google Analytics, A/B Testing, Statistics</li><li><strong>Marketing:</strong> SEO/SEM, Google Ads, Meta Ads, Content Marketing, Email Marketing, HubSpot, Copywriting</li><li><strong>Finance:</strong> Financial Modeling, Valuation, Tally, SAP, Risk Analysis, Investment Analysis</li><li><strong>Operations:</strong> Project Management (PMP, Scrum), Six Sigma, Supply Chain, ERP Systems</li></ul><div class="tip-box"><strong>💡 Pro Tip:</strong> Don't just list skills — demonstrate them. In your work experience section, show how you applied each skill and what result it produced. "Proficient in Python" is weaker than "Built Python script that automated data cleaning, saving 8 hours/week."</div><h3>Most Valued Soft Skills in 2025</h3><ul><li>Critical Thinking &amp; Problem Solving</li><li>Communication (written &amp; verbal)</li><li>Adaptability &amp; Learning Agility</li><li>Emotional Intelligence</li><li>Collaboration &amp; Teamwork</li><li>Time Management &amp; Prioritization</li><li>Leadership &amp; Decision Making</li><li>Creativity &amp; Innovation</li></ul><h3>How to List Skills on Your Resume</h3><p>Create a dedicated "Skills" section. Group them by category: Technical Skills, Tools &amp; Software, Languages, Soft Skills. Only include skills you can genuinely speak to in an interview — recruiters will ask about everything you list.</p><div class="warn-box"><strong>⚠️ Don't Include:</strong> Microsoft Word, "fast learner," "hard worker," "detail oriented" (overused), or skills rated with stars/bars — these add no value and look unprofessional.</div>`},
+
+  interview:{cat:'🎤 Interview Prep',title:'How to Ace Any Job Interview in 2025: Complete Guide',meta:'🎤 HR Expert · ⏱ 10 min · 🔥 35,200 reads',body:`<p>An interview is not a test of whether you're good at your job. It's a test of whether you can communicate your value clearly and confidently under pressure. Here's how to walk in prepared.</p><h3>The STAR Method for Behavioral Questions</h3><p>Most interview questions are behavioral: "Tell me about a time when..." Answer them using the STAR framework: <strong>Situation</strong> (context), <strong>Task</strong> (your responsibility), <strong>Action</strong> (what you did), <strong>Result</strong> (the measurable outcome).</p><div class="tip-box"><strong>💡 Example:</strong> "Tell me about a time you handled a difficult team member." S: "On my last project, a senior developer consistently missed deadlines." T: "As team lead, I needed to address it without damaging the team dynamic." A: "I scheduled a 1:1, listened to his challenges, and restructured his workload." R: "He completed all subsequent milestones on time, and the project shipped 2 days early."</div><h3>50 Most Common Interview Questions</h3><ul><li>Tell me about yourself</li><li>Why do you want to work here?</li><li>What are your greatest strengths?</li><li>What is your biggest weakness?</li><li>Where do you see yourself in 5 years?</li><li>Why are you leaving your current job?</li><li>Tell me about a challenge you overcame</li><li>How do you handle pressure and deadlines?</li><li>Describe your leadership style</li><li>What salary are you expecting?</li></ul><h3>Questions to Ask the Interviewer</h3><p>Always have 3-5 questions ready. Good ones: "What does success look like in the first 90 days?", "What are the biggest challenges facing the team?", "How would you describe the team culture?", "What's the growth path for this role?"</p><h3>Interview Preparation Checklist</h3><ul><li>✅ Research the company: products, news, culture, competitors</li><li>✅ Review your own resume and be ready to discuss every line</li><li>✅ Prepare 5-7 STAR stories from your experience</li><li>✅ Dress appropriately (one level up from company dress code)</li><li>✅ Arrive 10 minutes early (or test your video setup for virtual)</li><li>✅ Bring copies of your resume</li></ul>`},
+
+  linkedin:{cat:'🔗 LinkedIn',title:'LinkedIn Profile Optimization: Complete Guide 2025',meta:'🔗 Social Expert · ⏱ 8 min · 🔥 28,100 reads',body:`<p>Your LinkedIn profile is your 24/7 digital resume. Recruiters actively search LinkedIn to find candidates — optimizing your profile means they find you first.</p><h3>Profile Photo: Your First Impression</h3><p>Use a professional headshot with a clean background. Profiles with photos get 21x more views and 9x more connection requests. No selfies, no group photos, no vacation pics.</p><h3>Headline: More Than Just Your Job Title</h3><p>The headline is your most visible text and should include keywords recruiters search for. Instead of "Software Engineer at XYZ," try: "Software Engineer | React · Node.js · AWS | Open to Senior Dev Roles"</p><div class="tip-box"><strong>💡 Headline Formula:</strong> [Job Title] | [Top 3 Skills] | [What You're Seeking or Your Value Prop]</div><h3>About Section: Your Elevator Pitch</h3><p>Write in first person. Open with a hook. Include your expertise, key achievements, and a call to action. End with: "Feel free to connect or message me at [email]." Use keywords naturally throughout.</p><h3>Experience Section: Match Your Resume</h3><p>Your LinkedIn experience should match your resume (dates, titles, companies). Add more detail than your resume since there's no page limit. Use rich media — add project links, portfolios, presentations.</p><h3>Skills &amp; Endorsements</h3><p>Add up to 50 skills. Pin your top 3 most important skills. Get endorsements from colleagues, managers, and classmates. LinkedIn's algorithm boosts profiles with high endorsement counts.</p><h3>Turn On "Open to Work"</h3><p>You can set your Open to Work status to be visible to recruiters only (not your current employer) or publicly. Profiles with Open to Work get 2x more recruiter messages.</p>`},
+
+  salary:{cat:'💰 Salary Tips',title:'How to Negotiate Your Salary Without Losing the Offer',meta:'💰 Career Coach · ⏱ 7 min · 🔥 22,500 reads',body:`<p>A majority of professionals never negotiate their salary — and it costs them lakhs of rupees over their careers. Negotiation is expected, professional, and almost never results in a rescinded offer when done correctly.</p><h3>Step 1: Research Your Market Value</h3><p>Use sites like Glassdoor, LinkedIn Salary, AmbitionBox (India), and Levels.fyi (tech) to find the range for your role, location, and experience level. Always research before entering any salary conversation.</p><h3>Step 2: Wait for the Offer</h3><p>Never bring up salary first. Let the employer make the offer. If they ask your expectations early, say: "I'd love to learn more about the role first. What's the budget for this position?"</p><div class="tip-box"><strong>💡 Script:</strong> "Thank you so much for the offer — I'm really excited about this opportunity. Based on my research and my X years of experience in [skill], I was expecting something in the range of ₹[X-Y]. Is there any flexibility there?"</div><h3>Negotiate the Full Package</h3><p>If they can't move on base salary, negotiate: annual bonus, joining bonus, remote work flexibility, extra PTO, professional development budget, stock options, or an earlier performance review. Total compensation matters more than base salary alone.</p><h3>Get It in Writing</h3><p>Always get the final offer in writing before resigning from your current position. Verbal offers are not binding. A formal offer letter protects you.</p>`},
+
+  gaps:{cat:'📅 Career',title:'How to Explain Employment Gaps on Your Resume',meta:'📋 HR Expert · ⏱ 6 min · 🔥 19,800 reads',body:`<p>Employment gaps are more common and accepted than ever — especially post-pandemic. The key is framing them honestly and confidently, not hiding or apologizing for them.</p><h3>Don't Try to Hide Gaps</h3><p>Recruiters look for gaps. If you try to hide one with misleading dates (e.g., writing just years instead of months), and they discover it during a background check, it's an immediate red flag about your honesty.</p><h3>Use Years Instead of Months (Strategic Formatting)</h3><p>If your gap is less than a year, you can legitimately use year-only formatting: "2022 – 2024" instead of "Jan 2022 – Sep 2023." This is honest and minimizes visual attention on the gap.</p><div class="tip-box"><strong>💡 Address It Proactively:</strong> If a gap is more than 6 months, briefly address it in your cover letter. A one-sentence explanation removes the mystery: "I took time off to care for a family member and am now fully ready to return to my career."</div><h3>What Were You Doing? (Highlight Productive Activity)</h3><p>If you did anything during your gap — freelancing, courses, volunteering, caregiving, health, travel, personal projects — mention it. "Professional Development: Completed Google Data Analytics Certificate and built 2 personal data projects (2023)" is a legitimate resume entry.</p><h3>Common Gap Explanations That Work</h3><ul><li>Caring for a family member</li><li>Personal health reasons (no details needed)</li><li>Pursuing education or upskilling</li><li>Freelancing or consulting</li><li>Relocation or visa processing</li><li>Personal project or startup attempt</li></ul>`},
+
+  remote:{cat:'🌍 Remote Jobs',title:'How to Find and Land Remote Jobs in 2025',meta:'🌍 Career Expert · ⏱ 8 min · 🔥 24,300 reads',body:`<p>Remote work has fundamentally changed hiring. In 2025, millions of jobs are fully remote or hybrid — but competition is global. Here's how to position yourself and find the best remote opportunities.</p><h3>Best Platforms for Remote Jobs</h3><ul><li><strong>International:</strong> Remote.co, We Work Remotely, FlexJobs, Remotive, LinkedIn (filter: Remote)</li><li><strong>Tech-focused:</strong> Turing.com, Toptal, Gun.io, AngelList Talent</li><li><strong>India-based remote:</strong> Naukri (WFH filter), Instahyre, Hirect, LinkedIn</li><li><strong>Freelance/Project-based:</strong> Upwork, Fiverr, Toptal, Contra</li></ul><h3>Optimize Your Resume for Remote Roles</h3><p>Remote employers look for specific qualities. Include in your resume and cover letter:</p><ul><li>Self-management and time management skills</li><li>Proficiency with remote tools: Slack, Zoom, Jira, Asana, Notion</li><li>Written communication skills (critical for async remote teams)</li><li>Previous remote or hybrid work experience</li><li>Ability to work across time zones</li></ul><div class="tip-box"><strong>💡 Pro Tip:</strong> Add "Remote Work Experience" as a separate section if applicable. List the tools you used and highlight any achievements from remote roles.</div><h3>Remote Interview Tips</h3><p>Test your internet connection, camera, and microphone beforehand. Choose a clean, well-lit background. Look at the camera (not the screen) when speaking. Send a follow-up email within 24 hours thanking the interviewer.</p>`},
+
+  ai:{cat:'🤖 AI Tools',title:'How to Use AI to Supercharge Your Job Search in 2025',meta:'🤖 Tech Editor · ⏱ 7 min · 🔥 31,400 reads',body:`<p>AI has fundamentally changed job hunting. From writing resumes to preparing for interviews, the right AI tools can give you a significant edge over other candidates. Here's how to use them ethically and effectively.</p><h3>AI for Resume Writing</h3><p>Tools like BanaoResume's AI resume builder, Resume.io, and Kickresume can generate strong first drafts based on your experience. Use them as a starting point, then personalize with your specific achievements and voice.</p><div class="tip-box"><strong>💡 Best Practice:</strong> Use AI to generate 3-4 versions of your resume summary. Pick the best one, edit it in your own voice, and ensure every fact is accurate. Never submit an AI-generated resume without thoroughly personalizing it.</div><h3>AI for Job Description Analysis</h3><p>Paste a job description into ChatGPT or Claude and ask: "What are the top 10 keywords and skills I should include in my resume for this role?" Then compare these to your resume and add any missing relevant keywords.</p><h3>AI for Interview Preparation</h3><p>Use ChatGPT as a mock interviewer: "Act as a hiring manager for a senior data analyst role at a fintech company. Ask me tough interview questions one at a time." Practice out loud and refine your answers.</p><h3>AI for Cover Letter Writing</h3><p>Use the Cover Letter Builder on this page (click "Cover Letter" in the menu) to generate a personalized cover letter in seconds. Or use AI with the prompt: "Write a cover letter for [Job Title] at [Company] based on my experience: [paste resume]."</p><h3>What AI Can't Do</h3><p>AI can't attend your interview, build real relationships, or replace the genuine enthusiasm and personality that gets you hired. Use AI as a tool, not a crutch. Authenticity still wins.</p>`}
+};
+
+// ── MODAL FUNCTIONS ──
+function openArticle(id){
+  const a=articles[id];
+  if(!a)return;
+  document.getElementById('modal-cat').textContent=a.cat;
+  document.getElementById('modal-title').textContent=a.title;
+  document.getElementById('modal-meta').textContent=a.meta;
+  document.getElementById('modal-body').innerHTML=a.body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('modal')&&!e.target.classList.contains('modal-close')&&!e.target.classList.contains('modal-close-btn'))return;
+  if(e&&e.target===document.getElementById('modal')){
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow='';
+  } else if(!e){
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
 </body>
 </html>
