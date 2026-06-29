@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Banao Ya Naukri Bhulao: The Brutally Honest Fresher Resume Guide (2026)</title>
+<meta name="description" content="Freshers, your resume is probably getting auto-rejected — and that's fixable. The no-BS guide to building a resume that survives the ATS bot and gets interview calls in 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@500;600;700&family=Source+Sans+3:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F3;
+    --paper-deep:#F1EDE2;
+    --ink:#1A1D2E;
+    --ink-soft:#3D4055;
+    --stamp-red:#D4302B;
+    --stamp-red-deep:#A4221E;
+    --approved-green:#2F9E44;
+    --approved-green-deep:#216E30;
+    --fade-gray:#8B8578;
+    --line:#D8D2C2;
+    --max:760px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: 100% 38px;
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--stamp-red-deep);text-decoration-thickness:1.5px;}
+  a:hover{color:var(--stamp-red);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--ink);
+    outline-offset:2px;
+  }
+
+  .skip-link{
+    position:absolute;left:-9999px;top:auto;
+  }
+  .skip-link:focus{
+    position:fixed;left:8px;top:8px;background:var(--ink);color:var(--paper);
+    padding:10px 16px;z-index:999;border-radius:4px;
+  }
+
+  /* ===== TOP STAMP BAR ===== */
+  .topbar{
+    border-bottom:3px solid var(--ink);
+    background:var(--paper);
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .topbar-mark{
+    font-weight:700;
+    color:var(--stamp-red-deep);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .topbar-mark .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--approved-green);
+    box-shadow:0 0 0 2px rgba(47,158,68,0.2);
+    animation:blink 2.4s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .topbar-status{color:var(--fade-gray);}
+
+  /* ===== HERO: THE APPLICATION FORM ===== */
+  .hero{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:56px 24px 40px;
+  }
+  .form-id{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--fade-gray);
+    letter-spacing:0.06em;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px dashed var(--line);
+    padding-bottom:14px;
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--stamp-red-deep);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Archivo Black', sans-serif;
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  h1 .accent{color:var(--stamp-red-deep);}
+  .hero-sub{
+    font-size:1.18rem;
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin-bottom:30px;
+  }
+  .hero-stat-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .stat-stamp{
+    border:2.5px solid var(--ink);
+    border-radius:3px;
+    padding:10px 16px;
+    transform:rotate(-1.2deg);
+    background:var(--paper);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .stat-stamp:nth-child(2){transform:rotate(0.8deg);}
+  .stat-stamp:nth-child(3){transform:rotate(-0.6deg);}
+  .stat-num{
+    font-family:'Archivo Black', sans-serif;
+    font-size:1.5rem;
+    color:var(--stamp-red-deep);
+    display:block;
+    line-height:1;
+  }
+  .stat-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ===== TOC ===== */
+  .toc-wrap{
+    max-width:var(--max);
+    margin:0 auto 8px;
+    padding:0 24px;
+  }
+  .toc{
+    border:2px solid var(--ink);
+    background:var(--paper-deep);
+    border-radius:4px;
+    padding:22px 24px;
+  }
+  .toc-title{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    color:var(--ink);
+  }
+  .toc ol{
+    list-style:none;
+    counter-reset:toc;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 24px;
+  }
+  .toc li{
+    counter-increment:toc;
+    font-size:15px;
+  }
+  .toc li::before{
+    content:counter(toc, decimal-leading-zero);
+    font-family:'JetBrains Mono', monospace;
+    color:var(--stamp-red-deep);
+    margin-right:8px;
+    font-weight:700;
+  }
+  .toc a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .toc a:hover{border-bottom-color:var(--stamp-red-deep);color:var(--stamp-red-deep);}
+
+  /* ===== ARTICLE BODY ===== */
+  article{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:8px 24px 0;
+  }
+  section{
+    padding:52px 0 8px;
+    border-bottom:1px dashed var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  .field-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--fade-gray);
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+    display:block;
+  }
+
+  h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.5rem, 4vw, 2rem);
+    color:var(--ink);
+    margin-bottom:18px;
+    line-height:1.2;
+  }
+  h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--ink);
+    margin:28px 0 12px;
+  }
+  p{margin-bottom:18px;color:var(--ink-soft);}
+  p strong, li strong{color:var(--ink);}
+  ul, ol.plain{margin:0 0 18px 0; padding-left:22px;color:var(--ink-soft);}
+  ul li, ol.plain li{margin-bottom:8px;}
+
+  blockquote{
+    border-left:4px solid var(--stamp-red-deep);
+    background:var(--paper-deep);
+    padding:18px 22px;
+    margin:24px 0;
+    font-style:italic;
+    color:var(--ink);
+    border-radius:0 4px 4px 0;
+  }
+
+  /* ===== TABLES AS FORMS ===== */
+  .table-wrap{
+    overflow-x:auto;
+    margin:24px 0;
+    border:2px solid var(--ink);
+    border-radius:4px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:15.5px;
+    min-width:480px;
+  }
+  thead th{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-align:left;
+    padding:12px 16px;
+  }
+  tbody td{
+    padding:12px 16px;
+    border-top:1px solid var(--line);
+    color:var(--ink-soft);
+    vertical-align:top;
+  }
+  tbody tr:nth-child(odd){background:rgba(0,0,0,0.015);}
+  tbody td:first-child{color:var(--stamp-red-deep);font-weight:600;}
+
+  /* ===== SIN / REPENT CARDS ===== */
+  .sin-card{
+    border:2px solid var(--ink);
+    border-radius:6px;
+    margin:22px 0;
+    overflow:hidden;
+    position:relative;
+  }
+  .sin-head{
+    background:var(--ink);
+    color:var(--paper);
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+  }
+  .stamp-badge{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    border:2px solid var(--stamp-red);
+    color:var(--stamp-red);
+    padding:2px 8px;
+    border-radius:3px;
+    transform:rotate(-4deg);
+    flex-shrink:0;
+  }
+  .sin-body{padding:18px 20px;background:var(--paper);}
+  .sin-body p{margin-bottom:0;}
+  .sin-body .repent-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--approved-green-deep);
+    display:block;
+    margin-top:14px;
+    margin-bottom:6px;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-item{
+    border:2px solid var(--ink);
+    border-radius:6px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px 20px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1.02rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    background:var(--paper-deep);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .q-mark{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--stamp-red-deep);
+    font-size:1.2rem;
+    flex-shrink:0;
+    transition:transform 0.2s ease;
+  }
+  .faq-item[open] summary .q-mark{transform:rotate(45deg);}
+  .faq-item .faq-a{
+    padding:16px 20px 20px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+  .faq-item .faq-a p{margin-bottom:0;}
+
+  /* ===== CTA / TOOL CALLOUT ===== */
+  .cta-stamp{
+    margin:32px 0;
+    border:3px solid var(--approved-green-deep);
+    border-radius:6px;
+    padding:26px 26px 24px;
+    background:#F0F7F1;
+    position:relative;
+  }
+  .cta-stamp::before{
+    content:"ATS APPROVED";
+    position:absolute;
+    top:14px;
+    right:18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    color:var(--approved-green-deep);
+    border:2px solid var(--approved-green-deep);
+    padding:3px 9px;
+    border-radius:3px;
+    transform:rotate(4deg);
+  }
+  .cta-stamp h3{margin-top:0;color:var(--approved-green-deep);}
+  .cta-stamp p{margin-bottom:14px;}
+  .cta-button{
+    display:inline-block;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.03em;
+    background:var(--approved-green-deep);
+    color:var(--paper);
+    padding:12px 24px;
+    border-radius:4px;
+    text-decoration:none;
+    transition:background 0.15s ease;
+  }
+  .cta-button:hover{background:var(--approved-green);color:var(--paper);}
+
+  /* ===== FOOTER / CLOSING ===== */
+  .closing{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:48px 24px 20px;
+    text-align:center;
+  }
+  .final-stamp{
+    display:inline-block;
+    border:4px double var(--stamp-red-deep);
+    color:var(--stamp-red-deep);
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:1.1rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:14px 28px;
+    transform:rotate(-2deg);
+    margin-bottom:24px;
+    border-radius:4px;
+  }
+  .closing p{color:var(--ink-soft);max-width:55ch;margin:0 auto 8px;}
+  .comment-line{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--fade-gray);
+    margin-top:18px;
+  }
+
+  footer.site-footer{
+    border-top:3px solid var(--ink);
+    padding:24px;
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--fade-gray);
+    letter-spacing:0.04em;
+  }
+  footer.site-footer a{color:var(--fade-gray);}
+
+  @media (max-width:560px){
+    .toc ol{grid-template-columns:1fr;}
+    .hero{padding-top:36px;}
+    body{font-size:16.5px;}
+    .stat-stamp{flex:1 1 auto;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .topbar-mark .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-mark"><span class="dot"></span> BanaoResumee.online</span>
+    <span class="topbar-status">Fresher Resume Desk</span>
+  </div>
+</div>
+
+<main id="main-content">
+
+  <div class="hero">
+    <div class="form-id">
+      <span>FORM REF: FRESHER&#8209;RESUME&#8209;2026</span>
+      <span>STATUS: UNDER REVIEW</span>
+    </div>
+    <p class="eyebrow">The Fresher Resume Desk &mdash; 2026 Edition</p>
+    <h1>Resume Banao Ya<br>Naukri <span class="accent">Bhulao</span>.</h1>
+    <p class="hero-sub">A brutally honest, slightly unhinged guide to building a fresher resume that survives the robot gatekeepers <em>and</em> the human on the other side &mdash; without losing your mind in the process.</p>
+    <div class="hero-stat-row">
+      <div class="stat-stamp">
+        <span class="stat-num">6&ndash;8 sec</span>
+        <span class="stat-label">Avg. recruiter glance</span>
+      </div>
+      <div class="stat-stamp">
+        <span class="stat-num">250+</span>
+        <span class="stat-label">Applicants per role</span>
+      </div>
+      <div class="stat-stamp">
+        <span class="stat-num">90%</span>
+        <span class="stat-label">Filtered by ATS first</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc-wrap">
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">On this form</p>
+      <ol>
+        <li><a href="#sec-why">Why fresher resumes get auto-rejected</a></li>
+        <li><a href="#sec-ats">The ATS monster, decoded</a></li>
+        <li><a href="#sec-anatomy">Anatomy of a resume that works</a></li>
+        <li><a href="#sec-sins">Resume sins &amp; how to repent</a></li>
+        <li><a href="#sec-noexp">The &ldquo;no experience&rdquo; problem</a></li>
+        <li><a href="#sec-verbs">Action verbs that don&rsquo;t cringe</a></li>
+        <li><a href="#sec-tools">Free tools to build it fast</a></li>
+        <li><a href="#sec-faq">FAQs every fresher asks</a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <article>
+
+    <section id="sec-why">
+      <span class="field-num">SECTION 01 / WHY THIS MATTERS</span>
+      <h2>Why 90% of Fresher Resumes Get Auto&#8209;Rejected</h2>
+      <p>Here's the part nobody tells you in college: <strong>your resume isn't read by a human first.</strong> It's scanned by an Applicant Tracking System (ATS) &mdash; software that filters resumes before a recruiter ever opens them.</p>
+      <p>If your resume has a creative "artistic" font, a photo, a QR code, a "Kindly Consider Me" objective paragraph from 2009, or a two-column layout that confuses the parser &mdash; it's probably getting filtered into the void before a human even sees it.</p>
+      <p>This isn't fearmongering. It's just how hiring works at scale. Companies receiving 200+ applications per junior role <em>need</em> automated filtering, and freshers consistently get caught in it because nobody taught them the rules of the game.</p>
+      <p>The good news? Once you know the rules, you can build a resume that wins on both fronts &mdash; robot and human.</p>
+    </section>
+
+    <section id="sec-ats">
+      <span class="field-num">SECTION 02 / THE GATEKEEPER</span>
+      <h2>The ATS Monster: What It Actually Wants</h2>
+      <p>Think of the ATS like a very literal, very humorless librarian. It doesn't care about your vibe. It cares about structure.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ATS Loves</th><th>ATS Hates</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Standard headings: Experience, Education, Skills</td><td>Creative headings: "My Journey", "What I Bring"</td></tr>
+            <tr><td>.docx or text-based PDF</td><td>Heavily designed PDFs with graphics-as-text</td></tr>
+            <tr><td>Reverse chronological order</td><td>Random or "creative" ordering</td></tr>
+            <tr><td>Keywords lifted from the job description</td><td>Vague synonyms instead of the JD's exact terms</td></tr>
+            <tr><td>Standard fonts: Calibri, Arial, Georgia</td><td>Decorative or script fonts</td></tr>
+            <tr><td>Single column layout</td><td>Multi-column or sidebar layouts</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Rule of thumb:</strong> if you'd struggle to copy-paste the text out of your resume cleanly into Notepad, the ATS will struggle to read it too. Simplicity isn't boring here &mdash; it's strategic.</p>
+    </section>
+
+    <section id="sec-anatomy">
+      <span class="field-num">SECTION 03 / STRUCTURE</span>
+      <h2>The Anatomy of a Resume That Doesn't Suck</h2>
+      <p>Forget "objective statements." Forget centering your name in 40pt Old English font. Here's the structure that consistently performs for entry-level candidates.</p>
+
+      <h3>1. Header &mdash; keep it boring, keep it clean</h3>
+      <p>Name, phone number, professional email (not <code>coolboy_rahul99@yahoo.com</code>), city, LinkedIn URL, GitHub/portfolio if relevant. That's it.</p>
+
+      <h3>2. Professional summary &mdash; 2&ndash;3 lines, not a paragraph</h3>
+      <p>Skip "Seeking an opportunity to utilize my skills." Recruiters care what you can <em>do</em>:</p>
+      <blockquote>"Computer Science graduate with hands-on experience in Python, SQL, and React through 3 academic projects and a 2-month internship at [Company]. Built a full-stack inventory system used by 40+ test users. Looking to bring strong problem-solving and quick-learning ability to an entry-level software role."</blockquote>
+
+      <h3>3. Skills &mdash; match the job description, literally</h3>
+      <p>Split into Technical Skills and Soft Skills. Pull exact phrases from the posting &mdash; if it says "cross-functional collaboration," use that exact phrase if it's true for you.</p>
+
+      <h3>4. Education</h3>
+      <p>GPA/percentage only if it's strong (7.5+ CGPA or 75%+). Mention relevant coursework if your degree is unrelated to the role.</p>
+
+      <h3>5. Projects &mdash; your secret weapon as a fresher</h3>
+      <p>This is the section that wins you the interview when you have zero work experience. More on this in Section 05.</p>
+
+      <h3>6. Internships / Experience</h3>
+      <p>Even a 2-week unpaid internship counts. Frame it with results, not duties.</p>
+
+      <h3>7. Certifications</h3>
+      <p>Coursera, Google, freeCodeCamp, NPTEL &mdash; all valid if relevant to the role.</p>
+    </section>
+
+    <section id="sec-sins">
+      <span class="field-num">SECTION 04 / CONFESSIONS</span>
+      <h2>Resume Sins Freshers Commit (And How to Repent)</h2>
+      <p>Let's roast some classics, gently, with love.</p>
+
+      <div class="sin-card">
+        <div class="sin-head"><span class="stamp-badge">SIN 01</span> "Hardworking, dedicated, punctual" as your top skills</div>
+        <div class="sin-body">
+          <p>Everyone claims this. Recruiters have started physically flinching.</p>
+          <span class="repent-label">&#8627; Repentance</span>
+          <p>Replace with measurable skills: "Proficient in Excel (VLOOKUP, Pivot Tables), Python (Pandas, NumPy), SQL."</p>
+        </div>
+      </div>
+
+      <div class="sin-card">
+        <div class="sin-head"><span class="stamp-badge">SIN 02</span> A 3-page resume with zero work experience</div>
+        <div class="sin-body">
+          <p>If it's not one page, you're including filler.</p>
+          <span class="repent-label">&#8627; Repentance</span>
+          <p>One page. Always one page for freshers. No exceptions.</p>
+        </div>
+      </div>
+
+      <div class="sin-card">
+        <div class="sin-head"><span class="stamp-badge">SIN 03</span> Listing "Microsoft Word" as a skill</div>
+        <div class="sin-body">
+          <p>It's 2026. Knowing how to use a browser is a prerequisite for being alive, not a skill.</p>
+          <span class="repent-label">&#8627; Repentance</span>
+          <p>Swap for tools that actually differentiate you &mdash; specific software, languages, frameworks.</p>
+        </div>
+      </div>
+
+      <div class="sin-card">
+        <div class="sin-head"><span class="stamp-badge">SIN 04</span> A generic objective that fits any job, anywhere</div>
+        <div class="sin-body">
+          <p>If you send the same resume to a marketing internship and a data analyst role, you're doing it wrong.</p>
+          <span class="repent-label">&#8627; Repentance</span>
+          <p>Tailor it. Every. Single. Time.</p>
+        </div>
+      </div>
+
+      <div class="sin-card">
+        <div class="sin-head"><span class="stamp-badge">SIN 05</span> No quantifiable results, anywhere</div>
+        <div class="sin-body">
+          <p>"Improved app load time" means nothing on its own.</p>
+          <span class="repent-label">&#8627; Repentance</span>
+          <p>"Improved app load time by 35% through code splitting" means everything.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-noexp">
+      <span class="field-num">SECTION 05 / THE BIG PANIC</span>
+      <h2>The "No Experience" Problem &mdash; Solved</h2>
+      <p>This is the #1 panic point for freshers: <em>"I have no work experience, what do I even put on this thing?"</em></p>
+      <p>Here's the secret: <strong>recruiters hiring freshers don't expect work experience.</strong> They expect potential. So show it through:</p>
+      <ul>
+        <li><strong>Academic projects</strong> &mdash; treat your final-year project like a real product. What problem did it solve? What stack? What was the outcome?</li>
+        <li><strong>Hackathons</strong> &mdash; even without winning, participation shows initiative. "Built a disaster-alert app in 36 hours, placed top 10 of 80 teams."</li>
+        <li><strong>Freelance/volunteer work</strong> &mdash; made a poster for a college fest? That's graphic design. Ran your hostel's Instagram? That's social media management.</li>
+        <li><strong>Open source contributions</strong> &mdash; even small PRs on GitHub show real-world coding behavior.</li>
+        <li><strong>Online courses with projects</strong> &mdash; a completed Coursera/Udemy capstone is legitimate proof of skill.</li>
+      </ul>
+      <p>The trick is <strong>framing</strong>, not fabricating. You did more than you think &mdash; you just never called it "experience."</p>
+    </section>
+
+    <section id="sec-verbs">
+      <span class="field-num">SECTION 06 / VOCABULARY</span>
+      <h2>Action Verbs That Don't Make Recruiters Cringe</h2>
+      <p>Swap the tired ones for these:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Instead of&hellip;</th><th>Use&hellip;</th></tr></thead>
+          <tbody>
+            <tr><td>"Worked on"</td><td>Engineered, Developed, Built, Implemented</td></tr>
+            <tr><td>"Helped with"</td><td>Collaborated, Contributed, Co-led</td></tr>
+            <tr><td>"Responsible for"</td><td>Owned, Managed, Drove</td></tr>
+            <tr><td>"Did research"</td><td>Analyzed, Investigated, Benchmarked</td></tr>
+            <tr><td>"Made better"</td><td>Optimized, Streamlined, Enhanced</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pair every action verb with a number or outcome wherever you can. "Engineered a Python script that automated data entry, saving 5 hours/week" hits ten times harder than "Worked on automation."</p>
+    </section>
+
+    <section id="sec-tools">
+      <span class="field-num">SECTION 07 / TOOLING</span>
+      <h2>Free Tools to Build Your Resume in Minutes</h2>
+      <p>You don't need to fight Word's table formatting at 2 AM before a deadline. Use a structured builder so your formatting stays ATS-safe by default.</p>
+
+      <div class="cta-stamp">
+        <h3>BanaoResumee &mdash; built for exactly this gap</h3>
+        <p>Clean, ATS-friendly templates. No design disasters. A layout recruiters' software can actually parse without choking &mdash; pick a template, plug in your details, walk out with a resume that survives both the robot and the human.</p>
+        <a href="https://banaoresumee.online" class="cta-button">Build my resume &rarr;</a>
+      </div>
+
+      <p>Pair that with:</p>
+      <ul>
+        <li><strong>Grammarly</strong> &mdash; for catching the grammar mistakes that make recruiters silently judge you</li>
+        <li><strong>Jobscan</strong> &mdash; for checking your resume's keyword match against a specific job description</li>
+        <li><strong>Canva</strong> &mdash; only for portfolio/creative roles, NOT for ATS-scanned tech/business roles</li>
+        <li><strong>LinkedIn's Resume Assistant</strong> &mdash; for keyword inspiration straight from real postings</li>
+      </ul>
+    </section>
+
+    <section id="sec-faq">
+      <span class="field-num">SECTION 08 / FAQ</span>
+      <h2>FAQs Every Fresher Asks</h2>
+
+      <details class="faq-item">
+        <summary>Should my fresher resume be one page or can it be two?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>One page. Always. Unless you have 5+ years of internships, research papers, and certifications combined, two pages reads as padding.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need a photo on my resume?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>No &mdash; not for India, US, UK, or most global markets. Photos can trigger unconscious bias filters, and most ATS systems don't parse images anyway.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What file format should I submit &mdash; PDF or Word?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>PDF, unless the job posting specifically asks for Word (.docx). PDF preserves formatting &mdash; just make sure it's text-based, not a scanned image.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many skills should I list?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>8&ndash;12 relevant skills is the sweet spot. More than that looks like keyword stuffing; fewer looks underprepared.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Should I include my CGPA if it's average?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>If it's below 7/10 or 70%, you can omit it and let your projects and skills speak instead. If asked directly in an application form, always be honest there.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is it okay to use a resume template found online?<span class="q-mark">+</span></summary>
+        <div class="faq-a"><p>Yes, as long as it's a single-column, ATS-friendly format. Avoid heavily graphic templates from generic template sites &mdash; they often break ATS parsing.</p></div>
+      </details>
+    </section>
+
+  </article>
+
+  <div class="closing">
+    <div class="final-stamp">Approved for Submission</div>
+    <p><strong>Perfection is the enemy of submission.</strong> Build it clean, build it honest, build it focused on outcomes &mdash; then ship it today while your classmates are still picking fonts.</p>
+    <p>Your first job is closer than you think. Go build the resume that gets you there.</p>
+    <p class="comment-line">&mdash; Got a resume horror story or a win to share? Drop it in the comments. We read every single one.</p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 BanaoResumee.online &middot; <a href="https://banaoresumee.online">banaoresumee.online</a> &middot; Fresher Resume Desk
+</footer>
+
+</body>
+</html>
