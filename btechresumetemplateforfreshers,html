@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BanaoResumee — Free ATS Resume Builder for Freshers | Build Your First Resume in Minutes</title>
+<meta name="description" content="BanaoResumee is a free, ATS-friendly resume builder made for freshers and first-time job seekers. Pick a campus-to-corporate template, fill guided sections, and download a recruiter-ready PDF in minutes — no design skills needed.">
+<meta name="keywords" content="resume builder for freshers, free resume builder India, ATS resume template, fresher resume format, first job resume, campus placement resume, banaoresumee">
+<link rel="canonical" href="https://banaoresumee.online/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BanaoResumee — The Resume Builder Made for Your First Job">
+<meta property="og:description" content="Free, ATS-friendly resume builder for freshers. Guided sections, campus-ready templates, and a recruiter-approved PDF — in minutes.">
+<meta property="og:url" content="https://banaoresumee.online/">
+<meta property="og:site_name" content="BanaoResumee">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BanaoResumee — The Resume Builder Made for Your First Job">
+<meta name="twitter:description" content="Free, ATS-friendly resume builder for freshers. Build a recruiter-ready resume in minutes.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BanaoResumee",
+  "url": "https://banaoresumee.online/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Free ATS-friendly resume builder designed for freshers and first-time job seekers.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Freshers, Students, First-time job seekers"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is BanaoResumee really free for freshers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every template, section, and PDF download is free for students and first-time job seekers building their first resume." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my resume pass ATS screening?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every template on BanaoResumee is built on clean, single-column HTML structure that applicant tracking systems parse correctly, so your resume reaches a human reviewer." }
+    },
+    {
+      "@type": "Question",
+      "name": "I have no work experience. Can I still build a strong resume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. BanaoResumee is designed around fresher profiles — it guides you to lead with academic projects, internships, coursework, and campus achievements instead of asking for work history you don't have yet." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a resume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most students complete a full first draft in 10 to 15 minutes using the guided section prompts." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#132A3D;
+    --ink-soft:#2B4459;
+    --paper:#FBF7EF;
+    --paper-raised:#FFFFFF;
+    --gold:#B8892B;
+    --gold-bright:#D9A93C;
+    --coral:#DD5B3E;
+    --line:#E4DBC8;
+    --text-muted:#5B6B78;
+    --shadow: 0 20px 60px -20px rgba(19,42,61,0.25);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; letter-spacing:-0.01em; color:var(--ink); }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--coral);
+    font-weight:500;
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{max-width:100%; display:block;}
+  .container{ max-width:1160px; margin:0 auto; padding:0 24px; }
+  section{ padding:96px 0; position:relative; }
+  ::selection{ background:var(--gold-bright); color:var(--ink); }
+
+  a:focus-visible, button:focus-visible, .btn:focus-visible{
+    outline:3px solid var(--coral);
+    outline-offset:3px;
+  }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(251,247,239,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1160px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo-mark{
+    width:28px; height:28px; border-radius:6px;
+    background:linear-gradient(135deg, var(--coral), var(--gold-bright));
+    display:inline-flex; align-items:center; justify-content:center;
+    color:white; font-family:'JetBrains Mono', monospace; font-size:0.75rem; font-weight:700;
+  }
+  .nav-links{ display:flex; gap:32px; align-items:center; font-size:0.95rem; font-weight:500; }
+  .nav-links a{ color:var(--ink-soft); transition:color 0.2s; }
+  .nav-links a:hover{ color:var(--coral); }
+  @media (max-width:800px){ .nav-links{ display:none; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:100px;
+    font-weight:600; font-size:0.95rem;
+    border:none; cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+    box-shadow: 0 8px 24px -8px rgba(19,42,61,0.5);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(19,42,61,0.6); }
+  .btn-ghost{
+    background:transparent; border:1.5px solid var(--ink); color:var(--ink);
+  }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+
+  /* HERO */
+  .hero{ padding:80px 0 60px; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } .hero{ padding:48px 0 32px; } }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.05;
+    margin:18px 0 22px;
+    font-weight:600;
+  }
+  .hero h1 em{ font-style:italic; color:var(--coral); font-weight:500; }
+  .hero p.sub{
+    font-size:1.15rem; color:var(--text-muted); max-width:480px; margin-bottom:32px;
+  }
+  .hero-cta{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:28px;}
+  .trust-row{
+    display:flex; gap:22px; flex-wrap:wrap; font-size:0.85rem; color:var(--text-muted);
+  }
+  .trust-row span{ display:flex; align-items:center; gap:6px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block; }
+
+  /* SIGNATURE VISUAL: the resume document building itself */
+  .doc-stage{
+    position:relative; display:flex; justify-content:center; align-items:center;
+    min-height:460px;
+  }
+  .doc-card{
+    width:320px; background:var(--paper-raised);
+    border-radius:10px; box-shadow:var(--shadow);
+    padding:28px 26px; position:relative;
+    transform:rotate(-2deg);
+    border:1px solid var(--line);
+  }
+  .doc-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; }
+  .doc-name{ font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; }
+  .doc-role{ font-size:0.78rem; color:var(--text-muted); margin-top:2px;}
+  .doc-badge{
+    background:var(--coral); color:white; font-family:'JetBrains Mono',monospace;
+    font-size:0.62rem; padding:4px 8px; border-radius:5px; white-space:nowrap;
+    animation: pop 0.5s ease 1.2s both;
+  }
+  @keyframes pop{ from{ transform:scale(0); opacity:0;} to{ transform:scale(1); opacity:1;} }
+
+  .doc-section-label{
+    font-family:'JetBrains Mono', monospace; font-size:0.65rem; letter-spacing:0.08em;
+    color:var(--gold); text-transform:uppercase; margin:16px 0 8px;
+  }
+  .bar{ height:8px; border-radius:4px; background:var(--line); overflow:hidden; margin-bottom:6px;}
+  .bar span{ display:block; height:100%; background:linear-gradient(90deg, var(--ink-soft), var(--ink)); border-radius:4px; width:0%; animation: fill 1.4s ease forwards; }
+  .bar.w1 span{ animation-delay:0.1s; --w:92%; }
+  .bar.w2 span{ animation-delay:0.3s; --w:78%; }
+  .bar.w3 span{ animation-delay:0.5s; --w:88%; }
+  .bar.w4 span{ animation-delay:0.7s; --w:60%; }
+  @keyframes fill{ to{ width:var(--w); } }
+
+  .float-card{
+    position:absolute; background:var(--paper-raised); border:1px solid var(--line);
+    border-radius:10px; padding:12px 14px; box-shadow:var(--shadow);
+    font-size:0.78rem; font-weight:600; display:flex; align-items:center; gap:8px;
+  }
+  .float-1{ top:8%; right:2%; transform:rotate(4deg); animation: drift 6s ease-in-out infinite; }
+  .float-2{ bottom:10%; left:0%; transform:rotate(-3deg); animation: drift 7s ease-in-out infinite reverse; }
+  @keyframes drift{ 0%,100%{ transform:translateY(0) rotate(3deg);} 50%{ transform:translateY(-10px) rotate(-1deg);} }
+  .check{ color:#2E8B57; }
+
+  /* MARQUEE / LOGOS */
+  .companies{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:28px 0; overflow:hidden;
+  }
+  .companies p{ text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.72rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:16px;}
+  .company-row{
+    display:flex; justify-content:center; gap:48px; flex-wrap:wrap;
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; color:var(--ink-soft); opacity:0.7;
+  }
+
+  /* SECTION HEADERS */
+  .sec-head{ max-width:640px; margin-bottom:56px; }
+  .sec-head h2{ font-size:clamp(1.8rem, 3.5vw, 2.5rem); margin-top:12px; font-weight:600; }
+  .sec-head p{ color:var(--text-muted); font-size:1.05rem; margin-top:12px; }
+
+  /* FEATURES */
+  .feature-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+  @media (max-width:860px){ .feature-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .feature-grid{ grid-template-columns:1fr; } }
+  .feature{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 26px; transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .feature:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+  .feature-icon{
+    width:44px; height:44px; border-radius:10px; margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, rgba(221,91,62,0.12), rgba(184,137,43,0.16));
+    color:var(--coral);
+  }
+  .feature h3{ font-size:1.15rem; margin-bottom:8px; font-weight:600; }
+  .feature p{ color:var(--text-muted); font-size:0.95rem; }
+
+  /* HOW IT WORKS */
+  .steps{ position:relative; }
+  .step-row{ display:grid; grid-template-columns:100px 1fr; gap:24px; margin-bottom:44px; }
+  @media (max-width:600px){ .step-row{ grid-template-columns:60px 1fr; } }
+  .step-num{
+    font-family:'Fraunces', serif; font-size:2.6rem; font-weight:600; color:var(--line);
+    line-height:1;
+  }
+  .step-row:last-child{ margin-bottom:0; }
+  .step-content h3{ font-size:1.2rem; margin-bottom:8px; font-weight:600; }
+  .step-content p{ color:var(--text-muted); max-width:520px; }
+  .step-line{
+    position:absolute; left:49px; top:20px; bottom:20px; width:1px;
+    background:repeating-linear-gradient(var(--line) 0 6px, transparent 6px 12px);
+  }
+  @media (max-width:600px){ .step-line{ left:29px; } }
+
+  /* TEMPLATES */
+  .template-strip{ display:grid; grid-template-columns:repeat(4, 1fr); gap:22px; }
+  @media (max-width:900px){ .template-strip{ grid-template-columns:repeat(2, 1fr); } }
+  .template-card{
+    border-radius:12px; overflow:hidden; border:1px solid var(--line);
+    background:var(--paper-raised); cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .template-card:hover{ transform:translateY(-6px) rotate(-0.5deg); box-shadow:var(--shadow); }
+  .template-thumb{
+    height:180px; padding:16px;
+    display:flex; flex-direction:column; gap:6px;
+    background:var(--paper);
+  }
+  .t-line{ height:6px; border-radius:3px; background:var(--line); }
+  .t-line.short{ width:50%; }
+  .t-line.head{ background:var(--ink-soft); width:60%; height:10px; margin-bottom:4px; }
+  .t-line.accent{ background:var(--gold-bright); width:30%; }
+  .template-meta{ padding:14px 16px; border-top:1px solid var(--line); }
+  .template-meta strong{ font-size:0.92rem; display:block; }
+  .template-meta span{ font-size:0.78rem; color:var(--text-muted); }
+
+  /* TESTIMONIALS */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:900px){ .testi-grid{ grid-template-columns:1fr; } }
+  .testi{
+    background:var(--ink); color:var(--paper); border-radius:var(--radius);
+    padding:30px 26px;
+  }
+  .testi:nth-child(2){ background:var(--ink-soft); }
+  .testi:nth-child(3){ background:var(--coral); }
+  .testi p{ font-family:'Fraunces', serif; font-size:1.05rem; font-style:italic; margin-bottom:20px; line-height:1.5;}
+  .testi-who{ display:flex; align-items:center; gap:10px; }
+  .avatar{
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;
+  }
+  .testi-who strong{ display:block; font-size:0.9rem; }
+  .testi-who span{ display:block; font-size:0.75rem; opacity:0.75; }
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid var(--line); padding:22px 0;
+  }
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center; cursor:pointer;
+    font-weight:600; font-size:1.05rem; gap:20px;
+  }
+  .faq-q .plus{
+    font-family:'JetBrains Mono', monospace; font-size:1.2rem; color:var(--coral); transition:transform 0.25s;
+    flex-shrink:0;
+  }
+  .faq-item.open .faq-q .plus{ transform:rotate(45deg); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+    color:var(--text-muted); font-size:0.95rem;
+  }
+  .faq-item.open .faq-a{ max-height:200px; padding-top:12px; }
+
+  /* CTA BAND */
+  .cta-band{
+    background:var(--ink); color:var(--paper); border-radius:24px;
+    padding:64px 48px; text-align:center; margin:0 24px;
+    position:relative; overflow:hidden;
+  }
+  .cta-band::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 20%, rgba(217,169,60,0.18), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(221,91,62,0.18), transparent 40%);
+  }
+  .cta-band h2{ color:var(--paper); position:relative; font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:14px; }
+  .cta-band p{ color:rgba(251,247,239,0.75); position:relative; margin-bottom:28px; font-size:1.05rem; }
+  .cta-band .btn-primary{ background:var(--gold-bright); color:var(--ink); box-shadow:0 8px 24px -8px rgba(217,169,60,0.5); position:relative; }
+
+  /* FOOTER */
+  footer{ padding:56px 0 32px; border-top:1px solid var(--line); margin-top:40px; }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; margin-bottom:32px;}
+  .footer-col h4{ font-size:0.85rem; margin-bottom:14px; color:var(--ink); }
+  .footer-col a{ display:block; font-size:0.9rem; color:var(--text-muted); margin-bottom:8px; }
+  .footer-col a:hover{ color:var(--coral); }
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.82rem; color:var(--text-muted); padding-top:24px; border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo"><span class="logo-mark">BR</span>BanaoResumee</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#templates">Templates</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#start" class="btn btn-primary">Build my resume</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Built for freshers · Not recycled templates</span>
+        <h1>Your first resume, <em>done right</em> — before your next application deadline.</h1>
+        <p class="sub">BanaoResumee turns your degree, projects, and internships into a resume recruiters actually shortlist. No design skills, no blank-page panic — just guided sections and a clean, ATS-ready PDF.</p>
+        <div class="hero-cta">
+          <a href="#start" class="btn btn-primary">Start building — it's free →</a>
+          <a href="#templates" class="btn btn-ghost">See templates</a>
+        </div>
+        <div class="trust-row">
+          <span><span class="dot"></span>No signup wall to start</span>
+          <span><span class="dot"></span>ATS-tested formatting</span>
+          <span><span class="dot"></span>Made for 0-experience profiles</span>
+        </div>
+      </div>
+
+      <div class="doc-stage" aria-hidden="true">
+        <div class="float-card float-1"><span class="check">✓</span> ATS Score: 94</div>
+        <div class="doc-card">
+          <div class="doc-head">
+            <div>
+              <div class="doc-name">Ananya Sharma</div>
+              <div class="doc-role">B.Tech CSE, 2026 · Aspiring SDE</div>
+            </div>
+            <div class="doc-badge">FRESHER</div>
+          </div>
+          <div class="doc-section-label">Projects</div>
+          <div class="bar w1"><span></span></div>
+          <div class="bar w2"><span></span></div>
+          <div class="doc-section-label">Internship</div>
+          <div class="bar w3"><span></span></div>
+          <div class="doc-section-label">Skills</div>
+          <div class="bar w4"><span></span></div>
+        </div>
+        <div class="float-card float-2">📄 Exported: Offer_Ready.pdf</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="companies">
+    <div class="container">
+      <p>Freshers using BanaoResumee have interviewed at</p>
+      <div class="company-row">
+        <span>TCS</span><span>Infosys</span><span>Wipro</span><span>Deloitte</span><span>Zoho</span><span>Startups</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Why BanaoResumee</span>
+        <h2>Made for people applying to their first job, not their fifth.</h2>
+        <p>Most resume tools assume years of work history. BanaoResumee is built around what freshers actually have: a degree, a few solid projects, and the drive to prove themselves.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">🎓</div>
+          <h3>Fresher-first sections</h3>
+          <p>Prompts guide you to lead with academic projects, coursework, and internships — the sections that actually carry weight when you have zero years of experience.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Built to pass ATS</h3>
+          <p>Every template uses clean, parser-friendly formatting, so applicant tracking systems read your resume correctly instead of quietly rejecting it.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>10-minute first draft</h3>
+          <p>Guided prompts and smart defaults mean you're not staring at a blank page. Fill, preview, and export without touching a design tool.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>Role-aware suggestions</h3>
+          <p>Tell us the role you're targeting — SDE, analyst, marketing — and get section prompts and skill suggestions tuned to that path.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🖋️</div>
+          <h3>Grammar & tone check</h3>
+          <p>Catch passive phrasing and weak action verbs before a recruiter does. Every bullet gets a nudge toward stronger, outcome-led language.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📥</div>
+          <h3>One-click PDF export</h3>
+          <p>Download a crisp, print-ready PDF that looks the same on every device and every recruiter's screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">The process</span>
+        <h2>From blank page to offer-ready, in four steps.</h2>
+      </div>
+      <div class="steps">
+        <div class="step-line"></div>
+        <div class="step-row">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Pick a template built for freshers</h3>
+            <p>Choose a layout designed around limited work history — one that puts projects and education front and center instead of burying them.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Answer guided prompts</h3>
+            <p>Instead of a blank text box, you get specific questions about your degree, projects, and skills — so you always know what to write next.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Let the tone check sharpen it</h3>
+            <p>Weak phrasing gets flagged and rewritten suggestions appear, turning "worked on a project" into a line that actually shows impact.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Export and apply</h3>
+            <p>Download your ATS-ready PDF and start applying — to campus placements, internships, or your first full-time role.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section id="templates">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Templates</span>
+        <h2>Every layout is fresher-tested, recruiter-approved.</h2>
+        <p>Pick a starting point based on the role you're chasing — each one is structured to highlight what freshers bring to the table.</p>
+      </div>
+      <div class="template-strip">
+        <div class="template-card">
+          <div class="template-thumb">
+            <div class="t-line head"></div>
+            <div class="t-line"></div><div class="t-line short"></div>
+            <div class="t-line accent"></div>
+            <div class="t-line"></div><div class="t-line"></div>
+          </div>
+          <div class="template-meta"><strong>Campus Classic</strong><span>Best for placements & first internships</span></div>
+        </div>
+        <div class="template-card">
+          <div class="template-thumb">
+            <div class="t-line head"></div>
+            <div class="t-line accent"></div>
+            <div class="t-line"></div><div class="t-line short"></div>
+            <div class="t-line"></div>
+          </div>
+          <div class="template-meta"><strong>Tech Grad</strong><span>Projects-forward, built for SDE roles</span></div>
+        </div>
+        <div class="template-card">
+          <div class="template-thumb">
+            <div class="t-line head"></div>
+            <div class="t-line"></div>
+            <div class="t-line accent"></div><div class="t-line short"></div>
+            <div class="t-line"></div>
+          </div>
+          <div class="template-meta"><strong>Analyst Edge</strong><span>For commerce & analytics freshers</span></div>
+        </div>
+        <div class="template-card">
+          <div class="template-thumb">
+            <div class="t-line head"></div>
+            <div class="t-line short"></div>
+            <div class="t-line"></div><div class="t-line accent"></div>
+          </div>
+          <div class="template-meta"><strong>Creative Start</strong><span>For design & marketing freshers</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Fresher stories</span>
+        <h2>They had no experience. They had a resume that didn't need it.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi">
+          <p>"I had three college projects and no idea how to make them sound impressive. BanaoResumee's prompts did exactly that."</p>
+          <div class="testi-who"><div class="avatar">RS</div><div><strong>Rohan Singh</strong><span>B.Tech, placed at a product startup</span></div></div>
+        </div>
+        <div class="testi">
+          <p>"Built my resume during a lunch break before a deadline. It actually passed the ATS screen — I checked."</p>
+          <div class="testi-who"><div class="avatar">PK</div><div><strong>Priya Kulkarni</strong><span>BBA, analyst intern</span></div></div>
+        </div>
+        <div class="testi">
+          <p>"Every other builder assumed I'd worked somewhere before. This one finally didn't."</p>
+          <div class="testi-who"><div class="avatar">AM</div><div><strong>Arjun Mehta</strong><span>B.Com, first job offer</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container" style="max-width:760px;">
+      <div class="sec-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Everything freshers ask before they start.</h2>
+      </div>
+
+      <div class="faq-item open">
+        <div class="faq-q">Is BanaoResumee really free for freshers?<span class="plus">+</span></div>
+        <div class="faq-a">Yes. Every template, section, and PDF download is free for students and first-time job seekers building their first resume.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will my resume pass ATS screening?<span class="plus">+</span></div>
+        <div class="faq-a">Every template is built on clean, single-column structure that applicant tracking systems parse correctly, so your resume reaches a human reviewer instead of getting silently filtered out.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I have no work experience. Can I still build a strong resume?<span class="plus">+</span></div>
+        <div class="faq-a">Yes — that's the whole point. BanaoResumee guides you to lead with academic projects, internships, coursework, and campus achievements instead of asking for work history you don't have yet.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does it take to build a resume?<span class="plus">+</span></div>
+        <div class="faq-a">Most students finish a full first draft in 10 to 15 minutes using the guided section prompts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I make more than one version for different roles?<span class="plus">+</span></div>
+        <div class="faq-a">Yes. You can create and export multiple versions tailored to different roles or companies, at no extra cost.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="start" style="padding-top:0;">
+    <div class="cta-band">
+      <h2>Your first job is waiting on a better resume.</h2>
+      <p>Join thousands of freshers who stopped guessing and started applying with confidence.</p>
+      <a href="#" class="btn btn-primary">Build my resume now →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col" style="max-width:280px;">
+        <a href="#" class="logo" style="margin-bottom:10px; display:inline-flex;"><span class="logo-mark">BR</span>BanaoResumee</a>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-top:10px;">The resume builder made for freshers, students, and first-time job seekers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#templates">Templates</a>
+        <a href="#how">How it works</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#">Resume tips for freshers</a>
+        <a href="#">ATS guide</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BanaoResumee. Built for the class about to graduate.</span>
+      <span>banaoresumee.online</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
