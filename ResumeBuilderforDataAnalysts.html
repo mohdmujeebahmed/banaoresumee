@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder for Data Analysts — The 2026 Guide That Gets Interviews | BanaoResume</title>
+<meta name="description" content="What recruiters actually check on a data analyst resume, the skills that matter in 2026, a real before/after example, and the mistakes killing your callbacks. Free ATS resume builder.">
+<meta name="keywords" content="resume builder for data analysts, data analyst resume, data analyst resume example, ATS resume data analyst, SQL analyst resume">
+<meta property="og:title" content="Resume Builder for Data Analysts — The 2026 Guide">
+<meta property="og:description" content="What recruiters expect, key skills, a real resume example, and the mistakes costing data analysts interviews.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://banaoresumee.online/guides/data-analyst-resume">
+<link rel="canonical" href="https://banaoresumee.online/guides/data-analyst-resume">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Resume Builder for Data Analysts — The 2026 Guide",
+  "description": "What recruiters expect, key skills to include, a resume example, and common mistakes to avoid when writing a data analyst resume.",
+  "author": { "@type": "Organization", "name": "BanaoResume" },
+  "publisher": { "@type": "Organization", "name": "BanaoResume", "url": "https://banaoresumee.online" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b10;
+    --panel:#12141b;
+    --panel-2:#171a23;
+    --line:#262a37;
+    --text:#eaecf4;
+    --muted:#8b8fa3;
+    --lime:#c6ff4d;
+    --indigo:#7c83fd;
+    --pink:#ff8bd6;
+    --red:#ff6b6b;
+    --green:#5fe0a4;
+    --disp:'Space Grotesk',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --body:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--lime);color:#101400;}
+
+  .grid-floor{
+    position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(124,131,253,0.06) 1px, transparent 1px),linear-gradient(90deg, rgba(124,131,253,0.06) 1px, transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+            mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+    pointer-events:none;
+  }
+  .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:0.3;pointer-events:none;z-index:0;}
+  .orb-1{width:520px;height:520px;background:var(--indigo);top:-160px;left:-120px;}
+  .orb-2{width:460px;height:460px;background:var(--lime);top:18%;right:-190px;opacity:0.2;}
+  .orb-3{width:420px;height:420px;background:var(--pink);bottom:-140px;left:22%;opacity:0.16;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,11,16,0.72);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .logo{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:0.5px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;background:var(--lime);color:#101400;padding:9px 18px;border-radius:8px;text-decoration:none;transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-2px);}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--indigo);display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .eyebrow::before{content:'SELECT *';color:var(--muted);}
+
+  .hero{position:relative;padding:96px 0 70px;perspective:1400px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-0.5px;}
+  h1 .accent{color:var(--lime);}
+  .hero-sub{color:var(--muted);font-size:17px;line-height:1.65;margin-top:20px;max-width:52ch;}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn-primary{font-family:var(--mono);font-weight:600;font-size:14px;background:linear-gradient(135deg,var(--lime),var(--indigo));color:#0d0e12;padding:15px 26px;border-radius:10px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(198,255,77,0.35);transition:transform .25s ease, box-shadow .25s ease;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 40px -10px rgba(124,131,253,0.5);}
+  .btn-ghost{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--text);padding:15px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--line);transition:border-color .2s ease, background .2s ease;}
+  .btn-ghost:hover{border-color:var(--indigo);background:rgba(124,131,253,0.08);}
+
+  .stack-scene{position:relative;height:380px;transform-style:preserve-3d;}
+  .da-layer{
+    position:absolute;left:50%;top:50%;width:290px;height:180px;border-radius:12px;
+    border:1px solid var(--line);background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);overflow:hidden;
+    transform-style:preserve-3d;will-change:transform;transition:transform .15s ease-out;
+  }
+  .da-head{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.02);}
+  .da-dot{width:8px;height:8px;border-radius:50%;}
+  .da-dot.r{background:#ff5f56;} .da-dot.y{background:#ffbd2e;} .da-dot.g{background:#27c93f;}
+  .da-file{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:6px;}
+  .da-body{padding:12px 14px;font-family:var(--mono);font-size:11px;line-height:1.85;color:var(--text);}
+  .da-body .kw{color:var(--indigo);} .da-body .fn{color:var(--lime);} .da-body .cm{color:var(--muted);}
+  .da-layer.l1{transform:translate(-50%,-50%) translateZ(0px) rotateX(6deg) rotateY(-10deg);}
+  .da-layer.l2{transform:translate(-58%,-42%) translateZ(60px) rotateX(6deg) rotateY(-10deg);border-color:rgba(124,131,253,0.4);}
+  .da-layer.l3{transform:translate(-42%,-58%) translateZ(120px) rotateX(6deg) rotateY(-10deg);border-color:rgba(198,255,77,0.5);box-shadow:0 40px 80px -20px rgba(198,255,77,0.2);}
+  .da-layer .badge{position:absolute;top:-10px;right:14px;font-family:var(--mono);font-size:10px;font-weight:700;background:var(--bg);border:1px solid var(--line);padding:3px 8px;border-radius:20px;color:var(--green);}
+  .da-bars{display:flex;align-items:flex-end;gap:5px;height:44px;margin-top:8px;}
+  .da-bars span{flex:1;background:linear-gradient(180deg,var(--lime),var(--indigo));border-radius:2px 2px 0 0;opacity:0.85;}
+
+  section{position:relative;padding:88px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  h2{font-family:var(--disp);font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-0.3px;}
+  .section-sub{color:var(--muted);margin-top:12px;font-size:15.5px;line-height:1.6;}
+
+  .terminal{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);}
+  .term-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel-2);}
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-dot.r{background:#ff5f56;} .term-dot.y{background:#ffbd2e;} .term-dot.g{background:#27c93f;}
+  .term-title{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:8px;}
+  .term-body{padding:26px 28px;font-family:var(--mono);font-size:14.5px;line-height:2.15;}
+  .term-body .prompt{color:var(--green);}
+  .term-line{display:flex;gap:12px;align-items:flex-start;color:var(--text);}
+  .term-line .chk{color:var(--indigo);flex-shrink:0;}
+  .term-line span.desc{color:var(--muted);}
+
+  .skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-card{background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:24px;transform-style:preserve-3d;transition:transform .12s ease-out, border-color .2s ease;will-change:transform;}
+  .skill-card:hover{border-color:rgba(124,131,253,0.4);}
+  .skill-card h3{font-family:var(--disp);font-size:17px;margin-bottom:14px;color:var(--text);}
+  .skill-card .num{font-family:var(--mono);font-size:11px;color:var(--pink);display:block;margin-bottom:6px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:var(--mono);font-size:12.5px;color:var(--text);background:rgba(255,255,255,0.04);border:1px solid var(--line);padding:6px 11px;border-radius:7px;}
+
+  .example-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .doc-card{border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--panel);transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform;}
+  .doc-head{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+  .doc-head .lbl{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .doc-card.bad .doc-head{background:rgba(255,107,107,0.08);} .doc-card.bad .lbl{color:var(--red);}
+  .doc-card.good .doc-head{background:rgba(95,224,164,0.08);} .doc-card.good .lbl{color:var(--green);}
+  .doc-body{padding:22px 22px 26px;font-size:14.5px;line-height:1.75;color:var(--text);}
+  .doc-body .role{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+  .doc-body ul{padding-left:0;list-style:none;}
+  .doc-body li{margin-bottom:12px;padding-left:20px;position:relative;}
+  .doc-card.bad li::before{content:'✕';position:absolute;left:0;color:var(--red);font-weight:700;}
+  .doc-card.good li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .metric{font-family:var(--mono);color:var(--lime);font-weight:600;}
+
+  .mistake-list{display:flex;flex-direction:column;gap:14px;}
+  .mistake{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:10px;padding:18px 20px;}
+  .mistake .err-tag{font-family:var(--mono);font-size:11px;color:var(--red);background:rgba(255,107,107,0.1);padding:4px 9px;border-radius:5px;white-space:nowrap;margin-top:2px;}
+  .mistake h4{font-family:var(--disp);font-size:16px;margin-bottom:6px;}
+  .mistake p{color:var(--muted);font-size:14px;line-height:1.6;}
+  .mistake .fix{font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap;align-self:center;}
+
+  .cta-section{border-top:1px solid var(--line);padding:100px 0;}
+  .cta-box{position:relative;border-radius:22px;padding:64px 48px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at top, rgba(124,131,253,0.14), transparent 60%), var(--panel);border:1px solid var(--line);}
+  .cta-box h2{margin-bottom:14px;}
+  .cta-box p{color:var(--muted);max-width:46ch;margin:0 auto 34px;font-size:16px;line-height:1.6;}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:18px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12.5px;}
+  footer a{color:var(--lime);text-decoration:none;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .stack-scene{height:280px;order:-1;}
+    .skill-groups{grid-template-columns:1fr;}
+    .example-grid{grid-template-columns:1fr;}
+    .mistake{grid-template-columns:1fr;}
+    .mistake .fix{justify-self:start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-floor"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="https://banaoresumee.online" class="logo"><span class="dot"></span>banaoresume</a>
+    <a href="https://banaoresumee.online" class="nav-cta">Build my resume →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">resume guide · data analyst</span>
+      <h1>You turn raw data into decisions.<br>Does your resume read like <span class="accent">an unclean dataset</span>?</h1>
+      <p class="hero-sub">Every data analyst resume says "SQL, Excel, Tableau, strong analytical skills." That's the schema, not the insight. This page breaks down what recruiters and hiring managers actually screen for, what belongs in your skills section, and how to write bullets that prove you influenced real decisions — not just built reports nobody opened.</p>
+      <div class="hero-actions">
+        <a href="https://banaoresumee.online" class="btn-primary">Build this resume free →</a>
+        <a href="#example" class="btn-ghost">See a real example</a>
+      </div>
+    </div>
+    <div class="stack-scene" id="stackScene">
+      <div class="da-layer l1">
+        <span class="badge">Raw</span>
+        <div class="da-head"><span class="da-dot r"></span><span class="da-dot y"></span><span class="da-dot g"></span><span class="da-file">raw_data.csv</span></div>
+        <div class="da-body"><span class="cm"># duties only, no numbers</span><br><span class="kw">SELECT</span> tasks <span class="kw">FROM</span> resume;</div>
+      </div>
+      <div class="da-layer l2">
+        <span class="badge">Queried</span>
+        <div class="da-head"><span class="da-dot r"></span><span class="da-dot y"></span><span class="da-dot g"></span><span class="da-file">query.sql</span></div>
+        <div class="da-body"><span class="cm"># impact quantified</span><br><span class="kw">SELECT</span> <span class="fn">churn_rate</span> <span class="kw">WHERE</span> qtr=4;</div>
+      </div>
+      <div class="da-layer l3">
+        <span class="badge">Insight ✓</span>
+        <div class="da-head"><span class="da-dot r"></span><span class="da-dot y"></span><span class="da-dot g"></span><span class="da-file">dashboard.pbix</span></div>
+        <div class="da-bars"><span style="height:35%"></span><span style="height:60%"></span><span style="height:45%"></span><span style="height:80%"></span><span style="height:55%"></span><span style="height:90%"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="expect">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 · what recruiters expect</span>
+      <h2>They're not checking if you can build a pivot table. They're checking if your work changed a decision.</h2>
+      <p class="section-sub">Data analyst hiring has quietly shifted — SQL and Excel are table stakes now, not the differentiator. Recruiters and hiring managers are scanning for one thing above all: did your analysis actually move a business number?</p>
+    </div>
+    <div class="terminal">
+      <div class="term-head">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">recruiter — analyst_screen.sql</span>
+      </div>
+      <div class="term-body">
+        <div class="term-line"><span class="prompt">$</span><span>SELECT * FROM candidates WHERE role = 'data analyst';</span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Real SQL, not just SELECT statements <span class="desc">// joins, window functions, CTEs — the stuff that shows up in interviews</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A dashboard or report someone actually used <span class="desc">// "built a dashboard" means nothing without who read it</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Basic statistics — A/B testing, hypothesis testing <span class="desc">// even light exposure signals rigor over guesswork</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A business number your work moved <span class="desc">// churn, revenue, cost, time saved — pick one and quantify it</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Evidence you can explain findings to non-technical people <span class="desc">// analysts who can't communicate insights don't get promoted</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A resume that actually parses through the ATS <span class="desc">// clean text layer, no charts-as-images, no merged table cells</span></span></div>
+        <div class="term-line" style="margin-top:6px;"><span class="prompt">$</span><span style="color:var(--muted)">6/6 checks passed → moved to phone screen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 · key skills to include</span>
+      <h2>Skills grouped the way an actual analysis workflow moves.</h2>
+      <p class="section-sub">Don't flatten "SQL, Excel, Tableau, Python, statistics, communication" into one line. Group them by stage — pulling data, analyzing it, visualizing it, and translating it into something a business person acts on.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card" data-tilt>
+        <span class="num">PULL</span>
+        <h3>Data Querying</h3>
+        <div class="chip-row">
+          <span class="chip">SQL (joins, CTEs, window fns)</span><span class="chip">BigQuery / Snowflake</span><span class="chip">Excel / Google Sheets (advanced)</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">ANALYZE</span>
+        <h3>Analysis & Statistics</h3>
+        <div class="chip-row">
+          <span class="chip">Python (Pandas, NumPy)</span><span class="chip">R</span><span class="chip">A/B testing</span><span class="chip">Hypothesis testing</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">VISUALIZE</span>
+        <h3>Dashboards & BI</h3>
+        <div class="chip-row">
+          <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Looker Studio</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">CLEAN</span>
+        <h3>Data Preparation</h3>
+        <div class="chip-row">
+          <span class="chip">Data cleaning</span><span class="chip">ETL basics</span><span class="chip">Data validation</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">TRANSLATE</span>
+        <h3>Business Communication</h3>
+        <div class="chip-row">
+          <span class="chip">Data storytelling</span><span class="chip">Stakeholder presentations</span><span class="chip">KPI definition</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">INVISIBLE</span>
+        <h3>What Seniority Looks Like</h3>
+        <div class="chip-row">
+          <span class="chip">Requirements gathering</span><span class="chip">Business acumen</span><span class="chip">Cross-team collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="example">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 · resume example</span>
+      <h2>Same analyst. Same quarter. One version gets a callback.</h2>
+      <p class="section-sub">The rewrite doesn't add fake wins — it just says what the analysis actually led to, in numbers a hiring manager can picture.</p>
+    </div>
+    <div class="example-grid">
+      <div class="doc-card bad" data-tilt>
+        <div class="doc-head"><span class="lbl">Weak version</span></div>
+        <div class="doc-body">
+          <div class="role">Data Analyst — E-commerce Co.</div>
+          <ul>
+            <li>Responsible for analyzing data and creating reports using Excel and SQL</li>
+            <li>Created dashboards for management to review</li>
+            <li>Assisted in identifying trends in customer behavior</li>
+            <li>Proficient in SQL, Excel, Tableau, Power BI, Python, statistics</li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc-card good" data-tilt>
+        <div class="doc-head"><span class="lbl">Rewritten version</span></div>
+        <div class="doc-body">
+          <div class="role">Data Analyst — E-commerce Co.</div>
+          <ul>
+            <li>Wrote SQL queries analyzing <span class="metric">2M+ customer records</span>, uncovering a churn pattern that informed a retention campaign cutting churn by <span class="metric">12%</span></li>
+            <li>Built a Power BI dashboard tracking KPIs for <span class="metric">5 regional teams</span>, reducing weekly reporting time from <span class="metric">6 hours to 30 minutes</span></li>
+            <li>Ran an A/B test on the pricing page that led to a redesign decision, increasing conversion by <span class="metric">8%</span></li>
+            <li>Presented quarterly findings to leadership, directly informing <span class="metric">3 product roadmap changes</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mistakes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 · common mistakes</span>
+      <h2>The queries your resume runs that return zero rows.</h2>
+      <p class="section-sub">No error. No warning. Just a recruiter scrolling past because nothing on the page proves impact.</p>
+    </div>
+    <div class="mistake-list">
+      <div class="mistake">
+        <span class="err-tag">NULL</span>
+        <div><h4>"Proficient in Excel" with zero specifics</h4><p>Every resume says this. Pivot tables, VLOOKUP/XLOOKUP, macros, and array formulas are what actually separate basic from advanced — name the ones you use.</p></div>
+        <span class="fix">→ replace "proficient" with the actual functions</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Ambiguous</span>
+        <div><h4>SQL mentioned with no complexity shown</h4><p>"Used SQL to pull data" tells a hiring manager nothing about your level. Joins, subqueries, and window functions are what get probed in the actual interview.</p></div>
+        <span class="fix">→ name the SQL concept behind the work</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Duplicate</span>
+        <div><h4>Reports and dashboards described with no business outcome</h4><p>"Built a dashboard" is a task. "Built a dashboard that cut reporting time by 90%" is a result. The second one is what gets remembered.</p></div>
+        <span class="fix">→ attach a "so what" to every dashboard bullet</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Mismatch</span>
+        <div><h4>Data entry described as data analysis</h4><p>Pulling numbers into a spreadsheet isn't the same as analyzing them. If the role was mostly data entry, be honest about it and highlight whatever analysis you did layer on top.</p></div>
+        <span class="fix">→ separate "collected" from "analyzed" clearly</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Timeout</span>
+        <div><h4>No sign you can explain findings to non-technical people</h4><p>Analysts get hired to inform decisions, not just produce numbers. If nothing on your resume shows you presented or influenced a stakeholder, that's a visible gap.</p></div>
+        <span class="fix">→ add one bullet about a presentation or decision you informed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box">
+      <span class="eyebrow" style="justify-content:center;">ready when you are</span>
+      <h2>Stop letting your resume return zero rows.</h2>
+      <p>Build an ATS-friendly, recruiter-tested data analyst resume in minutes — free, no signup wall, no watermark.</p>
+      <a href="https://banaoresumee.online" class="btn-primary">Build my resume on BanaoResume →</a>
+      <div class="cta-note">Free templates · ATS-optimized · Built for Indian students & freshers</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Made for analysts who'd rather tell a story with data than fight Microsoft Word · <a href="https://banaoresumee.online">banaoresumee.online</a>
+  </div>
+</footer>
+
+<script>
+  const scene = document.getElementById('stackScene');
+  const layers = document.querySelectorAll('.da-layer');
+  const baseTransforms = [
+    {rx:6, ry:-10, tx:-50, ty:-50, tz:0},
+    {rx:6, ry:-10, tx:-58, ty:-42, tz:60},
+    {rx:6, ry:-10, tx:-42, ty:-58, tz:120}
+  ];
+  if(scene){
+    scene.addEventListener('mousemove', (e)=>{
+      const r = scene.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx - py*14}deg) rotateY(${b.ry + px*20}deg)`;
+      });
+    });
+    scene.addEventListener('mouseleave', ()=>{
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx}deg) rotateY(${b.ry}deg)`;
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-tilt], .doc-card').forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(800px) rotateX(${-py*8}deg) rotateY(${px*10}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+</script>
+
+</body>
+</html>
