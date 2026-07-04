@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder for Python Developers — The 2026 Guide That Gets Interviews | BanaoResume</title>
+<meta name="description" content="What recruiters actually check on a Python developer resume, the skills that matter in 2026, a real before/after example, and the mistakes killing your callbacks. Free ATS resume builder.">
+<meta name="keywords" content="resume builder for python developers, python developer resume, python developer resume example, ATS resume python, backend developer resume">
+<meta property="og:title" content="Resume Builder for Python Developers — The 2026 Guide">
+<meta property="og:description" content="What recruiters expect, key skills, a real resume example, and the mistakes costing Python developers interviews.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://banaoresumee.online/guides/python-developer-resume">
+<link rel="canonical" href="https://banaoresumee.online/guides/python-developer-resume">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Resume Builder for Python Developers — The 2026 Guide",
+  "description": "What recruiters expect, key skills to include, a resume example, and common mistakes to avoid when writing a Python developer resume.",
+  "author": { "@type": "Organization", "name": "BanaoResume" },
+  "publisher": { "@type": "Organization", "name": "BanaoResume", "url": "https://banaoresumee.online" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c10;
+    --panel:#12141c;
+    --panel-2:#171a24;
+    --line:#262a38;
+    --text:#eaedf5;
+    --muted:#8d92a5;
+    --blue:#5b9dff;
+    --gold:#ffcf4d;
+    --violet:#9b8cff;
+    --red:#ff6b6b;
+    --green:#5fe0a4;
+    --disp:'Space Grotesk',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --body:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--gold);color:#191300;}
+
+  .grid-floor{
+    position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(91,157,255,0.06) 1px, transparent 1px),linear-gradient(90deg, rgba(91,157,255,0.06) 1px, transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+            mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+    pointer-events:none;
+  }
+  .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:0.32;pointer-events:none;z-index:0;}
+  .orb-1{width:520px;height:520px;background:var(--blue);top:-160px;left:-120px;}
+  .orb-2{width:460px;height:460px;background:var(--gold);top:18%;right:-190px;opacity:0.22;}
+  .orb-3{width:420px;height:420px;background:var(--violet);bottom:-140px;left:22%;opacity:0.18;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,0.72);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .logo{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:0.5px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;background:var(--gold);color:#1a1400;padding:9px 18px;border-radius:8px;text-decoration:none;transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-2px);}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .eyebrow::before{content:'>>>';color:var(--muted);}
+
+  .hero{position:relative;padding:96px 0 70px;perspective:1400px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-0.5px;}
+  h1 .accent{color:var(--gold);}
+  .hero-sub{color:var(--muted);font-size:17px;line-height:1.65;margin-top:20px;max-width:52ch;}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn-primary{font-family:var(--mono);font-weight:600;font-size:14px;background:linear-gradient(135deg,var(--gold),var(--blue));color:#0d0e12;padding:15px 26px;border-radius:10px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(255,207,77,0.45);transition:transform .25s ease, box-shadow .25s ease;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 40px -10px rgba(91,157,255,0.55);}
+  .btn-ghost{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--text);padding:15px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--line);transition:border-color .2s ease, background .2s ease;}
+  .btn-ghost:hover{border-color:var(--blue);background:rgba(91,157,255,0.06);}
+
+  .stack-scene{position:relative;height:380px;transform-style:preserve-3d;}
+  .py-layer{
+    position:absolute;left:50%;top:50%;width:290px;height:180px;border-radius:12px;
+    border:1px solid var(--line);background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);overflow:hidden;
+    transform-style:preserve-3d;will-change:transform;transition:transform .15s ease-out;
+  }
+  .py-head{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.02);}
+  .py-dot{width:8px;height:8px;border-radius:50%;}
+  .py-dot.r{background:#ff5f56;} .py-dot.y{background:#ffbd2e;} .py-dot.g{background:#27c93f;}
+  .py-file{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:6px;}
+  .py-body{padding:12px 14px;font-family:var(--mono);font-size:11.5px;line-height:1.9;color:var(--text);}
+  .py-body .kw{color:var(--blue);} .py-body .fn{color:var(--gold);} .py-body .cm{color:var(--muted);}
+  .py-layer.l1{transform:translate(-50%,-50%) translateZ(0px) rotateX(6deg) rotateY(-10deg);}
+  .py-layer.l2{transform:translate(-58%,-42%) translateZ(60px) rotateX(6deg) rotateY(-10deg);border-color:rgba(91,157,255,0.4);}
+  .py-layer.l3{transform:translate(-42%,-58%) translateZ(120px) rotateX(6deg) rotateY(-10deg);border-color:rgba(255,207,77,0.5);box-shadow:0 40px 80px -20px rgba(255,207,77,0.25);}
+  .py-layer .badge{position:absolute;top:-10px;right:14px;font-family:var(--mono);font-size:10px;font-weight:700;background:var(--bg);border:1px solid var(--line);padding:3px 8px;border-radius:20px;color:var(--green);}
+
+  section{position:relative;padding:88px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  h2{font-family:var(--disp);font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-0.3px;}
+  .section-sub{color:var(--muted);margin-top:12px;font-size:15.5px;line-height:1.6;}
+
+  .terminal{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);}
+  .term-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel-2);}
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-dot.r{background:#ff5f56;} .term-dot.y{background:#ffbd2e;} .term-dot.g{background:#27c93f;}
+  .term-title{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:8px;}
+  .term-body{padding:26px 28px;font-family:var(--mono);font-size:14.5px;line-height:2.15;}
+  .term-body .prompt{color:var(--green);}
+  .term-line{display:flex;gap:12px;align-items:flex-start;color:var(--text);}
+  .term-line .chk{color:var(--blue);flex-shrink:0;}
+  .term-line span.desc{color:var(--muted);}
+
+  .skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-card{background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:24px;transform-style:preserve-3d;transition:transform .12s ease-out, border-color .2s ease;will-change:transform;}
+  .skill-card:hover{border-color:rgba(91,157,255,0.4);}
+  .skill-card h3{font-family:var(--disp);font-size:17px;margin-bottom:14px;color:var(--text);}
+  .skill-card .num{font-family:var(--mono);font-size:11px;color:var(--violet);display:block;margin-bottom:6px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:var(--mono);font-size:12.5px;color:var(--text);background:rgba(255,255,255,0.04);border:1px solid var(--line);padding:6px 11px;border-radius:7px;}
+
+  .example-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .doc-card{border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--panel);transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform;}
+  .doc-head{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+  .doc-head .lbl{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .doc-card.bad .doc-head{background:rgba(255,107,107,0.08);} .doc-card.bad .lbl{color:var(--red);}
+  .doc-card.good .doc-head{background:rgba(95,224,164,0.08);} .doc-card.good .lbl{color:var(--green);}
+  .doc-body{padding:22px 22px 26px;font-size:14.5px;line-height:1.75;color:var(--text);}
+  .doc-body .role{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+  .doc-body ul{padding-left:0;list-style:none;}
+  .doc-body li{margin-bottom:12px;padding-left:20px;position:relative;}
+  .doc-card.bad li::before{content:'✕';position:absolute;left:0;color:var(--red);font-weight:700;}
+  .doc-card.good li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .metric{font-family:var(--mono);color:var(--gold);font-weight:600;}
+
+  .mistake-list{display:flex;flex-direction:column;gap:14px;}
+  .mistake{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:10px;padding:18px 20px;}
+  .mistake .err-tag{font-family:var(--mono);font-size:11px;color:var(--red);background:rgba(255,107,107,0.1);padding:4px 9px;border-radius:5px;white-space:nowrap;margin-top:2px;}
+  .mistake h4{font-family:var(--disp);font-size:16px;margin-bottom:6px;}
+  .mistake p{color:var(--muted);font-size:14px;line-height:1.6;}
+  .mistake .fix{font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap;align-self:center;}
+
+  .cta-section{border-top:1px solid var(--line);padding:100px 0;}
+  .cta-box{position:relative;border-radius:22px;padding:64px 48px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at top, rgba(91,157,255,0.12), transparent 60%), var(--panel);border:1px solid var(--line);}
+  .cta-box h2{margin-bottom:14px;}
+  .cta-box p{color:var(--muted);max-width:46ch;margin:0 auto 34px;font-size:16px;line-height:1.6;}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:18px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12.5px;}
+  footer a{color:var(--gold);text-decoration:none;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .stack-scene{height:280px;order:-1;}
+    .skill-groups{grid-template-columns:1fr;}
+    .example-grid{grid-template-columns:1fr;}
+    .mistake{grid-template-columns:1fr;}
+    .mistake .fix{justify-self:start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-floor"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="https://banaoresumee.online" class="logo"><span class="dot"></span>banaoresume</a>
+    <a href="https://banaoresumee.online" class="nav-cta">Build my resume →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">resume guide · python developer</span>
+      <h1>Your code runs clean.<br>Does your resume <span class="accent">throw an exception</span> before it gets read?</h1>
+      <p class="hero-sub">Every Python resume says "Python, Django, Flask, Pandas, NumPy." That's not a differentiator — that's the baseline. This page breaks down what recruiters and engineering leads actually screen for, what to keep in your skills section, and how to write bullets that prove you shipped production systems, not tutorials.</p>
+      <div class="hero-actions">
+        <a href="https://banaoresumee.online" class="btn-primary">Build this resume free →</a>
+        <a href="#example" class="btn-ghost">See a real example</a>
+      </div>
+    </div>
+    <div class="stack-scene" id="stackScene">
+      <div class="py-layer l1">
+        <span class="badge">Draft</span>
+        <div class="py-head"><span class="py-dot r"></span><span class="py-dot y"></span><span class="py-dot g"></span><span class="py-file">resume_v1.py</span></div>
+        <div class="py-body"><span class="cm"># responsibilities only</span><br><span class="kw">def</span> <span class="fn">experience</span>():<br>&nbsp;&nbsp;<span class="kw">return</span> "worked on stuff"</div>
+      </div>
+      <div class="py-layer l2">
+        <span class="badge">Tested</span>
+        <div class="py-head"><span class="py-dot r"></span><span class="py-dot y"></span><span class="py-dot g"></span><span class="py-file">resume_v4.py</span></div>
+        <div class="py-body"><span class="cm"># quantified impact</span><br><span class="kw">def</span> <span class="fn">experience</span>():<br>&nbsp;&nbsp;<span class="kw">return</span> "-40% latency"</div>
+      </div>
+      <div class="py-layer l3">
+        <span class="badge">Prod ✓</span>
+        <div class="py-head"><span class="py-dot r"></span><span class="py-dot y"></span><span class="py-dot g"></span><span class="py-file">resume_final.py</span></div>
+        <div class="py-body"><span class="cm"># ATS-passed, callback: True</span><br><span class="kw">def</span> <span class="fn">experience</span>():<br>&nbsp;&nbsp;<span class="kw">return</span> "shipped &amp; scaled"</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="expect">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 · what recruiters expect</span>
+      <h2>They're not testing your Python knowledge yet. They're testing whether you shipped anything real.</h2>
+      <p class="section-sub">The technical interview comes later. This first pass — recruiter or engineering lead skimming your resume — is about pattern-matching to "has done this before." Here's what they're pattern-matching against.</p>
+    </div>
+    <div class="terminal">
+      <div class="term-head">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">recruiter — python_screen.py</span>
+      </div>
+      <div class="term-body">
+        <div class="term-line"><span class="prompt">$</span><span>python screen.py --role="python developer"</span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A clear specialization — backend, data, automation, or ML <span class="desc">// "does everything" reads as "hasn't gone deep in anything"</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Real database work — schema design, queries, an ORM <span class="desc">// every backend role needs this, most resumes skip it</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>API or pipeline experience with scale attached <span class="desc">// "handles 50K requests/day" beats "built an API"</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Tests in the codebase, not just code <span class="desc">// pytest coverage signals production discipline</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Deployment awareness — Docker, CI/CD, one cloud provider <span class="desc">// shows you've shipped past your own laptop</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A resume that actually parses through the ATS <span class="desc">// clean text layer, no tables, no image-based skill bars</span></span></div>
+        <div class="term-line" style="margin-top:6px;"><span class="prompt">$</span><span style="color:var(--muted)">6/6 checks passed → moved to phone screen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 · key skills to include</span>
+      <h2>Skills grouped the way a Python codebase is actually structured.</h2>
+      <p class="section-sub">Don't dump "Python, Django, Flask, Pandas, SQL, Git, Docker, AWS" in one flat line. Group them by what they prove — language depth, framework, data layer, and the ops maturity that separates mid from senior.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card" data-tilt>
+        <span class="num">CORE</span>
+        <h3>Language & Fundamentals</h3>
+        <div class="chip-row">
+          <span class="chip">Python 3.x</span><span class="chip">OOP</span><span class="chip">Data structures</span><span class="chip">Type hints</span><span class="chip">PEP 8</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">FRAMEWORK</span>
+        <h3>Web & API</h3>
+        <div class="chip-row">
+          <span class="chip">Django / DRF</span><span class="chip">Flask</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">DATA LAYER</span>
+        <h3>Database & Storage</h3>
+        <div class="chip-row">
+          <span class="chip">PostgreSQL / MySQL</span><span class="chip">SQLAlchemy</span><span class="chip">Redis</span><span class="chip">Query optimization</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">QUALITY</span>
+        <h3>Testing & Reliability</h3>
+        <div class="chip-row">
+          <span class="chip">pytest</span><span class="chip">unittest</span><span class="chip">Mocking</span><span class="chip">CI test suites</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">OPERATIONS</span>
+        <h3>Deployment & Scale</h3>
+        <div class="chip-row">
+          <span class="chip">Docker</span><span class="chip">Git & GitHub Actions</span><span class="chip">AWS / GCP basics</span><span class="chip">Celery / async</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">IF DATA-LEANING</span>
+        <h3>Data & Automation</h3>
+        <div class="chip-row">
+          <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scripting / automation</span><span class="chip">ETL pipelines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="example">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 · resume example</span>
+      <h2>Same backend engineer. Same six months. One version gets a callback.</h2>
+      <p class="section-sub">The rewrite doesn't add fake experience — it just tells the reader what actually happened, in numbers.</p>
+    </div>
+    <div class="example-grid">
+      <div class="doc-card bad" data-tilt>
+        <div class="doc-head"><span class="lbl">Weak version</span></div>
+        <div class="doc-body">
+          <div class="role">Python Developer — Fintech Startup</div>
+          <ul>
+            <li>Responsible for backend development using Python and Django</li>
+            <li>Worked on database queries and API endpoints</li>
+            <li>Wrote scripts for automating internal tasks</li>
+            <li>Skilled in Python, Django, Flask, FastAPI, Pandas, NumPy, SQL, Docker, AWS, Git</li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc-card good" data-tilt>
+        <div class="doc-head"><span class="lbl">Rewritten version</span></div>
+        <div class="doc-body">
+          <div class="role">Python Developer — Fintech Startup</div>
+          <ul>
+            <li>Built a Django REST API handling <span class="metric">50K+ requests/day</span>, cutting average response time from <span class="metric">800ms to 220ms</span> through query optimization and Redis caching</li>
+            <li>Designed PostgreSQL schema for transaction history, supporting <span class="metric">2M+ records</span> with zero downtime migrations</li>
+            <li>Automated a daily reconciliation pipeline with Celery, cutting manual reporting time by <span class="metric">90%</span></li>
+            <li>Wrote pytest suite covering core payment logic, raising test coverage from <span class="metric">18% to 82%</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mistakes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 · common mistakes</span>
+      <h2>The exceptions your resume throws silently.</h2>
+      <p class="section-sub">No traceback. No stderr. Just a recruiter closing the tab and moving to the next candidate.</p>
+    </div>
+    <div class="mistake-list">
+      <div class="mistake">
+        <span class="err-tag">Uncaught</span>
+        <div><h4>Every library you've ever imported, with none proven</h4><p>Listing Django, Flask, FastAPI, Pandas, NumPy, and TensorFlow in one line signals breadth without depth. Pick your lane — backend, data, or automation — and show real work in it.</p></div>
+        <span class="fix">→ group by specialization, cut the rest</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">ImportError</span>
+        <div><h4>No database or SQL mentioned for a backend role</h4><p>Almost every Python backend job touches a database daily. If your resume doesn't mention schema design, queries, or an ORM, it reads incomplete.</p></div>
+        <span class="fix">→ name the database and what you did with it</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">TypeError</span>
+        <div><h4>Tutorial projects presented as production experience</h4><p>A to-do app clone from a YouTube course is fine to learn from — it's not resume material next to real deployed work. Recruiters can tell the difference from the description alone.</p></div>
+        <span class="fix">→ show one real, deployed, used project</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Warning</span>
+        <div><h4>No mention of testing</h4><p>"I write code" and "I write tested code" read very differently to a hiring engineer. Even one line about pytest coverage signals production maturity.</p></div>
+        <span class="fix">→ add one testing-related bullet</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Deprecated</span>
+        <div><h4>Mismatched buzzwords for the role you're applying to</h4><p>Stacking machine learning keywords onto a backend developer resume — or vice versa — confuses the ATS keyword match and the human reading it right after.</p></div>
+        <span class="fix">→ tailor skills to the specific job post</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box">
+      <span class="eyebrow" style="justify-content:center;">ready when you are</span>
+      <h2>Stop debugging your resume in Word.</h2>
+      <p>Build an ATS-friendly, recruiter-tested Python developer resume in minutes — free, no signup wall, no watermark.</p>
+      <a href="https://banaoresumee.online" class="btn-primary">Build my resume on BanaoResume →</a>
+      <div class="cta-note">Free templates · ATS-optimized · Built for Indian students & freshers</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Made for developers who'd rather ship code than fight Microsoft Word · <a href="https://banaoresumee.online">banaoresumee.online</a>
+  </div>
+</footer>
+
+<script>
+  const scene = document.getElementById('stackScene');
+  const layers = document.querySelectorAll('.py-layer');
+  const baseTransforms = [
+    {rx:6, ry:-10, tx:-50, ty:-50, tz:0},
+    {rx:6, ry:-10, tx:-58, ty:-42, tz:60},
+    {rx:6, ry:-10, tx:-42, ty:-58, tz:120}
+  ];
+  if(scene){
+    scene.addEventListener('mousemove', (e)=>{
+      const r = scene.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx - py*14}deg) rotateY(${b.ry + px*20}deg)`;
+      });
+    });
+    scene.addEventListener('mouseleave', ()=>{
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx}deg) rotateY(${b.ry}deg)`;
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-tilt], .doc-card').forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(800px) rotateX(${-py*8}deg) rotateY(${px*10}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+</script>
+
+</body>
+</html>
