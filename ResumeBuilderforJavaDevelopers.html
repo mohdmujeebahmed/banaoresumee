@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder for Java Developers — The 2026 Guide That Gets Interviews | BanaoResume</title>
+<meta name="description" content="What recruiters actually check on a Java developer resume, the skills that matter in 2026, a real before/after example, and the mistakes killing your callbacks. Free ATS resume builder.">
+<meta name="keywords" content="resume builder for java developers, java developer resume, spring boot resume example, ATS resume java, backend developer resume">
+<meta property="og:title" content="Resume Builder for Java Developers — The 2026 Guide">
+<meta property="og:description" content="What recruiters expect, key skills, a real resume example, and the mistakes costing Java developers interviews.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://banaoresumee.online/guides/java-developer-resume">
+<link rel="canonical" href="https://banaoresumee.online/guides/java-developer-resume">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Resume Builder for Java Developers — The 2026 Guide",
+  "description": "What recruiters expect, key skills to include, a resume example, and common mistakes to avoid when writing a Java developer resume.",
+  "author": { "@type": "Organization", "name": "BanaoResume" },
+  "publisher": { "@type": "Organization", "name": "BanaoResume", "url": "https://banaoresumee.online" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b0d;
+    --panel:#131416;
+    --panel-2:#191a1d;
+    --line:#2a2b2f;
+    --text:#edeceb;
+    --muted:#928f8a;
+    --orange:#ff8a3d;
+    --teal:#4fd6c4;
+    --violet:#9b8cff;
+    --red:#ff6b6b;
+    --green:#5fe0a4;
+    --disp:'Space Grotesk',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --body:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--orange);color:#1a0e00;}
+
+  .grid-floor{
+    position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(255,138,61,0.05) 1px, transparent 1px),linear-gradient(90deg, rgba(255,138,61,0.05) 1px, transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+            mask-image:radial-gradient(ellipse 70% 55% at 50% 0%, black 20%, transparent 75%);
+    pointer-events:none;
+  }
+  .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:0.3;pointer-events:none;z-index:0;}
+  .orb-1{width:520px;height:520px;background:var(--orange);top:-160px;left:-120px;}
+  .orb-2{width:460px;height:460px;background:var(--teal);top:18%;right:-190px;opacity:0.22;}
+  .orb-3{width:420px;height:420px;background:var(--violet);bottom:-140px;left:22%;opacity:0.16;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,11,13,0.72);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .logo{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:0.5px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;background:var(--orange);color:#1a0e00;padding:9px 18px;border-radius:8px;text-decoration:none;transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-2px);}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .eyebrow::before{content:'$';color:var(--muted);}
+
+  .hero{position:relative;padding:96px 0 70px;perspective:1400px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-0.5px;}
+  h1 .accent{color:var(--orange);}
+  .hero-sub{color:var(--muted);font-size:17px;line-height:1.65;margin-top:20px;max-width:52ch;}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn-primary{font-family:var(--mono);font-weight:600;font-size:14px;background:linear-gradient(135deg,var(--orange),var(--teal));color:#0d0e12;padding:15px 26px;border-radius:10px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(255,138,61,0.45);transition:transform .25s ease, box-shadow .25s ease;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 40px -10px rgba(79,214,196,0.5);}
+  .btn-ghost{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--text);padding:15px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--line);transition:border-color .2s ease, background .2s ease;}
+  .btn-ghost:hover{border-color:var(--teal);background:rgba(79,214,196,0.06);}
+
+  .stack-scene{position:relative;height:380px;transform-style:preserve-3d;}
+  .jv-layer{
+    position:absolute;left:50%;top:50%;width:290px;height:180px;border-radius:12px;
+    border:1px solid var(--line);background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);overflow:hidden;
+    transform-style:preserve-3d;will-change:transform;transition:transform .15s ease-out;
+  }
+  .jv-head{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.02);}
+  .jv-dot{width:8px;height:8px;border-radius:50%;}
+  .jv-dot.r{background:#ff5f56;} .jv-dot.y{background:#ffbd2e;} .jv-dot.g{background:#27c93f;}
+  .jv-file{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:6px;}
+  .jv-body{padding:12px 14px;font-family:var(--mono);font-size:11.5px;line-height:1.9;color:var(--text);}
+  .jv-body .kw{color:var(--teal);} .jv-body .fn{color:var(--orange);} .jv-body .cm{color:var(--muted);}
+  .jv-layer.l1{transform:translate(-50%,-50%) translateZ(0px) rotateX(6deg) rotateY(-10deg);}
+  .jv-layer.l2{transform:translate(-58%,-42%) translateZ(60px) rotateX(6deg) rotateY(-10deg);border-color:rgba(79,214,196,0.4);}
+  .jv-layer.l3{transform:translate(-42%,-58%) translateZ(120px) rotateX(6deg) rotateY(-10deg);border-color:rgba(255,138,61,0.5);box-shadow:0 40px 80px -20px rgba(255,138,61,0.25);}
+  .jv-layer .badge{position:absolute;top:-10px;right:14px;font-family:var(--mono);font-size:10px;font-weight:700;background:var(--bg);border:1px solid var(--line);padding:3px 8px;border-radius:20px;color:var(--green);}
+
+  section{position:relative;padding:88px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  h2{font-family:var(--disp);font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-0.3px;}
+  .section-sub{color:var(--muted);margin-top:12px;font-size:15.5px;line-height:1.6;}
+
+  .terminal{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);}
+  .term-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel-2);}
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-dot.r{background:#ff5f56;} .term-dot.y{background:#ffbd2e;} .term-dot.g{background:#27c93f;}
+  .term-title{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:8px;}
+  .term-body{padding:26px 28px;font-family:var(--mono);font-size:14.5px;line-height:2.15;}
+  .term-body .prompt{color:var(--green);}
+  .term-line{display:flex;gap:12px;align-items:flex-start;color:var(--text);}
+  .term-line .chk{color:var(--teal);flex-shrink:0;}
+  .term-line span.desc{color:var(--muted);}
+
+  .skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-card{background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:24px;transform-style:preserve-3d;transition:transform .12s ease-out, border-color .2s ease;will-change:transform;}
+  .skill-card:hover{border-color:rgba(79,214,196,0.4);}
+  .skill-card h3{font-family:var(--disp);font-size:17px;margin-bottom:14px;color:var(--text);}
+  .skill-card .num{font-family:var(--mono);font-size:11px;color:var(--violet);display:block;margin-bottom:6px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:var(--mono);font-size:12.5px;color:var(--text);background:rgba(255,255,255,0.04);border:1px solid var(--line);padding:6px 11px;border-radius:7px;}
+
+  .example-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .doc-card{border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--panel);transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform;}
+  .doc-head{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+  .doc-head .lbl{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .doc-card.bad .doc-head{background:rgba(255,107,107,0.08);} .doc-card.bad .lbl{color:var(--red);}
+  .doc-card.good .doc-head{background:rgba(95,224,164,0.08);} .doc-card.good .lbl{color:var(--green);}
+  .doc-body{padding:22px 22px 26px;font-size:14.5px;line-height:1.75;color:var(--text);}
+  .doc-body .role{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+  .doc-body ul{padding-left:0;list-style:none;}
+  .doc-body li{margin-bottom:12px;padding-left:20px;position:relative;}
+  .doc-card.bad li::before{content:'✕';position:absolute;left:0;color:var(--red);font-weight:700;}
+  .doc-card.good li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .metric{font-family:var(--mono);color:var(--orange);font-weight:600;}
+
+  .mistake-list{display:flex;flex-direction:column;gap:14px;}
+  .mistake{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:10px;padding:18px 20px;}
+  .mistake .err-tag{font-family:var(--mono);font-size:11px;color:var(--red);background:rgba(255,107,107,0.1);padding:4px 9px;border-radius:5px;white-space:nowrap;margin-top:2px;}
+  .mistake h4{font-family:var(--disp);font-size:16px;margin-bottom:6px;}
+  .mistake p{color:var(--muted);font-size:14px;line-height:1.6;}
+  .mistake .fix{font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap;align-self:center;}
+
+  .cta-section{border-top:1px solid var(--line);padding:100px 0;}
+  .cta-box{position:relative;border-radius:22px;padding:64px 48px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at top, rgba(255,138,61,0.12), transparent 60%), var(--panel);border:1px solid var(--line);}
+  .cta-box h2{margin-bottom:14px;}
+  .cta-box p{color:var(--muted);max-width:46ch;margin:0 auto 34px;font-size:16px;line-height:1.6;}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:18px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12.5px;}
+  footer a{color:var(--orange);text-decoration:none;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .stack-scene{height:280px;order:-1;}
+    .skill-groups{grid-template-columns:1fr;}
+    .example-grid{grid-template-columns:1fr;}
+    .mistake{grid-template-columns:1fr;}
+    .mistake .fix{justify-self:start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-floor"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="https://banaoresumee.online" class="logo"><span class="dot"></span>banaoresume</a>
+    <a href="https://banaoresumee.online" class="nav-cta">Build my resume →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">resume guide · java developer</span>
+      <h1>Your code compiles clean.<br>Is your resume throwing a <span class="accent">NullPointerException</span> on relevance?</h1>
+      <p class="hero-sub">Every Java resume says "Java, Spring Boot, Hibernate, SQL." That's the baseline, not the pitch. This page breaks down what recruiters and engineering leads actually screen for, what belongs in your skills section, and how to write bullets that prove you've shipped and scaled real systems — not just followed a Spring tutorial.</p>
+      <div class="hero-actions">
+        <a href="https://banaoresumee.online" class="btn-primary">Build this resume free →</a>
+        <a href="#example" class="btn-ghost">See a real example</a>
+      </div>
+    </div>
+    <div class="stack-scene" id="stackScene">
+      <div class="jv-layer l1">
+        <span class="badge">Draft</span>
+        <div class="jv-head"><span class="jv-dot r"></span><span class="jv-dot y"></span><span class="jv-dot g"></span><span class="jv-file">Resume.java</span></div>
+        <div class="jv-body"><span class="cm">// duties only, no numbers</span><br><span class="kw">public</span> <span class="fn">String</span> role(){<br>&nbsp;&nbsp;<span class="kw">return</span> "developer";</div>
+      </div>
+      <div class="jv-layer l2">
+        <span class="badge">Compiled</span>
+        <div class="jv-head"><span class="jv-dot r"></span><span class="jv-dot y"></span><span class="jv-dot g"></span><span class="jv-file">Resume.class</span></div>
+        <div class="jv-body"><span class="cm">// quantified impact added</span><br><span class="kw">public</span> <span class="fn">String</span> role(){<br>&nbsp;&nbsp;<span class="kw">return</span> "-70% latency";</div>
+      </div>
+      <div class="jv-layer l3">
+        <span class="badge">Deployed</span>
+        <div class="jv-head"><span class="jv-dot r"></span><span class="jv-dot y"></span><span class="jv-dot g"></span><span class="jv-file">Resume.jar</span></div>
+        <div class="jv-body"><span class="cm">// ATS-passed, interview: true</span><br><span class="kw">public</span> <span class="fn">String</span> role(){<br>&nbsp;&nbsp;<span class="kw">return</span> "scaled to prod";</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="expect">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 · what recruiters expect</span>
+      <h2>They're screening for one thing: have you built something at real scale before?</h2>
+      <p class="section-sub">Java hiring skews enterprise. Recruiters and engineering leads aren't just checking syntax knowledge — they're checking whether you've worked inside systems bigger than a personal project. Here's what that first pass is actually looking for.</p>
+    </div>
+    <div class="terminal">
+      <div class="term-head">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">recruiter — JavaScreen.java</span>
+      </div>
+      <div class="term-body">
+        <div class="term-line"><span class="prompt">$</span><span>java JavaScreen --role="java developer"</span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Deep, current Spring / Spring Boot experience <span class="desc">// still the default enterprise stack in 2026</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Comfort with concurrency and multithreading <span class="desc">// separates "wrote Java" from "understands Java"</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Database and persistence layer depth <span class="desc">// JPA/Hibernate, query tuning, transactions</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Numbers attached to scale <span class="desc">// requests/day, latency, uptime — not just "built an API"</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>Testing discipline — JUnit, Mockito <span class="desc">// enterprise teams expect a test suite, not hope</span></span></div>
+        <div class="term-line"><span class="chk">✓</span><span>A resume that actually parses through the ATS <span class="desc">// clean text layer, no tables, no icon-based skill bars</span></span></div>
+        <div class="term-line" style="margin-top:6px;"><span class="prompt">$</span><span style="color:var(--muted)">6/6 checks passed → moved to phone screen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 · key skills to include</span>
+      <h2>Skills grouped the way a Java enterprise stack is actually layered.</h2>
+      <p class="section-sub">Don't flatten "Java, Spring, Hibernate, SQL, Docker, Kafka, Git" into one keyword line. Group them by what each proves — language depth, framework maturity, persistence, and the ops layer that signals you've worked on production systems.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card" data-tilt>
+        <span class="num">CORE</span>
+        <h3>Language & Fundamentals</h3>
+        <div class="chip-row">
+          <span class="chip">Java 8 / 11 / 17+</span><span class="chip">OOP & Design Patterns</span><span class="chip">Collections</span><span class="chip">Multithreading</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">FRAMEWORK</span>
+        <h3>Spring Ecosystem</h3>
+        <div class="chip-row">
+          <span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Spring Security</span><span class="chip">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">DATA LAYER</span>
+        <h3>Persistence & Storage</h3>
+        <div class="chip-row">
+          <span class="chip">Hibernate / JPA</span><span class="chip">MySQL / PostgreSQL / Oracle</span><span class="chip">Redis</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">QUALITY</span>
+        <h3>Testing & Reliability</h3>
+        <div class="chip-row">
+          <span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">TDD</span><span class="chip">Code review</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">OPERATIONS</span>
+        <h3>Build, Deploy & Scale</h3>
+        <div class="chip-row">
+          <span class="chip">Maven / Gradle</span><span class="chip">Docker</span><span class="chip">Kubernetes basics</span><span class="chip">Jenkins / GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-card" data-tilt>
+        <span class="num">ARCHITECTURE</span>
+        <h3>Systems at Scale</h3>
+        <div class="chip-row">
+          <span class="chip">Microservices</span><span class="chip">Kafka / RabbitMQ</span><span class="chip">System design basics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="example">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 · resume example</span>
+      <h2>Same backend engineer. Same eight months. One version gets a callback.</h2>
+      <p class="section-sub">The rewrite doesn't invent new experience — it just tells the reader what actually happened, with numbers attached.</p>
+    </div>
+    <div class="example-grid">
+      <div class="doc-card bad" data-tilt>
+        <div class="doc-head"><span class="lbl">Weak version</span></div>
+        <div class="doc-body">
+          <div class="role">Java Developer — Enterprise SaaS Co.</div>
+          <ul>
+            <li>Responsible for backend development using Java and Spring Boot</li>
+            <li>Worked on REST APIs and database integration</li>
+            <li>Fixed bugs and participated in code reviews</li>
+            <li>Skilled in Java, Spring Boot, Hibernate, MySQL, Docker, Kafka, Git, Jenkins</li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc-card good" data-tilt>
+        <div class="doc-head"><span class="lbl">Rewritten version</span></div>
+        <div class="doc-body">
+          <div class="role">Java Developer — Enterprise SaaS Co.</div>
+          <ul>
+            <li>Built a Spring Boot microservice handling <span class="metric">100K+ transactions/day</span>, cutting API latency from <span class="metric">600ms to 180ms</span> via caching and connection pooling</li>
+            <li>Migrated a legacy monolith module to microservices using Kafka, taking deployment frequency from <span class="metric">biweekly to daily</span></li>
+            <li>Designed Hibernate/JPA data layer for order processing, supporting <span class="metric">1.5M+ records</span> with zero downtime migrations</li>
+            <li>Raised JUnit + Mockito test coverage from <span class="metric">40% to 85%</span>, cutting production bugs by <span class="metric">35%</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mistakes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 · common mistakes</span>
+      <h2>The exceptions your resume throws silently.</h2>
+      <p class="section-sub">No stack trace. No compiler warning. Just a recruiter closing the tab and moving to the next candidate.</p>
+    </div>
+    <div class="mistake-list">
+      <div class="mistake">
+        <span class="err-tag">Uncaught</span>
+        <div><h4>"Java" with no framework depth behind it</h4><p>In 2026, almost every Java role assumes Spring Boot. Listing bare "Java" with no framework, no persistence layer, and no API work reads like an academic resume, not a professional one.</p></div>
+        <span class="fix">→ name the framework and what you built with it</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">ImportError</span>
+        <div><h4>No concurrency or multithreading mentioned</h4><p>This is one of the first things a Java-specific interview probes. If your resume gives zero signal you've handled it, expect it to come up as a gap in the phone screen.</p></div>
+        <span class="fix">→ mention one concurrency-related task or fix</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">TypeError</span>
+        <div><h4>Academic or tutorial projects presented as enterprise experience</h4><p>A Spring Boot CRUD app from a course is fine to learn from — it's not the same as a system that handled real traffic. The vague description usually gives it away instantly.</p></div>
+        <span class="fix">→ lead with your most production-real project</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Warning</span>
+        <div><h4>No testing framework mentioned</h4><p>Enterprise Java teams live and die by their test suites. "I write code" and "I write JUnit-tested code" read very differently to whoever's screening you.</p></div>
+        <span class="fix">→ add one JUnit/Mockito-related bullet</span>
+      </div>
+      <div class="mistake">
+        <span class="err-tag">Deprecated</span>
+        <div><h4>No scale or performance numbers anywhere</h4><p>"Built REST APIs" says nothing. "Built REST APIs handling 100K+ requests/day" tells a hiring manager exactly what tier of system you've worked on.</p></div>
+        <span class="fix">→ attach a number to every technical bullet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box">
+      <span class="eyebrow" style="justify-content:center;">ready when you are</span>
+      <h2>Stop letting your resume throw silent exceptions.</h2>
+      <p>Build an ATS-friendly, recruiter-tested Java developer resume in minutes — free, no signup wall, no watermark.</p>
+      <a href="https://banaoresumee.online" class="btn-primary">Build my resume on BanaoResume →</a>
+      <div class="cta-note">Free templates · ATS-optimized · Built for Indian students & freshers</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Made for developers who'd rather ship code than fight Microsoft Word · <a href="https://banaoresumee.online">banaoresumee.online</a>
+  </div>
+</footer>
+
+<script>
+  const scene = document.getElementById('stackScene');
+  const layers = document.querySelectorAll('.jv-layer');
+  const baseTransforms = [
+    {rx:6, ry:-10, tx:-50, ty:-50, tz:0},
+    {rx:6, ry:-10, tx:-58, ty:-42, tz:60},
+    {rx:6, ry:-10, tx:-42, ty:-58, tz:120}
+  ];
+  if(scene){
+    scene.addEventListener('mousemove', (e)=>{
+      const r = scene.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx - py*14}deg) rotateY(${b.ry + px*20}deg)`;
+      });
+    });
+    scene.addEventListener('mouseleave', ()=>{
+      layers.forEach((layer, i)=>{
+        const b = baseTransforms[i];
+        layer.style.transform = `translate(${b.tx}%, ${b.ty}%) translateZ(${b.tz}px) rotateX(${b.rx}deg) rotateY(${b.ry}deg)`;
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-tilt], .doc-card').forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(800px) rotateX(${-py*8}deg) rotateY(${px*10}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+</script>
+
+</body>
+</html>
