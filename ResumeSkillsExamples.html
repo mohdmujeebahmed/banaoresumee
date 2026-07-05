@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Skills Examples — Steal These for Your Resume in 5 Minutes</title>
+<meta name="description" content="Real resume skills examples: hard skills, soft skills, and skills checklists recruiters actually scan for, plus ATS keywords and an example resume. Build yours in 5 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fff6e0;
+    --paper-2:#fff0c8;
+    --ink:#141115;
+    --pink:#ff2f7e;
+    --lime:#c6ff3d;
+    --blue:#2f6bff;
+    --purple:#8b3cff;
+    --orange:#ff8a2b;
+    --line:#141115;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:radial-gradient(var(--ink) 1px, transparent 1px);
+    background-size:22px 22px;
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2{
+    font-family:'Bungee',sans-serif;
+    font-weight:400;
+    margin:0;
+    line-height:1.05;
+  }
+  h3{font-family:'Inter',sans-serif;font-weight:800;margin:0;}
+  .tag{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* thick zigzag divider */
+  .zigzag{
+    height:34px;
+    background:var(--ink);
+    clip-path:polygon(0% 0%,100% 0%,100% 60%,97% 100%,94% 60%,91% 100%,88% 60%,85% 100%,82% 60%,79% 100%,76% 60%,73% 100%,70% 60%,67% 100%,64% 60%,61% 100%,58% 60%,55% 100%,52% 60%,49% 100%,46% 60%,43% 100%,40% 60%,37% 100%,34% 60%,31% 100%,28% 60%,25% 100%,22% 60%,19% 100%,16% 60%,13% 100%,10% 60%,7% 100%,4% 60%,1% 100%,0% 60%);
+  }
+
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:70px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .sticker-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .sticker{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    font-weight:700;
+    padding:7px 14px;
+    border:2px solid var(--ink);
+    border-radius:20px;
+    background:var(--lime);
+    color:var(--ink);
+    transform:rotate(-4deg);
+  }
+  .sticker:nth-child(2){background:var(--pink);color:#fff;transform:rotate(3deg);}
+  .sticker:nth-child(3){background:var(--blue);color:#fff;transform:rotate(-2deg);}
+  .sticker:nth-child(4){background:var(--orange);color:var(--ink);transform:rotate(5deg);}
+
+  h1.title{
+    font-size:52px;
+    color:#fff;
+    margin-bottom:20px;
+  }
+  h1.title .hl{
+    background:var(--lime);
+    color:var(--ink);
+    padding:2px 10px;
+    display:inline-block;
+    transform:rotate(-2deg);
+  }
+  .hero-sub{
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    color:#e6e2ea;
+    max-width:52ch;
+    margin-bottom:32px;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--pink);
+    color:#fff;
+    font-family:'Bungee',sans-serif;
+    font-size:16px;
+    padding:18px 28px;
+    border:3px solid var(--ink);
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:6px 6px 0 var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .cta-btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+  .cta-btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .cta-sub{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    color:#9a95a3;
+    margin-top:14px;
+  }
+
+  section{padding:64px 0;}
+  h2.section-title{
+    font-size:32px;
+    margin-bottom:10px;
+    transform:rotate(-1deg);
+    display:inline-block;
+  }
+  .section-lede{
+    color:#3a3540;
+    max-width:60ch;
+    margin-bottom:32px;
+    font-size:15.5px;
+  }
+
+  /* expectations - torn sticky notes */
+  .expect-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .expect-card{
+    background:var(--lime);
+    border:3px solid var(--ink);
+    padding:22px;
+    border-radius:4px;
+    transform:rotate(-2deg);
+  }
+  .expect-card:nth-child(2){background:var(--pink);color:#fff;transform:rotate(1.5deg);}
+  .expect-card:nth-child(3){background:var(--blue);color:#fff;transform:rotate(-1deg);}
+  .expect-card h3{font-size:16px;margin-bottom:8px;}
+  .expect-card p{font-size:13.5px;margin:0;}
+
+  /* resume example */
+  .resume-mock{
+    background:#fff;
+    border:3px solid var(--ink);
+    max-width:680px;
+    margin:0 auto;
+    padding:36px 40px;
+    font-family:'Inter',sans-serif;
+    box-shadow:10px 10px 0 var(--purple);
+    transform:rotate(0.6deg);
+  }
+  .resume-mock .r-name{
+    font-family:'Bungee',sans-serif;
+    font-size:22px;
+    margin-bottom:4px;
+  }
+  .resume-mock .r-contact{
+    font-size:12.5px;
+    color:#4a4650;
+    margin-bottom:18px;
+  }
+  .resume-mock .r-block{margin-bottom:18px;}
+  .resume-mock .r-label{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    background:var(--lime);
+    display:inline-block;
+    padding:2px 8px;
+    margin-bottom:8px;
+  }
+  .resume-mock .r-job-title{font-weight:800;font-size:14.5px;}
+  .resume-mock .r-job-meta{font-size:12.5px;color:#4a4650;margin-bottom:6px;}
+  .resume-mock ul{margin:0;padding-left:18px;font-size:13.5px;}
+  .resume-mock li{margin-bottom:4px;}
+  .stamp{
+    display:inline-block;
+    transform:rotate(-8deg);
+    border:3px solid var(--pink);
+    color:var(--pink);
+    font-family:'Bungee',sans-serif;
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:4px;
+    float:right;
+    margin-top:-6px;
+  }
+
+  /* skills checklist - sticky tape look */
+  .checklist{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .check-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    background:#fff;
+    border:3px solid var(--ink);
+    padding:14px 16px;
+    border-radius:4px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .check-item:nth-child(3n+1){transform:rotate(-1deg);}
+  .check-item:nth-child(3n+2){transform:rotate(0.8deg);}
+  .check-box{
+    width:20px;height:20px;flex:none;
+    border:3px solid var(--ink);
+    border-radius:4px;
+    margin-top:1px;
+    position:relative;
+    background:var(--lime);
+  }
+  .check-box::after{
+    content:"✓";
+    position:absolute;
+    left:2px;top:-4px;
+    font-weight:800;
+    color:var(--ink);
+    font-size:14px;
+  }
+
+  /* skills examples by category */
+  .skill-cat{margin-bottom:36px;}
+  .skill-cat h3{
+    font-family:'Bungee',sans-serif;
+    font-size:18px;
+    font-weight:400;
+    margin-bottom:14px;
+    display:inline-block;
+    border-bottom:5px solid var(--lime);
+  }
+  .kw-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .kw-chip{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    background:#fff;
+    border:2.5px solid var(--ink);
+    padding:8px 14px;
+    border-radius:20px;
+  }
+  .kw-chip.pink{background:var(--pink);color:#fff;}
+  .kw-chip.blue{background:var(--blue);color:#fff;}
+  .kw-chip.orange{background:var(--orange);color:var(--ink);}
+  .kw-note{
+    color:#3a3540;
+    font-size:13px;
+    margin-top:16px;
+  }
+
+  /* mistakes */
+  .mistake-list{list-style:none;margin:0;padding:0;}
+  .mistake-list li{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:14px;
+    padding:16px 0;
+    border-bottom:3px dashed var(--ink);
+    font-size:14.5px;
+  }
+  .mistake-list li:last-child{border-bottom:none;}
+  .x-mark{
+    color:var(--pink);
+    font-family:'Bungee',sans-serif;
+    font-size:20px;
+  }
+
+  /* interview tips */
+  .tip-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  .tip-card{
+    background:#fff;
+    border:3px solid var(--ink);
+    padding:20px 22px;
+    border-radius:4px;
+  }
+  .tip-card:nth-child(1){transform:rotate(-1.2deg);}
+  .tip-card:nth-child(2){transform:rotate(1deg);}
+  .tip-card:nth-child(3){transform:rotate(0.8deg);}
+  .tip-card:nth-child(4){transform:rotate(-0.6deg);}
+  .tip-num{
+    font-family:'Bungee',sans-serif;
+    color:var(--purple);
+    font-size:13px;
+  }
+  .tip-card h3{font-size:15px;margin:8px 0 8px;}
+  .tip-card p{font-size:13.5px;color:#3a3540;margin:0;}
+
+  /* final cta band */
+  .cta-band{
+    background:var(--purple);
+    color:#fff;
+    text-align:center;
+    padding:70px 0;
+    position:relative;
+  }
+  .cta-band h2{color:#fff;font-size:34px;margin-bottom:14px;}
+  .cta-band p{color:#ece4ff;margin-bottom:30px;font-size:15px;}
+
+  .sticky-cta{
+    position:sticky;
+    bottom:18px;
+    display:flex;
+    justify-content:center;
+    z-index:40;
+    pointer-events:none;
+  }
+  .sticky-cta a{pointer-events:all;}
+  .sticky-inner{
+    background:var(--ink);
+    color:#fff;
+    border-radius:40px;
+    padding:8px 8px 8px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.35);
+    font-size:14px;
+    border:2px solid var(--lime);
+  }
+  .sticky-inner .cta-btn{
+    padding:10px 18px;
+    font-size:13px;
+    box-shadow:3px 3px 0 var(--lime);
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 0 44px;
+    font-size:12px;
+    color:#3a3540;
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    h1.title{font-size:34px;}
+    .expect-grid{grid-template-columns:1fr;}
+    .checklist{grid-template-columns:1fr;}
+    .tip-grid{grid-template-columns:1fr;}
+    .resume-mock{padding:24px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="sticker-row">
+      <span class="sticker">★ NO FLUFF</span>
+      <span class="sticker">✓ ATS-PROOF</span>
+      <span class="sticker">◆ REAL EXAMPLES</span>
+      <span class="sticker">! COPY THESE</span>
+    </div>
+    <h1 class="title">Skills that make a<br>recruiter go <span class="hl">"hire them."</span></h1>
+    <p class="hero-sub">Not a vague list of buzzwords — actual skills examples, sorted by category, phrased the way recruiters and ATS bots want to see them. Steal what fits, ditch what doesn't.</p>
+    <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+    <div class="cta-sub">NO SIGN-UP TO START // TAKES ABOUT 5 MIN</div>
+  </div>
+</header>
+<div class="zigzag" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <span class="tag">what recruiters expect</span>
+    <h2 class="section-title">Skills sections are the first thing a scanner checks</h2>
+    <p class="section-lede">Before a human reads your bullet points, a bot is comparing your skills list against the job posting word for word. Here's what actually earns a look.</p>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <h3>Specific over generic</h3>
+        <p>"Excel" beats "spreadsheet software." "Figma" beats "design tools." Name the exact thing.</p>
+      </div>
+      <div class="expect-card">
+        <h3>Proof, not just a list</h3>
+        <p>A skill mentioned once in your skills section and again inside a bullet with a result is twice as convincing.</p>
+      </div>
+      <div class="expect-card">
+        <h3>Matched to the posting</h3>
+        <p>If the job says "stakeholder management," write that — not your own paraphrase of the same idea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tag">resume example</span>
+    <h2 class="section-title">See it built into a real resume</h2>
+    <p class="section-lede">Here's how a skills section actually looks once it's dialed in — specific, scannable, and backed up by the experience section above it.</p>
+
+    <div class="resume-mock">
+      <div class="stamp">✓ RECRUITER-READ</div>
+      <div class="r-name">Sam Delgado</div>
+      <div class="r-contact">Portland, OR &nbsp;•&nbsp; (503) 555-0119 &nbsp;•&nbsp; sam.delgado@email.com</div>
+
+      <div class="r-block">
+        <div class="r-label">Summary</div>
+        <p style="font-size:13.5px;margin:0;">Marketing coordinator with 3 years running paid social campaigns and email programs for consumer brands. Comfortable owning a project from brief to reporting.</p>
+      </div>
+
+      <div class="r-block">
+        <div class="r-label">Experience</div>
+        <div class="r-job-title">Marketing Coordinator — Fieldstone Goods</div>
+        <div class="r-job-meta">Portland, OR · Feb 2023 – Present</div>
+        <ul>
+          <li>Managed $40K/month paid social budget across Meta and TikTok, improving ROAS from 2.1x to 3.4x</li>
+          <li>Built and A/B tested email flows in Klaviyo, lifting open rate by 18%</li>
+          <li>Coordinated with design and copy teams to launch 12 campaigns on schedule in a year</li>
+        </ul>
+      </div>
+
+      <div class="r-block" style="margin-bottom:0;">
+        <div class="r-label">Skills</div>
+        <p style="font-size:13.5px;margin:0;">Meta Ads Manager · TikTok Ads · Klaviyo · Google Analytics · A/B testing · Budget management · Campaign reporting</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tag">skills checklist</span>
+    <h2 class="section-title">Run your draft against this</h2>
+    <p class="section-lede">Check these off before you hit submit. Not every box applies to every job — pick what's true and relevant.</p>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Every skill listed also shows up somewhere in your bullets</div>
+      <div class="check-item"><div class="check-box"></div>Tools named by their real product name, not a category</div>
+      <div class="check-item"><div class="check-box"></div>Soft skills shown through a result, not just labeled</div>
+      <div class="check-item"><div class="check-box"></div>Skills grouped logically — technical, tools, soft skills</div>
+      <div class="check-item"><div class="check-box"></div>Nothing outdated or irrelevant to this specific job</div>
+      <div class="check-item"><div class="check-box"></div>Certifications spelled out in full at least once</div>
+      <div class="check-item"><div class="check-box"></div>Matches at least 70% of the posting's named skills</div>
+      <div class="check-item"><div class="check-box"></div>No skill listed that you can't speak to in an interview</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tag">ats keywords</span>
+    <h2 class="section-title">Skills examples by category</h2>
+    <p class="section-lede">A quick bank to pull from — swap in your own tools and specifics, but this is the shape a strong skills section takes.</p>
+
+    <div class="skill-cat">
+      <h3>Technical / hard skills</h3>
+      <div class="kw-row">
+        <span class="kw-chip pink">Excel (pivot tables, VLOOKUP)</span>
+        <span class="kw-chip">SQL</span>
+        <span class="kw-chip blue">Google Analytics</span>
+        <span class="kw-chip">Adobe Creative Suite</span>
+        <span class="kw-chip orange">Python</span>
+      </div>
+    </div>
+
+    <div class="skill-cat">
+      <h3>Tools / platforms</h3>
+      <div class="kw-row">
+        <span class="kw-chip">Salesforce</span>
+        <span class="kw-chip pink">HubSpot</span>
+        <span class="kw-chip">Jira</span>
+        <span class="kw-chip blue">Figma</span>
+        <span class="kw-chip orange">Slack</span>
+      </div>
+    </div>
+
+    <div class="skill-cat">
+      <h3>Soft skills, shown not just told</h3>
+      <div class="kw-row">
+        <span class="kw-chip">cross-team collaboration</span>
+        <span class="kw-chip pink">stakeholder communication</span>
+        <span class="kw-chip">project ownership</span>
+        <span class="kw-chip blue">time management under deadline</span>
+        <span class="kw-chip orange">conflict resolution</span>
+      </div>
+    </div>
+
+    <p class="kw-note">Tip: a soft skill with no proof reads as filler. "Leadership" alone means nothing — "led a team of 5 through a product launch" does the same job and gets believed.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tag">common mistakes</span>
+    <h2 class="section-title">What makes a skills section useless</h2>
+    <ul class="mistake-list">
+      <li><span class="x-mark">✕</span><span><strong>A wall of buzzwords.</strong> "Team player, hard worker, detail-oriented" with nothing behind it reads as filler and gets skimmed past.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Skills copy-pasted from an old resume.</strong> Leftover skills from a past role that have nothing to do with this job dilute the ones that matter.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Skill and job posting mismatch.</strong> Listing "customer service" when the posting says "client relationship management" costs you a keyword match.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Skills with zero backup.</strong> Claiming a skill nowhere reflected in your experience section raises a red flag in an interview.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Everything crammed into one line.</strong> An unreadable comma-separated wall makes it hard for a human or a bot to parse individual skills.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tag">interview tips</span>
+    <h2 class="section-title">Be ready to back up every skill you listed</h2>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h3>Have one story per skill</h3>
+        <p>For every skill on your resume, keep one specific example ready — what you did, what happened, what you'd do differently.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h3>Expect a "walk me through it"</h3>
+        <p>Interviewers often ask you to walk through a tool or process you listed step by step — rehearse it out loud, not just in your head.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h3>Don't inflate proficiency</h3>
+        <p>Listing "expert" in something you've used twice is an easy way to get caught out in a technical follow-up question.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <h3>Connect skills to their result</h3>
+        <p>Whenever you mention a skill, tie it back to an outcome — it reframes a skill from a claim into evidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="builder">
+  <div class="wrap">
+    <h2>Turn these into your resume in 5 minutes.</h2>
+    <p>Answer a few questions about your role and experience — we'll help you phrase your skills the way recruiters and ATS bots actually scan for.</p>
+    <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+  </div>
+</div>
+
+<footer>
+  Resume guidance is general and based on publicly available hiring information.
+</footer>
+
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <span>Ready to build yours?</span>
+    <a class="cta-btn" href="https://banaoresumee.online">Start now →</a>
+  </div>
+</div>
+
+</body>
+</html>
