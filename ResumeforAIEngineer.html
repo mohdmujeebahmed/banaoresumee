@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume for AI Engineer 2026 | Free ATS-Ready Template & Example - BanaoResume</title>
+<meta name="description" content="Build an ATS-optimized AI Engineer resume in 5 minutes. Free example resume, skills checklist, ATS keywords, and interview tips for AI/ML Engineer roles in India.">
+<meta name="keywords" content="AI Engineer resume, resume for AI engineer, machine learning engineer resume, ATS resume AI engineer, AI engineer resume example, AI engineer skills, AI engineer interview tips">
+<link rel="canonical" href="https://banaoresumee.online/resume-for-ai-engineer">
+
+<meta property="og:title" content="Resume for AI Engineer | Free ATS Template & Example">
+<meta property="og:description" content="Everything you need to build a recruiter-ready AI Engineer resume — example, skills checklist, ATS keywords, and interview tips.">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should an AI Engineer resume include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI Engineer resume should include a summary, a skills section covering ML frameworks and MLOps tools, quantified project/experience bullets, ATS keywords like Python, PyTorch, LLMs and RAG, and education/certifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make my AI Engineer resume ATS-friendly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a single-column layout, standard section headings, no tables or images, and include exact keywords from the job description such as tool names, frameworks, and techniques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a GitHub link on my AI Engineer resume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Recruiters and hiring managers almost always check GitHub for AI Engineer applicants to verify real project work, code quality, and model implementations."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0b1220;
+  --navy2: #121b30;
+  --cyan: #22d3ee;
+  --violet: #8b5cf6;
+  --pink: #ec4899;
+  --green: #34d399;
+  --text: #e5e9f2;
+  --muted: #94a3b8;
+  --card: #151f38;
+  --card-border: rgba(148,163,184,0.14);
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- BACKGROUND GLOW ---------- */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(600px circle at 15% 10%, rgba(139,92,246,0.18), transparent 60%),
+    radial-gradient(500px circle at 85% 20%, rgba(34,211,238,0.14), transparent 60%),
+    radial-gradient(700px circle at 50% 90%, rgba(236,72,153,0.10), transparent 60%),
+    var(--navy);
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(11,18,32,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { font-weight: 800; font-size: 1.25rem; }
+.logo span { background: linear-gradient(90deg,var(--cyan),var(--violet)); -webkit-background-clip: text; background-clip:text; color: transparent; }
+.nav-cta {
+  background: linear-gradient(135deg,var(--cyan),var(--violet));
+  color: #fff; padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(139,92,246,0.35);
+}
+
+/* ---------- HERO ---------- */
+.hero { padding: 90px 0 70px; text-align: center; position: relative; }
+.badge {
+  display: inline-block; padding: 6px 16px; border-radius: 999px;
+  background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.35);
+  color: var(--cyan); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900; letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero h1 .grad { background: linear-gradient(90deg,var(--cyan),var(--violet),var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p.sub {
+  max-width: 640px; margin: 0 auto 34px; color: var(--muted); font-size: 1.05rem;
+}
+.cta-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg,var(--cyan),var(--violet));
+  color: #fff; font-weight: 800; font-size: 1.05rem;
+  padding: 18px 40px; border-radius: 999px;
+  box-shadow: 0 15px 40px rgba(139,92,246,0.45), 0 0 0 1px rgba(255,255,255,0.08) inset;
+  transform: perspective(600px) rotateX(0deg);
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: none; cursor: pointer;
+}
+.cta-primary:hover { transform: perspective(600px) rotateX(6deg) translateY(-3px); box-shadow: 0 20px 50px rgba(139,92,246,0.55); }
+.cta-sub { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
+
+.hero-stats { display:flex; justify-content:center; gap: 46px; margin-top: 60px; flex-wrap: wrap; }
+.stat { text-align:center; }
+.stat .num { font-size: 1.8rem; font-weight: 900; background:linear-gradient(90deg,var(--cyan),var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.stat .lbl { font-size: 0.8rem; color: var(--muted); margin-top:4px; }
+
+/* ---------- SECTION SHELL ---------- */
+section.block { padding: 70px 0; position: relative; }
+.section-head { text-align:center; max-width: 700px; margin: 0 auto 46px; }
+.section-tag { color: var(--violet); font-weight:800; font-size:0.8rem; letter-spacing:1.5px; text-transform:uppercase; }
+.section-head h2 { font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight:900; margin-top:10px; }
+.section-head p { color: var(--muted); margin-top:12px; }
+
+/* ---------- WHAT RECRUITERS EXPECT ---------- */
+.expect-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:22px; }
+.expect-card {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 18px;
+  padding: 28px; position: relative; overflow:hidden;
+  transform-style: preserve-3d; transition: transform .3s ease, box-shadow .3s ease;
+}
+.expect-card:hover { transform: translateY(-8px) rotateX(4deg); box-shadow: 0 20px 45px rgba(0,0,0,0.4); }
+.expect-card .icon { font-size:1.8rem; margin-bottom:14px; display:inline-block; }
+.expect-card h3 { font-size:1.05rem; margin-bottom:8px; }
+.expect-card p { color:var(--muted); font-size:0.92rem; }
+
+/* ---------- SKILLS CHECKLIST ---------- */
+.skills-panel {
+  background: linear-gradient(160deg, var(--card), var(--navy2));
+  border:1px solid var(--card-border); border-radius: 24px; padding: 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+.skills-cols { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 30px; margin-top: 10px; }
+.skills-col h4 { color: var(--cyan); font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+.skills-col li { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; font-size:0.95rem; color:var(--text); }
+.skills-col li .check {
+  flex-shrink:0; width:20px; height:20px; border-radius:6px;
+  background: linear-gradient(135deg,var(--green),var(--cyan));
+  display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:#04241a; font-weight:900;
+  margin-top:2px;
+}
+
+/* ---------- ATS KEYWORDS ---------- */
+.keyword-cloud { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top: 10px; }
+.kw {
+  padding: 10px 18px; border-radius: 999px; font-weight:700; font-size:0.88rem;
+  background: rgba(139,92,246,0.12); border:1px solid rgba(139,92,246,0.35); color:#c4b5fd;
+}
+.kw.alt1 { background: rgba(34,211,238,0.1); border-color: rgba(34,211,238,0.35); color:#67e8f9; }
+.kw.alt2 { background: rgba(236,72,153,0.1); border-color: rgba(236,72,153,0.35); color:#f9a8d4; }
+.kw.alt3 { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.35); color:#6ee7b7; }
+
+/* ---------- RESUME EXAMPLE ---------- */
+.resume-mock {
+  background: #fff; color:#1a1a1a; border-radius: 14px; padding: 40px;
+  max-width: 720px; margin: 0 auto;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+  font-size: 0.85rem;
+}
+.resume-mock .r-name { font-size:1.5rem; font-weight:900; margin-bottom:2px; }
+.resume-mock .r-role { color:#555; font-weight:600; margin-bottom:6px; }
+.resume-mock .r-contact { color:#666; font-size:0.78rem; margin-bottom:18px; }
+.resume-mock h5 {
+  font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#7c3aed;
+  border-bottom:2px solid #e9e4fc; padding-bottom:4px; margin: 18px 0 10px;
+}
+.resume-mock ul { list-style: disc; padding-left: 18px; }
+.resume-mock ul li { margin-bottom:5px; color:#333; }
+.resume-mock .r-job { font-weight:700; }
+.resume-mock .r-meta { color:#777; font-size:0.78rem; margin-bottom:6px; }
+.resume-download-note { text-align:center; color:var(--muted); margin-top: 26px; font-size:0.9rem; }
+
+/* ---------- MISTAKES ---------- */
+.mistakes { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px; }
+.mistake-card {
+  background: rgba(236,72,153,0.06); border:1px solid rgba(236,72,153,0.25);
+  border-radius:16px; padding:24px; position:relative;
+}
+.mistake-card .x { color:#f87171; font-weight:900; font-size:1.2rem; margin-bottom:10px; display:block; }
+.mistake-card h4 { margin-bottom:8px; font-size:1rem; }
+.mistake-card p { color:var(--muted); font-size:0.9rem; }
+
+/* ---------- INTERVIEW TIPS ---------- */
+.tips-list { max-width: 780px; margin: 0 auto; }
+.tip-row {
+  display:flex; gap:20px; padding:22px 0; border-bottom:1px solid var(--card-border);
+  align-items:flex-start;
+}
+.tip-num {
+  flex-shrink:0; width:44px; height:44px; border-radius:12px;
+  background: linear-gradient(135deg,var(--cyan),var(--violet));
+  display:flex; align-items:center; justify-content:center; font-weight:900; color:#fff;
+}
+.tip-row h4 { margin-bottom:6px; }
+.tip-row p { color:var(--muted); font-size:0.92rem; }
+
+/* ---------- FAQ ---------- */
+.faq-item { border:1px solid var(--card-border); border-radius:14px; padding:20px 24px; margin-bottom:14px; background: var(--card); }
+.faq-item h4 { font-size:1rem; margin-bottom:8px; color:var(--cyan); }
+.faq-item p { color:var(--muted); font-size:0.92rem; }
+
+/* ---------- FINAL CTA ---------- */
+.final-cta {
+  text-align:center; padding: 90px 0; position:relative;
+}
+.final-cta-box {
+  background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(34,211,238,0.12));
+  border:1px solid rgba(139,92,246,0.35); border-radius: 28px; padding: 60px 40px;
+  max-width: 780px; margin:0 auto;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+}
+.final-cta-box h2 { font-size: clamp(1.6rem,4vw,2.3rem); font-weight:900; margin-bottom:16px; }
+.final-cta-box p { color:var(--muted); margin-bottom: 30px; }
+
+footer { border-top:1px solid var(--card-border); padding: 34px 0; text-align:center; color:var(--muted); font-size:0.85rem; }
+
+/* Sticky mobile CTA */
+.sticky-cta {
+  position: fixed; bottom: 0; left:0; right:0; z-index: 60;
+  background: rgba(11,18,32,0.95); backdrop-filter: blur(10px);
+  border-top: 1px solid var(--card-border);
+  padding: 12px 16px; display:none;
+}
+.sticky-cta a {
+  display:block; text-align:center; background: linear-gradient(135deg,var(--cyan),var(--violet));
+  color:#fff; font-weight:800; padding: 14px; border-radius: 999px;
+}
+@media (max-width: 768px) {
+  .sticky-cta { display:block; }
+  body { padding-bottom: 76px; }
+  .resume-mock { transform:none; padding: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo">Banao<span>Resume</span></div>
+    <a href="/builder.html?role=ai-engineer" class="nav-cta">Build Resume Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">🤖 AI ENGINEER RESUME GUIDE 2026</span>
+    <h1>Build a Resume for <span class="grad">AI Engineer</span> Roles That Actually Gets Shortlisted</h1>
+    <p class="sub">A free, ATS-optimized resume example, skills checklist, keyword list, and interview prep — built specifically for AI/ML Engineer job applications in India.</p>
+
+    <button class="cta-primary" onclick="window.location.href='/builder.html?role=ai-engineer'">
+      ⚡ Create This Resume in 5 Minutes
+    </button>
+    <div class="cta-sub">No sign-up needed · 100% Free · ATS-Tested Format</div>
+
+    <div class="hero-stats">
+      <div class="stat"><div class="num">92%</div><div class="lbl">ATS Pass Rate</div></div>
+      <div class="stat"><div class="num">5 min</div><div class="lbl">To Build</div></div>
+      <div class="stat"><div class="num">40+</div><div class="lbl">AI Keywords Included</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT RECRUITERS EXPECT -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Recruiter Insight</div>
+      <h2>What Recruiters Expect From an AI Engineer Resume</h2>
+      <p>AI Engineer hiring has shifted fast — recruiters in 2026 aren't just scanning for "Machine Learning." They're checking for applied, production-level AI experience.</p>
+    </div>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <span class="icon">🧠</span>
+        <h3>Applied ML, not just theory</h3>
+        <p>Recruiters want proof you've shipped models — not just completed courses. Projects with real datasets and deployment matter more than certificates alone.</p>
+      </div>
+      <div class="expect-card">
+        <span class="icon">🔗</span>
+        <h3>LLM & GenAI exposure</h3>
+        <p>Experience with LLMs, prompt engineering, RAG pipelines, or fine-tuning is now a baseline expectation, even for entry-level AI roles.</p>
+      </div>
+      <div class="expect-card">
+        <span class="icon">📦</span>
+        <h3>MLOps awareness</h3>
+        <p>Knowing how to version, deploy, and monitor models (not just train them) signals you understand real-world AI systems.</p>
+      </div>
+      <div class="expect-card">
+        <span class="icon">💻</span>
+        <h3>A visible GitHub</h3>
+        <p>Recruiters almost always check GitHub. Clean repos with READMEs and clear commit history build instant credibility.</p>
+      </div>
+      <div class="expect-card">
+        <span class="icon">📊</span>
+        <h3>Quantified impact</h3>
+        <p>"Improved model accuracy by 14%" beats "worked on machine learning models." Numbers signal seniority even in fresher resumes.</p>
+      </div>
+      <div class="expect-card">
+        <span class="icon">🎯</span>
+        <h3>Role-specific tailoring</h3>
+        <p>Generic "Data Science" resumes get filtered. Recruiters expect AI Engineer resumes to speak the language of deployment, not just analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS CHECKLIST -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Skills Checklist</div>
+      <h2>Key Skills to Include on Your AI Engineer Resume</h2>
+      <p>Use this checklist to make sure your resume covers what ATS systems and hiring managers are scanning for.</p>
+    </div>
+    <div class="skills-panel">
+      <div class="skills-cols">
+        <div class="skills-col">
+          <h4>Core Programming</h4>
+          <ul>
+            <li><span class="check">✓</span>Python (NumPy, Pandas)</li>
+            <li><span class="check">✓</span>SQL</li>
+            <li><span class="check">✓</span>Object-Oriented Programming</li>
+            <li><span class="check">✓</span>Git & version control</li>
+            <li><span class="check">✓</span>Basic Linux/Shell scripting</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>ML / DL Frameworks</h4>
+          <ul>
+            <li><span class="check">✓</span>PyTorch or TensorFlow</li>
+            <li><span class="check">✓</span>Scikit-learn</li>
+            <li><span class="check">✓</span>Hugging Face Transformers</li>
+            <li><span class="check">✓</span>Keras</li>
+            <li><span class="check">✓</span>OpenCV (for CV roles)</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>GenAI & LLMs</h4>
+          <ul>
+            <li><span class="check">✓</span>Prompt Engineering</li>
+            <li><span class="check">✓</span>RAG (Retrieval-Augmented Generation)</li>
+            <li><span class="check">✓</span>LangChain / LlamaIndex</li>
+            <li><span class="check">✓</span>Vector Databases (Pinecone, FAISS)</li>
+            <li><span class="check">✓</span>Fine-tuning & LoRA</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>MLOps & Deployment</h4>
+          <ul>
+            <li><span class="check">✓</span>Docker</li>
+            <li><span class="check">✓</span>MLflow / Weights & Biases</li>
+            <li><span class="check">✓</span>REST APIs (FastAPI/Flask)</li>
+            <li><span class="check">✓</span>AWS / GCP / Azure basics</li>
+            <li><span class="check">✓</span>CI/CD fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATS KEYWORDS -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">ATS Keywords</div>
+      <h2>ATS Keywords to Use in Your AI Engineer Resume</h2>
+      <p>Sprinkle these naturally across your skills, summary, and experience sections — don't keyword-stuff.</p>
+    </div>
+    <div class="keyword-cloud">
+      <span class="kw">Machine Learning</span>
+      <span class="kw alt1">Deep Learning</span>
+      <span class="kw alt2">Python</span>
+      <span class="kw alt3">PyTorch</span>
+      <span class="kw">TensorFlow</span>
+      <span class="kw alt1">LLM</span>
+      <span class="kw alt2">RAG</span>
+      <span class="kw alt3">LangChain</span>
+      <span class="kw">Prompt Engineering</span>
+      <span class="kw alt1">NLP</span>
+      <span class="kw alt2">Computer Vision</span>
+      <span class="kw alt3">Neural Networks</span>
+      <span class="kw">Model Deployment</span>
+      <span class="kw alt1">MLOps</span>
+      <span class="kw alt2">Docker</span>
+      <span class="kw alt3">REST API</span>
+      <span class="kw">Vector Database</span>
+      <span class="kw alt1">Fine-tuning</span>
+      <span class="kw alt2">Hugging Face</span>
+      <span class="kw alt3">A/B Testing</span>
+      <span class="kw">Feature Engineering</span>
+      <span class="kw alt1">Data Pipelines</span>
+      <span class="kw alt2">AWS SageMaker</span>
+      <span class="kw alt3">Model Monitoring</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME EXAMPLE -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Resume Example</div>
+      <h2>Example: AI Engineer Resume</h2>
+      <p>Here's a sample structure recruiters respond well to. Use it as a reference — then build your own version in the tool below.</p>
+    </div>
+
+    <div class="resume-mock">
+      <div class="r-name">Aarav Sharma</div>
+      <div class="r-role">AI Engineer</div>
+      <div class="r-contact">aarav.sharma@email.com · +91 98765 43210 · Bengaluru, India · github.com/aaravs · linkedin.com/in/aaravs</div>
+
+      <h5>Summary</h5>
+      <p>AI Engineer with 2 years of experience building and deploying ML and LLM-based systems. Skilled in Python, PyTorch, and RAG pipelines, with a track record of shipping models that improved product accuracy and reduced inference latency.</p>
+
+      <h5>Skills</h5>
+      <p>Python · PyTorch · TensorFlow · LangChain · Hugging Face · Docker · FastAPI · AWS SageMaker · SQL · Vector Databases (FAISS, Pinecone)</p>
+
+      <h5>Experience</h5>
+      <div class="r-job">AI Engineer — NovaTech AI, Bengaluru</div>
+      <div class="r-meta">Jun 2024 – Present</div>
+      <ul>
+        <li>Built a RAG-based internal knowledge assistant using LangChain and FAISS, reducing support ticket resolution time by 35%.</li>
+        <li>Fine-tuned an open-source LLM on domain-specific data, improving response accuracy by 22%.</li>
+        <li>Deployed 3 ML models to production via Docker and FastAPI, serving 10K+ daily requests with 99.9% uptime.</li>
+      </ul>
+      <div class="r-job" style="margin-top:14px;">Machine Learning Intern — DataForge Labs</div>
+      <div class="r-meta">Jan 2024 – May 2024</div>
+      <ul>
+        <li>Developed a computer vision model for defect detection, achieving 91% classification accuracy.</li>
+        <li>Automated the data preprocessing pipeline, cutting model training time by 40%.</li>
+      </ul>
+
+      <h5>Projects</h5>
+      <ul>
+        <li><b>AI Resume Screener</b> — Built an NLP pipeline to rank resumes against job descriptions using sentence embeddings.</li>
+        <li><b>Chat-with-PDF App</b> — RAG-based app using LangChain + OpenAI API + Streamlit, deployed on AWS.</li>
+      </ul>
+
+      <h5>Education</h5>
+      <p>B.Tech in Computer Science — RV College of Engineering, 2024</p>
+    </div>
+
+    <div class="resume-download-note">👆 This is a live formatting reference — click below to auto-fill your own details into this exact ATS-friendly layout.</div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Avoid These</div>
+      <h2>Common Mistakes in AI Engineer Resumes</h2>
+    </div>
+    <div class="mistakes">
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>Listing every ML algorithm you've heard of</h4>
+        <p>Recruiters can tell when a skills list is copy-pasted from a course syllabus. Only list what you've actually used.</p>
+      </div>
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>No mention of deployment or production</h4>
+        <p>A resume full of Jupyter notebook projects with no deployment signals "student," not "engineer."</p>
+      </div>
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>Vague impact statements</h4>
+        <p>"Worked on a chatbot project" tells recruiters nothing. Always add scale, metrics, or outcome.</p>
+      </div>
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>Using tables/graphics in the resume</h4>
+        <p>Fancy skill bars and tables often break ATS parsing. Stick to clean text-based formatting.</p>
+      </div>
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>Missing GitHub/portfolio link</h4>
+        <p>For AI roles, this is almost mandatory. Not including it raises an immediate red flag.</p>
+      </div>
+      <div class="mistake-card">
+        <span class="x">✗</span>
+        <h4>Confusing Data Analyst and AI Engineer framing</h4>
+        <p>If you're applying for AI Engineer roles, lead with model-building and deployment — not just dashboards/analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEW TIPS -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Interview Prep</div>
+      <h2>Common Interview Tips for AI Engineer Roles</h2>
+    </div>
+    <div class="tips-list">
+      <div class="tip-row">
+        <div class="tip-num">1</div>
+        <div>
+          <h4>Be ready to explain your projects end-to-end</h4>
+          <p>Interviewers will ask about data collection, model choice, evaluation metrics, and deployment — not just accuracy numbers.</p>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">2</div>
+        <div>
+          <h4>Expect Python & DSA screening rounds</h4>
+          <p>Even AI-specific roles often start with a coding round covering arrays, strings, and basic data structures.</p>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">3</div>
+        <div>
+          <h4>Know the trade-offs, not just the tools</h4>
+          <p>Be ready to discuss why you chose a specific model, embedding, or vector DB over alternatives.</p>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">4</div>
+        <div>
+          <h4>Practice explaining LLM/RAG concepts simply</h4>
+          <p>You'll often be asked to explain concepts like RAG or fine-tuning to a non-technical panel member — clarity matters.</p>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">5</div>
+        <div>
+          <h4>Bring one project you can whiteboard</h4>
+          <p>Have at least one project you can sketch out architecture-wise on a whiteboard or shared screen from memory.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div style="max-width:760px;margin:0 auto;">
+      <div class="faq-item">
+        <h4>What should an AI Engineer resume include?</h4>
+        <p>A summary, skills section (ML frameworks + MLOps tools), quantified project/experience bullets, ATS keywords like Python, PyTorch, LLMs, and RAG, plus education and certifications.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How do I make my AI Engineer resume ATS-friendly?</h4>
+        <p>Use a single-column layout, standard section headings, no tables/graphics, and mirror exact keywords from the job description.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need a GitHub link on my AI Engineer resume?</h4>
+        <p>Yes — recruiters almost always check it to verify real project work and code quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="final-cta-box">
+      <h2>Ready to build your AI Engineer resume?</h2>
+      <p>Skip the formatting headache. Fill in your details and get an ATS-optimized, recruiter-ready resume in minutes — free.</p>
+      <button class="cta-primary" onclick="window.location.href='/builder.html?role=ai-engineer'">⚡ Create This Resume in 5 Minutes</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 BanaoResume. Free ATS resume builder for Indian students & professionals.
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="/builder.html?role=ai-engineer">⚡ Build AI Engineer Resume Free</a>
+</div>
+
+</body>
+</html>
