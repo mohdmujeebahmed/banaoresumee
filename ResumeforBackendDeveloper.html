@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume for Backend Developer Jobs — Build an ATS-Ready Resume in 5 Minutes</title>
+<meta name="description" content="Free Backend Developer resume guide: example resume, skills checklist, ATS keywords recruiters scan for, and common interview tips. Build your backend developer resume in 5 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1117;
+    --paper:#f3f4f6;
+    --paper-2:#e7e9ee;
+    --amber:#ffb454;
+    --amber-deep:#8a5a15;
+    --violet:#8b7bff;
+    --line:#dadde3;
+    --steel:#3d4451;
+    --ok:#2f6b4f;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber-deep);
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* stack-trace divider — nods to the "server" side of the job */
+  .traceline{
+    height:26px;
+    background:var(--ink);
+    border-top:3px solid var(--amber);
+    border-bottom:3px solid var(--amber);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .traceline span{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#7d8695;
+    padding-left:24px;
+  }
+  .traceline b{color:var(--amber);font-weight:500;}
+
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 0 56px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+  }
+  .badge-scan{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,180,84,0.1);
+    border:1px solid var(--amber);
+    color:var(--amber);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    padding:6px 12px;
+    border-radius:3px;
+    margin-bottom:20px;
+  }
+  h1.title{
+    font-size:44px;
+    line-height:1.05;
+    color:#fff;
+    margin-bottom:18px;
+  }
+  h1.title span{color:var(--amber);}
+  .hero-sub{
+    font-size:17px;
+    color:#b6bcc7;
+    max-width:46ch;
+    margin-bottom:28px;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--amber);
+    color:var(--ink);
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 26px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 3px 0 var(--amber-deep);
+    transition:transform .12s ease;
+  }
+  .cta-btn:hover{transform:translateY(-2px);}
+  .cta-btn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--amber-deep);}
+  .cta-sub{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#7d8695;
+    margin-top:10px;
+  }
+
+  /* request/response panel — the shape of the job itself */
+  .api-panel{
+    background:#11161d;
+    border:1px solid #232a35;
+    border-radius:8px;
+    padding:18px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#aab2c0;
+  }
+  .api-panel .method{color:var(--amber);font-weight:700;}
+  .api-panel .path{color:var(--violet);}
+  .api-panel .status{color:#5fe0a0;font-weight:700;}
+  .api-panel p{margin:0 0 8px;}
+  .api-panel .divider{border-top:1px solid #232a35;margin:10px 0;}
+
+  section{padding:56px 0;}
+  section.alt{background:var(--paper-2);}
+  h2.section-title{
+    font-size:28px;
+    margin-bottom:8px;
+  }
+  .section-lede{
+    color:var(--steel);
+    max-width:60ch;
+    margin-bottom:32px;
+    font-size:15.5px;
+  }
+
+  .expect-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .expect-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--amber);
+    padding:20px;
+    border-radius:2px;
+  }
+  .expect-card h3{font-size:16px;margin-bottom:8px;}
+  .expect-card p{font-size:14px;color:var(--steel);margin:0;}
+
+  .resume-mock{
+    background:#fff;
+    border:1px solid var(--line);
+    box-shadow:0 8px 0 -4px var(--paper-2), 0 1px 3px rgba(0,0,0,0.06);
+    max-width:680px;
+    margin:0 auto;
+    padding:36px 40px;
+    font-family:'Inter',sans-serif;
+  }
+  .resume-mock .r-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:24px;
+    margin-bottom:2px;
+  }
+  .resume-mock .r-contact{
+    font-size:12.5px;
+    color:var(--steel);
+    margin-bottom:18px;
+  }
+  .resume-mock .r-block{margin-bottom:18px;}
+  .resume-mock .r-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--amber-deep);
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    padding-bottom:4px;
+    margin-bottom:8px;
+  }
+  .resume-mock .r-job-title{font-weight:600;font-size:14.5px;}
+  .resume-mock .r-job-meta{font-size:12.5px;color:var(--steel);margin-bottom:6px;}
+  .resume-mock ul{margin:0;padding-left:18px;font-size:13.5px;}
+  .resume-mock li{margin-bottom:4px;}
+  .stamp{
+    display:inline-block;
+    transform:rotate(-6deg);
+    border:2px solid var(--ok);
+    color:var(--ok);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    padding:4px 10px;
+    border-radius:3px;
+    float:right;
+    margin-top:-4px;
+  }
+
+  .checklist{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 28px;
+  }
+  .check-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    background:#fff;
+    border:1px solid var(--line);
+    padding:12px 14px;
+    border-radius:3px;
+    font-size:14px;
+  }
+  .check-box{
+    width:18px;height:18px;flex:none;
+    border:2px solid var(--amber-deep);
+    border-radius:3px;
+    margin-top:2px;
+    position:relative;
+  }
+  .check-box::after{
+    content:"";
+    position:absolute;
+    left:3px;top:-1px;
+    width:5px;height:9px;
+    border-right:2px solid var(--ok);
+    border-bottom:2px solid var(--ok);
+    transform:rotate(40deg);
+  }
+
+  .kw-scanner{
+    background:var(--ink);
+    border-radius:6px;
+    padding:28px;
+  }
+  .kw-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .kw-chip{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink);
+    background:var(--amber);
+    padding:7px 12px;
+    border-radius:2px;
+    letter-spacing:0.02em;
+    position:relative;
+    padding-left:20px;
+  }
+  .kw-chip::before{
+    content:"{}";
+    position:absolute;
+    left:6px;
+    font-size:10px;
+    color:var(--amber-deep);
+    font-weight:700;
+  }
+  .kw-note{
+    color:#8891a0;
+    font-size:13px;
+    margin-top:16px;
+    font-family:'Inter',sans-serif;
+  }
+
+  .mistake-list{list-style:none;margin:0;padding:0;}
+  .mistake-list li{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .mistake-list li:last-child{border-bottom:none;}
+  .x-mark{
+    color:#b3402a;
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    font-size:16px;
+  }
+
+  .tip-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .tip-card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:18px 20px;
+    border-radius:3px;
+  }
+  .tip-num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--amber-deep);
+    font-size:12px;
+    letter-spacing:0.1em;
+  }
+  .tip-card h3{font-size:15px;margin:6px 0 6px;}
+  .tip-card p{font-size:13.5px;color:var(--steel);margin:0;}
+
+  .cta-band{
+    background:var(--ink);
+    color:#fff;
+    text-align:center;
+    padding:64px 0;
+  }
+  .cta-band h2{color:#fff;font-size:30px;margin-bottom:10px;}
+  .cta-band p{color:#b6bcc7;margin-bottom:28px;font-size:15px;}
+
+  .sticky-cta{
+    position:sticky;
+    bottom:16px;
+    display:flex;
+    justify-content:center;
+    z-index:40;
+    pointer-events:none;
+  }
+  .sticky-cta a{pointer-events:all;}
+  .sticky-inner{
+    background:var(--ink);
+    color:#fff;
+    border-radius:40px;
+    padding:8px 8px 8px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+    font-size:14px;
+  }
+  .sticky-inner .cta-btn{
+    padding:10px 18px;
+    font-size:14px;
+    box-shadow:0 2px 0 var(--amber-deep);
+  }
+
+  footer{
+    text-align:center;
+    padding:28px 0 40px;
+    font-size:12px;
+    color:var(--steel);
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    h1.title{font-size:32px;}
+    .expect-grid{grid-template-columns:1fr;}
+    .checklist{grid-template-columns:1fr;}
+    .tip-grid{grid-template-columns:1fr;}
+    .resume-mock{padding:24px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge-scan">● SCAN STATUS: RESUME NOT YET OPTIMIZED</div>
+      <h1 class="title">Return a 200, not a<br><span>silent rejection.</span></h1>
+      <p class="hero-sub">Backend developer roles pull heavy application volume, and most companies filter with automated screening before a human reads a line. This guide covers exactly what recruiters and that system look for, with a real example resume and a keyword list.</p>
+      <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+      <div class="cta-sub">NO SIGN-UP TO START // TAKES ABOUT 5 MIN</div>
+    </div>
+    <div class="api-panel">
+      <p><span class="method">POST</span> <span class="path">/applications/resume</span></p>
+      <div class="divider"></div>
+      <p>{ "keywords_matched": 11,</p>
+      <p>&nbsp;&nbsp;"metrics_found": 6,</p>
+      <p>&nbsp;&nbsp;"parses_clean": true }</p>
+      <div class="divider"></div>
+      <p><span class="status">200 OK</span> — shortlisted</p>
+    </div>
+  </div>
+</header>
+<div class="traceline" aria-hidden="true">
+  <span>at resume.review(applicant) <b>→ scanning stack, metrics, keyword overlap...</b></span>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">What recruiters expect</span>
+    <h2 class="section-title">Backend recruiters read for systems shipped, not syntax known</h2>
+    <p class="section-lede">Whether it's a startup or a large engineering org, recruiters and their ATS are scanning for evidence you've built and maintained real systems — not just a list of languages you've touched.</p>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <h3>Scale and reliability</h3>
+        <p>Bullets that show what a system handled — requests per second, uptime, data volume — read stronger than a description of the code itself.</p>
+      </div>
+      <div class="expect-card">
+        <h3>Ownership of a service</h3>
+        <p>Recruiters look for language showing you owned a service end to end — design, deployment, on-call, and iteration — not just a feature ticket.</p>
+      </div>
+      <div class="expect-card">
+        <h3>Exact keyword matches</h3>
+        <p>ATS platforms rank resumes by keyword overlap with the posting. A language or database you know but didn't name may not get credit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Resume example</span>
+    <h2 class="section-title">A resume built for a backend developer role</h2>
+    <p class="section-lede">This example uses a format ATS systems parse cleanly: standard section headers, no tables, no columns, no graphics.</p>
+
+    <div class="resume-mock">
+      <div class="stamp">✓ ATS PARSED</div>
+      <div class="r-name">Marcus Webb</div>
+      <div class="r-contact">Denver, CO &nbsp;•&nbsp; (720) 555-0164 &nbsp;•&nbsp; marcus.webb@email.com &nbsp;•&nbsp; github.com/mwebb</div>
+
+      <div class="r-block">
+        <div class="r-label">Summary</div>
+        <p style="font-size:13.5px;margin:0;">Backend developer with 4+ years building and scaling REST and gRPC services in production. Focused on distributed systems, database performance, and API reliability.</p>
+      </div>
+
+      <div class="r-block">
+        <div class="r-label">Experience</div>
+        <div class="r-job-title">Backend Engineer — Cascade Systems</div>
+        <div class="r-job-meta">Denver, CO · Sep 2022 – Present</div>
+        <ul>
+          <li>Designed and shipped a payments API handling 2,000 requests per second at 99.95% uptime</li>
+          <li>Optimized PostgreSQL queries and indexing, cutting average response time from 400ms to 90ms</li>
+          <li>Migrated a monolith service into 4 independently deployable microservices</li>
+          <li>Built CI/CD pipelines that reduced deployment time from 45 minutes to 8 minutes</li>
+        </ul>
+      </div>
+
+      <div class="r-block">
+        <div class="r-label">Skills</div>
+        <p style="font-size:13.5px;margin:0;">Python · Go · PostgreSQL · Redis · Docker · Kubernetes · REST / gRPC APIs · AWS</p>
+      </div>
+
+      <div class="r-block" style="margin-bottom:0;">
+        <div class="r-label">Projects</div>
+        <p style="font-size:13.5px;margin:0;">Open-source contributor to a Go rate-limiting library (250+ GitHub stars) · Built a self-hosted job queue used internally by 2 teams</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Skills checklist</span>
+    <h2 class="section-title">Key skills to include before you apply</h2>
+    <p class="section-lede">Check these off against your draft. Tailor the mix toward the specific stack and scale of the team you're applying to.</p>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Named languages — Python, Go, Java, Node.js</div>
+      <div class="check-item"><div class="check-box"></div>Database experience specified — PostgreSQL, MySQL, Redis, MongoDB</div>
+      <div class="check-item"><div class="check-box"></div>API design named — REST, gRPC, GraphQL</div>
+      <div class="check-item"><div class="check-box"></div>Infrastructure and deployment tools — Docker, Kubernetes, Terraform</div>
+      <div class="check-item"><div class="check-box"></div>Scale metrics stated — requests per second, uptime, latency</div>
+      <div class="check-item"><div class="check-box"></div>Cloud platform named — AWS, GCP, Azure</div>
+      <div class="check-item"><div class="check-box"></div>Link to GitHub or portfolio included</div>
+      <div class="check-item"><div class="check-box"></div>Job title matches the posting's exact wording</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">ATS keywords</span>
+    <h2 class="section-title">Terms recruiters and ATS systems scan for</h2>
+    <p class="section-lede">Pull the exact keywords from the job description first, then round out with these common high-frequency terms across backend developer postings.</p>
+    <div class="kw-scanner">
+      <div class="kw-row">
+        <span class="kw-chip">REST API</span>
+        <span class="kw-chip">gRPC</span>
+        <span class="kw-chip">PostgreSQL</span>
+        <span class="kw-chip">Redis</span>
+        <span class="kw-chip">microservices</span>
+        <span class="kw-chip">Docker</span>
+        <span class="kw-chip">Kubernetes</span>
+        <span class="kw-chip">CI/CD</span>
+        <span class="kw-chip">distributed systems</span>
+        <span class="kw-chip">Python</span>
+        <span class="kw-chip">Go</span>
+        <span class="kw-chip">system design</span>
+        <span class="kw-chip">message queues</span>
+        <span class="kw-chip">database optimization</span>
+        <span class="kw-chip">AWS</span>
+      </div>
+      <p class="kw-note">Tip: match the posting's exact phrasing — "distributed systems" scans differently than "services talking to each other," even though a person would read them the same way.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Common mistakes</span>
+    <h2 class="section-title">What gets backend developer resumes filtered out</h2>
+    <ul class="mistake-list">
+      <li><span class="x-mark">✕</span><span><strong>Tables, columns, or graphics.</strong> Many ATS parsers misread multi-column layouts and drop entire sections of text.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Vague tech lists.</strong> "Familiar with several backend technologies" gives the system nothing concrete to match against the posting.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Frontend and backend blurred together.</strong> Listing every technology you've touched dilutes the signal for a backend-specific role.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Generic job titles.</strong> "Software developer" instead of "backend engineer" reduces keyword match score for backend-specific roles.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>No scale or outcome.</strong> Bullets without a performance or reliability metric read as unverifiable and get skipped in a fast recruiter scan.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Interview tips</span>
+    <h2 class="section-title">Once your resume gets through, prep for this</h2>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h3>Expect system design rounds</h3>
+        <p>Be ready to design a service from scratch on a whiteboard — data model, API shape, scaling and failure handling included.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h3>Know your numbers cold</h3>
+        <p>If your resume claims a latency or throughput improvement, be ready to explain exactly how you measured it and what the bottleneck was.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h3>Practice data structures and algorithms</h3>
+        <p>Even senior backend interviews often include a coding round beyond system design — keep fundamentals sharp, not just framework knowledge.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <h3>Have a debugging story ready</h3>
+        <p>Interviewers often ask about a production incident you handled — walk through diagnosis, fix, and what changed afterward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="builder">
+  <div class="wrap">
+    <h2>Your resume, scanned and ready in 5 minutes.</h2>
+    <p>Answer a few questions about your role and experience — we'll format it the way ATS systems read best.</p>
+    <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+  </div>
+</div>
+
+<footer>
+  Resume guidance is general and based on publicly available hiring information.
+</footer>
+
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <span>Ready to build yours?</span>
+    <a class="cta-btn" href="https://banaoresumee.online">Start now →</a>
+  </div>
+</div>
+
+</body>
+</html>
