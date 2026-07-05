@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder for UI/UX Designers – Free ATS-Friendly Designer Resume | BanaoResume</title>
+<meta name="description" content="Build a free, ATS-friendly resume for UI/UX Designers in minutes. Portfolio-ready templates, recruiter-approved formatting, and design-specific bullet points that get you shortlisted.">
+<meta name="keywords" content="resume builder for UI UX designer, UX designer resume template, UI designer resume, product designer resume builder, free resume maker for designers, ATS resume UX designer India">
+<link rel="canonical" href="https://banaoresumee.online/resume-builder-ui-ux-designer">
+
+<meta property="og:title" content="Free Resume Builder for UI/UX Designers | BanaoResume">
+<meta property="og:description" content="Craft a portfolio-ready, ATS-optimized resume built specifically for UI/UX Designers. 100% free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://banaoresumee.online/resume-builder-ui-ux-designer">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do UI/UX designers need an ATS-friendly resume or just a portfolio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Most companies still run resumes through an Applicant Tracking System before a human designer or recruiter ever opens your portfolio link. If your resume isn't parsed correctly, your beautiful Figma case studies never get seen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should my UX resume be visually designed or plain text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep your resume clean and ATS-safe — save the visual storytelling for your portfolio. Recruiters and ATS software often reject heavily graphic resumes because the parser cannot read text inside images, icons, or complex columns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BanaoResume free for designers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. BanaoResume is a free ATS resume builder for students and freshers, including UI/UX design freshers and career-switchers, with no signup wall for the core builder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should a UI/UX designer include instead of a work experience section, if they have none?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a Projects or Case Studies section instead. List 2-4 projects with the problem, your role, tools used, and the measurable outcome (e.g. reduced task completion time, improved usability score, increased conversion in a redesign)."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --bg:#0b0b12;
+    --bg2:#12121c;
+    --purple:#8b5cf6;
+    --pink:#ec4899;
+    --cyan:#22d3ee;
+    --amber:#fbbf24;
+    --text:#f1f0f5;
+    --muted:#a3a1b0;
+    --card:#151520;
+    --card-border:rgba(255,255,255,0.08);
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    perspective:1400px;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  /* ---------- Background ambience ---------- */
+  .bg-glow{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(139,92,246,0.25), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(236,72,153,0.2), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(34,211,238,0.15), transparent 50%);
+  }
+  .grid-floor{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.15;
+    background-image:
+      linear-gradient(rgba(139,92,246,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,0.4) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at center, black, transparent 75%);
+  }
+
+  section{position:relative; z-index:1;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6%;
+    background:rgba(11,11,18,0.7);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--card-border);
+  }
+  .logo{font-weight:800; font-size:1.3rem; letter-spacing:-0.5px;}
+  .logo span{color:var(--purple);}
+  .nav-cta{
+    background:linear-gradient(135deg, var(--purple), var(--pink));
+    padding:10px 22px; border-radius:10px; font-weight:600; font-size:0.9rem;
+    box-shadow:0 6px 20px rgba(139,92,246,0.35);
+    transform:translateZ(0);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 10px 28px rgba(236,72,153,0.4);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:90px 6% 60px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    max-width:1300px; margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(139,92,246,0.12); border:1px solid rgba(139,92,246,0.35);
+    padding:7px 16px; border-radius:999px; font-size:0.8rem; color:#c4b5fd; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; color:var(--purple); font-size:0.6rem;}
+  h1{
+    font-size:3.1rem; line-height:1.12; font-weight:800; letter-spacing:-1.5px;
+    margin-bottom:22px;
+  }
+  h1 .grad{
+    background:linear-gradient(135deg, var(--purple), var(--pink) 60%, var(--cyan));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.sub{color:var(--muted); font-size:1.15rem; line-height:1.65; max-width:540px; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:linear-gradient(135deg, var(--purple), var(--pink));
+    padding:16px 30px; border-radius:12px; font-weight:700; font-size:1rem;
+    box-shadow:0 10px 30px rgba(139,92,246,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+    transform:translateZ(20px);
+    transition:transform .3s ease, box-shadow .3s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateZ(30px) translateY(-3px); box-shadow:0 16px 40px rgba(236,72,153,0.5);}
+  .btn-secondary{
+    border:1px solid var(--card-border); padding:16px 28px; border-radius:12px;
+    font-weight:600; color:var(--text); background:rgba(255,255,255,0.03);
+    transition:all .25s ease;
+  }
+  .btn-secondary:hover{background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.25);}
+  .trust-row{display:flex; gap:26px; margin-top:34px; flex-wrap:wrap; color:var(--muted); font-size:0.85rem;}
+  .trust-row b{color:var(--text); display:block; font-size:1.4rem;}
+
+  /* ---------- 3D Resume Card mockup ---------- */
+  .mock-wrap{
+    position:relative; height:520px;
+    transform-style:preserve-3d;
+  }
+  .resume-card{
+    position:absolute; width:340px; top:0; left:50%;
+    background:linear-gradient(160deg, #1b1b28, #100f18);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    padding:26px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(139,92,246,0.15);
+    transform:translateX(-50%) rotateY(-18deg) rotateX(8deg) rotateZ(-2deg) translateZ(40px);
+    animation:float1 6s ease-in-out infinite;
+  }
+  .resume-card .rc-head{display:flex; gap:12px; align-items:center; margin-bottom:18px;}
+  .avatar{width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--purple),var(--cyan));}
+  .rc-name{font-weight:700; font-size:1rem;}
+  .rc-role{color:var(--muted); font-size:0.78rem;}
+  .rc-bar{height:8px; border-radius:6px; background:rgba(255,255,255,0.08); margin-bottom:10px; overflow:hidden;}
+  .rc-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--purple),var(--pink));}
+  .rc-tag{
+    display:inline-block; background:rgba(34,211,238,0.14); color:#67e8f9;
+    border:1px solid rgba(34,211,238,0.3); font-size:0.68rem; padding:4px 10px;
+    border-radius:999px; margin:3px 4px 0 0;
+  }
+  .float-chip{
+    position:absolute; background:var(--card); border:1px solid var(--card-border);
+    padding:12px 16px; border-radius:14px; font-size:0.8rem; font-weight:600;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    display:flex; align-items:center; gap:8px;
+  }
+  .chip1{top:40px; left:0; transform:translateZ(90px) rotateY(10deg); animation:float2 5s ease-in-out infinite;}
+  .chip2{bottom:60px; right:-10px; transform:translateZ(70px) rotateY(-10deg); animation:float3 7s ease-in-out infinite;}
+  .chip3{bottom:-10px; left:30px; transform:translateZ(110px); animation:float2 6.5s ease-in-out infinite reverse;}
+  @keyframes float1{0%,100%{transform:translateX(-50%) rotateY(-18deg) rotateX(8deg) rotateZ(-2deg) translateZ(40px) translateY(0);} 50%{transform:translateX(-50%) rotateY(-14deg) rotateX(6deg) rotateZ(-1deg) translateZ(40px) translateY(-16px);}}
+  @keyframes float2{0%,100%{transform:translateY(0) translateZ(90px);} 50%{transform:translateY(-14px) translateZ(90px);}}
+  @keyframes float3{0%,100%{transform:translateY(0) translateZ(70px);} 50%{transform:translateY(12px) translateZ(70px);}}
+
+  /* ---------- Section shared ---------- */
+  .section{padding:90px 6%; max-width:1300px; margin:0 auto;}
+  .section-head{text-align:center; max-width:680px; margin:0 auto 56px;}
+  .section-head h2{font-size:2.2rem; font-weight:800; letter-spacing:-1px; margin-bottom:14px;}
+  .section-head p{color:var(--muted); font-size:1.05rem; line-height:1.6;}
+  .grad-text{background:linear-gradient(135deg,var(--purple),var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* ---------- Why cards (3D tilt) ---------- */
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .tilt-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:18px;
+    padding:32px 26px; transform-style:preserve-3d;
+    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+    position:relative; overflow:hidden;
+  }
+  .tilt-card::before{
+    content:""; position:absolute; inset:0; opacity:0;
+    background:linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1));
+    transition:opacity .4s ease;
+  }
+  .tilt-card:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-4deg) translateZ(10px); box-shadow:0 30px 60px rgba(139,92,246,0.25); border-color:rgba(139,92,246,0.4);}
+  .tilt-card:hover::before{opacity:1;}
+  .tilt-icon{
+    width:54px; height:54px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; margin-bottom:18px;
+    background:linear-gradient(135deg, var(--purple), var(--pink));
+    box-shadow:0 10px 24px rgba(139,92,246,0.4);
+  }
+  .tilt-card h3{font-size:1.15rem; margin-bottom:10px; position:relative;}
+  .tilt-card p{color:var(--muted); font-size:0.92rem; line-height:1.6; position:relative;}
+
+  /* ---------- Steps ---------- */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; counter-reset:step;}
+  .step{
+    background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:28px 22px;
+    position:relative; transform:translateZ(0); transition:transform .3s ease;
+  }
+  .step:hover{transform:translateY(-6px);}
+  .step-num{
+    width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--cyan), var(--purple)); font-weight:800; margin-bottom:16px;
+    box-shadow:0 8px 18px rgba(34,211,238,0.35);
+  }
+  .step h4{font-size:1.02rem; margin-bottom:8px;}
+  .step p{color:var(--muted); font-size:0.88rem; line-height:1.55;}
+
+  /* ---------- Bullet examples (do/don't) ---------- */
+  .dd-wrap{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .dd-card{border-radius:18px; padding:30px; border:1px solid var(--card-border);}
+  .dd-bad{background:linear-gradient(160deg, rgba(239,68,68,0.08), rgba(21,21,32,0.6));}
+  .dd-good{background:linear-gradient(160deg, rgba(34,197,94,0.1), rgba(21,21,32,0.6));}
+  .dd-label{display:inline-flex; align-items:center; gap:8px; font-weight:700; margin-bottom:18px; font-size:0.95rem;}
+  .dd-bad .dd-label{color:#f87171;}
+  .dd-good .dd-label{color:#4ade80;}
+  .dd-card ul{list-style:none;}
+  .dd-card li{padding:10px 0 10px 26px; position:relative; color:var(--muted); font-size:0.92rem; line-height:1.55; border-bottom:1px solid rgba(255,255,255,0.05);}
+  .dd-card li:last-child{border-bottom:none;}
+  .dd-bad li::before{content:"✕"; position:absolute; left:0; color:#f87171;}
+  .dd-good li::before{content:"✓"; position:absolute; left:0; color:#4ade80;}
+  .dd-good li{color:#e5e4ec;}
+
+  /* ---------- Templates strip ---------- */
+  .tpl-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .tpl-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:18px; overflow:hidden;
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .tpl-card:hover{transform:translateY(-8px) rotateX(3deg); box-shadow:0 30px 60px rgba(0,0,0,0.5);}
+  .tpl-preview{
+    height:200px; display:flex; align-items:center; justify-content:center; position:relative;
+    background:linear-gradient(160deg,#1a1a26,#0f0f18);
+  }
+  .tpl-preview .mini{width:120px; height:150px; background:#fff; border-radius:6px; box-shadow:0 20px 40px rgba(0,0,0,0.5); position:relative; overflow:hidden;}
+  .mini .bar{position:absolute; left:10px; right:10px; height:6px; border-radius:3px; background:#ddd;}
+  .tpl-body{padding:20px 22px 26px;}
+  .tpl-body h4{font-size:1rem; margin-bottom:6px;}
+  .tpl-body p{color:var(--muted); font-size:0.85rem;}
+
+  /* ---------- Testimonials ---------- */
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .test-card{background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:26px;}
+  .stars{color:var(--amber); margin-bottom:14px; font-size:0.9rem;}
+  .test-card p{color:#d9d8e2; font-size:0.92rem; line-height:1.6; margin-bottom:18px;}
+  .test-who{display:flex; align-items:center; gap:10px;}
+  .test-who .avatar{width:36px; height:36px;}
+  .test-who b{display:block; font-size:0.88rem;}
+  .test-who span{color:var(--muted); font-size:0.76rem;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    background:var(--card); border:1px solid var(--card-border); border-radius:14px;
+    margin-bottom:14px; overflow:hidden;
+  }
+  .faq-q{
+    padding:20px 24px; display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; font-weight:600; font-size:0.98rem;
+  }
+  .faq-q .plus{transition:transform .3s ease; color:var(--purple); font-size:1.3rem;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .faq-a p{padding:0 24px 20px; color:var(--muted); font-size:0.9rem; line-height:1.6;}
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    text-align:center; padding:90px 6% 110px; position:relative;
+  }
+  .cta-box{
+    max-width:800px; margin:0 auto; padding:60px 40px; border-radius:28px;
+    background:linear-gradient(135deg, rgba(139,92,246,0.18), rgba(236,72,153,0.14));
+    border:1px solid rgba(139,92,246,0.3);
+    position:relative; overflow:hidden;
+  }
+  .cta-box h2{font-size:2rem; font-weight:800; margin-bottom:16px; letter-spacing:-1px;}
+  .cta-box p{color:var(--muted); margin-bottom:30px; font-size:1.05rem;}
+
+  footer{
+    padding:40px 6%; text-align:center; color:var(--muted); font-size:0.85rem;
+    border-top:1px solid var(--card-border);
+  }
+  footer a{color:#c4b5fd;}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr; padding-top:50px;}
+    h1{font-size:2.2rem;}
+    .mock-wrap{height:420px; margin-top:30px;}
+    .grid3, .steps, .dd-wrap, .tpl-grid, .test-grid{grid-template-columns:1fr;}
+    .section{padding:60px 6%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="grid-floor"></div>
+
+<nav>
+  <div class="logo">Banao<span>Resume</span></div>
+  <a href="/" class="nav-cta">Build My Resume Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">Built for Designers, Not Just Text Resumes</div>
+    <h1>The Resume Builder <span class="grad">UI/UX Designers</span> Actually Need</h1>
+    <p class="sub">Your portfolio shows your craft. Your resume gets you the interview to show it. Build a clean, ATS-friendly, recruiter-approved resume in minutes — free, no design skills or Figma required.</p>
+    <div class="hero-ctas">
+      <a href="/" class="btn-primary">Create My Designer Resume →</a>
+      <a href="#examples" class="btn-secondary">See Real Bullet Examples</a>
+    </div>
+    <div class="trust-row">
+      <div><b>100%</b>Free, no signup wall</div>
+      <div><b>ATS-Safe</b>Parses cleanly, every time</div>
+      <div><b>2 min</b>To a downloadable PDF/DOCX</div>
+    </div>
+  </div>
+
+  <div class="mock-wrap">
+    <div class="resume-card">
+      <div class="rc-head">
+        <div class="avatar"></div>
+        <div>
+          <div class="rc-name">Aditi Sharma</div>
+          <div class="rc-role">UI/UX Designer · Product Design</div>
+        </div>
+      </div>
+      <div class="rc-bar"><i style="width:92%"></i></div>
+      <div class="rc-bar"><i style="width:78%"></i></div>
+      <div class="rc-bar"><i style="width:85%"></i></div>
+      <div style="margin-top:16px;">
+        <span class="rc-tag">Figma</span>
+        <span class="rc-tag">Wireframing</span>
+        <span class="rc-tag">User Research</span>
+        <span class="rc-tag">Design Systems</span>
+      </div>
+    </div>
+    <div class="float-chip chip1">🎯 ATS Score: 96%</div>
+    <div class="float-chip chip2">🎨 Case Study Ready</div>
+    <div class="float-chip chip3">⚡ Built in 2 minutes</div>
+  </div>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section class="section">
+  <div class="section-head">
+    <h2>Designers Get Rejected Before a Human Sees Their <span class="grad-text">Work</span></h2>
+    <p>Most UX resume advice is written for engineers. Design is different — you're selling craft, process, and impact, but you still have to survive the same ATS filters everyone else does.</p>
+  </div>
+  <div class="grid3">
+    <div class="tilt-card">
+      <div class="tilt-icon">🚫</div>
+      <h3>Fancy Resumes Get Auto-Rejected</h3>
+      <p>Icon columns, graphics, and creative layouts look great to you but often can't be parsed by ATS software — meaning your name, skills, and links get misread or dropped entirely.</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon">🔗</div>
+      <h3>Portfolio Link Isn't Enough</h3>
+      <p>Recruiters spend seconds deciding whether to click your portfolio. Your resume has to earn that click with sharp, outcome-driven bullets — not just "designed UI for X app."</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon">📐</div>
+      <h3>No Template Built for Design Roles</h3>
+      <p>Generic resume builders assume a "job title + duties" format. Designers need room for case studies, tools, and measurable UX outcomes — which is exactly what this builder gives you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-head">
+    <h2>From Blank Page to <span class="grad-text">Interview-Ready</span> in 4 Steps</h2>
+    <p>No design decisions to make. We handle the layout — you focus on your work.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Pick a Clean Template</h4>
+      <p>Choose from ATS-Minimal or Modern layouts — built to parse perfectly while still looking sharp.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Add Your Case Studies</h4>
+      <p>Structured fields for Project, Role, Tools, and Outcome so every project reads like a mini case study.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Drop In Your Skills</h4>
+      <p>Figma, Sketch, Adobe XD, Framer, prototyping, research, design systems — tagged cleanly for ATS keyword scans.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Export Free PDF/DOCX</h4>
+      <p>Download instantly. No watermark, no paywall, no "upgrade to download" trick.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DO / DONT EXAMPLES -->
+<section class="section" id="examples">
+  <div class="section-head">
+    <h2>What Actually Belongs on a <span class="grad-text">UX Resume</span></h2>
+    <p>Real before/after examples — swap generic design-speak for outcome-driven, ATS-friendly bullet points.</p>
+  </div>
+  <div class="dd-wrap">
+    <div class="dd-card dd-bad">
+      <div class="dd-label">✕ Weak / Generic</div>
+      <ul>
+        <li>Designed UI for a mobile app using Figma</li>
+        <li>Responsible for user research and wireframes</li>
+        <li>Worked on improving the user experience</li>
+        <li>Created design system for the product</li>
+        <li>Collaborated with developers on handoff</li>
+      </ul>
+    </div>
+    <div class="dd-card dd-good">
+      <div class="dd-label">✓ Strong / Outcome-Driven</div>
+      <ul>
+        <li>Redesigned onboarding flow in Figma, reducing drop-off rate by 27% across 3 usability tests</li>
+        <li>Conducted 12 user interviews to identify friction points, informing a navigation redesign</li>
+        <li>Rebuilt checkout UX, improving task completion time from 48s to 19s in moderated testing</li>
+        <li>Built a 40-component design system in Figma, cutting design-to-dev handoff time by 35%</li>
+        <li>Partnered with 4 engineers using Zeplin/Figma Dev Mode to ship pixel-accurate builds</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="section">
+  <div class="section-head">
+    <h2>Templates Designers Actually <span class="grad-text">Trust</span></h2>
+    <p>Clean enough to pass ATS. Sharp enough to reflect design taste.</p>
+  </div>
+  <div class="tpl-grid">
+    <div class="tpl-card">
+      <div class="tpl-preview"><div class="mini"><div class="bar" style="top:16px; width:60%;"></div><div class="bar" style="top:30px;"></div><div class="bar" style="top:42px; width:70%;"></div><div class="bar" style="top:70px; width:40%; background:#8b5cf6;"></div><div class="bar" style="top:86px;"></div><div class="bar" style="top:98px; width:80%;"></div></div></div>
+      <div class="tpl-body"><h4>ATS Minimal</h4><p>Single column, zero clutter — built to parse perfectly for design roles at product companies.</p></div>
+    </div>
+    <div class="tpl-card">
+      <div class="tpl-preview"><div class="mini"><div class="bar" style="top:16px; width:50%; background:#ec4899;"></div><div class="bar" style="top:30px;"></div><div class="bar" style="top:55px; width:65%;"></div><div class="bar" style="top:67px;"></div><div class="bar" style="top:92px; width:55%; background:#22d3ee;"></div></div></div>
+      <div class="tpl-body"><h4>Modern Orange</h4><p>Subtle color accents and structured sections — a step above plain, still fully ATS-safe.</p></div>
+    </div>
+    <div class="tpl-card">
+      <div class="tpl-preview"><div class="mini"><div class="bar" style="top:16px; width:70%;"></div><div class="bar" style="top:34px;"></div><div class="bar" style="top:46px; width:50%;"></div><div class="bar" style="top:70px; width:60%; background:#fbbf24;"></div><div class="bar" style="top:90px;"></div></div></div>
+      <div class="tpl-body"><h4>Case-Study Layout</h4><p>Dedicated project blocks with Role / Tools / Impact fields — purpose-built for designers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-head">
+    <h2>Designers Who Got <span class="grad-text">Shortlisted</span></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"I kept getting ghosted after applying with my Canva resume. Rebuilt it here in 10 minutes and got 2 interview calls the same week."</p>
+      <div class="test-who"><div class="avatar"></div><div><b>Riya M.</b><span>Junior UX Designer</span></div></div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Finally a builder that understands designers don't have 'work experience' — the case study format let my college projects actually shine."</p>
+      <div class="test-who"><div class="avatar"></div><div><b>Karthik R.</b><span>UI Design Fresher</span></div></div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Switched careers from graphic design to UX. This helped me translate my skills into recruiter language without hiring a resume writer."</p>
+      <div class="test-who"><div class="avatar"></div><div><b>Sana K.</b><span>Product Designer</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-head">
+    <h2>Questions Designers <span class="grad-text">Actually Ask</span></h2>
+  </div>
+  <div style="max-width:760px; margin:0 auto;">
+    <div class="faq-item">
+      <div class="faq-q">Do UI/UX designers need an ATS-friendly resume or just a portfolio? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Both. Most companies still run resumes through an Applicant Tracking System before a human designer or recruiter ever opens your portfolio link. If your resume isn't parsed correctly, your beautiful Figma case studies never get seen.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should my UX resume be visually designed or plain text? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Keep your resume clean and ATS-safe — save the visual storytelling for your portfolio. Recruiters and ATS software often reject heavily graphic resumes because the parser cannot read text inside images, icons, or complex columns.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is BanaoResume free for designers? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Yes. BanaoResume is a free ATS resume builder for students and freshers, including UI/UX design freshers and career-switchers, with no signup wall for the core builder.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What should I include instead of a work experience section if I have none? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Use a Projects or Case Studies section instead. List 2-4 projects with the problem, your role, tools used, and the measurable outcome (e.g. reduced task completion time, improved usability score, increased conversion in a redesign).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-box">
+    <h2>Your Portfolio Deserves a Resume That Gets It Opened</h2>
+    <p>Free forever for the core builder. No credit card, no watermark, no catch.</p>
+    <a href="/" class="btn-primary">Build My UI/UX Resume Now →</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 BanaoResume · <a href="/">Home</a> · <a href="/templates">Templates</a> · <a href="/blog">Blog</a> · Made for Indian students & freshers
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.parentElement;
+      const ans = item.querySelector('.faq-a');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // subtle mouse-parallax on hero mock
+  const mock = document.querySelector('.mock-wrap');
+  if(mock){
+    document.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - 0.5) * 14;
+      const y = (e.clientY / window.innerHeight - 0.5) * 14;
+      mock.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+  }
+</script>
+
+</body>
+</html>
