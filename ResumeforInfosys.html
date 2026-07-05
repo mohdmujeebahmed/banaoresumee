@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume for Infosys — Build an ATS-Ready Resume in 5 Minutes</title>
+<meta name="description" content="Free Infosys resume guide: example resume, skills checklist, ATS keywords recruiters scan for, and common interview tips. Build your Infosys resume in 5 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a1a2e;
+    --paper:#f2f5f9;
+    --paper-2:#e6ebf3;
+    --blue:#2f7de0;
+    --blue-deep:#123a70;
+    --cyan:#3fd0e0;
+    --line:#d6dde8;
+    --steel:#3d4a5c;
+    --ok:#2f6b4f;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--blue-deep);
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* dot-grid divider — represents scale: thousands of nodes/associates */
+  .gridline{
+    height:26px;
+    background:var(--ink);
+    border-top:3px solid var(--blue);
+    border-bottom:3px solid var(--blue);
+    background-image:radial-gradient(var(--blue) 1px, transparent 1px);
+    background-size:12px 12px;
+    background-position:6px center;
+  }
+
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 0 56px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+  }
+  .badge-scan{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(47,125,224,0.14);
+    border:1px solid var(--blue);
+    color:#8fc0f5;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    padding:6px 12px;
+    border-radius:3px;
+    margin-bottom:20px;
+  }
+  h1.title{
+    font-size:44px;
+    line-height:1.05;
+    color:#fff;
+    margin-bottom:18px;
+  }
+  h1.title span{color:var(--cyan);}
+  .hero-sub{
+    font-size:17px;
+    color:#b8c3d4;
+    max-width:46ch;
+    margin-bottom:28px;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--blue);
+    color:#fff;
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 26px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 3px 0 var(--blue-deep);
+    transition:transform .12s ease;
+  }
+  .cta-btn:hover{transform:translateY(-2px);}
+  .cta-btn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--blue-deep);}
+  .cta-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#7f8ca0;
+    margin-top:10px;
+  }
+
+  /* stack panel — layered "levels" motif for IT services career bands */
+  .stack-panel{
+    background:#fff;
+    border-radius:8px;
+    padding:22px 20px 18px;
+    color:var(--ink);
+  }
+  .stack-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:9px 12px;
+    border-radius:4px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .stack-row:nth-child(1){background:#e6f0fd;color:var(--blue-deep);}
+  .stack-row:nth-child(2){background:#d6e7fb;color:var(--blue-deep);}
+  .stack-row:nth-child(3){background:var(--blue);color:#fff;}
+  .stack-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--steel);
+    text-align:center;
+    margin-top:10px;
+  }
+
+  section{padding:56px 0;}
+  section.alt{background:var(--paper-2);}
+  h2.section-title{
+    font-size:28px;
+    margin-bottom:8px;
+  }
+  .section-lede{
+    color:var(--steel);
+    max-width:60ch;
+    margin-bottom:32px;
+    font-size:15.5px;
+  }
+
+  .expect-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .expect-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--blue);
+    padding:20px;
+    border-radius:2px;
+  }
+  .expect-card h3{font-size:16px;margin-bottom:8px;}
+  .expect-card p{font-size:14px;color:var(--steel);margin:0;}
+
+  .resume-mock{
+    background:#fff;
+    border:1px solid var(--line);
+    box-shadow:0 8px 0 -4px var(--paper-2), 0 1px 3px rgba(0,0,0,0.06);
+    max-width:680px;
+    margin:0 auto;
+    padding:36px 40px;
+    font-family:'Inter',sans-serif;
+  }
+  .resume-mock .r-name{
+    font-family:'Manrope',sans-serif;
+    font-size:24px;
+    margin-bottom:2px;
+  }
+  .resume-mock .r-contact{
+    font-size:12.5px;
+    color:var(--steel);
+    margin-bottom:18px;
+  }
+  .resume-mock .r-block{margin-bottom:18px;}
+  .resume-mock .r-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--blue-deep);
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    padding-bottom:4px;
+    margin-bottom:8px;
+  }
+  .resume-mock .r-job-title{font-weight:600;font-size:14.5px;}
+  .resume-mock .r-job-meta{font-size:12.5px;color:var(--steel);margin-bottom:6px;}
+  .resume-mock ul{margin:0;padding-left:18px;font-size:13.5px;}
+  .resume-mock li{margin-bottom:4px;}
+  .stamp{
+    display:inline-block;
+    transform:rotate(-6deg);
+    border:2px solid var(--ok);
+    color:var(--ok);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    padding:4px 10px;
+    border-radius:3px;
+    float:right;
+    margin-top:-4px;
+  }
+
+  .checklist{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 28px;
+  }
+  .check-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    background:#fff;
+    border:1px solid var(--line);
+    padding:12px 14px;
+    border-radius:3px;
+    font-size:14px;
+  }
+  .check-box{
+    width:18px;height:18px;flex:none;
+    border:2px solid var(--blue-deep);
+    border-radius:3px;
+    margin-top:2px;
+    position:relative;
+  }
+  .check-box::after{
+    content:"";
+    position:absolute;
+    left:3px;top:-1px;
+    width:5px;height:9px;
+    border-right:2px solid var(--ok);
+    border-bottom:2px solid var(--ok);
+    transform:rotate(40deg);
+  }
+
+  .kw-scanner{
+    background:var(--ink);
+    border-radius:6px;
+    padding:28px;
+  }
+  .kw-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .kw-chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:#fff;
+    background:var(--blue);
+    padding:7px 12px;
+    border-radius:2px;
+    letter-spacing:0.02em;
+    position:relative;
+    padding-left:20px;
+  }
+  .kw-chip::before{
+    content:"#";
+    position:absolute;
+    left:8px;
+    color:var(--cyan);
+    font-weight:700;
+  }
+  .kw-note{
+    color:#8b97a8;
+    font-size:13px;
+    margin-top:16px;
+    font-family:'Inter',sans-serif;
+  }
+
+  .mistake-list{list-style:none;margin:0;padding:0;}
+  .mistake-list li{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .mistake-list li:last-child{border-bottom:none;}
+  .x-mark{
+    color:#b3402a;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:16px;
+  }
+
+  .tip-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .tip-card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:18px 20px;
+    border-radius:3px;
+  }
+  .tip-num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--blue-deep);
+    font-size:12px;
+    letter-spacing:0.1em;
+  }
+  .tip-card h3{font-size:15px;margin:6px 0 6px;}
+  .tip-card p{font-size:13.5px;color:var(--steel);margin:0;}
+
+  .cta-band{
+    background:var(--ink);
+    color:#fff;
+    text-align:center;
+    padding:64px 0;
+  }
+  .cta-band h2{color:#fff;font-size:30px;margin-bottom:10px;}
+  .cta-band p{color:#b8c3d4;margin-bottom:28px;font-size:15px;}
+
+  .sticky-cta{
+    position:sticky;
+    bottom:16px;
+    display:flex;
+    justify-content:center;
+    z-index:40;
+    pointer-events:none;
+  }
+  .sticky-cta a{pointer-events:all;}
+  .sticky-inner{
+    background:var(--ink);
+    color:#fff;
+    border-radius:40px;
+    padding:8px 8px 8px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+    font-size:14px;
+  }
+  .sticky-inner .cta-btn{
+    padding:10px 18px;
+    font-size:14px;
+    box-shadow:0 2px 0 var(--blue-deep);
+  }
+
+  footer{
+    text-align:center;
+    padding:28px 0 40px;
+    font-size:12px;
+    color:var(--steel);
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    h1.title{font-size:32px;}
+    .expect-grid{grid-template-columns:1fr;}
+    .checklist{grid-template-columns:1fr;}
+    .tip-grid{grid-template-columns:1fr;}
+    .resume-mock{padding:24px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge-scan">● SCAN STATUS: RESUME NOT YET OPTIMIZED</div>
+      <h1 class="title">Get shortlisted before<br><span>a recruiter opens your file.</span></h1>
+      <p class="hero-sub">Infosys receives an enormous volume of applications across engineering, consulting, and support roles, and screens nearly all of them through automated systems first. This guide covers exactly what recruiters and that system look for, with a real example resume and a keyword list.</p>
+      <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+      <div class="cta-sub">NO SIGN-UP TO START // TAKES ABOUT 5 MIN</div>
+    </div>
+    <div class="stack-panel">
+      <div class="stack-row"><span>Screened</span><span>18,400</span></div>
+      <div class="stack-row"><span>Shortlisted</span><span>640</span></div>
+      <div class="stack-row"><span>Your resume</span><span>✓ match</span></div>
+      <div class="stack-caption">TYPICAL SHORTLIST FUNNEL</div>
+    </div>
+  </div>
+</header>
+<div class="gridline" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">What recruiters expect</span>
+    <h2 class="section-title">Infosys recruiters read for exact-fit skills at high volume</h2>
+    <p class="section-lede">With thousands of applicants per posting, Infosys recruiters and its ATS lean hard on structured, keyword-matched resumes to shortlist quickly — clarity and precision matter more than creative formatting.</p>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <h3>Precise technical skills</h3>
+        <p>Exact tools, languages, and platforms named clearly — not grouped vaguely under "various technologies."</p>
+      </div>
+      <div class="expect-card">
+        <h3>Project-based delivery</h3>
+        <p>Infosys work is structured around client projects. Recruiters look for named project scope, role, and delivered outcome.</p>
+      </div>
+      <div class="expect-card">
+        <h3>Exact keyword matches</h3>
+        <p>Infosys's ATS ranks resumes by keyword overlap with the job posting. Skills need to match the posting's wording, not just imply it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Resume example</span>
+    <h2 class="section-title">A resume built for a software engineer role</h2>
+    <p class="section-lede">This example uses a format Infosys's system parses cleanly: standard section headers, no tables, no columns, no graphics.</p>
+
+    <div class="resume-mock">
+      <div class="stamp">✓ ATS PARSED</div>
+      <div class="r-name">Ananya Rao</div>
+      <div class="r-contact">Bengaluru, KA &nbsp;•&nbsp; +91 98450 12233 &nbsp;•&nbsp; ananya.rao@email.com</div>
+
+      <div class="r-block">
+        <div class="r-label">Summary</div>
+        <p style="font-size:13.5px;margin:0;">Software engineer with 3+ years delivering full-stack applications for banking and retail clients. Experienced in Java, Spring Boot, and cloud deployment across Agile delivery teams.</p>
+      </div>
+
+      <div class="r-block">
+        <div class="r-label">Experience</div>
+        <div class="r-job-title">Systems Engineer — Infosys Limited</div>
+        <div class="r-job-meta">Bengaluru, KA · Jul 2022 – Present</div>
+        <ul>
+          <li>Developed and maintained microservices for a banking client using Java, Spring Boot, and REST APIs</li>
+          <li>Migrated a legacy on-prem application to AWS, reducing infrastructure cost by 24%</li>
+          <li>Automated regression testing with Selenium, cutting release cycle time by 3 days</li>
+          <li>Collaborated with a distributed team of 10 across 3 time zones using Agile sprints</li>
+        </ul>
+      </div>
+
+      <div class="r-block">
+        <div class="r-label">Skills</div>
+        <p style="font-size:13.5px;margin:0;">Java · Spring Boot · REST APIs · AWS · SQL · Selenium · Agile / Scrum</p>
+      </div>
+
+      <div class="r-block" style="margin-bottom:0;">
+        <div class="r-label">Certifications</div>
+        <p style="font-size:13.5px;margin:0;">AWS Certified Solutions Architect – Associate · Infosys Certified Java Developer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Skills checklist</span>
+    <h2 class="section-title">Key skills to include before you apply</h2>
+    <p class="section-lede">Check these off against your draft. Tailor the mix toward the specific track — software engineering, testing, or consulting.</p>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Named programming languages — Java, Python, C#, JavaScript</div>
+      <div class="check-item"><div class="check-box"></div>Cloud platforms specified — AWS, Azure, or GCP</div>
+      <div class="check-item"><div class="check-box"></div>Named frameworks — Spring Boot, .NET, React, Angular</div>
+      <div class="check-item"><div class="check-box"></div>Client project scope and role clearly described</div>
+      <div class="check-item"><div class="check-box"></div>Testing or automation tools listed — Selenium, JUnit, Postman</div>
+      <div class="check-item"><div class="check-box"></div>Relevant certifications listed in full, not abbreviated only</div>
+      <div class="check-item"><div class="check-box"></div>Agile or delivery methodology named</div>
+      <div class="check-item"><div class="check-box"></div>Job title matches the posting's exact wording</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">ATS keywords</span>
+    <h2 class="section-title">Terms Infosys's system is scanning for</h2>
+    <p class="section-lede">Pull the exact keywords from the job description first, then round out with these common high-frequency terms across Infosys postings.</p>
+    <div class="kw-scanner">
+      <div class="kw-row">
+        <span class="kw-chip">Java</span>
+        <span class="kw-chip">Spring Boot</span>
+        <span class="kw-chip">REST API</span>
+        <span class="kw-chip">AWS</span>
+        <span class="kw-chip">Azure</span>
+        <span class="kw-chip">SQL</span>
+        <span class="kw-chip">Agile / Scrum</span>
+        <span class="kw-chip">microservices</span>
+        <span class="kw-chip">CI/CD</span>
+        <span class="kw-chip">Selenium</span>
+        <span class="kw-chip">client delivery</span>
+        <span class="kw-chip">system design</span>
+        <span class="kw-chip">DevOps</span>
+        <span class="kw-chip">requirements analysis</span>
+        <span class="kw-chip">stakeholder communication</span>
+      </div>
+      <p class="kw-note">Tip: match the posting's exact phrasing — "microservices architecture" scans differently than "breaking apps into services," even though a person would read them the same way.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Common mistakes</span>
+    <h2 class="section-title">What gets Infosys resumes filtered out</h2>
+    <ul class="mistake-list">
+      <li><span class="x-mark">✕</span><span><strong>Tables, columns, or graphics.</strong> Many ATS parsers misread multi-column layouts and drop entire sections of text.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Vague tech stack.</strong> "Worked with various technologies" gives the system nothing to match against the posting.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Certifications left off.</strong> Cloud or Infosys-specific certifications omitted entirely, even when the applicant holds them.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>Generic job titles.</strong> "IT professional" instead of the posting's actual title reduces keyword match score.</span></li>
+      <li><span class="x-mark">✕</span><span><strong>No measurable outcome.</strong> Bullets without a metric or scope read as unverifiable and get skipped in a fast recruiter scan.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Interview tips</span>
+    <h2 class="section-title">Once your resume gets through, prep for this</h2>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h3>Expect technical and HR rounds</h3>
+        <p>Infosys interviews typically run through a technical round on your stack, followed by an HR round on fit and communication.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h3>Know your project details cold</h3>
+        <p>Be ready to explain the architecture, your specific role, and challenges on any project listed on your resume in detail.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h3>Practice fundamentals, not just frameworks</h3>
+        <p>Data structures, OOP concepts, and DBMS basics come up often, even for experienced roles — don't skip revisiting them.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <h3>Ask about client and location flexibility</h3>
+        <p>Project staffing can involve relocation or client-site work — clarify expectations early rather than after an offer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="builder">
+  <div class="wrap">
+    <h2>Your resume, scanned and ready in 5 minutes.</h2>
+    <p>Answer a few questions about your role and experience — we'll format it the way Infosys's system reads best.</p>
+    <a class="cta-btn" href="https://banaoresumee.online">Create this resume in 5 minutes →</a>
+  </div>
+</div>
+
+<footer>
+  Resume guidance is general and based on publicly available hiring information. Not affiliated with or endorsed by Infosys Limited.
+</footer>
+
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <span>Ready to build yours?</span>
+    <a class="cta-btn" href="https://banaoresumee.online">Start now →</a>
+  </div>
+</div>
+
+</body>
+</html>
