@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume for Google Jobs – Free ATS Resume Builder & Template | BanaoResume</title>
+<meta name="description" content="Build a Google-ready resume in 5 minutes. Learn exactly what Google recruiters look for, the skills and ATS keywords to include, a real resume example, and common mistakes to avoid.">
+<meta name="keywords" content="resume for google jobs, google resume format, how to write resume for google, google recruiter resume tips, ATS keywords for google jobs, resume builder for google">
+<link rel="canonical" href="https://banaoresumee.online/resume-for-google-jobs">
+
+<meta property="og:title" content="Resume for Google Jobs – Free ATS Resume Builder | BanaoResume">
+<meta property="og:description" content="What Google recruiters actually look for, key skills, a real example resume, and mistakes to avoid — plus a free builder to create yours in 5 minutes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://banaoresumee.online/resume-for-google-jobs">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What format does Google prefer for resumes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google's ATS (they use their own applicant tracking system built on Google Hire principles) prefers single-column, plain-text-parseable resumes. Avoid tables, text boxes, headers/footers with contact info, and graphics. Stick to standard fonts and a reverse-chronological or project-based layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Google resume screening use AI or ATS filtering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Google's recruiting pipeline uses automated parsing to extract your skills, education, and experience before a recruiter manually reviews it. A resume that isn't parsed cleanly may never reach a human, regardless of how qualified you are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a resume for Google be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One page for freshers and candidates with under 8-10 years of experience. Google recruiters review hundreds of applications per role and prioritize scannability — a tight one-pager with quantified impact outperforms a dense two-pager."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a referral to get a Google resume noticed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A referral helps your resume get prioritized for review, but it does not replace a strong resume. Even referred candidates are screened on the same criteria: quantified impact, relevant skills, and clear, ATS-parseable formatting."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --bg:#0b0b12;
+    --blue:#4285F4;
+    --red:#EA4335;
+    --yellow:#FBBC05;
+    --green:#34A853;
+    --purple:#8b5cf6;
+    --text:#f1f0f5;
+    --muted:#a3a1b0;
+    --card:#151520;
+    --card-border:rgba(255,255,255,0.08);
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    perspective:1400px;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  .bg-glow{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 12% 15%, rgba(66,133,244,0.22), transparent 45%),
+      radial-gradient(circle at 88% 20%, rgba(234,67,53,0.18), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(52,168,83,0.15), transparent 50%);
+  }
+  .grid-floor{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.13;
+    background-image:
+      linear-gradient(rgba(66,133,244,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66,133,244,0.4) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at center, black, transparent 75%);
+  }
+  section{position:relative; z-index:1;}
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6%;
+    background:rgba(11,11,18,0.7);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--card-border);
+  }
+  .logo{font-weight:800; font-size:1.3rem; letter-spacing:-0.5px;}
+  .logo span{color:var(--blue);}
+  .nav-cta{
+    background:linear-gradient(135deg, var(--blue), var(--green));
+    padding:10px 22px; border-radius:10px; font-weight:600; font-size:0.9rem;
+    box-shadow:0 6px 20px rgba(66,133,244,0.35);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 10px 28px rgba(52,168,83,0.4);}
+
+  /* HERO */
+  .hero{
+    padding:90px 6% 60px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    max-width:1300px; margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(66,133,244,0.12); border:1px solid rgba(66,133,244,0.35);
+    padding:7px 16px; border-radius:999px; font-size:0.8rem; color:#a8c7fa; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; color:var(--blue); font-size:0.6rem;}
+  h1{
+    font-size:3rem; line-height:1.14; font-weight:800; letter-spacing:-1.5px;
+    margin-bottom:22px;
+  }
+  h1 .g1{color:var(--blue);}
+  h1 .g2{color:var(--red);}
+  h1 .g3{color:var(--yellow);}
+  h1 .g4{color:var(--green);}
+  h1 .g1b{color:var(--blue);}
+  .hero p.sub{color:var(--muted); font-size:1.13rem; line-height:1.65; max-width:540px; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:linear-gradient(135deg, var(--blue), var(--green));
+    padding:16px 30px; border-radius:12px; font-weight:700; font-size:1rem;
+    box-shadow:0 10px 30px rgba(66,133,244,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+    transform:translateZ(20px);
+    transition:transform .3s ease, box-shadow .3s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateZ(30px) translateY(-3px); box-shadow:0 16px 40px rgba(52,168,83,0.5);}
+  .btn-secondary{
+    border:1px solid var(--card-border); padding:16px 28px; border-radius:12px;
+    font-weight:600; color:var(--text); background:rgba(255,255,255,0.03);
+    transition:all .25s ease;
+  }
+  .btn-secondary:hover{background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.25);}
+  .trust-row{display:flex; gap:26px; margin-top:34px; flex-wrap:wrap; color:var(--muted); font-size:0.85rem;}
+  .trust-row b{color:var(--text); display:block; font-size:1.4rem;}
+
+  /* 3D mock */
+  .mock-wrap{position:relative; height:520px; transform-style:preserve-3d;}
+  .resume-card{
+    position:absolute; width:340px; top:0; left:50%;
+    background:linear-gradient(160deg, #1b1b28, #100f18);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px; padding:26px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(66,133,244,0.18);
+    transform:translateX(-50%) rotateY(-18deg) rotateX(8deg) rotateZ(-2deg) translateZ(40px);
+    animation:float1 6s ease-in-out infinite;
+  }
+  .rc-head{display:flex; gap:12px; align-items:center; margin-bottom:18px;}
+  .avatar{width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--green));}
+  .rc-name{font-weight:700; font-size:1rem;}
+  .rc-role{color:var(--muted); font-size:0.78rem;}
+  .rc-bar{height:8px; border-radius:6px; background:rgba(255,255,255,0.08); margin-bottom:10px; overflow:hidden;}
+  .rc-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--blue),var(--green));}
+  .rc-tag{
+    display:inline-block; background:rgba(52,168,83,0.14); color:#7ee2a0;
+    border:1px solid rgba(52,168,83,0.3); font-size:0.68rem; padding:4px 10px;
+    border-radius:999px; margin:3px 4px 0 0;
+  }
+  .float-chip{
+    position:absolute; background:var(--card); border:1px solid var(--card-border);
+    padding:12px 16px; border-radius:14px; font-size:0.8rem; font-weight:600;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5); display:flex; align-items:center; gap:8px;
+  }
+  .chip1{top:40px; left:0; transform:translateZ(90px) rotateY(10deg); animation:float2 5s ease-in-out infinite;}
+  .chip2{bottom:60px; right:-10px; transform:translateZ(70px) rotateY(-10deg); animation:float3 7s ease-in-out infinite;}
+  .chip3{bottom:-10px; left:30px; transform:translateZ(110px); animation:float2 6.5s ease-in-out infinite reverse;}
+  @keyframes float1{0%,100%{transform:translateX(-50%) rotateY(-18deg) rotateX(8deg) rotateZ(-2deg) translateZ(40px) translateY(0);} 50%{transform:translateX(-50%) rotateY(-14deg) rotateX(6deg) rotateZ(-1deg) translateZ(40px) translateY(-16px);}}
+  @keyframes float2{0%,100%{transform:translateY(0) translateZ(90px);} 50%{transform:translateY(-14px) translateZ(90px);}}
+  @keyframes float3{0%,100%{transform:translateY(0) translateZ(70px);} 50%{transform:translateY(12px) translateZ(70px);}}
+
+  .section{padding:90px 6%; max-width:1300px; margin:0 auto;}
+  .section-head{text-align:center; max-width:700px; margin:0 auto 56px;}
+  .section-head h2{font-size:2.15rem; font-weight:800; letter-spacing:-1px; margin-bottom:14px;}
+  .section-head p{color:var(--muted); font-size:1.05rem; line-height:1.6;}
+  .g-blue{color:var(--blue);} .g-red{color:var(--red);} .g-yellow{color:var(--yellow);} .g-green{color:var(--green);}
+
+  /* What recruiters expect */
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .tilt-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:18px;
+    padding:32px 26px; transform-style:preserve-3d;
+    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+    position:relative; overflow:hidden;
+  }
+  .tilt-card:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-4deg) translateZ(10px); box-shadow:0 30px 60px rgba(66,133,244,0.2); border-color:rgba(66,133,244,0.4);}
+  .tilt-icon{
+    width:54px; height:54px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; margin-bottom:18px; color:#0b0b12; font-weight:800;
+  }
+  .ic-blue{background:linear-gradient(135deg, var(--blue), #6fa8ff); box-shadow:0 10px 24px rgba(66,133,244,0.4);}
+  .ic-red{background:linear-gradient(135deg, var(--red), #ff8a80); box-shadow:0 10px 24px rgba(234,67,53,0.4);}
+  .ic-yellow{background:linear-gradient(135deg, var(--yellow), #ffe27a); box-shadow:0 10px 24px rgba(251,188,5,0.4);}
+  .ic-green{background:linear-gradient(135deg, var(--green), #7fe0a0); box-shadow:0 10px 24px rgba(52,168,83,0.4);}
+  .tilt-card h3{font-size:1.12rem; margin-bottom:10px;}
+  .tilt-card p{color:var(--muted); font-size:0.92rem; line-height:1.6;}
+
+  /* Skills checklist */
+  .checklist-wrap{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .check-card{background:var(--card); border:1px solid var(--card-border); border-radius:18px; padding:32px;}
+  .check-card h3{font-size:1.15rem; margin-bottom:20px; display:flex; align-items:center; gap:10px;}
+  .check-card ul{list-style:none;}
+  .check-card li{
+    padding:11px 0 11px 32px; position:relative; color:#d9d8e2; font-size:0.93rem;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .check-card li:last-child{border-bottom:none;}
+  .check-card li::before{
+    content:"✓"; position:absolute; left:0; top:11px; width:20px; height:20px;
+    background:linear-gradient(135deg,var(--green),#7fe0a0); color:#0b0b12; font-weight:800;
+    border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.7rem;
+  }
+
+  /* ATS keywords cloud */
+  .keyword-cloud{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:900px; margin:0 auto;}
+  .kw{
+    padding:10px 20px; border-radius:999px; font-size:0.9rem; font-weight:600;
+    border:1px solid var(--card-border); background:var(--card); color:#e5e4ec;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .kw:hover{transform:translateY(-4px) scale(1.05); border-color:var(--blue); color:#a8c7fa;}
+  .kw.b{border-color:rgba(66,133,244,0.4);}
+  .kw.r{border-color:rgba(234,67,53,0.4);}
+  .kw.y{border-color:rgba(251,188,5,0.4);}
+  .kw.g{border-color:rgba(52,168,83,0.4);}
+
+  /* Resume example */
+  .example-wrap{
+    max-width:720px; margin:0 auto; background:#ffffff; color:#1a1a1a;
+    border-radius:16px; padding:44px 46px; box-shadow:0 40px 90px rgba(0,0,0,0.55);
+    transform:perspective(1000px) rotateX(2deg);
+    font-size:0.92rem; line-height:1.55;
+  }
+  .ex-name{font-size:1.5rem; font-weight:800; margin-bottom:2px;}
+  .ex-role{color:#4285F4; font-weight:600; margin-bottom:6px;}
+  .ex-contact{color:#666; font-size:0.82rem; margin-bottom:20px;}
+  .ex-sec-title{
+    font-weight:800; font-size:0.82rem; letter-spacing:1px; text-transform:uppercase;
+    color:#4285F4; margin:22px 0 10px; border-bottom:2px solid #4285F4; padding-bottom:4px;
+  }
+  .ex-item{margin-bottom:14px;}
+  .ex-item .top-row{display:flex; justify-content:space-between; font-weight:700; font-size:0.94rem;}
+  .ex-item .sub-row{display:flex; justify-content:space-between; color:#555; font-size:0.82rem; font-style:italic; margin-bottom:5px;}
+  .ex-item ul{padding-left:18px; color:#333;}
+  .ex-item ul li{margin-bottom:3px;}
+  .ex-skills-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .ex-skill-pill{background:#eef2ff; color:#3355aa; padding:4px 10px; border-radius:6px; font-size:0.78rem; font-weight:600;}
+
+  /* Mistakes */
+  .mistake-list{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .mistake-card{
+    background:linear-gradient(160deg, rgba(234,67,53,0.08), rgba(21,21,32,0.6));
+    border:1px solid rgba(234,67,53,0.25); border-radius:16px; padding:24px 26px;
+    display:flex; gap:16px;
+  }
+  .mistake-num{
+    min-width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,var(--red),#ff8a80);
+    display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.95rem;
+  }
+  .mistake-card h4{font-size:1rem; margin-bottom:6px;}
+  .mistake-card p{color:var(--muted); font-size:0.88rem; line-height:1.55;}
+
+  /* Interview tips */
+  .tip-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .tip-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:26px 22px;
+    transition:transform .3s ease;
+  }
+  .tip-card:hover{transform:translateY(-6px);}
+  .tip-num{
+    width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    font-weight:800; margin-bottom:14px; color:#0b0b12;
+  }
+  .tip-card h4{font-size:0.98rem; margin-bottom:8px;}
+  .tip-card p{color:var(--muted); font-size:0.85rem; line-height:1.5;}
+
+  /* FAQ */
+  .faq-item{background:var(--card); border:1px solid var(--card-border); border-radius:14px; margin-bottom:14px; overflow:hidden;}
+  .faq-q{padding:20px 24px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:0.98rem;}
+  .faq-q .plus{transition:transform .3s ease; color:var(--blue); font-size:1.3rem;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .faq-a p{padding:0 24px 20px; color:var(--muted); font-size:0.9rem; line-height:1.6;}
+
+  /* Final CTA */
+  .final-cta{text-align:center; padding:90px 6% 110px;}
+  .cta-box{
+    max-width:800px; margin:0 auto; padding:60px 40px; border-radius:28px;
+    background:linear-gradient(135deg, rgba(66,133,244,0.18), rgba(52,168,83,0.14));
+    border:1px solid rgba(66,133,244,0.3); position:relative; overflow:hidden;
+  }
+  .cta-box h2{font-size:2rem; font-weight:800; margin-bottom:16px; letter-spacing:-1px;}
+  .cta-box p{color:var(--muted); margin-bottom:30px; font-size:1.05rem;}
+
+  footer{padding:40px 6%; text-align:center; color:var(--muted); font-size:0.85rem; border-top:1px solid var(--card-border);}
+  footer a{color:#a8c7fa;}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr; padding-top:50px;}
+    h1{font-size:2.1rem;}
+    .mock-wrap{height:420px; margin-top:30px;}
+    .grid3, .checklist-wrap, .mistake-list, .tip-strip{grid-template-columns:1fr;}
+    .section{padding:60px 6%;}
+    .example-wrap{padding:30px 24px;}
+    .ex-item .top-row, .ex-item .sub-row{flex-direction:column; gap:2px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="grid-floor"></div>
+
+<nav>
+  <div class="logo">Banao<span>Resume</span></div>
+  <a href="/" class="nav-cta">Build My Resume Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">Built for Big Tech Screening, Not Guesswork</div>
+    <h1>How to Write a Resume for <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g1b">g</span><span class="g4">l</span><span class="g2">e</span> Jobs</h1>
+    <p class="sub">Google receives millions of applications a year and screens most of them through automated parsing before a recruiter ever looks. Here's exactly what to include, what to cut, and a real example — plus a free builder to create yours in 5 minutes.</p>
+    <div class="hero-ctas">
+      <a href="/" class="btn-primary">Create This Resume in 5 Minutes →</a>
+      <a href="#example" class="btn-secondary">See Resume Example</a>
+    </div>
+    <div class="trust-row">
+      <div><b>100%</b>Free, no signup wall</div>
+      <div><b>ATS-Safe</b>Parses cleanly, every time</div>
+      <div><b>5 min</b>To a downloadable PDF/DOCX</div>
+    </div>
+  </div>
+
+  <div class="mock-wrap">
+    <div class="resume-card">
+      <div class="rc-head">
+        <div class="avatar"></div>
+        <div>
+          <div class="rc-name">Rahul Verma</div>
+          <div class="rc-role">Software Engineer · Applying to Google</div>
+        </div>
+      </div>
+      <div class="rc-bar"><i style="width:94%"></i></div>
+      <div class="rc-bar"><i style="width:80%"></i></div>
+      <div class="rc-bar"><i style="width:88%"></i></div>
+      <div style="margin-top:16px;">
+        <span class="rc-tag">Data Structures</span>
+        <span class="rc-tag">System Design</span>
+        <span class="rc-tag">Impact Metrics</span>
+        <span class="rc-tag">Leadership</span>
+      </div>
+    </div>
+    <div class="float-chip chip1">🎯 ATS Score: 97%</div>
+    <div class="float-chip chip2">📄 Recruiter-Screen Ready</div>
+    <div class="float-chip chip3">⚡ Built in 5 minutes</div>
+  </div>
+</section>
+
+<!-- WHAT RECRUITERS EXPECT -->
+<section class="section">
+  <div class="section-head">
+    <h2>What <span class="g-blue">Google Recruiters</span> Actually Look For</h2>
+    <p>Google's hiring process is famously data-driven. Recruiters and their internal tools scan for specific, quantifiable signals — not job titles or buzzwords.</p>
+  </div>
+  <div class="grid3">
+    <div class="tilt-card">
+      <div class="tilt-icon ic-blue">📊</div>
+      <h3>Quantified Impact</h3>
+      <p>Google wants numbers: % improved, users impacted, latency reduced, revenue driven. "Improved performance" says nothing. "Reduced API latency by 40% for 2M+ daily users" says everything.</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon ic-red">🧠</div>
+      <h3>Scope & Ownership</h3>
+      <p>Did you own a feature end-to-end, or contribute to one? Google looks for language showing ownership: "led," "designed," "drove" — not just "assisted" or "helped with."</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon ic-yellow">🧩</div>
+      <h3>Problem-Solving Signal</h3>
+      <p>Google values structured thinking. Bullets that show a problem → your approach → measurable result mirror how Google evaluates candidates in interviews too.</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon ic-green">🎓</div>
+      <h3>Relevant Fundamentals</h3>
+      <p>For technical roles: strong CS fundamentals, DSA, and system design signals. For non-technical roles: analytical rigor and cross-functional collaboration evidence.</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon ic-blue">🔍</div>
+      <h3>Clean, Parseable Format</h3>
+      <p>No tables, text boxes, headers/footers with contact info, or graphics. Google's ATS needs to extract your data cleanly — a broken parse can mean an instant rejection.</p>
+    </div>
+    <div class="tilt-card">
+      <div class="tilt-icon ic-red">🏆</div>
+      <h3>Selectivity Signals</h3>
+      <p>Competitions, open-source contributions, published research, or leading a team — anything that shows you stand out among a large applicant pool.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS CHECKLIST + ATS KEYWORDS -->
+<section class="section">
+  <div class="section-head">
+    <h2>Skills Checklist & <span class="g-blue">ATS Keywords</span></h2>
+    <p>Include the ones relevant to your role — these are what Google's parsing systems and recruiters scan for first.</p>
+  </div>
+  <div class="checklist-wrap">
+    <div class="check-card">
+      <h3>✅ Skills to Include</h3>
+      <ul>
+        <li>Data Structures & Algorithms (technical roles)</li>
+        <li>System Design & Scalability</li>
+        <li>Programming languages relevant to the role (Python, Java, C++, Go)</li>
+        <li>Cross-functional collaboration & stakeholder management</li>
+        <li>Data-driven decision making / analytics</li>
+        <li>Project ownership & leadership examples</li>
+        <li>Relevant tools (Git, Cloud/GCP, SQL, Figma, etc. based on role)</li>
+        <li>Communication & documentation skills</li>
+      </ul>
+    </div>
+    <div class="check-card">
+      <h3>🔑 High-Impact ATS Keywords</h3>
+      <div class="keyword-cloud">
+        <span class="kw b">Scalability</span>
+        <span class="kw r">Cross-functional</span>
+        <span class="kw y">Data-driven</span>
+        <span class="kw g">Led</span>
+        <span class="kw b">Optimized</span>
+        <span class="kw r">Owned end-to-end</span>
+        <span class="kw y">Reduced latency</span>
+        <span class="kw g">Increased efficiency</span>
+        <span class="kw b">Stakeholder management</span>
+        <span class="kw r">A/B testing</span>
+        <span class="kw y">API</span>
+        <span class="kw g">Agile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME EXAMPLE -->
+<section class="section" id="example">
+  <div class="section-head">
+    <h2>Resume <span class="g-blue">Example</span> for a Google Application</h2>
+    <p>ATS-safe, single-column, quantified impact throughout. This is the exact structure our builder generates for you.</p>
+  </div>
+  <div class="example-wrap">
+    <div class="ex-name">Rahul Verma</div>
+    <div class="ex-role">Software Engineer</div>
+    <div class="ex-contact">rahul.verma@email.com · +91 98765 43210 · Bengaluru, India · linkedin.com/in/rahulverma</div>
+
+    <div class="ex-sec-title">Summary</div>
+    <p>Software Engineer with 2+ years building scalable backend systems. Reduced API response times by 40% for 2M+ daily active users. Strong foundation in data structures, system design, and cross-functional delivery.</p>
+
+    <div class="ex-sec-title">Experience</div>
+    <div class="ex-item">
+      <div class="top-row"><span>Software Engineer, Backend</span><span>Jun 2023 – Present</span></div>
+      <div class="sub-row"><span>Zeta Technologies</span><span>Bengaluru, India</span></div>
+      <ul>
+        <li>Led redesign of the payments microservice, reducing average API latency by 40% for 2M+ daily users</li>
+        <li>Owned end-to-end delivery of a rate-limiting system that cut infrastructure costs by ₹8L/year</li>
+        <li>Partnered with 3 cross-functional teams to ship a caching layer, improving uptime from 98.2% to 99.9%</li>
+      </ul>
+    </div>
+    <div class="ex-item">
+      <div class="top-row"><span>Software Engineering Intern</span><span>Jan 2023 – May 2023</span></div>
+      <div class="sub-row"><span>InfyCloud Labs</span><span>Remote</span></div>
+      <ul>
+        <li>Built an internal analytics dashboard used by 50+ engineers, reducing manual reporting time by 6 hrs/week</li>
+        <li>Wrote automated test suite increasing code coverage from 61% to 89%</li>
+      </ul>
+    </div>
+
+    <div class="ex-sec-title">Projects</div>
+    <div class="ex-item">
+      <div class="top-row"><span>Distributed Task Scheduler (Open Source)</span></div>
+      <ul>
+        <li>Designed a fault-tolerant job scheduler in Go handling 10K+ concurrent tasks; 400+ GitHub stars</li>
+      </ul>
+    </div>
+
+    <div class="ex-sec-title">Skills</div>
+    <div class="ex-skills-row">
+      <span class="ex-skill-pill">Python</span>
+      <span class="ex-skill-pill">Go</span>
+      <span class="ex-skill-pill">System Design</span>
+      <span class="ex-skill-pill">Data Structures</span>
+      <span class="ex-skill-pill">GCP</span>
+      <span class="ex-skill-pill">SQL</span>
+      <span class="ex-skill-pill">Kubernetes</span>
+      <span class="ex-skill-pill">Agile</span>
+    </div>
+
+    <div class="ex-sec-title">Education</div>
+    <div class="ex-item">
+      <div class="top-row"><span>B.Tech, Computer Science</span><span>2019 – 2023</span></div>
+      <div class="sub-row"><span>National Institute of Technology</span><span>CGPA: 8.7/10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section class="section">
+  <div class="section-head">
+    <h2>Common Mistakes That Get Google Resumes <span class="g-red">Rejected</span></h2>
+  </div>
+  <div class="mistake-list">
+    <div class="mistake-card">
+      <div class="mistake-num">1</div>
+      <div><h4>Listing duties instead of impact</h4><p>"Responsible for backend development" tells a recruiter nothing. Show what changed because of your work — numbers, scale, outcomes.</p></div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-num">2</div>
+      <div><h4>Using tables, columns, or graphics</h4><p>Multi-column layouts, icons, and text boxes often break ATS parsing, scrambling your work history or dropping sections entirely.</p></div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-num">3</div>
+      <div><h4>Generic, one-size-fits-all resume</h4><p>Not tailoring your resume's keywords and project emphasis to the specific Google role and job description reduces keyword match rate.</p></div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-num">4</div>
+      <div><h4>Burying your best project</h4><p>Recruiters skim in seconds. Your strongest, most quantified achievement should be near the top — not buried under older, weaker roles.</p></div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-num">5</div>
+      <div><h4>Vague skills section</h4><p>"Good communication skills" and "team player" are not ATS keywords. Use specific tools, languages, and frameworks relevant to the role.</p></div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-num">6</div>
+      <div><h4>Going over one page</h4><p>Unless you have 10+ years of experience, a two-page resume dilutes your strongest points and signals poor prioritization.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEW TIPS -->
+<section class="section">
+  <div class="section-head">
+    <h2>Common Interview <span class="g-green">Tips</span> After You Get the Call</h2>
+    <p>Getting past the resume screen is step one. Here's what typically follows at Google.</p>
+  </div>
+  <div class="tip-strip">
+    <div class="tip-card">
+      <div class="tip-num" style="background:linear-gradient(135deg,var(--blue),#6fa8ff);">1</div>
+      <h4>Practice Structured Thinking</h4>
+      <p>Use frameworks like STAR (Situation, Task, Action, Result) to answer behavioral questions — mirrors how your resume bullets should already read.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num" style="background:linear-gradient(135deg,var(--red),#ff8a80);">2</div>
+      <h4>Know Your Resume Cold</h4>
+      <p>Every number and claim on your resume is fair game. Be ready to explain the "how" behind every metric you listed.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num" style="background:linear-gradient(135deg,var(--yellow),#ffe27a);">3</div>
+      <h4>Prep Googleyness Examples</h4>
+      <p>Have 2-3 stories ready showing collaboration, comfort with ambiguity, and bias for action — traits Google explicitly evaluates for.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num" style="background:linear-gradient(135deg,var(--green),#7fe0a0);">4</div>
+      <h4>Ask Sharp Questions</h4>
+      <p>End interviews with questions about team scope, current challenges, or how success is measured — signals genuine interest and seniority.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-head">
+    <h2>Questions About <span class="g-blue">Google Resumes</span></h2>
+  </div>
+  <div style="max-width:760px; margin:0 auto;">
+    <div class="faq-item">
+      <div class="faq-q">What format does Google prefer for resumes? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Google's ATS (they use their own applicant tracking system built on Google Hire principles) prefers single-column, plain-text-parseable resumes. Avoid tables, text boxes, headers/footers with contact info, and graphics. Stick to standard fonts and a reverse-chronological or project-based layout.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Google resume screening use AI or ATS filtering? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Yes. Google's recruiting pipeline uses automated parsing to extract your skills, education, and experience before a recruiter manually reviews it. A resume that isn't parsed cleanly may never reach a human, regardless of how qualified you are.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long should a resume for Google be? <span class="plus">+</span></div>
+      <div class="faq-a"><p>One page for freshers and candidates with under 8-10 years of experience. Google recruiters review hundreds of applications per role and prioritize scannability — a tight one-pager with quantified impact outperforms a dense two-pager.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a referral to get a Google resume noticed? <span class="plus">+</span></div>
+      <div class="faq-a"><p>A referral helps your resume get prioritized for review, but it does not replace a strong resume. Even referred candidates are screened on the same criteria: quantified impact, relevant skills, and clear, ATS-parseable formatting.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-box">
+    <h2>Build Your Google-Ready Resume Right Now</h2>
+    <p>Free forever for the core builder. No credit card, no watermark, no catch.</p>
+    <a href="/" class="btn-primary">Create This Resume in 5 Minutes →</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 BanaoResume · <a href="/">Home</a> · <a href="/templates">Templates</a> · <a href="/blog">Blog</a> · Made for Indian students & freshers
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.parentElement;
+      const ans = item.querySelector('.faq-a');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  const mock = document.querySelector('.mock-wrap');
+  if(mock){
+    document.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - 0.5) * 14;
+      const y = (e.clientY / window.innerHeight - 0.5) * 14;
+      mock.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+  }
+</script>
+
+</body>
+</html>
