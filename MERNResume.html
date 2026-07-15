@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MERN Stack Resume - Free MERN Developer Resume Builder & Sample | BanaoResumee</title>
+<meta name="description" content="Build a MERN stack resume online free. MERN developer resume sample, MERN resume format, ATS keywords for MongoDB Express React Node developers. Create MERN resume in 5 minutes at BanaoResumee.">
+<meta name="keywords" content="mern resume, mern stack resume, mern developer resume, mern resume format, mern stack developer resume sample, full stack developer resume, mern resume for freshers, react node resume, mern project resume, mern resume builder, mern resume objective, mern developer cv">
+<link rel="canonical" href="https://banaoresumee.online/mern-resume">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2361DAFB'/%3E%3Cstop offset='1' stop-color='%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='22' font-weight='800' fill='%23fff' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0B1A; --bg2:#160F2A; --panel:rgba(255,255,255,0.055); --panel-line:rgba(255,255,255,0.1);
+    --text:#F1EEFA; --dim:#A79FC4;
+    --react:#61DAFB; --node:#8CC84B; --mongo:#00C285; --express:#E7E7E7;
+    --grad1:#7C4DFF; --grad2:#61DAFB;
+    --mono:'JetBrains Mono',monospace; --disp:'Space Grotesk',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--text);
+    background:
+      radial-gradient(circle at 12% 8%, rgba(124,77,255,0.25), transparent 45%),
+      radial-gradient(circle at 88% 18%, rgba(97,218,251,0.18), transparent 40%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--react);color:#0E0B1A;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,11,26,0.7);backdrop-filter:blur(14px);border-bottom:1px solid var(--panel-line);}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:var(--disp);font-weight:700;font-size:1.15rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+  .brand .logo-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--grad1),var(--grad2));
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:0.85rem;flex:none;color:#fff;}
+  .brand small{display:block;font-family:var(--mono);font-size:0.6rem;color:var(--react);font-weight:600;letter-spacing:0.04em;}
+  .nav-links{display:flex;gap:22px;font-size:0.88rem;font-weight:500;}
+  .nav-links a{text-decoration:none;color:var(--dim);}
+  .nav-links a:hover{color:var(--react);}
+  @media (max-width:840px){.nav-links{display:none;}}
+  .btn-tiny{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#fff;padding:9px 18px;border-radius:24px;
+    font-size:0.85rem;font-weight:700;text-decoration:none;white-space:nowrap;}
+
+  header.hero{padding:84px 0 50px;}
+  .stack-pills{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+  .pill{font-family:var(--mono);font-size:0.76rem;padding:6px 13px;border-radius:20px;border:1px solid var(--panel-line);
+    background:var(--panel);display:flex;align-items:center;gap:6px;}
+  .pill .dot{width:8px;height:8px;border-radius:50%;}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.3rem,4.8vw,4rem);line-height:1.06;margin:0 0 22px;max-width:18ch;}
+  h1 .grad{background:linear-gradient(100deg,var(--react),var(--grad1) 60%,var(--mongo));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-sub{font-size:1.14rem;color:var(--dim);max-width:56ch;line-height:1.65;margin-bottom:32px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px;}
+  .btn-primary{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#fff;padding:16px 30px;border-radius:12px;font-weight:700;
+    text-decoration:none;font-size:1.02rem;display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(124,77,255,0.35);
+    transition:transform .15s ease, box-shadow .15s ease;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(124,77,255,0.45);}
+  .btn-primary .timer{font-family:var(--mono);background:rgba(255,255,255,0.18);padding:2px 8px;border-radius:6px;font-size:0.82rem;}
+  .btn-ghost{color:var(--react);text-decoration:underline;text-decoration-color:rgba(97,218,251,0.4);font-weight:600;}
+  .hero-note{font-size:0.84rem;color:var(--dim);font-family:var(--mono);}
+
+  .stack-card{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:26px 28px;max-width:560px;
+    margin-top:40px;backdrop-filter:blur(6px);}
+  .stack-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--panel-line);font-size:0.92rem;}
+  .stack-row:last-child{border-bottom:none;}
+  .stack-row .layer{font-family:var(--mono);color:var(--dim);font-size:0.82rem;}
+  .stack-row .val{font-weight:600;}
+  .badge-ok{font-family:var(--mono);font-size:0.72rem;background:rgba(0,194,133,0.15);color:var(--mongo);padding:3px 9px;border-radius:12px;}
+
+  section{padding:60px 0;}
+  .section-head{margin-bottom:34px;max-width:64ch;}
+  .section-num{font-family:var(--mono);font-size:0.78rem;color:var(--react);font-weight:600;margin-bottom:8px;display:block;}
+  h2{font-family:var(--disp);font-size:clamp(1.5rem,2.8vw,2.1rem);margin:0 0 10px;font-weight:700;}
+  .section-desc{color:var(--dim);font-size:1.02rem;line-height:1.65;}
+
+  .card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:800px){.card-row{grid-template-columns:1fr;}}
+  .index-card{background:var(--panel);border:1px solid var(--panel-line);border-radius:14px;padding:22px 22px 20px;position:relative;}
+  .index-card .tag{font-family:var(--mono);font-size:0.7rem;color:var(--react);margin-bottom:10px;display:block;}
+  .index-card h3{font-family:var(--disp);font-size:1.05rem;margin:0 0 8px;font-weight:700;color:var(--text);}
+  .index-card p{font-size:0.92rem;color:var(--dim);line-height:1.55;margin:0;}
+
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
+  @media (max-width:700px){.checklist{grid-template-columns:1fr;}}
+  .check-item{display:flex;align-items:flex-start;gap:12px;font-size:0.96rem;padding:8px 0;border-bottom:1px solid var(--panel-line);}
+  .box{width:19px;height:19px;border:1.5px solid var(--dim);border-radius:6px;flex:none;margin-top:2px;position:relative;}
+  .check-item.done .box{background:linear-gradient(135deg,var(--grad1),var(--grad2));border-color:transparent;}
+  .check-item.done .box::after{content:'✓';position:absolute;inset:0;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:900;}
+  .check-item span{color:var(--dim);}
+  .check-item.done span{color:var(--text);font-weight:500;}
+
+  .keyword-cloud{display:flex;flex-wrap:wrap;gap:10px;}
+  .kw-chip{font-family:var(--mono);font-size:0.82rem;padding:7px 14px;border-radius:20px;border:1px solid var(--panel-line);background:var(--panel);}
+  .kw-chip.react{color:var(--react);} .kw-chip.node{color:var(--node);} .kw-chip.mongo{color:var(--mongo);}
+
+  .resume-mock{background:#151022;border:1px solid var(--panel-line);border-radius:14px;padding:34px 38px;max-width:640px;
+    font-size:0.88rem;line-height:1.55;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+  .resume-mock .rname{font-family:var(--disp);font-size:1.4rem;font-weight:700;margin-bottom:2px;color:var(--text);}
+  .resume-mock .rcontact{color:var(--dim);font-size:0.8rem;margin-bottom:18px;font-family:var(--mono);}
+  .resume-mock h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--react);border-bottom:1px solid var(--panel-line);padding-bottom:5px;margin:20px 0 10px;}
+  .resume-mock ul{margin:0 0 6px;padding-left:18px;color:var(--dim);}
+  .resume-mock li{margin-bottom:4px;}
+  .resume-mock .rjob{display:flex;justify-content:space-between;font-weight:700;color:var(--text);font-size:0.9rem;}
+
+  .mistake-row{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--panel-line);}
+  .mistake-row:last-child{border-bottom:none;}
+  .x-mark{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:#FF6B8B;flex:none;width:26px;}
+  .mistake-row h4{margin:0 0 4px;font-size:1.02rem;font-weight:700;color:var(--text);font-family:var(--disp);}
+  .mistake-row p{margin:0;color:var(--dim);font-size:0.94rem;line-height:1.55;}
+
+  .tip-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;}
+  .tip-card{flex:0 0 250px;background:var(--panel);border-radius:14px;padding:20px;border:1px solid var(--panel-line);}
+  .tip-card .tip-q{font-family:var(--disp);font-weight:700;margin-bottom:8px;font-size:0.98rem;color:var(--react);}
+  .tip-card p{font-size:0.88rem;color:var(--dim);line-height:1.5;margin:0;}
+
+  details{border-bottom:1px solid var(--panel-line);padding:18px 0;}
+  summary{cursor:pointer;font-weight:700;font-family:var(--disp);font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text);}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';font-size:1.4rem;color:var(--react);font-family:'Inter';}
+  details[open] summary::after{content:'–';}
+  details p{color:var(--dim);margin:12px 0 0;line-height:1.6;max-width:65ch;}
+
+  .final-cta{background:linear-gradient(135deg, rgba(124,77,255,0.25), rgba(97,218,251,0.12));border:1px solid var(--panel-line);
+    border-radius:20px;padding:56px 44px;text-align:center;margin:20px 0 70px;}
+  .final-cta .logo-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--grad1),var(--grad2));
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:1.1rem;margin:0 auto 18px;color:#fff;}
+  .final-cta h2{color:var(--text);margin-bottom:14px;}
+  .final-cta p{color:var(--dim);max-width:50ch;margin:0 auto 30px;line-height:1.6;}
+
+  footer{padding:28px 0 56px;font-size:0.82rem;color:var(--dim);font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--panel-line);}
+  footer .brand{font-size:0.88rem;}
+  footer .logo-mark{width:22px;height:22px;font-size:0.62rem;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="https://banaoresumee.online"><span class="logo-mark">BR</span><span>BanaoResumee<small>MERN RESUME BUILDER</small></span></a>
+    <div class="nav-links">
+      <a href="#expect">Expectations</a>
+      <a href="#skills">Skills</a>
+      <a href="#keywords">Keywords</a>
+      <a href="#example">Sample</a>
+      <a href="#mistakes">Mistakes</a>
+    </div>
+    <a class="btn-tiny" href="https://banaoresumee.online">Build MERN Resume</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="stack-pills">
+      <span class="pill"><span class="dot" style="background:var(--mongo)"></span>MongoDB</span>
+      <span class="pill"><span class="dot" style="background:var(--express)"></span>Express</span>
+      <span class="pill"><span class="dot" style="background:var(--react)"></span>React</span>
+      <span class="pill"><span class="dot" style="background:var(--node)"></span>Node.js</span>
+    </div>
+    <h1>Build a <span class="grad">MERN stack resume</span> that gets shortlisted</h1>
+    <p class="hero-sub">Free MERN developer resume builder with a proven MERN resume format, ATS keywords for MongoDB/Express/React/Node roles, and a real MERN project resume sample.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">Build MERN Resume <span class="timer">⏱ 5 min</span></a>
+      <a class="btn-ghost" href="#example">View resume sample ↓</a>
+    </div>
+    <div class="hero-note">// mern stack resume · full stack developer resume · free at banaoresumee.online</div>
+
+    <div class="stack-card">
+      <div class="stack-row"><span class="layer">Frontend</span><span class="val">React, Redux, Tailwind CSS</span><span class="badge-ok">matched</span></div>
+      <div class="stack-row"><span class="layer">Backend</span><span class="val">Node.js, Express.js</span><span class="badge-ok">matched</span></div>
+      <div class="stack-row"><span class="layer">Database</span><span class="val">MongoDB, Mongoose</span><span class="badge-ok">matched</span></div>
+      <div class="stack-row"><span class="layer">Deployment</span><span class="val">Vercel, Render, AWS</span><span class="badge-ok">matched</span></div>
+    </div>
+  </header>
+
+  <section id="expect">
+    <div class="section-head">
+      <span class="section-num">→ Recruiter expectations</span>
+      <h2>What recruiters look for in a MERN resume</h2>
+      <p class="section-desc">Recruiters hiring MERN stack developers scan for a deployed full-stack project, clean API design, and state management experience before anything else.</p>
+    </div>
+    <div class="card-row">
+      <div class="index-card"><span class="tag">01</span><h3>A deployed full-stack project</h3><p>A live URL, not just a repo — recruiters want to click and see React, Node, and MongoDB working together in production.</p></div>
+      <div class="index-card"><span class="tag">02</span><h3>Clear separation of frontend and backend</h3><p>Show you understand REST API design and state management, not just "made a website."</p></div>
+      <div class="index-card"><span class="tag">03</span><h3>Authentication & database modeling</h3><p>JWT auth, MongoDB schema design, and CRUD operations are the baseline recruiters expect from a MERN resume.</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num">→ Skills checklist</span>
+      <h2>Key skills to include in a MERN resume</h2>
+      <p class="section-desc">Add these to your MERN developer resume to match what recruiters and ATS software scan for.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item done"><div class="box"></div><span>React.js & React Hooks</span></div>
+      <div class="check-item done"><div class="box"></div><span>Node.js & Express.js</span></div>
+      <div class="check-item done"><div class="box"></div><span>MongoDB & Mongoose</span></div>
+      <div class="check-item"><div class="box"></div><span>Redux / Context API</span></div>
+      <div class="check-item"><div class="box"></div><span>JWT authentication</span></div>
+      <div class="check-item done"><div class="box"></div><span>REST API design</span></div>
+      <div class="check-item"><div class="box"></div><span>Git & GitHub</span></div>
+      <div class="check-item"><div class="box"></div><span>Deployment (Vercel/Render/AWS)</span></div>
+    </div>
+  </section>
+
+  <section id="keywords">
+    <div class="section-head">
+      <span class="section-num">→ ATS keyword scan</span>
+      <h2>ATS keywords for a MERN resume</h2>
+      <p class="section-desc">Work these terms naturally into your MERN resume so applicant tracking systems match you to full-stack job postings.</p>
+    </div>
+    <div class="keyword-cloud">
+      <span class="kw-chip react">React.js</span><span class="kw-chip node">Node.js</span>
+      <span class="kw-chip mongo">MongoDB</span><span class="kw-chip">Express.js</span>
+      <span class="kw-chip react">Redux</span><span class="kw-chip node">REST API</span>
+      <span class="kw-chip">Full Stack Developer</span><span class="kw-chip mongo">Mongoose</span>
+      <span class="kw-chip">JWT Authentication</span><span class="kw-chip react">JavaScript (ES6+)</span>
+      <span class="kw-chip node">CRUD Operations</span><span class="kw-chip">Responsive Web Design</span>
+    </div>
+  </section>
+
+  <section id="example">
+    <div class="section-head">
+      <span class="section-num">→ Resume sample</span>
+      <h2>MERN developer resume format example</h2>
+      <p class="section-desc">A one-page MERN stack resume sample built around a deployed full-stack project and one internship.</p>
+    </div>
+    <div class="resume-mock">
+      <div class="rname">Ankit Malhotra</div>
+      <div class="rcontact">ankit.malhotra@email.com · +91 98765 67890 · linkedin.com/in/ankitmalhotra · github.com/ankitm · live-demo.vercel.app</div>
+      <h4>Objective</h4>
+      <div style="color:var(--dim)">Full Stack Developer skilled in the MERN stack, seeking a role building scalable web applications.</div>
+      <h4>Projects</h4>
+      <div class="rjob"><span>E-Commerce Platform — React, Node.js, Express, MongoDB</span><span></span></div>
+      <ul>
+        <li>Built and deployed a full-stack store with JWT auth, cart, and Stripe checkout for 200+ test users</li>
+        <li>Designed MongoDB schema and REST APIs handling 10K+ product records</li>
+      </ul>
+      <h4>Internship</h4>
+      <div class="rjob"><span>MERN Stack Developer Intern, Tech Startup</span><span>Summer 2025</span></div>
+      <ul>
+        <li>Built 4 reusable React components and 6 Express API endpoints for a client dashboard</li>
+      </ul>
+      <h4>Skills</h4>
+      <div style="color:var(--dim)">React, Redux, Node.js, Express, MongoDB, JWT, REST APIs, Git</div>
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <div class="section-head">
+      <span class="section-num">→ Common mistakes</span>
+      <h2>Common MERN resume mistakes to avoid</h2>
+    </div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>No live deployed link</h4><p>A GitHub repo alone isn't enough — recruiters want a clickable live demo of your MERN project.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Listing "MERN stack" with no specifics</h4><p>Break it down — name React, Node, Express, and MongoDB individually so ATS keyword matching works.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>No mention of state management</h4><p>Leaving out Redux or Context API makes your frontend experience look basic to recruiters scanning for depth.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Overloading the resume with every JS library used</h4><p>Stick to the stack that matters for the role — a cluttered skills list dilutes your strongest, most relevant skills.</p></div></div>
+  </section>
+
+  <section id="interview">
+    <div class="section-head">
+      <span class="section-num">→ Interview prep</span>
+      <h2>Common interview questions for MERN developers</h2>
+    </div>
+    <div class="tip-strip">
+      <div class="tip-card"><div class="tip-q">"Walk me through your MERN project"</div><p>Cover architecture, your role, and one metric (users, requests, load time) in under 90 seconds.</p></div>
+      <div class="tip-card"><div class="tip-q">"Explain how JWT authentication works"</div><p>Be ready to explain tokens, middleware, and protected routes with a simple diagram in words.</p></div>
+      <div class="tip-card"><div class="tip-q">"Redux vs Context API?"</div><p>Know the trade-offs — Redux for larger apps with complex state, Context for smaller, simpler state needs.</p></div>
+      <div class="tip-card"><div class="tip-q">MongoDB schema design</div><p>Expect questions on embedding vs referencing documents — practice with a real example from your project.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-head">
+      <span class="section-num">→ FAQ</span>
+      <h2>MERN resume — frequently asked</h2>
+    </div>
+    <details open><summary>What should a MERN developer resume include?</summary><p>A MERN resume should include a deployed full-stack project, core skills (React, Node, Express, MongoDB), any internship, and a short objective — kept to one page.</p></details>
+    <details><summary>Do I need a live demo link on my MERN resume?</summary><p>Yes — a live, clickable demo alongside your GitHub repo significantly increases recruiter interest over code alone.</p></details>
+    <details><summary>Can I get a MERN resume format as a free download?</summary><p>Yes — BanaoResumee offers a free MERN resume builder that generates a downloadable MERN developer resume in PDF or Word format.</p></details>
+    <details><summary>What is a good MERN resume objective?</summary><p>Keep it specific: name the role and stack, such as "Full Stack Developer skilled in React, Node.js, and MongoDB, seeking a MERN developer role."</p></details>
+  </section>
+
+  <div class="final-cta">
+    <div class="logo-mark">BR</div>
+    <h2>Build your MERN stack resume now</h2>
+    <p>Get a formatted, ATS-checked MERN resume with the right keywords and a proven full-stack format — free at BanaoResumee.</p>
+    <a class="btn-primary" href="https://banaoresumee.online">Build MERN Resume <span class="timer">⏱ 5 min</span></a>
+  </div>
+
+  <footer>
+    <a class="brand" href="https://banaoresumee.online"><span class="logo-mark">BR</span><span>BanaoResumee</span></a>
+    <span><a href="https://banaoresumee.online">banaoresumee.online</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
