@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCA Resume - Free MCA Fresher Resume Builder & Sample | BanaoResumee</title>
+<meta name="description" content="Build an MCA resume online free. MCA fresher resume sample, MCA resume format, ATS keywords for MCA students, MCA project resume. Create MCA resume in 5 minutes at BanaoResumee.">
+<meta name="keywords" content="mca resume, mca resume format, mca fresher resume, mca resume sample, mca student resume, mca resume for freshers, mca resume format for freshers download, mca resume pdf, mca resume builder, mca cv format, mca resume objective, mca final year project resume, mca fresher resume format doc">
+<link rel="canonical" href="https://banaoresumee.online/mca-resume">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300E5A0'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='22' font-weight='700' fill='%230B0F14' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F14; --panel:#11161D; --panel-2:#161C25; --line:#232B36;
+    --text:#D9E1E8; --dim:#7C8A99; --green:#00E5A0; --cyan:#4FD1E8; --amber:#FFB454; --red:#FF6B6B;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;}
+  a{color:inherit;}
+  ::selection{background:var(--green);color:#0B0F14;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,15,20,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:var(--mono);font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+  .brand .logo-mark{width:30px;height:30px;border-radius:7px;background:var(--green);color:#0B0F14;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:0.85rem;flex:none;}
+  .brand small{display:block;font-family:var(--mono);font-size:0.6rem;color:var(--cyan);font-weight:600;letter-spacing:0.04em;}
+  .nav-links{display:flex;gap:24px;font-size:0.86rem;font-family:var(--mono);}
+  .nav-links a{text-decoration:none;color:var(--dim);}
+  .nav-links a:hover{color:var(--green);}
+  @media (max-width:840px){.nav-links{display:none;}}
+  .btn-tiny{background:var(--green);color:#0B0F14;padding:9px 16px;border-radius:6px;font-size:0.82rem;font-weight:700;
+    text-decoration:none;white-space:nowrap;font-family:var(--mono);}
+
+  header.hero{padding:70px 0 50px;}
+  .term-bar{display:flex;align-items:center;gap:8px;margin-bottom:22px;font-family:var(--mono);font-size:0.78rem;color:var(--dim);}
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-bar .path{margin-left:6px;}
+  h1{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.15;margin:0 0 20px;max-width:20ch;}
+  h1 .kw{color:var(--cyan);}
+  h1 .str{color:var(--green);}
+  h1 .cmt{color:var(--dim);font-weight:400;}
+  .hero-sub{font-size:1.08rem;color:var(--dim);max-width:58ch;line-height:1.65;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px;}
+  .btn-primary{background:var(--green);color:#0B0F14;padding:15px 28px;border-radius:8px;font-weight:700;text-decoration:none;
+    font-size:0.98rem;font-family:var(--mono);display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 0 1px rgba(0,229,160,0.3);transition:transform .12s ease;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-primary .timer{background:rgba(0,0,0,0.2);padding:2px 8px;border-radius:4px;font-size:0.82rem;}
+  .btn-ghost{color:var(--cyan);text-decoration:underline;text-decoration-color:var(--line);font-weight:600;font-family:var(--mono);font-size:0.9rem;}
+  .hero-note{font-size:0.8rem;color:var(--dim);font-family:var(--mono);}
+
+  .code-block{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 26px;max-width:560px;
+    margin-top:38px;font-family:var(--mono);font-size:0.86rem;line-height:1.7;overflow-x:auto;}
+  .code-block .ln{color:var(--dim);display:inline-block;width:22px;user-select:none;}
+  .code-block .k{color:var(--cyan);} .code-block .s{color:var(--green);} .code-block .p{color:var(--amber);} .code-block .c{color:var(--dim);}
+
+  section{padding:56px 0;}
+  .section-head{margin-bottom:32px;max-width:64ch;}
+  .section-num{font-family:var(--mono);font-size:0.78rem;color:var(--green);font-weight:600;margin-bottom:8px;display:block;}
+  h2{font-family:var(--mono);font-size:clamp(1.4rem,2.6vw,1.9rem);margin:0 0 10px;font-weight:700;}
+  .section-desc{color:var(--dim);font-size:1rem;line-height:1.65;}
+
+  .card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:800px){.card-row{grid-template-columns:1fr;}}
+  .index-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 20px 18px;position:relative;}
+  .index-card .tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);margin-bottom:10px;display:block;}
+  .index-card h3{font-family:'Inter',sans-serif;font-size:1.02rem;margin:0 0 8px;font-weight:700;color:var(--text);}
+  .index-card p{font-size:0.9rem;color:var(--dim);line-height:1.55;margin:0;}
+
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
+  @media (max-width:700px){.checklist{grid-template-columns:1fr;}}
+  .check-item{display:flex;align-items:flex-start;gap:12px;font-size:0.95rem;padding:6px 0;border-bottom:1px dashed var(--line);font-family:var(--mono);}
+  .box{width:18px;height:18px;border:1.5px solid var(--dim);border-radius:4px;flex:none;margin-top:2px;position:relative;}
+  .check-item.done .box{background:var(--green);border-color:var(--green);}
+  .check-item.done .box::after{content:'✓';position:absolute;inset:0;color:#0B0F14;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:900;}
+  .check-item span{color:var(--dim);}
+  .check-item.done span{color:var(--text);}
+
+  .keyword-cloud{display:flex;flex-wrap:wrap;gap:10px;}
+  .kw-chip{font-family:var(--mono);font-size:0.82rem;padding:6px 12px;border-radius:20px;border:1px solid var(--line);
+    background:var(--panel-2);color:var(--cyan);}
+  .kw-chip.alt{color:var(--green);}
+
+  .resume-mock{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:34px 38px;max-width:640px;
+    font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.55;}
+  .resume-mock .rname{font-family:var(--mono);font-size:1.3rem;font-weight:700;margin-bottom:2px;color:var(--text);}
+  .resume-mock .rcontact{color:var(--dim);font-size:0.8rem;margin-bottom:18px;font-family:var(--mono);}
+  .resume-mock h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--green);border-bottom:1px solid var(--line);padding-bottom:5px;margin:20px 0 10px;}
+  .resume-mock ul{margin:0 0 6px;padding-left:18px;color:var(--dim);}
+  .resume-mock li{margin-bottom:4px;}
+  .resume-mock .rjob{display:flex;justify-content:space-between;font-weight:700;color:var(--text);font-size:0.9rem;}
+
+  .mistake-row{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);}
+  .mistake-row:last-child{border-bottom:none;}
+  .x-mark{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--red);flex:none;width:26px;}
+  .mistake-row h4{margin:0 0 4px;font-size:1rem;font-weight:700;color:var(--text);}
+  .mistake-row p{margin:0;color:var(--dim);font-size:0.92rem;line-height:1.55;}
+
+  .tip-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;}
+  .tip-card{flex:0 0 250px;background:var(--panel-2);border-radius:8px;padding:18px;border:1px solid var(--line);}
+  .tip-card .tip-q{font-family:var(--mono);font-weight:700;margin-bottom:8px;font-size:0.92rem;color:var(--cyan);}
+  .tip-card p{font-size:0.86rem;color:var(--dim);line-height:1.5;margin:0;}
+
+  details{border-bottom:1px solid var(--line);padding:16px 0;}
+  summary{cursor:pointer;font-weight:700;font-family:var(--mono);font-size:0.98rem;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text);}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';font-size:1.3rem;color:var(--green);font-family:'Inter';}
+  details[open] summary::after{content:'–';}
+  details p{color:var(--dim);margin:12px 0 0;line-height:1.6;max-width:65ch;font-size:0.92rem;}
+
+  .final-cta{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:52px 40px;text-align:center;margin:20px 0 70px;}
+  .final-cta .logo-mark{width:42px;height:42px;border-radius:10px;background:var(--green);color:#0B0F14;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:1.05rem;margin:0 auto 18px;}
+  .final-cta h2{color:var(--text);margin-bottom:14px;}
+  .final-cta p{color:var(--dim);max-width:50ch;margin:0 auto 30px;line-height:1.6;}
+
+  footer{padding:26px 0 54px;font-size:0.8rem;color:var(--dim);font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--line);}
+  footer .brand{font-size:0.85rem;}
+  footer .logo-mark{width:20px;height:20px;font-size:0.6rem;border-radius:5px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="https://banaoresumee.online"><span class="logo-mark">BR</span><span>BanaoResumee<small>MCA RESUME BUILDER</small></span></a>
+    <div class="nav-links">
+      <a href="#expect">expect()</a>
+      <a href="#skills">skills[]</a>
+      <a href="#keywords">keywords{}</a>
+      <a href="#example">resume.pdf</a>
+      <a href="#mistakes">errors[]</a>
+    </div>
+    <a class="btn-tiny" href="https://banaoresumee.online">./build-resume</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="term-bar">
+      <span class="term-dot" style="background:#FF6B6B"></span>
+      <span class="term-dot" style="background:#FFB454"></span>
+      <span class="term-dot" style="background:#00E5A0"></span>
+      <span class="path">~/banaoresumee/mca-resume</span>
+    </div>
+    <h1><span class="cmt">// build your</span> <span class="kw">MCA</span> <span class="str">resume</span><br><span class="cmt">in 5 minutes</span></h1>
+    <p class="hero-sub">Free MCA resume builder with an MCA fresher resume format, ATS keywords for MCA students, and a real MCA resume sample — built for freshers and final-year MCA project candidates.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">create_mca_resume() <span class="timer">⏱ 5 min</span></a>
+      <a class="btn-ghost" href="#example">view sample.pdf ↓</a>
+    </div>
+    <div class="hero-note">// mca resume format · mca fresher resume · free download at banaoresumee.online</div>
+
+    <div class="code-block">
+<span class="ln">01</span> <span class="k">const</span> resume = {<br>
+<span class="ln">02</span>   degree: <span class="s">"MCA"</span>,<br>
+<span class="ln">03</span>   skills: [<span class="s">"Java"</span>, <span class="s">"SQL"</span>, <span class="s">"Spring Boot"</span>],<br>
+<span class="ln">04</span>   project: <span class="s">"Final Year MCA Project"</span>,<br>
+<span class="ln">05</span>   atsScore: <span class="p">92</span>,<br>
+<span class="ln">06</span> }; <span class="c">// generated by banaoresumee.online</span>
+    </div>
+  </header>
+
+  <section id="expect">
+    <div class="section-head">
+      <span class="section-num">$ what-recruiters-expect --mca</span>
+      <h2>What recruiters look for in an MCA resume</h2>
+      <p class="section-desc">Recruiters hiring MCA graduates look past the degree name for backend depth, a real project, and framework experience.</p>
+    </div>
+    <div class="card-row">
+      <div class="index-card"><span class="tag">01</span><h3>A backend-heavy final year project</h3><p>An MCA project with a working API, database, and deployment beats a purely theoretical thesis.</p></div>
+      <div class="index-card"><span class="tag">02</span><h3>Framework experience, not just syntax</h3><p>Spring Boot, Django, or .NET experience signals you can contribute to a real codebase, not just pass exams.</p></div>
+      <div class="index-card"><span class="tag">03</span><h3>System design basics</h3><p>Even fresher-level understanding of APIs, databases, and scalability sets MCA candidates apart from BCA/B.Tech peers.</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num">$ skills --required</span>
+      <h2>Key skills to include in an MCA resume</h2>
+      <p class="section-desc">Add these to your MCA resume format to match what recruiters and ATS software scan for.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item done"><div class="box"></div><span>Java / Python / C#</span></div>
+      <div class="check-item done"><div class="box"></div><span>Spring Boot / Django / .NET</span></div>
+      <div class="check-item done"><div class="box"></div><span>SQL & database design</span></div>
+      <div class="check-item"><div class="box"></div><span>REST API development</span></div>
+      <div class="check-item"><div class="box"></div><span>Data structures & algorithms</span></div>
+      <div class="check-item done"><div class="box"></div><span>Git & version control</span></div>
+      <div class="check-item"><div class="box"></div><span>Cloud basics (AWS/Azure)</span></div>
+      <div class="check-item"><div class="box"></div><span>Agile / Scrum exposure</span></div>
+    </div>
+  </section>
+
+  <section id="keywords">
+    <div class="section-head">
+      <span class="section-num">$ ats --keyword-scan</span>
+      <h2>ATS keywords for an MCA resume</h2>
+      <p class="section-desc">Work these terms naturally into your MCA resume so applicant tracking systems match you to the right postings.</p>
+    </div>
+    <div class="keyword-cloud">
+      <span class="kw-chip">MCA Fresher</span><span class="kw-chip alt">Java</span>
+      <span class="kw-chip">Spring Boot</span><span class="kw-chip alt">SQL</span>
+      <span class="kw-chip">REST API</span><span class="kw-chip alt">Data Structures</span>
+      <span class="kw-chip">Software Development</span><span class="kw-chip alt">Full Stack Development</span>
+      <span class="kw-chip">DBMS</span><span class="kw-chip alt">Git & GitHub</span>
+      <span class="kw-chip">Object-Oriented Programming</span><span class="kw-chip alt">Cloud Computing</span>
+      <span class="kw-chip">System Design</span>
+    </div>
+  </section>
+
+  <section id="example">
+    <div class="section-head">
+      <span class="section-num">$ cat resume.pdf</span>
+      <h2>MCA fresher resume format example</h2>
+      <p class="section-desc">A one-page MCA resume sample built around a backend project and one internship.</p>
+    </div>
+    <div class="resume-mock">
+      <div class="rname">Priya Verma</div>
+      <div class="rcontact">priya.verma@email.com · +91 98765 12345 · linkedin.com/in/priyaverma · github.com/priyaverma</div>
+      <h4>Objective</h4>
+      <div style="color:var(--dim)">MCA graduate seeking a Backend Developer role to apply skills in Java, Spring Boot, and SQL.</div>
+      <h4>Education</h4>
+      <div style="color:var(--dim)">Master of Computer Applications (MCA) — ABC University, 2024-2026, CGPA 8.6</div>
+      <h4>Projects</h4>
+      <div class="rjob"><span>Hospital Management System — Java, Spring Boot, MySQL</span><span></span></div>
+      <ul>
+        <li>Built REST APIs handling appointments, billing, and records for 1,000+ simulated patients</li>
+        <li>Designed relational schema and optimized queries, cutting response time by 25%</li>
+      </ul>
+      <h4>Internship</h4>
+      <div class="rjob"><span>Backend Developer Intern, SaaS Startup</span><span>Summer 2025</span></div>
+      <ul>
+        <li>Developed 2 microservices in Spring Boot integrated with a PostgreSQL database</li>
+      </ul>
+      <h4>Skills</h4>
+      <div style="color:var(--dim)">Java, Spring Boot, SQL, REST APIs, Git, Data Structures, System Design</div>
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <div class="section-head">
+      <span class="section-num">$ lint resume --errors</span>
+      <h2>Common MCA resume mistakes to avoid</h2>
+    </div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Treating MCA like a BCA resume</h4><p>MCA is a postgraduate degree — your resume should show more depth: system design, frameworks, and a stronger project than a BCA fresher.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>No framework or backend depth listed</h4><p>Listing "Java" alone isn't enough — name the framework (Spring Boot, Django) you've actually built with.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Thesis-only project with no code</h4><p>A purely written MCA project without a working demo or repo undersells your practical ability.</p></div></div>
+    <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Resume longer than one page</h4><p>Even with a master's degree, freshers should keep the resume to one page — trim older academic details.</p></div></div>
+  </section>
+
+  <section id="interview">
+    <div class="section-head">
+      <span class="section-num">$ interview --prep</span>
+      <h2>Common interview questions for MCA freshers</h2>
+    </div>
+    <div class="tip-strip">
+      <div class="tip-card"><div class="tip-q">"Walk me through your MCA project"</div><p>Cover the architecture, your specific role, and one measurable result — in under 90 seconds.</p></div>
+      <div class="tip-card"><div class="tip-q">"Explain REST API basics"</div><p>Be ready to explain GET/POST/PUT/DELETE and status codes with a simple real example.</p></div>
+      <div class="tip-card"><div class="tip-q">"Why MCA over an MTech?"</div><p>Frame it as a deliberate choice toward applied software development over pure research.</p></div>
+      <div class="tip-card"><div class="tip-q">SQL & DBMS questions</div><p>Expect live questions on joins, normalization, and indexing — practice writing queries by hand.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-head">
+      <span class="section-num">$ man faq</span>
+      <h2>MCA resume — FAQ</h2>
+    </div>
+    <details open><summary>What should an MCA fresher resume include?</summary><p>An MCA fresher resume format should include education, core backend skills, at least one strong project, any internship, and a short objective — kept to a single page.</p></details>
+    <details><summary>Is MCA resume format different from BCA resume format?</summary><p>Yes — an MCA resume should show more depth: frameworks, system design basics, and a stronger technical project than a typical BCA fresher resume.</p></details>
+    <details><summary>Can I get an MCA resume format for freshers as a free download?</summary><p>Yes — BanaoResumee offers a free MCA resume builder that generates a downloadable MCA fresher resume in PDF or Word format.</p></details>
+    <details><summary>What is a good MCA resume objective?</summary><p>Keep it specific: name the role you want and one core skill, such as "MCA graduate seeking a Backend Developer role, skilled in Java and Spring Boot."</p></details>
+  </section>
+
+  <div class="final-cta">
+    <div class="logo-mark">BR</div>
+    <h2>Build your MCA resume now</h2>
+    <p>Get a formatted, ATS-checked MCA resume with the right keywords and a proven fresher format — free at BanaoResumee.</p>
+    <a class="btn-primary" href="https://banaoresumee.online">create_mca_resume() <span class="timer">⏱ 5 min</span></a>
+  </div>
+
+  <footer>
+    <a class="brand" href="https://banaoresumee.online"><span class="logo-mark">BR</span><span>BanaoResumee</span></a>
+    <span><a href="https://banaoresumee.online">banaoresumee.online</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
