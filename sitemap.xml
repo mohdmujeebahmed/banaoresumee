@@ -339,6 +339,44 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://banaoresumee.online/resumeachievements.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+   <url>
+    <loc>https://banaoresumee.online/resumeskills.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+   <url>
+    <loc>https://banaoresumee.online/resumeprojects.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+    <url>
+    <loc>https://banaoresumee.online/resumeeducation.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+   <url>
+    <loc>https://banaoresumee.online/resumeexperience.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  
+
 
   
 
