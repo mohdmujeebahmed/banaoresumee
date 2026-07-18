@@ -460,6 +460,22 @@ footer a:hover{color:var(--orange);}
 .resume-doc.tpl-iitgoogle .res-edu-year{font-size:7.5pt!important;color:#555!important;}
 .resume-doc.tpl-iitgoogle .res-achievement{font-size:8.5pt!important;color:#222!important;}
 .resume-doc.tpl-iitgoogle .res-achievement::before{color:#0d0d0d!important;}
+
+/* LINKEDIN OPTIMIZER */
+.li-result-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0.85rem 1rem;margin-bottom:0.65rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.65rem;box-shadow:var(--shadow);}
+.li-result-text{font-size:0.83rem;color:var(--ink-2);line-height:1.6;}
+.li-copy-btn{flex-shrink:0;background:var(--orange-light);color:var(--orange);border:1px solid rgba(255,107,53,0.25);font-size:0.68rem;font-weight:700;padding:0.35rem 0.7rem;border-radius:100px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+.li-copy-btn:hover{background:var(--orange);color:#fff;}
+.li-about-box{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:1rem 1.1rem;font-size:0.85rem;color:var(--ink-2);line-height:1.8;white-space:pre-wrap;box-shadow:var(--shadow);}
+.li-loading{display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--muted);padding:0.75rem 0;}
+.li-spin{width:16px;height:16px;border:2.5px solid var(--border);border-top-color:var(--orange);border-radius:50%;animation:liSpin 0.7s linear infinite;}
+@keyframes liSpin{to{transform:rotate(360deg);}}
+.li-tabs{display:flex;gap:0.5rem;margin-bottom:1.1rem;background:var(--bg);border:1.5px solid var(--border);border-radius:100px;padding:4px;}
+.li-tab{flex:1;text-align:center;font-size:0.76rem;font-weight:700;padding:0.5rem 0.5rem;border-radius:100px;cursor:pointer;color:var(--muted);transition:all 0.2s;}
+.li-tab.active{background:var(--orange);color:#fff;box-shadow:0 3px 10px rgba(255,107,53,0.3);}
+.li-panel{display:none;}
+.li-panel.active{display:block;animation:fadeUp 0.25s ease;}
+.li-error{background:var(--danger-light);border:1.5px solid #FFCCCC;color:var(--danger);font-size:0.78rem;padding:0.65rem 0.85rem;border-radius:var(--r-sm);margin-bottom:0.75rem;}
 </style>
 </head>
 <body>
@@ -486,6 +502,7 @@ footer a:hover{color:var(--orange);}
   </a>
   <div class="header-right">
     <nav class="header-nav">
+      <a href="#" onclick="showPage('linkedin');return false;">LinkedIn Boost</a>
       <a href="#" onclick="showPage('about');return false;">About</a>
       <a href="#" onclick="showPage('blog');return false;">Blog</a>
       <a href="#" onclick="showPage('contact');return false;">Contact</a>
@@ -565,6 +582,16 @@ footer a:hover{color:var(--orange);}
     </div>
   </div>
 
+  <!-- ===== LINKEDIN BOOSTER PROMO ===== -->
+  <div class="home-scroll-section">
+    <div class="home-page-block" style="text-align:center;">
+      <div class="services-eyebrow" style="background:#eef4ff;color:#1155CC;border-color:rgba(17,85,204,0.2);">✨ New · AI Powered</div>
+      <h2 class="services-title">Fix your <span>LinkedIn</span> in 60 seconds</h2>
+      <p class="services-sub" style="margin-left:auto;margin-right:auto;">Get AI-generated, keyword-rich headlines and a recruiter-friendly About section — tailored to your role and skills.</p>
+      <button class="btn btn-primary" style="margin:0 auto;" onclick="showPage('linkedin')">🚀 Try LinkedIn Booster — Free</button>
+    </div>
+  </div>
+
   <!-- ===== SERVICES SECTION ===== -->
   <div class="home-scroll-section">
     <div class="home-page-block">
@@ -628,10 +655,13 @@ footer a:hover{color:var(--orange);}
             <li>About section that makes them want to know more</li>
             <li>Skills & keyword optimization for your target role</li>
           </ul>
-          <a class="svc-wa-btn dark" href="https://wa.me/919381282521?text=Hi%2C%20I%27d%20like%20LinkedIn%20Optimization%20(%E2%82%B9199).%20Please%20share%20details." target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Chat on WhatsApp
-          </a>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn" style="flex:1;min-width:130px;background:#eef4ff;color:#1155CC;justify-content:center;" onclick="showPage('linkedin')">✨ Try Free AI Version</button>
+            <a class="svc-wa-btn dark" style="flex:1;" href="https://wa.me/919381282521?text=Hi%2C%20I%27d%20like%20LinkedIn%20Optimization%20(%E2%82%B9199).%20Please%20share%20details." target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Get it done for me
+            </a>
+          </div>
         </div>
 
       </div>
@@ -970,6 +1000,7 @@ footer a:hover{color:var(--orange);}
   <div class="footer-brand">Banao<span>Resume</span></div>
   Free ATS resume builder for students &amp; freshers in India.
   <br><br>
+  <a href="#" onclick="showPage('linkedin');return false;">LinkedIn Boost</a> ·
   <a href="#" onclick="showPage('about');return false;">About</a> ·
   <a href="#" onclick="showPage('blog');return false;">Blog</a> ·
   <a href="#" onclick="showPage('contact');return false;">Contact</a> ·
@@ -983,6 +1014,53 @@ footer a:hover{color:var(--orange);}
   <span style="font-size:0.65rem;color:#9C8677;">📧 <a href="mailto:support@banaoresumee.online" style="color:#CCA890;">support@banaoresumee.online</a></span><br>
   <span style="font-size:0.65rem;opacity:0.5;">© 2025 BanaoResume · Made with ❤️ for job seekers</span>
 </footer>
+
+<!-- LINKEDIN OPTIMIZER PAGE -->
+<div class="page-overlay" id="page-linkedin">
+  <div class="page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+    <h1 class="page-title">LinkedIn Booster ✨</h1>
+    <p class="page-sub">AI-generated headlines &amp; About section, tailored to your role. Free — powered by Claude.</p>
+
+    <div class="contact-form" style="margin-bottom:1.25rem;">
+      <div class="form-grid">
+        <div class="field-group"><label>Job Title <span class="req">*</span></label><input type="text" id="li-jobtitle" placeholder="Frontend Developer"/></div>
+        <div class="field-group"><label>Experience Level <span class="req">*</span></label>
+          <select id="li-experience">
+            <option value="Fresher">Fresher</option>
+            <option value="0-1 years">0–1 years</option>
+            <option value="1-3 years">1–3 years</option>
+            <option value="3-5 years">3–5 years</option>
+            <option value="5+ years">5+ years</option>
+          </select>
+        </div>
+        <div class="field-group"><label>Industry</label><input type="text" id="li-industry" placeholder="IT / Software Services"/></div>
+        <div class="field-group full"><label>Top Skills <span class="req">*</span></label><input type="text" id="li-skills" placeholder="React, JavaScript, Tailwind CSS"/></div>
+        <div class="field-group full"><label>Career Goal</label><input type="text" id="li-goal" placeholder="Looking for Frontend Developer jobs"/></div>
+        <div class="field-group full"><label>Projects / Achievements <span class="opt">optional, for About section</span></label><textarea id="li-extra" rows="2" placeholder="Built an e-commerce site with 500+ users; won college hackathon..."></textarea></div>
+      </div>
+    </div>
+
+    <div class="li-tabs">
+      <div class="li-tab active" id="li-tab-headline" onclick="liSwitchTab('headline')">📌 Headlines</div>
+      <div class="li-tab" id="li-tab-about" onclick="liSwitchTab('about')">📝 About Section</div>
+    </div>
+
+    <div class="li-panel active" id="li-panel-headline">
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:1rem;" onclick="generateHeadlines()">✨ Generate 10 Headlines</button>
+      <div id="li-headline-status"></div>
+      <div id="li-headline-results"></div>
+    </div>
+
+    <div class="li-panel" id="li-panel-about">
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:1rem;" onclick="generateAbout()">✨ Generate About Section</button>
+      <div id="li-about-status"></div>
+      <div id="li-about-results"></div>
+    </div>
+
+    <p style="font-size:0.68rem;color:var(--muted);margin-top:1.5rem;text-align:center;">Want a human expert to polish it further? <a href="https://wa.me/919381282521?text=Hi%2C%20I%27d%20like%20LinkedIn%20Optimization%20(%E2%82%B9199)." target="_blank" rel="noopener" style="color:var(--orange);">Chat on WhatsApp (₹199)</a></p>
+  </div>
+</div>
 
 <!-- ABOUT PAGE -->
 <div class="page-overlay" id="page-about">
@@ -1525,6 +1603,178 @@ window.addEventListener('load', () => {
 });
 
 addEntry('exp'); addEntry('proj'); addEntry('edu'); addAchievement();
+
+/* =====================
+   LINKEDIN BOOSTER — AI headline & about generator
+   ===================== */
+function liSwitchTab(tab) {
+  document.getElementById('li-tab-headline').classList.toggle('active', tab === 'headline');
+  document.getElementById('li-tab-about').classList.toggle('active', tab === 'about');
+  document.getElementById('li-panel-headline').classList.toggle('active', tab === 'headline');
+  document.getElementById('li-panel-about').classList.toggle('active', tab === 'about');
+}
+
+function liGetInputs() {
+  return {
+    jobTitle: document.getElementById('li-jobtitle').value.trim(),
+    experience: document.getElementById('li-experience').value,
+    industry: document.getElementById('li-industry').value.trim(),
+    skills: document.getElementById('li-skills').value.trim(),
+    goal: document.getElementById('li-goal').value.trim(),
+    extra: document.getElementById('li-extra').value.trim(),
+  };
+}
+
+function liCopyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const old = btn.textContent;
+    btn.textContent = '✓ Copied';
+    setTimeout(() => { btn.textContent = old; }, 1500);
+  });
+}
+
+async function generateHeadlines() {
+  const inp = liGetInputs();
+  const statusEl = document.getElementById('li-headline-status');
+  const resultsEl = document.getElementById('li-headline-results');
+  if (!inp.jobTitle || !inp.skills) {
+    statusEl.innerHTML = `<div class="li-error">Please fill in at least Job Title and Top Skills.</div>`;
+    return;
+  }
+  statusEl.innerHTML = `<div class="li-loading"><div class="li-spin"></div> Generating 10 headlines…</div>`;
+  resultsEl.innerHTML = '';
+
+  const systemPrompt = `You are a professional LinkedIn branding expert.
+
+Generate 10 LinkedIn headlines.
+
+Rules:
+
+- Maximum 220 characters.
+- Make every headline keyword-rich for LinkedIn search.
+- Never use emojis.
+- Avoid buzzwords like "guru", "ninja", "rockstar".
+- Include important skills naturally.
+- Focus on recruiter visibility.
+- Sound professional.
+- Every headline should be unique.
+- Return only the headlines.
+
+Good examples:
+
+Frontend Developer | React | Next.js | TypeScript | Building Fast Web Applications
+
+Software Engineer | Java | Spring Boot | Backend Development | Open to Opportunities
+
+Data Analyst | SQL | Python | Power BI | Turning Data into Business Insights`;
+
+  const userMsg = `Job Title: ${inp.jobTitle}
+Experience: ${inp.experience}
+Industry: ${inp.industry || 'Not specified'}
+Skills: ${inp.skills}
+Goal: ${inp.goal || 'Open to new opportunities'}`;
+
+  try {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: "user", content: userMsg }]
+      })
+    });
+    const data = await response.json();
+    const textResponses = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n');
+    const lines = textResponses.split('\n').map(l => l.replace(/^[\d.\-\)\s]+/, '').trim()).filter(l => l.length > 5);
+    statusEl.innerHTML = '';
+    if (!lines.length) {
+      statusEl.innerHTML = `<div class="li-error">Couldn't generate headlines. Please try again.</div>`;
+      return;
+    }
+    resultsEl.innerHTML = lines.map(l => `<div class="li-result-card"><div class="li-result-text">${l.replace(/</g,'&lt;')}</div><button class="li-copy-btn" onclick="liCopyText(${JSON.stringify(l)}, this)">Copy</button></div>`).join('');
+  } catch (err) {
+    statusEl.innerHTML = `<div class="li-error">Something went wrong. Please check your connection and try again.</div>`;
+  }
+}
+
+async function generateAbout() {
+  const inp = liGetInputs();
+  const statusEl = document.getElementById('li-about-status');
+  const resultsEl = document.getElementById('li-about-results');
+  if (!inp.jobTitle || !inp.skills) {
+    statusEl.innerHTML = `<div class="li-error">Please fill in at least Job Title and Top Skills.</div>`;
+    return;
+  }
+  statusEl.innerHTML = `<div class="li-loading"><div class="li-spin"></div> Writing your About section…</div>`;
+  resultsEl.innerHTML = '';
+
+  const systemPrompt = `You are a LinkedIn profile optimization expert.
+
+Write a professional LinkedIn About section.
+
+Requirements:
+
+Write in first person.
+
+Start with an engaging opening.
+
+Highlight experience.
+
+Mention technical skills naturally.
+
+Mention achievements when provided.
+
+Show enthusiasm for learning.
+
+End with a networking invitation.
+
+Length: 150–250 words.
+
+Avoid clichés like:
+"I am passionate..."
+"Hardworking individual..."
+"Team player..."
+
+Instead, make it sound authentic and recruiter-friendly.
+
+Do not use emojis.
+
+Return only the About section.`;
+
+  const userMsg = `Job Title: ${inp.jobTitle}
+Experience: ${inp.experience}
+Skills: ${inp.skills}
+Projects/Achievements: ${inp.extra || 'Not specified'}
+Career Goal: ${inp.goal || 'Open to new opportunities'}
+Tone: Professional, authentic
+Length: 150-250 words`;
+
+  try {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: "user", content: userMsg }]
+      })
+    });
+    const data = await response.json();
+    const textResponses = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
+    statusEl.innerHTML = '';
+    if (!textResponses) {
+      statusEl.innerHTML = `<div class="li-error">Couldn't generate the About section. Please try again.</div>`;
+      return;
+    }
+    resultsEl.innerHTML = `<div class="li-about-box">${textResponses.replace(/</g,'&lt;')}</div>
+    <button class="li-copy-btn" style="margin-top:0.75rem;" onclick="liCopyText(${JSON.stringify(textResponses)}, this)">Copy About Section</button>`;
+  } catch (err) {
+    statusEl.innerHTML = `<div class="li-error">Something went wrong. Please check your connection and try again.</div>`;
+  }
+}
 </script>
 </body>
 </html>
