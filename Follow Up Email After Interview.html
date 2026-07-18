@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Follow Up Email After Interview - Templates & Timing | BanaoResumee</title>
+<meta name="description" content="Learn how and when to send a follow up email after an interview. Templates, timing guidelines, and mistakes to avoid. Free resume builder at BanaoResumee.">
+<meta name="keywords" content="follow up email after interview, interview follow up email, follow up email after interview sample, when to send follow up email after interview, follow up email template interview, post interview follow up">
+<link rel="canonical" href="https://banaoresumee.online/follow-up-email-after-interview">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23B5432C' stroke='%23fff' stroke-width='2' stroke-dasharray='4 3'/%3E%3Ctext x='32' y='41' font-family='monospace' font-size='20' font-weight='800' fill='%23fff' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F3EC; --panel:#FFFFFF; --line:#E3DCC9; --sidebar:#1C2B28;
+  --ink:#22281F; --dim:#666B5E;
+  --stamp:#B5432C; --seal:#2E6E5E; --gold:#C79A3E;
+  --disp:'Fraunces',serif; --body:'Inter',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);}
+a{color:inherit;}
+::selection{background:var(--gold);color:#1C2B28;}
+
+/* APP SHELL LAYOUT: fixed sidebar + main pane, unlike prior centered marketing pages */
+.shell{display:flex;min-height:100vh;}
+.sidebar{
+  width:76px; flex:none; background:var(--sidebar); color:#EDEAE0; display:flex; flex-direction:column;
+  align-items:center; padding:22px 0; position:sticky; top:0; height:100vh; gap:26px; z-index:60;
+}
+.sidebar .seal-logo{width:38px;height:38px;border-radius:50%;background:var(--stamp);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-weight:800;font-size:0.85rem;color:#fff;text-decoration:none;flex:none;border:2px dashed rgba(255,255,255,0.4);}
+.sidebar .icon-link{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:#A9B3A6;text-decoration:none;font-family:var(--mono);font-size:0.68rem;text-align:center;line-height:1.15;}
+.sidebar .icon-link:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.sidebar .spacer{flex:1;}
+.sidebar .cta-mini{writing-mode:vertical-rl;text-orientation:mixed;background:var(--gold);color:#1C2B28;padding:14px 8px;border-radius:8px;
+  font-family:var(--mono);font-size:0.72rem;font-weight:700;text-decoration:none;letter-spacing:0.02em;}
+@media (max-width:700px){.sidebar{width:56px;} .sidebar .icon-link{font-size:0.58rem;width:32px;height:32px;}}
+
+.main{flex:1;min-width:0;}
+.wrap{max-width:980px;margin:0 auto;padding:0 32px;}
+
+/* topbar mimics an email client header */
+.topbar{background:var(--panel);border-bottom:1px solid var(--line);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;}
+.topbar .path{font-family:var(--mono);font-size:0.78rem;color:var(--dim);}
+.topbar .path strong{color:var(--ink);}
+.btn-tiny{background:var(--seal);color:#fff;padding:9px 16px;border-radius:6px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;}
+
+/* HERO styled as an email compose window */
+header.hero{padding:56px 0 40px;}
+.compose-window{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 50px rgba(28,43,40,0.08);overflow:hidden;margin-bottom:34px;}
+.compose-bar{background:var(--sidebar);color:#EDEAE0;padding:12px 20px;font-family:var(--mono);font-size:0.78rem;display:flex;justify-content:space-between;align-items:center;}
+.compose-fields{padding:18px 24px 6px;border-bottom:1px solid var(--line);}
+.compose-field{display:flex;gap:12px;padding:7px 0;font-size:0.88rem;border-bottom:1px dashed var(--line);}
+.compose-field:last-child{border-bottom:none;}
+.compose-field .k{font-family:var(--mono);color:var(--dim);width:56px;flex:none;}
+.compose-body{padding:20px 24px 26px;}
+.eyebrow{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--stamp);font-weight:700;margin-bottom:14px;display:block;}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.18;margin:0 0 16px;}
+h1 .mark{color:var(--seal);}
+.hero-sub{font-size:1.05rem;color:var(--dim);line-height:1.68;margin-bottom:22px;max-width:60ch;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn-primary{background:var(--stamp);color:#fff;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;
+  font-size:0.95rem;display:inline-flex;align-items:center;gap:10px;box-shadow:0 6px 18px rgba(181,67,44,0.3);}
+.btn-primary .timer{font-family:var(--mono);background:rgba(255,255,255,0.22);padding:2px 8px;border-radius:4px;font-size:0.78rem;}
+.btn-ghost{color:var(--seal);text-decoration:underline;text-decoration-color:var(--gold);font-weight:600;font-size:0.9rem;}
+.hero-note{font-size:0.8rem;color:var(--dim);font-family:var(--mono);margin-top:14px;}
+
+/* Sections styled as an inbox message list, expandable */
+section{padding:44px 0;border-top:1px solid var(--line);}
+section:first-of-type{border-top:none;}
+.section-head{margin-bottom:22px;max-width:66ch;}
+.section-num{font-family:var(--mono);font-size:0.74rem;color:var(--stamp);font-weight:700;margin-bottom:6px;display:block;text-transform:uppercase;}
+h2{font-family:var(--disp);font-size:clamp(1.35rem,2.4vw,1.85rem);margin:0 0 8px;font-weight:700;}
+.section-desc{color:var(--dim);font-size:0.98rem;line-height:1.65;}
+
+.inbox-row{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 4px;border-bottom:1px solid var(--line);background:var(--panel);}
+.inbox-row:first-child{border-top:1px solid var(--line);}
+.inbox-dot{width:10px;height:10px;border-radius:50%;background:var(--stamp);margin-top:6px;}
+.inbox-row h3{font-family:var(--disp);font-size:1.02rem;margin:0 0 6px;font-weight:700;}
+.inbox-row p{font-size:0.9rem;color:var(--dim);line-height:1.55;margin:0;}
+
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel);}
+@media (max-width:700px){.checklist{grid-template-columns:1fr;}}
+.check-item{display:flex;align-items:flex-start;gap:12px;font-size:0.94rem;padding:13px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+.check-item:nth-child(2n){border-right:none;}
+@media (max-width:700px){.check-item{border-right:none;}}
+.box{width:17px;height:17px;border:2px solid var(--seal);border-radius:4px;flex:none;margin-top:2px;position:relative;}
+.check-item.done .box{background:var(--seal);}
+.check-item.done .box::after{content:'✓';position:absolute;inset:0;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:900;}
+.check-item span{color:var(--dim);}
+.check-item.done span{color:var(--ink);font-weight:600;}
+
+.keyword-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+.kw-chip{font-family:var(--mono);font-size:0.8rem;padding:6px 12px;border-radius:4px;background:var(--panel);border:1px solid var(--line);color:var(--seal);}
+.kw-chip.b{color:var(--stamp);} .kw-chip.c{color:var(--gold);}
+
+/* Example letters styled as an actual letter/envelope card */
+.letter-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:0;margin-bottom:22px;position:relative;
+  box-shadow:0 14px 34px rgba(28,43,40,0.07);}
+.letter-head{display:flex;justify-content:space-between;align-items:center;padding:12px 22px;border-bottom:1px dashed var(--line);
+  font-family:var(--mono);font-size:0.72rem;color:var(--dim);}
+.letter-head .stamp-mini{width:24px;height:24px;border-radius:50%;border:2px dashed var(--stamp);color:var(--stamp);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:800;}
+.letter-body{padding:24px 26px;font-size:0.95rem;line-height:1.7;}
+.letter-body p{margin:0 0 12px;}
+.letter-body p:last-child{margin-bottom:0;}
+
+.mistake-row{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:10px;}
+.x-mark{font-family:var(--mono);font-weight:800;font-size:1rem;color:var(--stamp);flex:none;width:20px;}
+.mistake-row h4{margin:0 0 4px;font-size:0.98rem;font-family:var(--disp);font-weight:700;}
+.mistake-row p{margin:0;color:var(--dim);font-size:0.9rem;line-height:1.55;}
+
+.tip-strip{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;}
+.tip-card{flex:0 0 240px;background:var(--panel);border-radius:8px;padding:18px;border:1px solid var(--line);}
+.tip-card .tip-q{font-family:var(--disp);font-weight:700;margin-bottom:6px;font-size:0.94rem;color:var(--seal);}
+.tip-card p{font-size:0.85rem;color:var(--dim);line-height:1.5;margin:0;}
+
+details{border-bottom:1px solid var(--line);padding:16px 4px;}
+summary{cursor:pointer;font-weight:700;font-family:var(--disp);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:1.3rem;color:var(--stamp);font-family:'Inter';}
+details[open] summary::after{content:'–';}
+details p{color:var(--dim);margin:10px 0 0;line-height:1.6;max-width:65ch;font-size:0.92rem;}
+
+.final-cta{background:var(--sidebar);color:#EDEAE0;border-radius:14px;padding:46px 38px;text-align:center;margin:24px 0 60px;position:relative;}
+.final-cta .seal-big{width:44px;height:44px;border-radius:50%;background:var(--stamp);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-weight:800;font-size:1rem;margin:0 auto 16px;border:2px dashed rgba(255,255,255,0.4);}
+.final-cta h2{color:#fff;margin-bottom:12px;font-family:var(--disp);font-size:1.7rem;}
+.final-cta p{color:#C7CDC3;max-width:48ch;margin:0 auto 26px;line-height:1.6;font-size:0.95rem;}
+.final-cta .btn-primary{background:var(--gold);color:#1C2B28;box-shadow:none;}
+
+footer{padding:22px 32px 50px;font-size:0.78rem;color:var(--dim);font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="sidebar">
+    <a class="seal-logo" href="https://banaoresumee.online" title="BanaoResumee">BR</a>
+    <a class="icon-link" href="#compose">Guide</a>
+    <a class="icon-link" href="#checklist">List</a>
+    <a class="icon-link" href="#keywords">Tags</a>
+    <a class="icon-link" href="#examples">Mail</a>
+    <a class="icon-link" href="#mistakes">Errors</a>
+    <div class="spacer"></div>
+    <a class="cta-mini" href="https://banaoresumee.online">Build My Resume</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="path">banaoresumee.online <strong>/ follow-up-email</strong></div>
+      <a class="btn-tiny" href="https://banaoresumee.online">Build My Resume</a>
+    </div>
+
+    <div class="wrap">
+      <header class="hero" id="compose">
+        <div class="compose-window">
+          <div class="compose-bar"><span>✉ New Message</span><span>Draft saved</span></div>
+          <div class="compose-fields">
+            <div class="compose-field"><span class="k">To:</span><span>interviewer@company.com</span></div>
+            <div class="compose-field"><span class="k">From:</span><span>you@email.com</span></div>
+            <div class="compose-field"><span class="k">Subject:</span><span>Following Up — [Job Title] Interview</span></div>
+          </div>
+          <div class="compose-body">
+            <span class="eyebrow">Follow Up Email After Interview</span>
+            <h1>The follow-up email that keeps you <span class="mark">top of mind</span></h1>
+            <p class="hero-sub">Most candidates never follow up after an interview — a short, well-timed email is a simple way to stand out and show genuine interest.</p>
+            <div class="hero-ctas">
+              <a class="btn-primary" href="https://banaoresumee.online">Build My Resume <span class="timer">⏱ 5 min</span></a>
+              <a class="btn-ghost" href="#examples">See real examples ↓</a>
+            </div>
+            <div class="hero-note">// free at banaoresumee.online · no sign-up required</div>
+          </div>
+        </div>
+      </header>
+
+      <section id="inbox">
+        <div class="section-head">
+          <span class="section-num">What good ones include</span>
+          <h2>What recruiters expect</h2>
+          <p class="section-desc">Skim these like an inbox — each one is a real factor recruiters check for.</p>
+        </div>
+        
+      <div class="inbox-row"><div class="inbox-dot"></div><div><h3>Sent within 24 hours of the interview</h3><p>Timing matters — a follow-up sent too late loses most of its impact.</p></div></div>
+      <div class="inbox-row"><div class="inbox-dot"></div><div><h3>References something specific from the conversation</h3><p>A detail from the actual conversation shows genuine engagement, not a copy-pasted template.</p></div></div>
+      <div class="inbox-row"><div class="inbox-dot"></div><div><h3>Reaffirms interest without sounding desperate</h3><p>A confident, brief note works better than an overly eager or lengthy message.</p></div></div>
+      </section>
+
+      <section id="checklist">
+        <div class="section-head">
+          <span class="section-num">Checklist</span>
+          <h2>Follow-up email checklist</h2>
+          <p class="section-desc">Confirm these before sending your post-interview follow-up.</p>
+        </div>
+        <div class="checklist">
+      <div class="check-item done"><div class="box"></div><span>Sent within 24 hours</span></div>
+      <div class="check-item done"><div class="box"></div><span>References a specific conversation detail</span></div>
+      <div class="check-item done"><div class="box"></div><span>Reaffirms interest in the role</span></div>
+      <div class="check-item "><div class="box"></div><span>Kept to 3-4 sentences</span></div>
+      <div class="check-item "><div class="box"></div><span>Professional, warm tone</span></div>
+      <div class="check-item "><div class="box"></div><span>Correct spelling of interviewer's name</span></div>
+      <div class="check-item "><div class="box"></div><span>Sent to the correct email address</span></div>
+      <div class="check-item "><div class="box"></div><span>No excessive follow-ups afterward</span></div></div>
+      </section>
+
+      <section id="keywords">
+        <div class="section-head">
+          <span class="section-num">Keywords</span>
+          <h2>Keywords for interview follow-up emails</h2>
+          <p class="section-desc">Common searches around sending a follow-up after a job interview.</p>
+        </div>
+        <div class="keyword-cloud"><span class="kw-chip a">Follow Up Email After Interview</span><span class="kw-chip b">Interview Follow Up Template</span><span class="kw-chip c">Post Interview Email</span><span class="kw-chip a">When to Follow Up After Interview</span><span class="kw-chip b">Interview Thank You Follow Up</span><span class="kw-chip c">Follow Up Email Sample</span><span class="kw-chip a">Second Follow Up Email</span><span class="kw-chip b">Interview Status Follow Up</span></div>
+      </section>
+
+      <section id="examples">
+        <div class="section-head">
+          <span class="section-num">Examples</span>
+          <h2>A follow-up email example</h2>
+          <p class="section-desc">Short, specific, and sent within 24 hours of the interview.</p>
+        </div>
+        
+      <div class="letter-card">
+        <div class="letter-head"><span>Example Email</span><span class="stamp-mini">BR</span></div>
+        <div class="letter-body"><p><strong>Subject:</strong> Following Up — Marketing Executive Interview</p><p>Hi [Interviewer's Name],</p><p>Thank you again for taking the time to speak with me yesterday about the Marketing Executive role. Our conversation about [specific topic discussed] left me even more excited about the opportunity to contribute to your team.</p><p>Please let me know if there's any additional information I can provide. I look forward to hearing about next steps.</p><p>Best regards,<br>[Your Name]</p></div>
+      </div>
+      </section>
+
+      <section id="mistakes">
+        <div class="section-head">
+          <span class="section-num">Mistakes</span>
+          <h2>Common follow-up email mistakes</h2>
+        </div>
+        
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Sending it too late</h4><p>A follow-up sent more than 2-3 days later loses most of its intended impact.</p></div></div>
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Making it too long or repetitive</h4><p>Keep it brief — restating your entire resume in the follow-up is unnecessary and can feel excessive.</p></div></div>
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Following up too many times afterward</h4><p>One follow-up after the interview, and one more after a reasonable wait, is generally sufficient.</p></div></div>
+      </section>
+
+      <section id="tips">
+        <div class="section-head">
+          <span class="section-num">Pro tips</span>
+          <h2>Pro tips for interview follow-up emails</h2>
+        </div>
+        <div class="tip-strip">
+      <div class="tip-card"><div class="tip-q">Send it the same day or next morning</div><p>Prompt timing shows genuine enthusiasm and keeps you fresh in the interviewer's mind.</p></div>
+      <div class="tip-card"><div class="tip-q">Reference something specific from the conversation</div><p>A real detail makes the email feel personal rather than templated.</p></div>
+      <div class="tip-card"><div class="tip-q">Keep it under 100 words</div><p>Brief, warm, and specific outperforms long and generic every time.</p></div></div>
+      </section>
+
+      <section id="faq">
+        <div class="section-head">
+          <span class="section-num">FAQ</span>
+          <h2>Follow up email after interview — FAQ</h2>
+        </div>
+        
+    <details open><summary>When should I send a follow-up email after an interview?</summary><p>Within 24 hours of the interview, ideally the same day or the next morning.</p></details>
+    <details ><summary>What should I include in the follow-up email?</summary><p>A brief thank you, a specific detail from the conversation, and a reaffirmation of your interest in the role.</p></details>
+    <details ><summary>Is it okay to follow up if I haven't heard back?</summary><p>Yes — a polite follow-up after a week or two of silence is generally acceptable and shows continued interest.</p></details>
+    <details ><summary>Can I get help writing a follow-up email for free?</summary><p>Yes — BanaoResumee's free builder can help you draft a professional post-interview follow-up.</p></details>
+      </section>
+
+      <div class="final-cta">
+        <div class="seal-big">BR</div>
+        <h2>Keep your application materials polished too</h2>
+        <p>Make sure your resume matches the professionalism of your follow-up — free at BanaoResumee.</p>
+        <a class="btn-primary" href="https://banaoresumee.online">Build My Resume <span class="timer">⏱ 5 min</span></a>
+      </div>
+
+      <footer>
+        <span>© BanaoResumee.online</span>
+        <span><a href="https://banaoresumee.online">banaoresumee.online</a></span>
+      </footer>
+    </div>
+  </div>
+</div>
+</body>
+</html>
