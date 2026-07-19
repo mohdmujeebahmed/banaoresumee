@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn Banner Ideas - Templates & Best Practices | BanaoResumee</title>
+<meta name="description" content="LinkedIn banner ideas and templates for job seekers and professionals. Correct size, design tips, and examples. Free resume builder at BanaoResumee.">
+<meta name="keywords" content="linkedin banner ideas, linkedin banner size, linkedin cover photo ideas, linkedin banner template, linkedin background photo ideas, professional linkedin banner, linkedin cover image size">
+<link rel="canonical" href="https://banaoresumee.online/linkedin-banner-ideas">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230A66C2'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='22' font-weight='800' fill='%23fff' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F2EE; --card:#FFFFFF; --line:#E0DFDC;
+  --ink:#000000DE; --dim:#00000099; --faint:#00000061;
+  --li-blue:#0A66C2; --li-blue-dark:#004182; --li-green:#057642; --li-gold:#B7A369;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--li-blue);color:#fff;}
+.wrap{max-width:1128px;margin:0 auto;padding:0 24px;}
+
+nav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(0,0,0,0.05);}
+.nav-inner{max-width:1128px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-weight:700;font-size:1.15rem;display:flex;align-items:center;gap:8px;color:var(--ink);}
+.brand .logo-mark{width:34px;height:34px;border-radius:6px;background:var(--li-blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:0.85rem;flex:none;}
+.nav-links{display:flex;gap:4px;font-size:0.72rem;font-weight:500;}
+.nav-links a{padding:6px 14px;border-radius:4px;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:2px;}
+.nav-links a:hover{color:var(--ink);background:var(--bg);}
+@media (max-width:860px){.nav-links{display:none;}}
+.btn-tiny{background:var(--li-blue);color:#fff;padding:8px 18px;border-radius:24px;font-size:0.85rem;font-weight:700;white-space:nowrap;}
+
+/* HERO styled like a LinkedIn cover + profile card */
+header.hero{padding:32px 0 40px;}
+.li-cover-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,0.04);margin-bottom:36px;}
+.li-banner{height:120px;background:linear-gradient(120deg,var(--li-blue) 0%, #38A0E8 60%, var(--li-gold) 100%);position:relative;}
+.li-profile-row{padding:0 24px 20px;position:relative;}
+.li-avatar{width:84px;height:84px;border-radius:50%;background:var(--li-blue-dark);border:4px solid var(--card);margin-top:-42px;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--mono);font-weight:800;font-size:1.5rem;}
+.li-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border-radius:14px;padding:4px 10px;font-size:0.72rem;
+  color:var(--dim);font-weight:600;margin-top:10px;}
+.li-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--li-green);}
+.eyebrow{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--li-blue);font-weight:700;margin:16px 0 10px;display:block;}
+h1{font-weight:700;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.2;margin:0 0 14px;color:var(--ink);}
+h1 .mark{color:var(--li-blue);}
+.hero-sub{font-size:1rem;color:var(--dim);max-width:60ch;line-height:1.6;margin-bottom:22px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-bottom:22px;}
+.btn-primary{background:var(--li-blue);color:#fff;padding:11px 24px;border-radius:24px;font-weight:700;
+  font-size:0.92rem;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--li-blue);}
+.btn-primary:hover{background:var(--li-blue-dark);}
+.btn-primary .timer{font-family:var(--mono);background:rgba(255,255,255,0.22);padding:2px 8px;border-radius:10px;font-size:0.76rem;}
+.btn-secondary{background:#fff;color:var(--li-blue);padding:10px 22px;border-radius:24px;font-weight:700;font-size:0.92rem;border:1.5px solid var(--li-blue);}
+.hero-note{font-size:0.78rem;color:var(--faint);font-family:var(--mono);padding:0 24px 20px;}
+
+section{padding:44px 0;}
+.section-head{margin-bottom:26px;max-width:66ch;}
+.section-num{font-family:var(--mono);font-size:0.72rem;color:var(--li-blue);font-weight:700;margin-bottom:6px;display:block;text-transform:uppercase;}
+h2{font-size:clamp(1.3rem,2.4vw,1.7rem);margin:0 0 8px;font-weight:700;}
+.section-desc{color:var(--dim);font-size:0.95rem;line-height:1.6;}
+
+.card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media (max-width:800px){.card-row{grid-template-columns:1fr;}}
+.index-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px;}
+.index-card .tag{font-family:var(--mono);font-size:0.68rem;color:var(--li-blue);margin-bottom:8px;display:block;font-weight:700;}
+.index-card h3{font-size:1rem;margin:0 0 6px;font-weight:700;}
+.index-card p{font-size:0.88rem;color:var(--dim);line-height:1.55;margin:0;}
+
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card);}
+@media (max-width:700px){.checklist{grid-template-columns:1fr;}}
+.check-item{display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+.check-item:nth-child(2n){border-right:none;}
+@media (max-width:700px){.check-item{border-right:none;}}
+.box{width:16px;height:16px;border:2px solid var(--li-blue);border-radius:3px;flex:none;margin-top:2px;position:relative;}
+.check-item.done .box{background:var(--li-blue);}
+.check-item.done .box::after{content:'✓';position:absolute;inset:0;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:900;}
+.check-item span{color:var(--dim);}
+.check-item.done span{color:var(--ink);font-weight:600;}
+
+.keyword-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+.kw-chip{font-family:var(--mono);font-size:0.78rem;padding:6px 13px;border-radius:16px;background:#EDF3F8;color:var(--li-blue);border:1px solid #D0E2F1;}
+.kw-chip.b{background:#E9F5EE;color:var(--li-green);border-color:#CDE9D9;}
+.kw-chip.c{background:#FBF3E4;color:#8A6D1E;border-color:#EFDFB6;}
+
+.example-block{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 24px;font-size:0.94rem;line-height:1.65;
+  position:relative;margin-bottom:16px;}
+.example-block .tag{display:inline-block;background:var(--li-blue);color:#fff;font-family:var(--mono);
+  font-size:0.66rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:700;padding:3px 9px;border-radius:10px;margin-bottom:12px;}
+
+.mistake-row{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:10px;}
+.x-mark{font-weight:800;font-size:1rem;color:#B24020;flex:none;width:20px;}
+.mistake-row h4{margin:0 0 4px;font-size:0.96rem;font-weight:700;}
+.mistake-row p{margin:0;color:var(--dim);font-size:0.88rem;line-height:1.55;}
+
+.tip-strip{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;}
+.tip-card{flex:0 0 230px;background:var(--card);border-radius:8px;padding:18px;border:1px solid var(--line);}
+.tip-card .tip-q{font-weight:700;margin-bottom:6px;font-size:0.92rem;color:var(--li-blue);}
+.tip-card p{font-size:0.84rem;color:var(--dim);line-height:1.5;margin:0;}
+
+details{border-bottom:1px solid var(--line);padding:16px 4px;}
+summary{cursor:pointer;font-weight:700;font-size:0.98rem;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:1.3rem;color:var(--li-blue);}
+details[open] summary::after{content:'–';}
+details p{color:var(--dim);margin:10px 0 0;line-height:1.6;max-width:65ch;font-size:0.9rem;}
+
+/* Related LinkedIn pages - interlinking module styled like LinkedIn "People also viewed" */
+.related-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px;}
+.related-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:6px;}
+.related-item:hover{background:var(--bg);}
+.related-avatar{width:38px;height:38px;border-radius:50%;background:var(--li-blue);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-weight:800;font-size:0.72rem;flex:none;}
+.related-item .rt{font-weight:700;font-size:0.9rem;}
+.related-item .rs{font-size:0.78rem;color:var(--faint);}
+
+.final-cta{background:linear-gradient(120deg,var(--li-blue),var(--li-blue-dark));color:#fff;border-radius:10px;padding:44px 36px;text-align:center;margin:24px 0 60px;}
+.final-cta .logo-mark{width:44px;height:44px;border-radius:8px;background:#fff;color:var(--li-blue);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:1rem;margin:0 auto 16px;}
+.final-cta h2{color:#fff;margin-bottom:10px;font-size:1.5rem;}
+.final-cta p{color:#D6E7F7;max-width:48ch;margin:0 auto 24px;line-height:1.6;font-size:0.92rem;}
+.final-cta .btn-primary{background:#fff;color:var(--li-blue);border-color:#fff;}
+.final-cta .btn-primary:hover{background:#EDF3F8;}
+
+footer{padding:22px 0 50px;font-size:0.78rem;color:var(--faint);font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="https://banaoresumee.online"><span class="logo-mark">BR</span><span>BanaoResumee</span></a>
+    <div class="nav-links">
+      <a href="/linkedin-profile-picture-tips.html">Profile Picture Tips</a><a href="/linkedin-banner-ideas.html">Banner Ideas</a><a href="/linkedin-keywords-for-ats.html">Keywords for ATS</a><a href="/linkedin-profile-checklist.html">Profile Checklist</a>
+    </div>
+    <a class="btn-tiny" href="https://banaoresumee.online">Build Resume</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="li-cover-card">
+      <div class="li-banner"></div>
+      <div class="li-profile-row">
+        <div class="li-avatar">BR</div>
+        <div class="li-badge"><span class="dot"></span>Banner Ideas · Updated Guide</div>
+        <span class="eyebrow">LinkedIn Banner Ideas</span>
+        <h1>A LinkedIn banner that says <span class="mark">more than your headline</span></h1>
+        <p class="hero-sub">Your LinkedIn banner is prime, often-wasted real estate. Here's how to use it to reinforce your professional brand — with the correct size and layout.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://banaoresumee.online">Build My Resume <span class="timer">⏱ 5 min</span></a>
+          <a class="btn-secondary" href="#examples">See Examples</a>
+        </div>
+      </div>
+      <div class="hero-note">// free resume builder · banaoresumee.online</div>
+    </div>
+  </header>
+
+  <section id="expect">
+    <div class="section-head">
+      <span class="section-num">What makes a LinkedIn banner effective</span>
+      <h2>What makes a LinkedIn banner effective</h2>
+      <p class="section-desc">A strong banner reinforces your headline and profile, rather than sitting empty or generic.</p>
+    </div>
+    <div class="card-row">
+      <div class="index-card"><span class="tag">01</span><h3>Correct dimensions, no stretching</h3><p>1584 x 396 pixels is the standard size — anything off-ratio appears stretched or cropped oddly.</p></div>
+      <div class="index-card"><span class="tag">02</span><h3>Reinforces your role or field</h3><p>A subtle visual cue about your industry or specialty adds context beyond just your headline text.</p></div>
+      <div class="index-card"><span class="tag">03</span><h3>Not competing with your profile photo</h3><p>Keep the area behind your profile picture (bottom-left) relatively clear so your photo stands out clearly.</p></div></div>
+  </section>
+
+  <section id="checklist">
+    <div class="section-head">
+      <span class="section-num">Checklist</span>
+      <h2>LinkedIn banner checklist</h2>
+      <p class="section-desc">Confirm these before uploading your LinkedIn banner image.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item done"><div class="box"></div><span>Correct size: 1584 x 396 pixels</span></div>
+      <div class="check-item done"><div class="box"></div><span>Area behind profile photo kept clear</span></div>
+      <div class="check-item done"><div class="box"></div><span>Reflects your role, field, or brand</span></div>
+      <div class="check-item "><div class="box"></div><span>Text (if any) is large and readable</span></div>
+      <div class="check-item "><div class="box"></div><span>No stretched or pixelated image</span></div>
+      <div class="check-item "><div class="box"></div><span>Consistent with your professional tone</span></div>
+      <div class="check-item "><div class="box"></div><span>File size optimized for fast loading</span></div>
+      <div class="check-item "><div class="box"></div><span>Updated when role or focus changes</span></div></div>
+  </section>
+
+  <section id="keywords">
+    <div class="section-head">
+      <span class="section-num">Keywords</span>
+      <h2>Keywords for LinkedIn banner design</h2>
+      <p class="section-desc">Common searches around LinkedIn banner size and design.</p>
+    </div>
+    <div class="keyword-cloud"><span class="kw-chip a">LinkedIn Banner Size</span><span class="kw-chip b">LinkedIn Cover Photo</span><span class="kw-chip c">LinkedIn Background Image</span><span class="kw-chip a">LinkedIn Banner Template</span><span class="kw-chip b">LinkedIn Banner Ideas</span><span class="kw-chip c">Professional LinkedIn Banner</span><span class="kw-chip a">LinkedIn Header Image</span><span class="kw-chip b">LinkedIn Banner Dimensions</span></div>
+  </section>
+
+  <section id="examples">
+    <div class="section-head">
+      <span class="section-num">Examples</span>
+      <h2>LinkedIn banner ideas by career stage</h2>
+      <p class="section-desc">Different approaches depending on your field and career stage.</p>
+    </div>
+    
+      <div class="example-block"><span class="tag">Students/Freshers</span><div>A simple, clean banner with your university name/logo area and field of study, in your school's or a neutral professional color scheme.</div></div>
+      <div class="example-block"><span class="tag">Job Seekers</span><div>A minimalist banner stating your target role or specialty (e.g. "Aspiring Data Analyst") in clean, readable typography.</div></div>
+      <div class="example-block"><span class="tag">Experienced Professionals</span><div>A banner reflecting your industry — subtle product screenshots, a relevant skyline, or your company/personal brand colors.</div></div>
+  </section>
+
+  <section id="mistakes">
+    <div class="section-head">
+      <span class="section-num">Mistakes</span>
+      <h2>Common LinkedIn banner mistakes</h2>
+    </div>
+    
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Leaving the default blue banner</h4><p>An empty default banner is a missed opportunity to reinforce your professional brand.</p></div></div>
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Using a stretched or low-resolution image</h4><p>Off-ratio images appear blurry or distorted — always use the correct 1584x396 dimensions.</p></div></div>
+      <div class="mistake-row"><div class="x-mark">✕</div><div><h4>Overcrowding with too much text</h4><p>A banner with dense text is hard to read at a glance — keep any text short and large.</p></div></div>
+  </section>
+
+  <section id="tips">
+    <div class="section-head">
+      <span class="section-num">Pro tips</span>
+      <h2>Pro tips for your LinkedIn banner</h2>
+    </div>
+    <div class="tip-strip">
+      <div class="tip-card"><div class="tip-q">Use free tools with LinkedIn-sized templates</div><p>Canva and similar tools offer pre-sized LinkedIn banner templates to simplify design.</p></div>
+      <div class="tip-card"><div class="tip-q">Keep your profile photo area clear</div><p>Avoid placing important banner content directly behind where your circular profile photo sits.</p></div>
+      <div class="tip-card"><div class="tip-q">Match your banner to your headline</div><p>A banner that visually reinforces your stated role or field feels more cohesive.</p></div></div>
+  </section>
+
+  <section id="faq">
+    <div class="section-head">
+      <span class="section-num">FAQ</span>
+      <h2>LinkedIn banner — FAQ</h2>
+    </div>
+    
+    <details open><summary>What is the correct LinkedIn banner size?</summary><p>1584 x 396 pixels is the standard, recommended size for a LinkedIn profile banner image.</p></details>
+    <details ><summary>Do I need a custom banner, or is the default fine?</summary><p>A custom banner is recommended — it's a simple way to reinforce your professional brand instead of leaving default blank space.</p></details>
+    <details ><summary>Can I use a photo I already have as my banner?</summary><p>Yes, as long as it can be cropped to the correct 1584x396 ratio without becoming stretched or pixelated.</p></details>
+    <details ><summary>Should freshers have a LinkedIn banner too?</summary><p>Yes — even a simple, clean banner reflecting your field of study adds polish to a fresher's profile.</p></details>
+  </section>
+
+  <section id="related">
+    <div class="section-head">
+      <span class="section-num">People also check</span>
+      <h2>More LinkedIn &amp; resume guides</h2>
+      <p class="section-desc">Keep optimizing your job search profile across LinkedIn and your resume.</p>
+    </div>
+    <div class="related-card">
+      <a class="related-item" href="/linkedin-profile-picture-tips.html">
+        <div class="related-avatar">PP</div>
+        <div><div class="rt">LinkedIn Profile Picture Tips</div><div class="rs">Guide · BanaoResumee</div></div>
+      </a>
+      <a class="related-item" href="/linkedin-keywords-for-ats.html">
+        <div class="related-avatar">KF</div>
+        <div><div class="rt">LinkedIn Keywords for ATS</div><div class="rs">Guide · BanaoResumee</div></div>
+      </a>
+      <a class="related-item" href="/linkedin-profile-checklist.html">
+        <div class="related-avatar">PC</div>
+        <div><div class="rt">LinkedIn Profile Checklist</div><div class="rs">Guide · BanaoResumee</div></div>
+      </a>
+      <a class="related-item" href="https://banaoresumee.online">
+        <div class="related-avatar">BR</div>
+        <div><div class="rt">Build your resume free</div><div class="rs">banaoresumee.online</div></div>
+      </a></div>
+  </section>
+
+  <div class="final-cta">
+    <div class="logo-mark">BR</div>
+    <h2>Polish your resume next</h2>
+    <p>A strong LinkedIn banner deserves an equally strong resume — build yours free.</p>
+    <a class="btn-primary" href="https://banaoresumee.online">Build My Resume <span class="timer">⏱ 5 min</span></a>
+  </div>
+
+  <footer>
+    <span>© BanaoResumee.online</span>
+    <span><a href="https://banaoresumee.online">banaoresumee.online</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
