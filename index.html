@@ -30,6 +30,7 @@
      <link rel="canonical" href="https://banaoresumee.online/">
 <meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@20..72,500;20..72,600&display=swap" rel="stylesheet">
 <style>
 :root {
   --orange:#FF6B35;--orange-dark:#E85520;--orange-light:#FFF0EA;
@@ -624,6 +625,151 @@ footer a:hover{color:var(--orange);}
 .ai-step .ai-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;transition:all 0.3s;}
 .ai-step.active .ai-dot{border-color:var(--orange);animation:liSpin 0.8s linear infinite;border-top-color:transparent;}
 .ai-step.done .ai-dot{border-color:var(--green);background:var(--green);color:#fff;}
+
+/* =====================
+   CAREER ROADMAPS PAGE (scoped so it never touches the rest of the site)
+   ===================== */
+#page-roadmaps{
+  --rm-bg:#F5F0E8;--rm-surface:#FFFDF8;--rm-surface-2:#EDE8DE;--rm-surface-3:#E2DCD0;
+  --rm-border:rgba(0,0,0,0.08);--rm-border-h:rgba(0,0,0,0.15);
+  --rm-text:#1A1814;--rm-text-2:#6B6560;--rm-text-3:#9C958C;
+  --rm-accent:#8B5CF6;--rm-accent-g:linear-gradient(135deg,#8B5CF6,#6366F1);--rm-accent-soft:rgba(139,92,246,0.10);
+  --rm-green:#16A34A;--rm-amber:#CA8A04;--rm-red:#DC2626;
+  --rm-r:20px;--rm-r-md:14px;--rm-r-sm:8px;
+  --rm-ease:cubic-bezier(0.16,1,0.3,1);
+  background:var(--rm-bg);color:var(--rm-text);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.6;
+}
+#page-roadmaps *,#page-roadmaps *::before,#page-roadmaps *::after{box-sizing:border-box;}
+#page-roadmaps a{color:inherit;text-decoration:none;}
+#page-roadmaps button{font-family:inherit;cursor:pointer;}
+#page-roadmaps .rm-serif{font-family:'Newsreader',serif;}
+#page-roadmaps .rm-page-inner{max-width:820px;}
+@keyframes rmRise{from{opacity:0;transform:translateY(24px) scale(0.98);}to{opacity:1;transform:none;}}
+#page-roadmaps .rm-rv{opacity:0;}
+#page-roadmaps .rm-rv.rm-in{animation:rmRise .65s var(--rm-ease) both;animation-delay:var(--rm-d,0s);}
+@media(prefers-reduced-motion:reduce){#page-roadmaps .rm-rv{opacity:1;animation:none!important;}}
+#page-roadmaps .rm-glow-wrap{position:relative;overflow:hidden;}
+#page-roadmaps .rm-glow-spot{position:absolute;width:500px;height:500px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(139,92,246,0.06),transparent 70%);opacity:0;transition:opacity .4s;z-index:0;transform:translate(-50%,-50%);}
+#page-roadmaps .rm-glow-wrap:hover .rm-glow-spot{opacity:1;}
+#page-roadmaps .rm-sh{max-width:760px;margin:0 auto;}
+#page-roadmaps .rm-hero-wrap{position:relative;overflow:hidden;border-bottom:1px solid var(--rm-border);border-radius:var(--rm-r);margin-bottom:1.5rem;}
+#page-roadmaps .rm-hero-mesh{position:absolute;inset:0;z-index:0;opacity:.35;}
+#page-roadmaps .rm-hero-mesh canvas{width:100%;height:100%;}
+#page-roadmaps .rm-hero{position:relative;z-index:1;padding:36px 20px 40px;text-align:center;}
+#page-roadmaps .rm-role-switch{display:inline-flex;gap:3px;background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:12px;padding:4px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
+#page-roadmaps .rm-rp{font-size:12px;font-weight:600;color:var(--rm-text-3);padding:7px 13px;border-radius:8px;border:none;background:none;transition:all .25s var(--rm-ease);white-space:nowrap;position:relative;}
+#page-roadmaps .rm-rp:hover{color:var(--rm-text-2);}
+#page-roadmaps .rm-rp.rm-on{color:#fff;background:var(--rm-accent-g);box-shadow:0 4px 16px -4px rgba(139,92,246,0.3);}
+#page-roadmaps .rm-hero-ey{font-size:11.5px;font-weight:600;color:var(--rm-text-2);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:8px;}
+#page-roadmaps .rm-hero-dot{width:7px;height:7px;border-radius:50%;background:var(--rm-accent);box-shadow:0 0 8px var(--rm-accent);}
+#page-roadmaps .rm-hero h1{font-size:clamp(1.7rem,5vw,2.8rem);font-weight:800;letter-spacing:-0.04em;line-height:1.08;margin-bottom:14px;font-family:'Inter',-apple-system,sans-serif;}
+#page-roadmaps .rm-hero h1 em{font-style:normal;color:var(--rm-text-3);font-weight:500;display:block;font-size:clamp(.95rem,2vw,1.15rem);letter-spacing:-0.01em;margin-top:8px;line-height:1.5;}
+#page-roadmaps .rm-hero-stats{display:flex;justify-content:center;gap:0;margin-top:32px;flex-wrap:wrap;}
+#page-roadmaps .rm-hs{padding:0 24px;text-align:left;position:relative;}
+#page-roadmaps .rm-hs+.rm-hs{border-left:1px solid var(--rm-border);}
+#page-roadmaps .rm-hs-n{font-size:19px;font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;}
+#page-roadmaps .rm-hs-l{font-size:11px;color:var(--rm-text-3);margin-top:2px;font-weight:500;}
+#page-roadmaps .rm-sec{padding:40px 0;border-top:1px solid var(--rm-border);scroll-margin-top:72px;}
+#page-roadmaps .rm-sec:first-of-type{border-top:none;}
+#page-roadmaps .rm-sec-h{margin-bottom:28px;}
+#page-roadmaps .rm-sec-k{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rm-accent);margin-bottom:6px;}
+#page-roadmaps .rm-sec-t{font-size:22px;font-weight:700;letter-spacing:-0.025em;font-family:'Inter',-apple-system,sans-serif;}
+#page-roadmaps .rm-tilt{transition:transform .35s var(--rm-ease),box-shadow .35s;transform-style:preserve-3d;will-change:transform;}
+#page-roadmaps .rm-tilt:hover{box-shadow:0 20px 50px -16px rgba(0,0,0,.15);}
+#page-roadmaps .rm-stage{background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:var(--rm-r);margin-bottom:10px;overflow:hidden;transition:border-color .2s;}
+#page-roadmaps .rm-stage:hover,#page-roadmaps .rm-stage.rm-open{border-color:var(--rm-border-h);}
+#page-roadmaps .rm-stage-hd{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;user-select:none;}
+#page-roadmaps .rm-stage-i{font-family:'Newsreader',serif;font-size:22px;font-weight:600;color:var(--rm-text-3);width:34px;flex-shrink:0;transition:color .25s;}
+#page-roadmaps .rm-stage.rm-open .rm-stage-i{color:var(--rm-accent);}
+#page-roadmaps .rm-stage-t{flex:1;min-width:0;}
+#page-roadmaps .rm-stage-tt{font-size:15px;font-weight:600;}
+#page-roadmaps .rm-stage-ts{font-size:12px;color:var(--rm-text-3);margin-top:2px;}
+#page-roadmaps .rm-stage-n{font-size:11.5px;color:var(--rm-text-3);font-weight:500;flex-shrink:0;background:var(--rm-surface-2);padding:3px 10px;border-radius:100px;}
+#page-roadmaps .rm-stage-ch{width:18px;height:18px;color:var(--rm-text-3);flex-shrink:0;transition:transform .3s var(--rm-ease),color .2s;}
+#page-roadmaps .rm-stage-ch svg{width:100%;height:100%;}
+#page-roadmaps .rm-stage.rm-open .rm-stage-ch{transform:rotate(180deg);color:var(--rm-accent);}
+#page-roadmaps .rm-stage-bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--rm-ease);}
+#page-roadmaps .rm-stage.rm-open .rm-stage-bd{grid-template-rows:1fr;}
+#page-roadmaps .rm-stage-bd>div{overflow:hidden;}
+#page-roadmaps .rm-stage-in{padding:0 24px 20px;display:flex;flex-direction:column;gap:8px;}
+#page-roadmaps .rm-topic{background:var(--rm-surface-2);border:1px solid var(--rm-border);border-radius:var(--rm-r-md);padding:18px 20px;transition:border-color .2s,transform .2s;position:relative;}
+#page-roadmaps .rm-topic:hover{border-color:var(--rm-border-h);transform:translateX(3px);}
+#page-roadmaps .rm-topic-nm{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+#page-roadmaps .rm-topic-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+#page-roadmaps .rm-tg{font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;letter-spacing:.02em;}
+#page-roadmaps .rm-tg.rm-easy{background:rgba(22,163,74,.10);color:var(--rm-green);}
+#page-roadmaps .rm-tg.rm-med{background:rgba(202,138,4,.10);color:var(--rm-amber);}
+#page-roadmaps .rm-tg.rm-hard{background:rgba(220,38,38,.10);color:var(--rm-red);}
+#page-roadmaps .rm-tg.rm-time{background:var(--rm-surface-3);color:var(--rm-text-2);}
+#page-roadmaps .rm-topic-w{font-size:13px;color:var(--rm-text-2);line-height:1.6;margin-bottom:10px;}
+#page-roadmaps .rm-topic-m{font-size:12px;color:var(--rm-text-3);line-height:1.55;padding:10px 12px;border-left:2px solid var(--rm-surface-3);background:rgba(0,0,0,0.03);border-radius:0 var(--rm-r-sm) var(--rm-r-sm) 0;}
+#page-roadmaps .rm-topic-m b{color:var(--rm-text-2);}
+#page-roadmaps .rm-tools-g{display:grid;gap:8px;}
+@media(min-width:600px){#page-roadmaps .rm-tools-g{grid-template-columns:1fr 1fr;}}
+#page-roadmaps .rm-tool{display:flex;align-items:center;gap:14px;background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:var(--rm-r-md);padding:16px 18px;transition:all .25s var(--rm-ease);perspective:600px;}
+#page-roadmaps .rm-tool:hover{border-color:var(--rm-border-h);transform:translateY(-2px) rotateX(2deg);box-shadow:0 14px 30px -16px rgba(0,0,0,.12);}
+#page-roadmaps .rm-tool-av{width:36px;height:36px;border-radius:10px;background:var(--rm-accent-g);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0;}
+#page-roadmaps .rm-tool-info{flex:1;}
+#page-roadmaps .rm-tool-nm{font-size:13px;font-weight:600;}
+#page-roadmaps .rm-tool-pu{font-size:11.5px;color:var(--rm-text-3);margin-top:1px;}
+#page-roadmaps .rm-tool-c{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:100px;flex-shrink:0;}
+#page-roadmaps .rm-tool-c.rm-free{color:var(--rm-green);background:rgba(22,163,74,.1);}
+#page-roadmaps .rm-tool-c.rm-paid{color:var(--rm-text-3);background:var(--rm-surface-3);}
+#page-roadmaps .rm-tabs{display:inline-flex;gap:2px;background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:10px;padding:3px;margin-bottom:20px;}
+#page-roadmaps .rm-tb{font-size:12px;font-weight:600;color:var(--rm-text-3);padding:7px 14px;border-radius:7px;border:none;background:none;transition:all .2s var(--rm-ease);}
+#page-roadmaps .rm-tb.rm-on{color:#fff;background:var(--rm-text);box-shadow:0 2px 12px -4px rgba(0,0,0,.25);}
+#page-roadmaps .rm-pj-g{display:none;grid-template-columns:1fr;gap:8px;}
+#page-roadmaps .rm-pj-g.rm-on{display:grid;}
+@media(min-width:600px){#page-roadmaps .rm-pj-g{grid-template-columns:1fr 1fr;}}
+#page-roadmaps .rm-pj{background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:var(--rm-r-md);padding:20px;transition:all .25s var(--rm-ease);perspective:600px;}
+#page-roadmaps .rm-pj:hover{border-color:var(--rm-accent-soft);transform:translateY(-3px) rotateY(2deg);box-shadow:0 16px 40px -16px rgba(139,92,246,.12);}
+#page-roadmaps .rm-pj-i{font-size:10px;font-weight:700;color:var(--rm-accent);letter-spacing:.06em;margin-bottom:8px;}
+#page-roadmaps .rm-pj-n{font-size:13.5px;font-weight:600;line-height:1.4;margin-bottom:6px;}
+#page-roadmaps .rm-pj-m{font-size:11.5px;color:var(--rm-text-3);}
+#page-roadmaps .rm-res-g{display:grid;gap:8px;}
+@media(min-width:600px){#page-roadmaps .rm-res-g{grid-template-columns:1fr 1fr;}}
+#page-roadmaps .rm-res{display:flex;gap:14px;background:var(--rm-surface);border:1px solid var(--rm-border);border-radius:var(--rm-r-md);padding:18px 20px;transition:all .25s var(--rm-ease);}
+#page-roadmaps .rm-res:hover{border-color:var(--rm-border-h);transform:translateY(-2px);}
+#page-roadmaps .rm-res-th{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#DC2626,#B91C1C);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#page-roadmaps .rm-res-th svg{width:16px;height:16px;fill:#fff;}
+#page-roadmaps .rm-res-info{flex:1;min-width:0;}
+#page-roadmaps .rm-res-nm{font-size:13px;font-weight:600;}
+#page-roadmaps .rm-res-d{font-size:11.5px;color:var(--rm-text-3);margin-top:2px;line-height:1.45;}
+#page-roadmaps .rm-res-go{width:16px;height:16px;color:var(--rm-text-3);flex-shrink:0;margin-top:2px;transition:transform .2s var(--rm-ease);}
+#page-roadmaps .rm-res:hover .rm-res-go{transform:translate(2px,-2px);color:var(--rm-text-2);}
+#page-roadmaps .rm-res-go svg{width:100%;height:100%;}
+#page-roadmaps .rm-tl{position:relative;padding-left:32px;}
+#page-roadmaps .rm-tl::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:1.5px;background:var(--rm-border);transform-origin:top;transition:background .3s;}
+#page-roadmaps .rm-tl-it{position:relative;padding-bottom:36px;}
+#page-roadmaps .rm-tl-it:last-child{padding-bottom:0;}
+#page-roadmaps .rm-tl-dot{position:absolute;left:-32px;top:3px;width:12px;height:12px;border-radius:50%;border:2px solid var(--rm-accent);background:var(--rm-bg);box-shadow:0 0 0 4px var(--rm-bg);transition:all .3s var(--rm-ease);}
+#page-roadmaps .rm-tl-it:hover .rm-tl-dot{background:var(--rm-accent);box-shadow:0 0 12px rgba(139,92,246,.25),0 0 0 4px var(--rm-bg);}
+#page-roadmaps .rm-tl-w{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rm-accent);margin-bottom:6px;}
+#page-roadmaps .rm-tl-d{font-size:13.5px;color:var(--rm-text-2);line-height:1.6;max-width:480px;}
+#page-roadmaps .rm-fq{border-bottom:1px solid var(--rm-border);}
+#page-roadmaps .rm-fq:first-child{border-top:1px solid var(--rm-border);}
+#page-roadmaps .rm-fq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;user-select:none;}
+#page-roadmaps .rm-fq-qt{font-size:14px;font-weight:600;letter-spacing:-0.005em;transition:color .2s;}
+#page-roadmaps .rm-fq:hover .rm-fq-qt{color:var(--rm-accent);}
+#page-roadmaps .rm-fq-ic{width:16px;height:16px;flex-shrink:0;position:relative;}
+#page-roadmaps .rm-fq-ic::before,#page-roadmaps .rm-fq-ic::after{content:'';position:absolute;background:var(--rm-text-3);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:1px;transition:all .25s var(--rm-ease);}
+#page-roadmaps .rm-fq-ic::before{width:12px;height:1.5px;}
+#page-roadmaps .rm-fq-ic::after{width:1.5px;height:12px;}
+#page-roadmaps .rm-fq.rm-open .rm-fq-ic::after{transform:translate(-50%,-50%) scaleY(0);}
+#page-roadmaps .rm-fq.rm-open .rm-fq-ic::before{background:var(--rm-accent);}
+#page-roadmaps .rm-fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--rm-ease);}
+#page-roadmaps .rm-fq.rm-open .rm-fq-a{grid-template-rows:1fr;}
+#page-roadmaps .rm-fq-a>div{overflow:hidden;}
+#page-roadmaps .rm-fq-ai{padding-bottom:18px;font-size:13.5px;color:var(--rm-text-2);line-height:1.7;max-width:540px;}
+#page-roadmaps .rm-closer{padding:60px 0 40px;text-align:center;}
+#page-roadmaps .rm-closer-t{font-size:26px;font-weight:700;letter-spacing:-0.03em;margin-bottom:12px;font-family:'Inter',-apple-system,sans-serif;}
+#page-roadmaps .rm-closer-s{font-size:14px;color:var(--rm-text-2);max-width:400px;margin:0 auto 28px;line-height:1.6;}
+#page-roadmaps .rm-closer-b{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+#page-roadmaps .rm-btn{font-size:13px;font-weight:600;padding:11px 20px;border-radius:10px;border:1px solid transparent;display:inline-flex;align-items:center;gap:7px;transition:all .2s var(--rm-ease);}
+#page-roadmaps .rm-btn-p{background:var(--rm-accent-g);color:#fff;box-shadow:0 4px 20px -6px rgba(139,92,246,.3);}
+#page-roadmaps .rm-btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px -6px rgba(139,92,246,.35);}
+#page-roadmaps .rm-btn-g{background:transparent;color:var(--rm-text-2);border-color:var(--rm-border);}
+#page-roadmaps .rm-btn-g:hover{border-color:var(--rm-border-h);color:var(--rm-text);}
 </style>
 </head>
 <body>
@@ -650,6 +796,7 @@ footer a:hover{color:var(--orange);}
   </a>
   <div class="header-right">
     <nav class="header-nav">
+      <a href="#" onclick="showPage('roadmaps');return false;">Career Roadmaps</a>
       <a href="#" onclick="showPage('tracker');return false;">Job Tracker</a>
       <a href="#" onclick="showPage('linkedin');return false;">LinkedIn Boost</a>
       <a href="#" onclick="showPage('about');return false;">About</a>
@@ -812,6 +959,16 @@ footer a:hover{color:var(--orange);}
           <div class="showcase-caption">Impact-first bullets with real metrics, clean section rules, single column — exactly what recruiter software and human eyes both want.</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ===== CAREER ROADMAPS PROMO ===== -->
+  <div class="home-scroll-section reveal">
+    <div class="home-page-block" style="text-align:center;">
+      <div class="services-eyebrow" style="background:#f3eeff;color:#7C3AED;border-color:rgba(139,92,246,0.2);">🗺️ New · Plan Your Path</div>
+      <h2 class="services-title">Not sure what to learn <span>next?</span></h2>
+      <p class="services-sub" style="margin-left:auto;margin-right:auto;">Explore full 2026 career roadmaps for Frontend, Backend, AI, DevOps, Data Analyst & Data Engineering — stage-by-stage topics, tools, projects and free YouTube channels.</p>
+      <button class="btn btn-primary" style="margin:0 auto;background:linear-gradient(135deg,#8B5CF6,#6366F1);box-shadow:0 4px 14px rgba(139,92,246,0.3);" onclick="showPage('roadmaps')">🗺️ Explore Career Roadmaps — Free</button>
     </div>
   </div>
 
@@ -1218,6 +1375,7 @@ footer a:hover{color:var(--orange);}
   <div class="footer-brand">Banao<span>Resume</span></div>
   Free ATS resume builder for students &amp; freshers in India.
   <br><br>
+  <a href="#" onclick="showPage('roadmaps');return false;">Career Roadmaps</a> ·
   <a href="#" onclick="showPage('tracker');return false;">Job Tracker</a> ·
   <a href="#" onclick="showPage('linkedin');return false;">LinkedIn Boost</a> ·
   <a href="#" onclick="showPage('about');return false;">About</a> ·
@@ -1233,6 +1391,20 @@ footer a:hover{color:var(--orange);}
   <span style="font-size:0.65rem;color:#9C8677;">📧 <a href="mailto:support@banaoresumee.online" style="color:#CCA890;">support@banaoresumee.online</a></span><br>
   <span style="font-size:0.65rem;opacity:0.5;">© 2025 BanaoResume · Made with ❤️ for job seekers</span>
 </footer>
+
+<!-- CAREER ROADMAPS PAGE -->
+<div class="page-overlay" id="page-roadmaps">
+  <div class="page-inner rm-page-inner">
+    <a class="page-back" href="#" onclick="showPage(null);return false;">← Back to Resume Builder</a>
+
+    <div class="rm-hero-wrap">
+      <div class="rm-hero-mesh" id="rmMeshBg"></div>
+      <section class="rm-hero rm-sh" id="rmHeroSec"></section>
+    </div>
+
+    <div id="rmRoot"></div>
+  </div>
+</div>
 
 <!-- JOB TRACKER PAGE -->
 <div class="page-overlay" id="page-tracker">
@@ -1485,6 +1657,10 @@ function showPage(pageId, fromPopstate) {
   if (pageId) {
     const page = document.getElementById('page-' + pageId);
     if (page) { page.classList.add('open'); page.scrollTop = 0; }
+  }
+  if (pageId === 'roadmaps' && !window.rmInitialized) {
+    window.rmInitialized = true;
+    rmInit();
   }
   if (!fromPopstate) {
     history.pushState({ type: pageId ? 'page' : 'step', page: pageId, step: currentStep }, '');
@@ -1807,6 +1983,7 @@ window.addEventListener('popstate', (e) => {
     if (state.page) {
       const page = document.getElementById('page-' + state.page);
       if (page) { page.classList.add('open'); page.scrollTop = 0; }
+      if (state.page === 'roadmaps' && !window.rmInitialized) { window.rmInitialized = true; rmInit(); }
     }
     if (typeof state.step === 'number' && currentStep !== state.step) {
       // keep underlying builder step in sync without re-pushing history
@@ -2459,6 +2636,260 @@ async function generateAbout() {
     }
     resultsEl.innerHTML = `<div class="li-about-box">${text.replace(/</g,'&lt;')}</div>
     <button class="li-copy-btn" style="margin-top:0.75rem;" onclick="liCopyText(${JSON.stringify(text)}, this)">Copy About Section</button>`;
+  });
+}
+
+/* =====================================================================
+   CAREER ROADMAPS — scoped to #page-roadmaps, initialized lazily via rmInit()
+   ===================================================================== */
+const RM_CHV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const RM_ARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+const RM_PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+const RM_R={
+  frontend:{accent:'#8B5CF6',name:'Frontend Developer',level:'Beginner → Advanced',time:'6–9 mo',salary:'₹4–18L',tagline:'Build the interfaces people actually click, tap, and scroll through.',
+    stages:[{title:'Fundamentals',sub:'HTML, CSS, JS — 4–6 weeks',topics:[{name:'HTML5 & Semantic Markup',diff:'easy',time:'1 wk',why:'Every website starts here. Semantic tags improve SEO and accessibility.',mistake:'Using div for everything instead of header, nav, article, section.'},{name:'CSS3 (Flexbox + Grid)',diff:'med',time:'2 wk',why:'Modern layouts are built with Flexbox and Grid. #1 skill gap in junior interviews.',mistake:'Learning floats first instead of Flexbox/Grid, then unlearning.'},{name:'JavaScript Fundamentals',diff:'hard',time:'3 wk',why:'DOM manipulation, ES6+ syntax — non-negotiable for any frontend role.',mistake:'Jumping to React before understanding closures, this, async/await.'},{name:'Responsive Design',diff:'med',time:'1 wk',why:'70%+ of Indian web traffic is mobile. Media queries are expected.',mistake:'Designing desktop-first then squeezing down.'}]},
+    {title:'Core Skills',sub:'React ecosystem — 6–8 weeks',topics:[{name:'React.js',diff:'med',time:'2 wk',why:'Powers the majority of Indian frontend job listings.',mistake:'Not understanding when components re-render.'},{name:'React Hooks',diff:'hard',time:'1.5 wk',why:'useEffect dependency arrays are a top interview trap.',mistake:'Missing dependencies causing infinite loops.'},{name:'State Management',diff:'hard',time:'2 wk',why:'Context API for small apps, Redux/Zustand for larger ones.',mistake:'Reaching for Redux on a 3-page app.'},{name:'API Integration',diff:'med',time:'1 wk',why:'Handling loading/error states separates junior from mid-level.',mistake:'UI breaks silently on slow networks.'}]},
+    {title:'Advanced Skills',sub:'Performance & tooling — 4–5 weeks',topics:[{name:'TypeScript',diff:'hard',time:'2 wk',why:'Required for most mid-senior roles in 2026.',mistake:'Using "any" everywhere.'},{name:'Performance Optimization',diff:'hard',time:'1.5 wk',why:'Lazy loading, memoization affect Core Web Vitals.',mistake:'Optimizing before measuring.'},{name:'Next.js / SSR',diff:'med',time:'1.5 wk',why:'Most requested React framework in job postings.',mistake:'Using client components everywhere.'}]},
+    {title:'Professional Skills',sub:'Git, testing — ongoing',topics:[{name:'Git & GitHub',diff:'easy',time:'1 wk',why:'Branching, PRs, merge conflicts — daily-use skills.',mistake:'Committing directly to main.'},{name:'Testing (Jest/RTL)',diff:'med',time:'1.5 wk',why:'React Testing Library is the standard.',mistake:'Testing implementation details vs behavior.'},{name:'Debugging & DevTools',diff:'med',time:'ongoing',why:'Chrome DevTools mastery separates fast from slow debuggers.',mistake:'Only using console.log().'}]}],
+    tools:[['VS Code','Code editor','Free'],['Chrome DevTools','Debug & perf','Free'],['Figma','Design handoff','Freemium'],['Vite','Build tool','Free'],['npm/pnpm','Packages','Free'],['Postman','API testing','Freemium']],
+    projects:{beginner:['Portfolio site','To-do app','Weather app','Landing page clone','CSS Grid gallery','Quiz app','JS Calculator','Recipe finder','Countdown timer','Quote generator'],intermediate:['E-commerce with filters','Movie search (React)','Kanban board','Markdown blog','Chat UI','Expense tracker','Multi-step form','Data viz dashboard','Recipe favorites app','Netflix clone UI'],advanced:['Full checkout flow','Real-time chat (WS)','Next.js SSR blog','Collaborative whiteboard','Custom video player','Admin dashboard','SaaS landing + auth','npm component lib','Offline PWA','LLM-powered app']},
+    youtube:[{n:'Traversy Media',u:'https://youtube.com/@TraversyMedia',w:'Crash courses on HTML, CSS, JS, React'},{n:'Kevin Powell',u:'https://youtube.com/@KevinPowell',w:'Deepest CSS teacher on YouTube'},{n:'The Net Ninja',u:'https://youtube.com/@NetNinja',w:'Beginner-friendly framework playlists'},{n:'Web Dev Simplified',u:'https://youtube.com/@WebDevSimplified',w:'Explains JS/React simply'}],
+    timeline:[{t:'30 Days',d:'HTML, CSS, JS fundamentals + 3 small projects.'},{t:'90 Days',d:'React + hooks, 2 intermediate projects, portfolio live.'},{t:'6 Months',d:'TypeScript, one advanced project, applying actively.'},{t:'1 Year',d:'Job-ready mid-level with 3+ portfolio projects.'}],
+    faqs:[{q:'Do I need a CS degree?',a:'No. Frontend hiring is increasingly skills-first — a strong portfolio often matters more than a degree.'},{q:'React, Angular, or Vue first?',a:'React. Largest community, most job listings, transfers well to Next.js.'},{q:'How long until I can apply?',a:'Most learners can start applying around month 4–5 with 2–3 solid projects.'}]},
+  backend:{accent:'#34D399',name:'Backend Developer',level:'Beginner → Advanced',time:'7–10 mo',salary:'₹5–20L',tagline:'Build the systems, APIs, and databases behind everything.',
+    stages:[{title:'Fundamentals',sub:'Language + basics — 5–6 weeks',topics:[{name:'Node.js / Python',diff:'med',time:'3 wk',why:'You need one solid backend language before frameworks.',mistake:'Trying to learn 3 languages at once.'},{name:'HTTP & REST',diff:'med',time:'1 wk',why:'Every API relies on HTTP methods and status codes.',mistake:'Using GET for state-changing operations.'},{name:'SQL Fundamentals',diff:'med',time:'2 wk',why:'Relational databases power most production systems.',mistake:'Skipping SQL to go straight to an ORM.'}]},
+    {title:'Core Skills',sub:'Frameworks, auth, DB — 8 weeks',topics:[{name:'Backend Framework',diff:'med',time:'2.5 wk',why:'Express/Django handle routing and structure.',mistake:'All logic in route handlers.'},{name:'Auth & Authorization',diff:'hard',time:'1.5 wk',why:'JWT, sessions, OAuth required in nearly every product.',mistake:'Plain-text passwords, JWTs in localStorage.'},{name:'ORMs (Prisma/etc)',diff:'med',time:'1.5 wk',why:'Speed up development while keeping type-safety.',mistake:'Not understanding generated SQL — N+1 bugs.'},{name:'NoSQL (MongoDB)',diff:'med',time:'1.5 wk',why:'Flexible schemas for many startups.',mistake:'Using Mongo for highly relational data.'}]},
+    {title:'Advanced Skills',sub:'Scale & architecture — 5–6 weeks',topics:[{name:'Caching (Redis)',diff:'hard',time:'1.5 wk',why:'Dramatically improves API response times.',mistake:'No invalidation strategy.'},{name:'Message Queues',diff:'hard',time:'2 wk',why:'Essential for scalable async processing.',mistake:'Everything synchronous under load.'},{name:'System Design',diff:'hard',time:'2 wk',why:'Even junior interviews ask basic design now.',mistake:'Memorizing diagrams without understanding tradeoffs.'}]},
+    {title:'Professional Skills',sub:'Git, testing, docs — ongoing',topics:[{name:'Git & Code Review',diff:'easy',time:'1 wk',why:'Teams rely on PRs to catch prod bugs.',mistake:'Huge PRs impossible to review.'},{name:'API Testing',diff:'med',time:'1.5 wk',why:'Untested APIs break silently.',mistake:'Only testing the happy path.'},{name:'API Documentation',diff:'easy',time:'3 days',why:'Frontend teams depend on clear docs.',mistake:'Documentation written after, not alongside.'}]}],
+    tools:[['Postman','API testing','Freemium'],['Docker','Containers','Free'],['PostgreSQL','Relational DB','Free'],['Redis','Caching','Free'],['Prisma','ORM toolkit','Free'],['PM2','Process mgmt','Free']],
+    projects:{beginner:['To-do REST API','Blog CRUD API','URL shortener','Weather proxy','JWT auth system','Notes API','E-commerce API','File upload service','Contact form backend','Rate-limited API'],intermediate:['Full auth (JWT+refresh)','E-commerce (cart/orders)','Chat backend (Socket.io)','Job board + search','Payment integration','Multi-tenant SaaS','Blog CMS + roles','Booking system','Notification service','Analytics API'],advanced:['Microservices backend','Scalable chat + queues','Video processing pipeline','Rate limiter from scratch','Distributed task queue','Multi-region API','Event-driven orders','GraphQL + DataLoader','Full CI/CD pipeline','Elasticsearch service']},
+    youtube:[{n:'freeCodeCamp.org',u:'https://youtube.com/@freecodecamp',w:'Full-length backend courses'},{n:'Hussein Nasser',u:'https://youtube.com/@hnasr',w:'Database & networking deep dives'},{n:'ArjanCodes',u:'https://youtube.com/@ArjanCodes',w:'Design patterns & architecture'},{n:'CodeWithHarry',u:'https://youtube.com/@CodeWithHarry',w:'Backend playlists (Hindi)'}],
+    timeline:[{t:'30 Days',d:'Language + framework basics, first CRUD API.'},{t:'90 Days',d:'Auth, databases, ORMs — 2 projects deployed.'},{t:'6 Months',d:'Caching, queues, system design. 4+ APIs live.'},{t:'1 Year',d:'Job-ready, comfortable in system design interviews.'}],
+    faqs:[{q:'Node.js or Python?',a:'Both strong. Node pairs with JS frontend; Python preferred in data-heavy companies.'},{q:'Need Docker as a junior?',a:'Yes, expected now. K8s can wait until mid-level.'},{q:'System design for entry-level?',a:'Basic awareness helps, but deep interviews are for 2+ years.'}]},
+  ai:{accent:'#F472B6',name:'AI Engineer',level:'Intermediate → Advanced',time:'8–12 mo',salary:'₹6–30L',tagline:'Build and ship real products powered by ML and LLMs.',
+    stages:[{title:'Fundamentals',sub:'Python + math — 5–6 weeks',topics:[{name:'Python for ML',diff:'med',time:'2 wk',why:'PyTorch, TensorFlow, LLM libraries are Python-first.',mistake:'Skipping NumPy/Pandas fundamentals.'},{name:'Math for ML',diff:'hard',time:'3 wk',why:'Vectors, matrices, probability — essential to understand models.',mistake:'Memorizing formulas instead of building intuition.'},{name:'Pandas / NumPy',diff:'med',time:'1 wk',why:'70% of real ML work is data cleaning.',mistake:'Writing slow for-loops over dataframes.'}]},
+    {title:'Core Skills',sub:'ML fundamentals — 8 weeks',topics:[{name:'Classical ML (sklearn)',diff:'med',time:'2.5 wk',why:'Regression, classification still power many production systems.',mistake:'Jumping to deep learning when simpler models fit.'},{name:'Deep Learning (PyTorch)',diff:'hard',time:'3 wk',why:'PyTorch dominates research and industry in 2026.',mistake:'Copy-pasting training loops without understanding backprop.'},{name:'Model Evaluation',diff:'med',time:'1 wk',why:'Precision/recall vs accuracy separates real engineers.',mistake:'Accuracy-only on imbalanced datasets.'},{name:'NLP Fundamentals',diff:'hard',time:'1.5 wk',why:'Tokenization and attention — prerequisites for understanding LLMs.',mistake:'Using GPT APIs without knowing what embeddings are.'}]},
+    {title:'Advanced Skills',sub:'LLMs & production — 6–8 weeks',topics:[{name:'LLM APIs',diff:'med',time:'1.5 wk',why:'Most AI roles build products on LLMs, not train from scratch.',mistake:'Ignoring prompt engineering, temperature, token limits.'},{name:'RAG',diff:'hard',time:'2 wk',why:'#1 pattern for domain-specific LLM knowledge in production.',mistake:'Poor document chunking → irrelevant retrieval.'},{name:'Vector Databases',diff:'med',time:'1 wk',why:'Fast similarity search over embeddings for RAG.',mistake:'Using SQL for similarity search.'},{name:'Agentic Workflows',diff:'hard',time:'2 wk',why:'2025–2026\'s biggest shift: autonomous tool-using agents.',mistake:'Complex agent chains when function-calling would work.'}]},
+    {title:'Professional Skills',sub:'MLOps & deployment — ongoing',topics:[{name:'Model Deployment',diff:'med',time:'1.5 wk',why:'A notebook model has zero business value.',mistake:'No containerization → deployment failures.'},{name:'LLM Evaluation',diff:'hard',time:'1.5 wk',why:'Non-deterministic outputs need structured evals.',mistake:'Shipping without an eval set.'},{name:'ML Version Control',diff:'med',time:'1 wk',why:'Data/model versioning matters as much as code.',mistake:'Not tracking which version produced which results.'}]}],
+    tools:[['PyTorch','Deep learning','Free'],['Hugging Face','Model hub','Freemium'],['LangChain','LLM framework','Free'],['Pinecone','Vector DB','Freemium'],['W&B','Experiment tracking','Freemium'],['Colab','Notebooks','Free']],
+    projects:{beginner:['House price predictor','Spam classifier','Sentiment analysis','Digit recognizer','Movie recommender','Rule-based chatbot','Image classifier','RAG over one PDF','Text summarizer','Keyword extractor'],intermediate:['Fine-tuned classifier','RAG doc library','Multi-turn LLM chat','Image captioning','Embedding recommender','Voice + LLM assistant','Custom NER model','LLM SQL generator','Auto-retrain pipeline','Content moderation'],advanced:['RAG + reranking + evals','Multi-agent workflow','LoRA fine-tune','Pipeline + drift detection','Recommender at scale','Custom eval framework','Multimodal app','Agentic coding assistant','Model serving autoscale','Full MLOps CI/CD']},
+    youtube:[{n:'Andrej Karpathy',u:'https://youtube.com/@AndrejKarpathy',w:'Builds neural nets from scratch'},{n:'StatQuest',u:'https://youtube.com/@statquest',w:'ML/stats with simple visuals'},{n:'DeepLearning.AI',u:'https://youtube.com/@Deeplearningai',w:'Andrew Ng ML/DL fundamentals'},{n:'Two Minute Papers',u:'https://youtube.com/@TwoMinutePapers',w:'Latest AI research updates'}],
+    timeline:[{t:'30 Days',d:'Python, NumPy/Pandas, ML math refreshed.'},{t:'90 Days',d:'Classical ML + intro DL, 2 beginner projects.'},{t:'6 Months',d:'LLM APIs, RAG, one deployed AI product.'},{t:'1 Year',d:'Job-ready with deployed, evaluated AI portfolio.'}],
+    faqs:[{q:'Need a Master\'s?',a:'Not for product-focused AI roles — deployed projects matter more. Research roles typically do.'},{q:'Train or use APIs?',a:'Learn both. Understand fundamentals, but most jobs build on existing LLMs.'},{q:'Is AI oversaturated?',a:'The "did a course" tier is. Engineers who ship production-grade products remain in high demand.'}]},
+  devops:{accent:'#38BDF8',name:'DevOps Engineer',level:'Intermediate → Advanced',time:'7–10 mo',salary:'₹6–22L',tagline:'Automate, deploy, and scale the infrastructure behind every product.',
+    stages:[{title:'Fundamentals',sub:'Linux, networking — 5–6 weeks',topics:[{name:'Linux Fundamentals',diff:'med',time:'2 wk',why:'Almost every production server runs Linux.',mistake:'Only using GUI, never comfortable with terminal.'},{name:'Networking Basics',diff:'med',time:'1.5 wk',why:'DNS, load balancing, firewalls — constant debugging.',mistake:'Not understanding subnets and security groups.'},{name:'Bash / Python Scripting',diff:'med',time:'2 wk',why:'Automation is the core of DevOps.',mistake:'Scripts with no error handling.'}]},
+    {title:'Core Skills',sub:'Containers, CI/CD, cloud — 8 weeks',topics:[{name:'Docker',diff:'med',time:'2 wk',why:'Standard for consistent deployments.',mistake:'Huge images without multi-stage builds.'},{name:'CI/CD Pipelines',diff:'med',time:'2 wk',why:'Automated testing on every push is baseline.',mistake:'Manual deploys "just this once".'},{name:'AWS',diff:'hard',time:'3 wk',why:'Largest market share in India.',mistake:'Every service shallow, instead of deep on EC2/S3/IAM.'},{name:'Terraform',diff:'hard',time:'1.5 wk',why:'Version and review infrastructure changes like code.',mistake:'No remote state → team conflicts.'}]},
+    {title:'Advanced Skills',sub:'Orchestration & observability — 6 weeks',topics:[{name:'Kubernetes',diff:'hard',time:'3 wk',why:'Industry-standard container orchestrator.',mistake:'Learning K8s without solid Docker fundamentals.'},{name:'Monitoring (Prom/Grafana)',diff:'med',time:'1.5 wk',why:'Can\'t fix what you can\'t see.',mistake:'Dashboards nobody looks at vs actionable alerts.'},{name:'GitOps',diff:'hard',time:'1.5 wk',why:'Git as single source of truth for deploys.',mistake:'Manual syncing vs automated reconciliation.'}]},
+    {title:'Professional Skills',sub:'Security, docs — ongoing',topics:[{name:'Security Basics',diff:'hard',time:'1.5 wk',why:'#1 cause of cloud breaches: misconfigured perms.',mistake:'Hardcoded secrets in Git.'},{name:'Incident Response',diff:'med',time:'ongoing',why:'First responder during outages.',mistake:'Changes without understanding root cause.'},{name:'Documentation',diff:'easy',time:'ongoing',why:'Good runbooks save the 3am on-call engineer.',mistake:'Tribal knowledge in one head.'}]}],
+    tools:[['Docker','Containers','Free'],['Kubernetes','Orchestration','Free'],['Terraform','IaC','Free'],['AWS','Cloud','Freemium'],['Prometheus','Monitoring','Free'],['GitHub Actions','CI/CD','Freemium']],
+    projects:{beginner:['Dockerize web app','Backup script','Basic CI pipeline','Static site → S3+CDN','Terraform for EC2','Monitoring dashboard','Auto-restart script','Nginx reverse proxy','Minikube cluster','Log aggregation'],intermediate:['Full CI/CD staging+prod','Docker Compose multi-container','Terraform VPC+EC2+RDS','K8s autoscaling','Centralized logging','Blue-green deploy','Auto-provisioning','Cost monitoring','Vault secrets','Load testing (k6)'],advanced:['Multi-region HA infra','GitOps (ArgoCD)','Full observability stack','Self-healing K8s','Zero-downtime pipeline','Disaster recovery','Multi-cloud Terraform','Service mesh (Istio)','Chaos engineering','Platform engineering']},
+    youtube:[{n:'TechWorld with Nana',u:'https://youtube.com/@TechWorldwithNana',w:'Best structured DevOps tutorials'},{n:'KodeKloud',u:'https://youtube.com/@KodeKloud',w:'Hands-on Docker/K8s/Terraform'},{n:'NetworkChuck',u:'https://youtube.com/@NetworkChuck',w:'Beginner-friendly Linux/cloud'},{n:'DevOps Toolkit',u:'https://youtube.com/@DevOpsToolkit',w:'Real-world CI/CD and GitOps'}],
+    timeline:[{t:'30 Days',d:'Linux + networking, first bash scripts.'},{t:'90 Days',d:'Docker + CI/CD built, AWS fundamentals.'},{t:'6 Months',d:'Terraform + K8s, 2 infra projects.'},{t:'1 Year',d:'Job-ready with full CI/CD-to-prod pipelines.'}],
+    faqs:[{q:'AWS, Azure, or GCP?',a:'AWS — largest market share and most Indian job listings. Concepts transfer later.'},{q:'Need to be a developer first?',a:'Basic scripting required, not deep engineering. Many come from sysadmin.'},{q:'K8s required entry-level?',a:'Not always first job, but expected within 1–2 years.'}]},
+  data_analyst:{accent:'#FBBF24',name:'Data Analyst',level:'Beginner → Advanced',time:'5–7 mo',salary:'₹3.5–14L',tagline:'Turn raw data into decisions businesses actually act on.',
+    stages:[{title:'Fundamentals',sub:'Excel + SQL — 4–5 weeks',topics:[{name:'Excel / Sheets',diff:'easy',time:'1.5 wk',why:'Most-used analytics tool in India. Pivot tables asked in every interview.',mistake:'Never learning pivot tables.'},{name:'SQL Fundamentals',diff:'med',time:'2 wk',why:'#1 required skill in data analyst job postings.',mistake:'Never learning JOINs, GROUP BY, window functions.'},{name:'Statistics Basics',diff:'med',time:'1.5 wk',why:'Foundation for not misleading stakeholders.',mistake:'Reporting correlation as causation.'}]},
+    {title:'Core Skills',sub:'Visualization + Python — 6 weeks',topics:[{name:'Power BI / Tableau',diff:'med',time:'2 wk',why:'How analysts communicate to stakeholders.',mistake:'Cluttered dashboards instead of 3–4 key metrics.'},{name:'Python (Pandas)',diff:'med',time:'2.5 wk',why:'Handles data cleaning at scale.',mistake:'Replacing Excel entirely when a quick check would work.'},{name:'Data Cleaning',diff:'med',time:'1.5 wk',why:'60–80% of actual analyst time.',mistake:'Drawing conclusions from dirty data.'}]},
+    {title:'Advanced Skills',sub:'Advanced SQL, storytelling — 5 weeks',topics:[{name:'Advanced SQL',diff:'hard',time:'2 wk',why:'Window functions separate senior analysts.',mistake:'Nested subqueries instead of CTEs.'},{name:'Data Storytelling',diff:'med',time:'1.5 wk',why:'Best analysis is worthless if nobody understands it.',mistake:'Every chart instead of the 3 that matter.'},{name:'A/B Testing',diff:'hard',time:'1.5 wk',why:'Product teams run experiments constantly.',mistake:'Ending tests early on insufficient data.'}]},
+    {title:'Professional Skills',sub:'Git, communication — ongoing',topics:[{name:'Git for Analysts',diff:'easy',time:'3 days',why:'Analytics work increasingly version controlled.',mistake:'10 files named "final_v2_FINAL".'},{name:'Business Communication',diff:'med',time:'ongoing',why:'Translating data into recommendations is the real value.',mistake:'Raw numbers without a clear recommendation.'},{name:'Documentation',diff:'easy',time:'ongoing',why:'Others need to understand calculations later.',mistake:'No docs on data sources or assumptions.'}]}],
+    tools:[['Excel / Sheets','Quick analysis','Free'],['SQL','Databases','Free'],['Power BI','Dashboards','Freemium'],['Tableau','Visualization','Freemium'],['Pandas','Data cleaning','Free'],['Jupyter','Reporting','Free']],
+    projects:{beginner:['Sales pivot analysis','SQL order queries','COVID dashboard','Finance tracker','Movie ratings','Survey visualization','Sales forecast','Churn spreadsheet','Netflix dataset','KPI dashboard'],intermediate:['SQL + Power BI dashboard','RFM segmentation','A/B test analysis','Campaign dashboard','Python cleaning pipeline','HR attrition dashboard','Funnel analysis','Financial drill-down','Web analytics dashboard','Inventory analysis'],advanced:['Multi-source BI system','Predictive churn + dash','Automated pipeline','Cohort retention','Attribution model','Real-time dashboard','A/B testing framework','Executive KPI suite','Warehouse schema design','Full analytics case study']},
+    youtube:[{n:'Alex The Analyst',u:'https://youtube.com/@AlexTheAnalyst',w:'Go-to for SQL/Excel/Power BI'},{n:'Luke Barousse',u:'https://youtube.com/@LukeBarousse',w:'Real projects and career advice'},{n:'Chandoo',u:'https://youtube.com/@chandoo1',w:'Excel mastery for analysts'},{n:'Ken Jee',u:'https://youtube.com/@KenJee_ds',w:'Data career roadmap guidance'}],
+    timeline:[{t:'30 Days',d:'Excel + SQL fundamentals mastered.'},{t:'90 Days',d:'Power BI/Tableau basics, 2 dashboards live.'},{t:'6 Months',d:'Advanced SQL, Python, 2 intermediate projects.'},{t:'1 Year',d:'Job-ready with strong dashboard + SQL portfolio.'}],
+    faqs:[{q:'Need Python, or SQL + Excel enough?',a:'SQL + Excel + BI tool can get you hired. Python adds value at mid-level.'},{q:'Analyst vs Data Scientist?',a:'Analysts focus on descriptive analysis/reporting. Scientists build predictive models.'},{q:'SQL or Excel more important?',a:'SQL — most frequently listed hard requirement in Indian job postings.'}]},
+  databricks:{accent:'#FB7185',name:'Databricks / Data Engineer',level:'Intermediate → Advanced',time:'6–9 mo',salary:'₹7–24L',tagline:'Build pipelines that move and transform data at scale.',
+    stages:[{title:'Fundamentals',sub:'SQL, Python, distributed computing — 5 weeks',topics:[{name:'SQL & Data Modeling',diff:'med',time:'2 wk',why:'Built on SQL-based analytics — star schemas carry over.',mistake:'Flat, unoptimized tables.'},{name:'Python for Data Eng',diff:'med',time:'2 wk',why:'PySpark is Python-based.',mistake:'Heavy loops instead of distributed operations.'},{name:'Distributed Computing',diff:'hard',time:'1 wk',why:'Why Spark partitions data is core to efficiency.',mistake:'Treating Spark like single-machine Pandas.'}]},
+    {title:'Core Skills',sub:'Spark, Delta Lake — 7 weeks',topics:[{name:'PySpark',diff:'hard',time:'2.5 wk',why:'Processing engine underneath Databricks.',mistake:'Not understanding lazy evaluation.'},{name:'Delta Lake',diff:'med',time:'1.5 wk',why:'ACID transactions on data lakes.',mistake:'Missing time travel and versioning.'},{name:'Databricks Workspace',diff:'easy',time:'1 wk',why:'Clusters, notebooks, jobs — table stakes.',mistake:'Clusters running idle, burning budget.'},{name:'ETL/ELT Pipelines',diff:'hard',time:'2 wk',why:'Building reliable pipelines is the actual job.',mistake:'Non-idempotent → duplicate data on reruns.'}]},
+    {title:'Advanced Skills',sub:'Orchestration, optimization — 6 weeks',topics:[{name:'Orchestration',diff:'med',time:'1.5 wk',why:'Production needs scheduling, retries, deps.',mistake:'No alerting — failures go unnoticed.'},{name:'Performance Tuning',diff:'hard',time:'2 wk',why:'Bad tuning = 10x compute cost.',mistake:'Over-partitioning small datasets.'},{name:'Unity Catalog',diff:'med',time:'1.5 wk',why:'Enterprise needs access control + lineage.',mistake:'No access controls across teams.'}]},
+    {title:'Professional Skills',sub:'CI/CD, testing — ongoing',topics:[{name:'CI/CD for Databricks',diff:'hard',time:'1.5 wk',why:'Production teams use pipelines, not manual edits.',mistake:'Editing production notebooks directly.'},{name:'Data Quality Testing',diff:'med',time:'1.5 wk',why:'Bad data silently breaks downstream.',mistake:'Issues found by business, not engineers.'},{name:'Cost Monitoring',diff:'med',time:'ongoing',why:'Compute costs spiral quickly.',mistake:'Idle clusters running overnight.'}]}],
+    tools:[['Databricks','Unified platform','Freemium'],['Spark','Distributed engine','Free'],['Delta Lake','ACID storage','Free'],['Unity Catalog','Governance','Included'],['Airflow','Orchestration','Free'],['dbt','Transformation','Freemium']],
+    projects:{beginner:['CSV → Delta ETL','SQL analytics notebook','Bronze-silver-gold pipeline','Quality checks','Scheduled job','PySpark cleaning','Star schema design','Time-travel demo','Dashboard on Delta','Cost analysis'],intermediate:['Streaming pipeline','Multi-source ETL','SCD Type 2','Quality gates','Z-ordering optimization','Unity Catalog setup','E-commerce lakehouse','CDC incremental load','dbt + Databricks','Delta Sharing'],advanced:['Production lakehouse','Streaming analytics','CI/CD for jobs','Cost-optimized clusters','ML feature store','Cross-cloud lakehouse','Full governance + lineage','Data mesh POC','Disaster recovery','Warehouse → lakehouse migration']},
+    youtube:[{n:'Databricks Official',u:'https://youtube.com/@Databricks',w:'Official tutorials and best practices'},{n:'Advancing Analytics',u:'https://youtube.com/@AdvancingAnalytics',w:'Deep Spark + Delta Lake tutorials'},{n:'WafaStudies',u:'https://youtube.com/@WafaStudies',w:'Azure Data Engineering focused'},{n:'Bryan Cafferky',u:'https://youtube.com/@BryanCafferky',w:'Databricks + Power BI integration'}],
+    timeline:[{t:'30 Days',d:'SQL + Python refreshed, workspace basics.'},{t:'90 Days',d:'PySpark + Delta Lake, first pipeline.'},{t:'6 Months',d:'Orchestration + tuning, 2 projects.'},{t:'1 Year',d:'Job-ready data engineer with lakehouse portfolio.'}],
+    faqs:[{q:'Need Spark before Databricks?',a:'Learn together — most courses teach PySpark alongside the platform.'},{q:'Certification worth it?',a:'Certified Data Engineer Associate is well-recognized in Indian hiring.'},{q:'SQL-only or PySpark?',a:'Both, but PySpark unlocks more opportunities for custom logic.'}]}
+};
+const RM_ORD=['frontend','backend','ai','devops','data_analyst','databricks'];
+const RM_SECS=[{id:'rm-roadmap',l:'Roadmap'},{id:'rm-tools',l:'Tools'},{id:'rm-projects',l:'Projects'},{id:'rm-resources',l:'Resources'},{id:'rm-timeline',l:'Timeline'},{id:'rm-faq',l:'FAQ'}];
+let rmCur='frontend';
+let rmMeshStarted=false;
+
+function rmInit(){
+  rmInitMesh();
+  rmRender('frontend');
+}
+
+/* --- Animated gradient mesh background (scoped canvas, started once) --- */
+function rmInitMesh(){
+  if(rmMeshStarted) return;
+  rmMeshStarted=true;
+  const w=document.getElementById('rmMeshBg');
+  if(!w) return;
+  const c=document.createElement('canvas');
+  w.appendChild(c);
+  const ctx=c.getContext('2d');
+  let t=0;
+  function resize(){c.width=Math.max(w.offsetWidth,1)*2;c.height=Math.max(w.offsetHeight,1)*2;c.style.width='100%';c.style.height='100%';}
+  resize(); window.addEventListener('resize',resize);
+  function draw(){
+    t+=0.003;
+    const W=c.width,H=c.height;
+    ctx.clearRect(0,0,W,H);
+    const accent=RM_R[rmCur].accent;
+    const blobs=[
+      {x:W*(.35+.12*Math.sin(t)),y:H*(.3+.15*Math.cos(t*1.2)),r:W*.3,c:accent},
+      {x:W*(.7+.1*Math.cos(t*.8)),y:H*(.65+.1*Math.sin(t*1.1)),r:W*.25,c:'#6366F1'},
+      {x:W*(.5+.15*Math.sin(t*1.3)),y:H*(.5+.12*Math.cos(t)),r:W*.2,c:'#D4C9A8'},
+    ];
+    blobs.forEach(b=>{
+      const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,b.c+'18');
+      g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;
+      ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* --- Mouse tracking glow (scoped to .rm-glow-wrap elements only) --- */
+document.addEventListener('mousemove',e=>{
+  document.querySelectorAll('#page-roadmaps .rm-glow-spot').forEach(g=>{
+    const r=g.parentElement.getBoundingClientRect();
+    g.style.left=(e.clientX-r.left)+'px';
+    g.style.top=(e.clientY-r.top)+'px';
+  });
+});
+
+/* --- 3D tilt on cards (scoped to .rm-tilt elements only) --- */
+document.addEventListener('mousemove',e=>{
+  document.querySelectorAll('#page-roadmaps .rm-tilt').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    if(Math.abs(x)>1||Math.abs(y)>1){el.style.transform='';return;}
+    el.style.transform=`perspective(800px) rotateY(${x*6}deg) rotateX(${-y*6}deg) scale(1.01)`;
+  });
+});
+document.addEventListener('mouseleave',()=>{
+  document.querySelectorAll('#page-roadmaps .rm-tilt').forEach(el=>{el.style.transform='';});
+},true);
+
+function rmRender(key){
+  rmCur=key;
+  const r=RM_R[key];
+
+  document.getElementById('rmHeroSec').innerHTML=`
+    <div class="rm-role-switch">${RM_ORD.map(k=>`<button class="rm-rp${k===key?' rm-on':''}" onclick="rmRender('${k}')">${RM_R[k].name}</button>`).join('')}</div>
+    <div class="rm-hero-ey rm-rv rm-in" style="--rm-d:0s"><span class="rm-hero-dot" style="background:${r.accent};box-shadow:0 0 8px ${r.accent};"></span>${r.level} · 2026 Roadmap</div>
+    <h1 class="rm-rv rm-in" style="--rm-d:.05s">${r.name}<em>${r.tagline}</em></h1>
+    <div class="rm-hero-stats rm-rv rm-in" style="--rm-d:.1s">
+      <div class="rm-hs"><div class="rm-hs-n">${r.time}</div><div class="rm-hs-l">To job-ready</div></div>
+      <div class="rm-hs"><div class="rm-hs-n">${r.salary}</div><div class="rm-hs-l">Salary range</div></div>
+      <div class="rm-hs"><div class="rm-hs-n">${r.stages.length} stages</div><div class="rm-hs-l">Learning path</div></div>
+    </div>`;
+
+  document.getElementById('rmRoot').innerHTML=`
+    <section class="rm-sec rm-sh" id="rm-roadmap">
+      <div class="rm-sec-h"><div class="rm-sec-k">Learning Path</div><div class="rm-sec-t">Complete Roadmap</div></div>
+      ${r.stages.map((s,i)=>`
+        <div class="rm-stage rm-rv rm-in${i===0?' rm-open':''}" style="--rm-d:${i*.04}s">
+          <div class="rm-stage-hd" onclick="this.parentElement.classList.toggle('rm-open')">
+            <div class="rm-stage-i rm-serif">${String(i+1).padStart(2,'0')}</div>
+            <div class="rm-stage-t"><div class="rm-stage-tt">${s.title}</div><div class="rm-stage-ts">${s.sub}</div></div>
+            <div class="rm-stage-n">${s.topics.length} topics</div>
+            <div class="rm-stage-ch">${RM_CHV}</div>
+          </div>
+          <div class="rm-stage-bd"><div><div class="rm-stage-in">
+            ${s.topics.map(t=>`
+              <div class="rm-topic rm-glow-wrap">
+                <div class="rm-glow-spot"></div>
+                <div class="rm-topic-nm">${t.name}</div>
+                <div class="rm-topic-tags">
+                  <span class="rm-tg rm-${t.diff}">${t.diff==='easy'?'Easy':t.diff==='med'?'Medium':'Hard'}</span>
+                  <span class="rm-tg rm-time">${t.time}</span>
+                </div>
+                <div class="rm-topic-w">${t.why}</div>
+                <div class="rm-topic-m"><b>Common mistake —</b> ${t.mistake}</div>
+              </div>`).join('')}
+          </div></div></div>
+        </div>`).join('')}
+    </section>
+
+    <section class="rm-sec rm-sh" id="rm-tools">
+      <div class="rm-sec-h"><div class="rm-sec-k">Toolkit</div><div class="rm-sec-t">Tools you'll actually use</div></div>
+      <div class="rm-tools-g">
+        ${r.tools.map((t,i)=>`
+          <div class="rm-tool rm-tilt rm-rv rm-in" style="--rm-d:${i*.04}s">
+            <div class="rm-tool-av">${t[0][0]}</div>
+            <div class="rm-tool-info"><div class="rm-tool-nm">${t[0]}</div><div class="rm-tool-pu">${t[1]}</div></div>
+            <div class="rm-tool-c ${/^free$/i.test(t[2])?'rm-free':'rm-paid'}">${t[2]}</div>
+          </div>`).join('')}
+      </div>
+    </section>
+
+    <section class="rm-sec rm-sh" id="rm-projects">
+      <div class="rm-sec-h"><div class="rm-sec-k">Portfolio</div><div class="rm-sec-t">Practice Projects</div></div>
+      <div class="rm-tabs">${['beginner','intermediate','advanced'].map((l,i)=>`<button class="rm-tb${i===0?' rm-on':''}" onclick="rmSwProj(this,'${l}')">${l[0].toUpperCase()+l.slice(1)}</button>`).join('')}</div>
+      ${['beginner','intermediate','advanced'].map((l,i)=>`
+        <div class="rm-pj-g${i===0?' rm-on':''}" data-l="${l}">
+          ${r.projects[l].map((p,j)=>`
+            <div class="rm-pj rm-tilt rm-rv rm-in" style="--rm-d:${j*.025}s">
+              <div class="rm-pj-i">PROJECT ${String(j+1).padStart(2,'0')}</div>
+              <div class="rm-pj-n">${p}</div>
+              <div class="rm-pj-m">${l==='beginner'?'Great first portfolio piece':l==='intermediate'?'Strong resume project':'Signals production-level skill'}</div>
+            </div>`).join('')}
+        </div>`).join('')}
+    </section>
+
+    <section class="rm-sec rm-sh" id="rm-resources">
+      <div class="rm-sec-h"><div class="rm-sec-k">Free Resources</div><div class="rm-sec-t">Best YouTube channels</div></div>
+      <div class="rm-res-g">
+        ${r.youtube.map((c,i)=>`
+          <a class="rm-res rm-tilt rm-rv rm-in" href="${c.u}" target="_blank" rel="noopener" style="--rm-d:${i*.05}s">
+            <div class="rm-res-th">${RM_PLAY}</div>
+            <div class="rm-res-info"><div class="rm-res-nm">${c.n}</div><div class="rm-res-d">${c.w}</div></div>
+            <div class="rm-res-go">${RM_ARR}</div>
+          </a>`).join('')}
+      </div>
+    </section>
+
+    <section class="rm-sec rm-sh" id="rm-timeline">
+      <div class="rm-sec-h"><div class="rm-sec-k">Pace</div><div class="rm-sec-t">Learning Timeline</div></div>
+      <div class="rm-tl">
+        ${r.timeline.map((t,i)=>`
+          <div class="rm-tl-it rm-rv rm-in" style="--rm-d:${i*.08}s">
+            <div class="rm-tl-dot"></div>
+            <div class="rm-tl-w">${t.t}</div>
+            <div class="rm-tl-d">${t.d}</div>
+          </div>`).join('')}
+      </div>
+    </section>
+
+    <section class="rm-sec rm-sh" id="rm-faq">
+      <div class="rm-sec-h"><div class="rm-sec-k">Questions</div><div class="rm-sec-t">Frequently Asked</div></div>
+      ${r.faqs.map((f,i)=>`
+        <div class="rm-fq"><div class="rm-fq-q" onclick="this.parentElement.classList.toggle('rm-open')"><div class="rm-fq-qt">${f.q}</div><div class="rm-fq-ic"></div></div><div class="rm-fq-a"><div><div class="rm-fq-ai">${f.a}</div></div></div></div>`).join('')}
+    </section>
+
+    <section class="rm-closer rm-sh">
+      <div class="rm-closer-t rm-serif">Ready to put this into action?</div>
+      <p class="rm-closer-s">Build the resume that gets you noticed.</p>
+      <div class="rm-closer-b">
+        <button class="rm-btn rm-btn-p" onclick="showPage(null);setTimeout(()=>goTo(0),50);">Build my resume ${RM_ARR}</button>
+        <button class="rm-btn rm-btn-g" onclick="showPage('linkedin')">Optimize LinkedIn</button>
+      </div>
+    </section>`;
+
+  document.querySelectorAll('#page-roadmaps .rm-rv:not(.rm-in)').forEach(el=>el.classList.add('rm-in'));
+}
+
+function rmSwProj(btn,l){
+  btn.closest('.rm-tabs').querySelectorAll('.rm-tb').forEach(t=>t.classList.remove('rm-on'));
+  btn.classList.add('rm-on');
+  document.querySelectorAll('#page-roadmaps .rm-pj-g').forEach(g=>{
+    const isTarget=g.dataset.l===l;
+    g.classList.toggle('rm-on',isTarget);
   });
 }
 </script>
