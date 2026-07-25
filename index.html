@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3820805369054088"
      crossorigin="anonymous"></script>
   
@@ -3260,13 +3261,11 @@ function rmSwProj(btn,l){
     ].join('\n');
 
     function url(u){
-      u = String(u || '').trim();
-      if (!u) return u;
-      /* Already a real link scheme (mailto:, tel:, http(s):) — leave it
-         exactly as-is. Otherwise treat it as a bare domain and add https://. */
-      if (/^(https?:|mailto:|tel:)/i.test(u)) return u;
-      return 'https://' + u.replace(/^\/+/, '');
-    }
+  u = String(u || '').trim().replace(/\s+/g, '');
+  if (!u) return u;
+  if (/^(https?:|mailto:|tel:)/i.test(u)) return u;
+  return 'https://' + u.replace(/^\/+/, '');
+}
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function strip(s){
       return String(s).replace(/\\[a-zA-Z]+\s*/g, '').replace(/[{}]/g, '').replace(/\s+/g, ' ').trim();
@@ -3745,51 +3744,36 @@ function rmSwProj(btn,l){
       ".lx-doc .d-note, .lx-doc ul.d-list li{break-inside:avoid;page-break-inside:avoid;}"
     ].join('\n');
 
-    function downloadPdf(){
-      var btn = $('lx-btn-pdf');
-      var oldLabel = btn ? btn.textContent : '';
-      if (btn) { btn.textContent = 'Preparing PDF…'; btn.disabled = true; }
+   function downloadPdf(){
+  var btn = $('lx-btn-pdf');
+  var oldLabel = btn ? btn.textContent : '';
+  if (btn) { btn.textContent = 'Generating PDF…'; btn.disabled = true; }
 
-      var bodyHtml = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
-      var title = (data().name || 'Resume') + ' - Resume';
+  var bodyHtml = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
 
-      var iframe = document.createElement('iframe');
-      iframe.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
-      document.body.appendChild(iframe);
+  var wrap = document.createElement('div');
+  wrap.innerHTML = '<style>' + LX_DOC_CSS + '</style>' + bodyHtml;
+  wrap.style.cssText = 'position:fixed;left:-9999px;top:0;width:210mm;';
+  document.body.appendChild(wrap);
 
-      var idoc = iframe.contentWindow.document;
-      idoc.open();
-      idoc.write(
-        '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(title) + '</title>' +
-        '<link rel="preconnect" href="https://fonts.googleapis.com">' +
-        '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@20..72,500;20..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">' +
-        '<style>' + LX_DOC_CSS + '\n' + LX_PDF_PAGE_CSS + '</style></head>' +
-        '<body>' + bodyHtml + '</body></html>'
-      );
-      idoc.close();
+  var opt = {
+    margin: 0,
+    filename: fileBaseName() + '.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['css', 'legacy'] }
+  };
 
-      var finished = false;
-      function finish(){
-        if (finished) return;
-        finished = true;
-        if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
-        setTimeout(function () { if (iframe.parentNode) iframe.remove(); }, 1000);
-      }
-      function go(){
-        try {
-          iframe.contentWindow.focus();
-          iframe.contentWindow.print();
-        } catch (e) {
-          alert('Something went wrong generating the PDF — please try again.');
-        }
-        finish();
-      }
-      /* Give the web font a moment to load before printing so the resume
-         doesn't briefly print in a fallback font. */
-      iframe.onload = function () { setTimeout(go, 300); };
-      setTimeout(go, 1200);
-    }
-
+  html2pdf().set(opt).from(wrap).save().then(function(){
+    document.body.removeChild(wrap);
+    if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
+  }).catch(function(){
+    document.body.removeChild(wrap);
+    if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
+    alert('Something went wrong generating the PDF — please try again.');
+  });
+}
     /* Word-compatible .doc download — a self-contained HTML file with a .doc
        extension and MS-Office XML namespaces, which Word opens natively. */
     function downloadDoc(){
