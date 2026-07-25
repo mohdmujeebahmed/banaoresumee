@@ -3340,7 +3340,9 @@ function rmSwProj(btn,l){
            + '\\end{tabular*}\n\n';
     }
 
-    function pushFields(){
+  function pushFields(){
+  var ta = $('lx-code'), src = ta.value, d = data();
+  if (src.indexOf('\\begin{document}') === -1) return; // don't touch a broken doc
       var ta = $('lx-code'), src = ta.value, d = data();
       var ctrRe = /\\begin\{center\}[\s\S]*?\\end\{center\}\s*(?:\\vspace\{-?\d+pt\})?\s*/;
       var tabRe = /\\begin\{tabular\*\}\{\\textwidth\}[\s\S]*?\\end\{tabular\*\}\s*/;
@@ -3510,12 +3512,12 @@ function rmSwProj(btn,l){
       return html + '</table>';
     }
 
-    function compile(src){
-      var start = src.indexOf('\\begin{document}');
-      var body = start > -1 ? src.slice(start + 16) : src;
-      var stop = body.indexOf('\\end{document}');
-      if (stop > -1) body = body.slice(0, stop);
-
+   function compile(src){
+  var start = src.indexOf('\\begin{document}');
+  if (start === -1) {
+    return '<div class="d-err">⚠ Missing \\begin{document} — preview can\'t render. Click "Load template" to reset.</div>';
+  }
+  var body = src.slice(start + 16);
       var head = '', mm;
       mm = /\\begin\{center\}([\s\S]*?)\\end\{center\}/.exec(body);
       if (mm){ head = renderCenter(mm[1]); body = body.slice(mm.index + mm[0].length); }
