@@ -927,27 +927,6 @@ footer a:hover{color:var(--orange);}
 .lx-foot b{color:var(--lx-ink);font-weight:600;}
 
 #lx-print{display:none;}
-@media print{
-  @page{ size:A4; margin:0; }
-  html.lx-tex-print body, body.lx-printing{}
-  body.lx-printing > *{display:none !important;}
-  body.lx-printing::before{display:none !important;}
-  body.lx-printing #lx-print{
-    display:block !important;position:static !important;width:210mm;
-    height:auto !important;overflow:visible !important;
-  }
-  body.lx-printing #lx-print .lx-doc{
-    width:210mm;min-height:297mm;height:auto;box-shadow:none;
-    overflow:visible;box-sizing:border-box;
-  }
-  body.lx-printing #lx-print .d-sec{ break-after:avoid; page-break-after:avoid; }
-  body.lx-printing #lx-print .d-sub,
-  body.lx-printing #lx-print .d-sub2,
-  body.lx-printing #lx-print .d-note,
-  body.lx-printing #lx-print ul.d-list li{
-    break-inside:avoid; page-break-inside:avoid;
-  }
-}
 </style>
 </head>
 <body>
@@ -1717,7 +1696,8 @@ footer a:hover{color:var(--orange);}
         <button class="lx-btn quiet" id="lx-btn-reset">↻ Load template</button>
         <button class="lx-btn" id="lx-btn-copy">Copy source</button>
         <button class="lx-btn" id="lx-btn-tex">↓ .tex</button>
-        <button class="lx-btn" id="lx-btn-pdf">↓ Download PDF</button>
+        <button class="lx-btn" id="lx-btn-doc">↓ .doc</button>
+        <button class="lx-btn primary" id="lx-btn-pdf">↓ Download PDF</button>
       </div>
     </div>
 
@@ -1773,11 +1753,10 @@ footer a:hover{color:var(--orange);}
       <span class="lx-fit-v" id="lx-fitmsg">—</span>
     </div>
 
-    <p class="lx-foot"><b>Saving as PDF:</b> Download PDF → Destination <b>Save as PDF</b>, Paper <b>A4</b>, Margins <b>None</b>. If your content fits one page it prints one page; if it genuinely runs long, it now prints cleanly onto a second page instead of getting cut off — trim a bullet if you'd rather keep it to one.</p>
+    <p class="lx-foot"><b>Downloads:</b> <b>Download PDF</b> and <b>.doc</b> both save directly to your device — no print dialog, no pop-up. PDFs paginate automatically: one page if your content fits, two or more if it genuinely runs long. The <b>.doc</b> file opens straight in Microsoft Word / Google Docs for further editing.</p>
   </div>
 </div>
 
-<div id="lx-print"></div>
 
 <!-- ABOUT PAGE -->
 <div class="page-overlay" id="page-about">
@@ -3667,18 +3646,14 @@ function rmSwProj(btn,l){
       document.body.appendChild(a); a.click();
       setTimeout(function (){ URL.revokeObjectURL(a.href); a.remove(); }, 200);
     }
-    var LX_PRINT_CSS = [
-      "@page{size:A4;margin:0;}",
-      "*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}",
-      "html,body{margin:0;padding:0;background:#fff;}",
-      "body{width:210mm;}",
-      ".lx-doc{background:#fff;color:#000;font-family:'Newsreader',Georgia,'Times New Roman',serif;",
-      "  padding:11mm 12mm;box-sizing:border-box;width:210mm;min-height:297mm;}",
+    var LX_DOC_CSS = [
+      "body{font-family:'Newsreader',Georgia,'Times New Roman',serif;color:#000;background:#fff;}",
+      ".lx-doc{background:#fff;color:#000;padding:0;box-sizing:border-box;width:100%;}",
       ".lx-doc *{color:#000 !important;}",
       ".lx-doc .d-center{text-align:center;margin-bottom:5px;}",
       ".lx-doc .d-center .d-name{font-size:23px;font-weight:700;line-height:1.2;}",
       ".lx-doc .d-center .d-contact{font-size:10.5px;line-height:1.75;margin-top:3px;}",
-      ".lx-doc .d-center a, .lx-doc .d-head a{text-decoration:underline;text-underline-offset:2px;}",
+      ".lx-doc .d-center a, .lx-doc .d-head a{text-decoration:underline;}",
       ".lx-doc .d-head{width:100%;border-collapse:collapse;margin-bottom:4px;}",
       ".lx-doc .d-head td{font-size:10.5px;line-height:1.85;vertical-align:top;padding:0;}",
       ".lx-doc .d-head td:last-child{text-align:right;}",
@@ -3686,39 +3661,111 @@ function rmSwProj(btn,l){
       ".lx-doc .bar{padding:0 5px;}",
       ".lx-doc .d-sec{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;",
       "  margin:9px 0 2px;padding-bottom:1.5px;border-bottom:1.2px solid #000;}",
-      ".lx-doc .d-sub{display:flex;justify-content:space-between;gap:10px;margin-top:4px;}",
-      ".lx-doc .d-sub-l{font-size:10.5px;font-weight:700;}",
-      ".lx-doc .d-sub-r{font-size:10px;white-space:nowrap;}",
-      ".lx-doc .d-sub2{display:flex;justify-content:space-between;gap:10px;font-size:10px;font-style:italic;}",
       ".lx-doc .d-note{font-size:8.5px;font-style:italic;margin-top:1px;line-height:1.45;}",
       ".lx-doc ul.d-list{margin:2px 0 0;padding-left:15px;list-style:disc;}",
       ".lx-doc ul.d-list li{font-size:10px;line-height:1.5;margin-bottom:1.5px;}",
       ".lx-doc ul.d-list li b{font-weight:700;}",
       ".lx-doc .d-err{font-family:'JetBrains Mono',monospace;font-size:10px;",
       "  background:#F4F1EC;border-left:3px solid #000;padding:5px 8px;margin-top:6px;}",
-      ".lx-doc .d-sec{break-after:avoid;page-break-after:avoid;}",
-      ".lx-doc .d-sub, .lx-doc .d-sub2, .lx-doc .d-note, .lx-doc ul.d-list li{break-inside:avoid;page-break-inside:avoid;}"
+      ".lx-doc-sub-table{width:100%;border-collapse:collapse;margin-top:4px;}",
+      ".lx-doc-sub-table td{padding:0;}",
+      ".lx-doc-sub-table .l{font-size:10.5px;font-weight:700;}",
+      ".lx-doc-sub-table .r{font-size:10px;text-align:right;white-space:nowrap;}",
+      ".lx-doc-sub2-table{width:100%;border-collapse:collapse;}",
+      ".lx-doc-sub2-table td{padding:0;font-size:10px;font-style:italic;}",
+      ".lx-doc-sub2-table .r{text-align:right;white-space:nowrap;}"
     ].join('\n');
 
-    function printPdf(){
-      var docHtml = '<div class="lx-doc">' + $('lx-out').innerHTML + '</div>';
-      var title = (data().name || 'Resume') + ' - Resume';
-      var win = window.open('', '_blank');
-      if (!win){
-        alert('Please allow pop-ups for this site so the PDF can open in a new tab, then try again.');
-        return;
-      }
-      win.document.open();
-      win.document.write(
-        '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(title) + '</title>' +
-        '<link rel="preconnect" href="https://fonts.googleapis.com">' +
-        '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@20..72,500;20..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">' +
-        '<style>' + LX_PRINT_CSS + '</style></head><body>' + docHtml + '</body></html>'
+    /* Word (and most PDF renderers) handle flexbox unreliably — convert the two-column
+       job-title/date and school/duration rows into simple tables before export so they
+       stay side-by-side instead of collapsing into a single stacked column. */
+    function flexRowsToTables(html){
+      html = html.replace(
+        /<div class="d-sub"><span class="d-sub-l">([\s\S]*?)<\/span><span class="d-sub-r">([\s\S]*?)<\/span><\/div>/g,
+        '<table class="lx-doc-sub-table"><tr><td class="l">$1</td><td class="r">$2</td></tr></table>'
       );
-      win.document.close();
-      function go(){ try { win.focus(); win.print(); } catch (e) {} }
-      if (win.document.readyState === 'complete') { setTimeout(go, 250); }
-      else { win.onload = function () { setTimeout(go, 150); }; setTimeout(go, 700); }
+      html = html.replace(
+        /<div class="d-sub2"><span>([\s\S]*?)<\/span><span>([\s\S]*?)<\/span><\/div>/g,
+        '<table class="lx-doc-sub2-table"><tr><td>$1</td><td class="r">$2</td></tr></table>'
+      );
+      return html;
+    }
+
+    function fileBaseName(){
+      return (data().name || 'resume').toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'resume';
+    }
+
+    function loadScriptOnce(src, cb){
+      var flag = '_lxLoaded_' + src.replace(/[^a-z0-9]/gi, '');
+      if (window[flag]) { cb(); return; }
+      var existing = document.querySelector('script[data-lx-src="' + src + '"]');
+      if (existing) { existing.addEventListener('load', cb); return; }
+      var s = document.createElement('script');
+      s.src = src;
+      s.setAttribute('data-lx-src', src);
+      s.onload = function () { window[flag] = true; cb(); };
+      s.onerror = function () {
+        alert('Could not load the PDF engine (check your internet connection) — try again in a moment.');
+      };
+      document.head.appendChild(s);
+    }
+
+    /* Direct-to-disk PDF download — no popup, no print dialog. Renders a clean,
+       page-isolated clone of the resume off-screen and hands it to html2pdf.js. */
+    function downloadPdf(){
+      var btn = $('lx-btn-pdf');
+      var oldLabel = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Preparing PDF…'; btn.disabled = true; }
+
+      loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', function () {
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'position:fixed;left:-99999px;top:0;width:210mm;background:#fff;';
+        var styleTag = document.createElement('style');
+        styleTag.textContent = LX_DOC_CSS;
+        var content = document.createElement('div');
+        content.innerHTML = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
+        wrap.appendChild(styleTag);
+        wrap.appendChild(content);
+        document.body.appendChild(wrap);
+
+        var finish = function () {
+          document.body.removeChild(wrap);
+          if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
+        };
+
+        window.html2pdf().set({
+          margin: 0,
+          filename: fileBaseName() + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] }
+        }).from(content).save().then(finish).catch(function () {
+          alert('Something went wrong generating the PDF — please try again.');
+          finish();
+        });
+      });
+    }
+
+    /* Word-compatible .doc download — a self-contained HTML file with a .doc
+       extension and MS-Office XML namespaces, which Word opens natively. */
+    function downloadDoc(){
+      var bodyHtml = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
+      var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" '
+        + 'xmlns:w="urn:schemas-microsoft-com:office:word" '
+        + 'xmlns="http://www.w3.org/TR/REC-html40">'
+        + '<head><meta charset="utf-8"><title>' + esc(data().name || 'Resume') + '</title>'
+        + '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View>'
+        + '<w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/></w:WordDocument></xml><![endif]-->'
+        + '<style>@page{size:21cm 29.7cm;margin:1.5cm;}' + LX_DOC_CSS + '</style></head>'
+        + '<body>' + bodyHtml + '</body></html>';
+      var blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = fileBaseName() + '.doc';
+      document.body.appendChild(a); a.click();
+      setTimeout(function (){ URL.revokeObjectURL(a.href); a.remove(); }, 200);
     }
 
     var ta = $('lx-code');
@@ -3742,7 +3789,8 @@ function rmSwProj(btn,l){
     $('lx-btn-reset').addEventListener('click', loadTemplate);
     $('lx-btn-copy').addEventListener('click', function (){ copySrc(this); });
     $('lx-btn-tex').addEventListener('click', downloadTex);
-    $('lx-btn-pdf').addEventListener('click', printPdf);
+    $('lx-btn-doc').addEventListener('click', downloadDoc);
+    $('lx-btn-pdf').addEventListener('click', downloadPdf);
     window.addEventListener('resize', fit);
 
     loadTemplate();
