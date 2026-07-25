@@ -3262,8 +3262,10 @@ function rmSwProj(btn,l){
     function url(u){
       u = String(u || '').trim();
       if (!u) return u;
-      /* strip stray leading "www." duplication issues and ensure a real protocol */
-      return /^https?:\/\//i.test(u) ? u : 'https://' + u.replace(/^\/+/, '');
+      /* Already a real link scheme (mailto:, tel:, http(s):) — leave it
+         exactly as-is. Otherwise treat it as a bare domain and add https://. */
+      if (/^(https?:|mailto:|tel:)/i.test(u)) return u;
+      return 'https://' + u.replace(/^\/+/, '');
     }
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function strip(s){
@@ -3384,7 +3386,15 @@ function rmSwProj(btn,l){
       var list = [], i = from;
       for (var n = 0; n < max; n++){
         var j = i;
-        while (j < src.length && /\s/.test(src[j])) j++;
+        /* skip whitespace and any "% comment" lines sitting between the
+           command and its braces — a common, harmless thing to type while
+           editing, but previously it made the parser think the argument
+           was simply missing. */
+        while (j < src.length){
+          if (/\s/.test(src[j])) { j++; continue; }
+          if (src[j] === '%') { while (j < src.length && src[j] !== '\n') j++; continue; }
+          break;
+        }
         if (src[j] !== '{') break;
         var depth = 1, start = ++j;
         while (j < src.length && depth > 0){
@@ -3514,7 +3524,7 @@ function rmSwProj(btn,l){
         if (mm){ head = renderTabular(mm[1]); body = body.slice(mm.index + mm[0].length); }
       }
 
-      var html = '', i = 0, open = false, warn = [], r;
+      var html = '', i = 0, open = false, r;
       function openList(){ if (!open){ html += '<ul class="d-list">'; open = true; } }
       function closeList(){ if (open){ html += '</ul>'; open = false; } }
 
@@ -3527,23 +3537,41 @@ function rmSwProj(btn,l){
 
         if (cmd === 'section'){
           r = args(body, after, 1);
-          if (!r.n){ warn.push('\\section needs one { } argument'); i = after; continue; }
+          if (!r.n){
+            /* No braces found right after \section — fall back to using the
+               rest of the line as the title instead of dropping it. */
+            var lnEnd = body.indexOf('\n', after);
+            if (lnEnd === -1) lnEnd = body.length;
+            var fallbackTitle = body.slice(after, lnEnd).trim();
+            closeList();
+            if (fallbackTitle) html += '<div class="d-sec">' + inline(fallbackTitle) + '</div>';
+            i = lnEnd; continue;
+          }
           closeList(); html += '<div class="d-sec">' + inline(r.args[0]) + '</div>'; i = r.end; continue;
         }
         if (cmd === 'resumeSubheading'){
           r = args(body, after, 5);
-          if (r.n < 4){ warn.push('\\resumeSubheading needs 4 arguments'); i = after; continue; }
+          if (!r.n){ i = after; continue; }
           closeList();
-          html += '<div class="d-sub"><span class="d-sub-l">' + inline(r.args[0])
-               + '</span><span class="d-sub-r">' + inline(r.args[1]) + '</span></div>'
-               + '<div class="d-sub2"><span>' + inline(r.args[2])
-               + '</span><span>' + inline(r.args[3]) + '</span></div>';
+          var a0 = r.args[0] || '', a1 = r.args[1] || '', a2 = r.args[2] || '', a3 = r.args[3] || '';
+          html += '<div class="d-sub"><span class="d-sub-l">' + inline(a0)
+               + '</span><span class="d-sub-r">' + inline(a1) + '</span></div>';
+          if (a2 || a3) html += '<div class="d-sub2"><span>' + inline(a2)
+               + '</span><span>' + inline(a3) + '</span></div>';
           if (r.n === 5) html += '<div class="d-note">' + inline(r.args[4]) + '</div>';
           i = r.end; continue;
         }
         if (cmd === 'resumeItem' || cmd === 'resumeSubItem'){
           r = args(body, after, 2);
-          if (!r.n){ warn.push('\\' + cmd + ' needs a { } argument'); i = after; continue; }
+          if (!r.n){
+            /* No braces found — treat the rest of the line as plain text
+               rather than silently dropping it. */
+            var itLnEnd = body.indexOf('\n', after);
+            if (itLnEnd === -1) itLnEnd = body.length;
+            var fallbackItem = body.slice(after, itLnEnd).trim();
+            if (fallbackItem) { openList(); html += '<li>' + inline(fallbackItem) + '</li>'; }
+            i = itLnEnd; continue;
+          }
           openList();
           html += r.n === 2
             ? '<li><b>' + inline(r.args[0]) + '</b>: ' + inline(r.args[1]) + '</li>'
@@ -3552,9 +3580,15 @@ function rmSwProj(btn,l){
         }
         if (cmd === 'item'){
           r = args(body, after, 1);
-          if (r.n){ openList(); html += '<li>' + inline(r.args[0]) + '</li>'; i = r.end; }
-          else i = after;
-          continue;
+          if (r.n){ openList(); html += '<li>' + inline(r.args[0]) + '</li>'; i = r.end; continue; }
+          /* Standard plain LaTeX \item — no braces, the text just runs on
+             until the next \item or \end. This is the normal way \item is
+             used inside a plain \begin{itemize}...\end{itemize} block. */
+          var itemStop = body.slice(after).search(/\\(item\b|end\b)/);
+          itemStop = itemStop === -1 ? body.length : after + itemStop;
+          var plainItem = body.slice(after, itemStop).trim();
+          if (plainItem) { openList(); html += '<li>' + inline(plainItem) + '</li>'; }
+          i = itemStop; continue;
         }
         if (cmd === 'resumeItemListEnd' || cmd === 'resumeSubHeadingListEnd'){ closeList(); i = after; continue; }
         if (cmd === 'end'){
@@ -3574,9 +3608,7 @@ function rmSwProj(btn,l){
       }
       closeList();
 
-      var err = warn.length
-        ? '<div class="d-err">! LaTeX warning<br>' + warn.slice(0,3).map(esc).join('<br>') + '</div>' : '';
-      return head + html + err;
+      return head + html;
     }
 
     function fit(){
@@ -3696,56 +3728,66 @@ function rmSwProj(btn,l){
         .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'resume';
     }
 
-    function loadScriptOnce(src, cb){
-      var flag = '_lxLoaded_' + src.replace(/[^a-z0-9]/gi, '');
-      if (window[flag]) { cb(); return; }
-      var existing = document.querySelector('script[data-lx-src="' + src + '"]');
-      if (existing) { existing.addEventListener('load', cb); return; }
-      var s = document.createElement('script');
-      s.src = src;
-      s.setAttribute('data-lx-src', src);
-      s.onload = function () { window[flag] = true; cb(); };
-      s.onerror = function () {
-        alert('Could not load the PDF engine (check your internet connection) — try again in a moment.');
-      };
-      document.head.appendChild(s);
-    }
+    /* Direct PDF export via the browser's own native print engine — no
+       screenshot library, no canvas capture-region math to get wrong.
+       We build a tiny hidden iframe with its own document containing just
+       the resume + @page:A4 CSS, then call print() on that iframe's window.
+       This opens the normal system "Print / Save as PDF" dialog (not a
+       popup window or new tab) and always renders at exactly the right
+       size because it's real text and CSS, not a photographed image. */
+    var LX_PDF_PAGE_CSS = [
+      "@page{size:A4;margin:0;}",
+      "*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}",
+      "html,body{margin:0;padding:0;background:#fff;}",
+      "body{width:210mm;}",
+      ".lx-doc{width:210mm;min-height:297mm;padding:11mm 12mm;box-sizing:border-box;}",
+      ".lx-doc .d-sec{break-after:avoid;page-break-after:avoid;}",
+      ".lx-doc .d-note, .lx-doc ul.d-list li{break-inside:avoid;page-break-inside:avoid;}"
+    ].join('\n');
 
-    /* Direct-to-disk PDF download — no popup, no print dialog. Renders a clean,
-       page-isolated clone of the resume off-screen and hands it to html2pdf.js. */
     function downloadPdf(){
       var btn = $('lx-btn-pdf');
       var oldLabel = btn ? btn.textContent : '';
       if (btn) { btn.textContent = 'Preparing PDF…'; btn.disabled = true; }
 
-      loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', function () {
-        var wrap = document.createElement('div');
-        wrap.style.cssText = 'position:fixed;left:-99999px;top:0;width:210mm;background:#fff;';
-        var styleTag = document.createElement('style');
-        styleTag.textContent = LX_DOC_CSS;
-        var content = document.createElement('div');
-        content.innerHTML = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
-        wrap.appendChild(styleTag);
-        wrap.appendChild(content);
-        document.body.appendChild(wrap);
+      var bodyHtml = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
+      var title = (data().name || 'Resume') + ' - Resume';
 
-        var finish = function () {
-          document.body.removeChild(wrap);
-          if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
-        };
+      var iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+      document.body.appendChild(iframe);
 
-        window.html2pdf().set({
-          margin: 0,
-          filename: fileBaseName() + '.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css', 'legacy'] }
-        }).from(content).save().then(finish).catch(function () {
+      var idoc = iframe.contentWindow.document;
+      idoc.open();
+      idoc.write(
+        '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(title) + '</title>' +
+        '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+        '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@20..72,500;20..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">' +
+        '<style>' + LX_DOC_CSS + '\n' + LX_PDF_PAGE_CSS + '</style></head>' +
+        '<body>' + bodyHtml + '</body></html>'
+      );
+      idoc.close();
+
+      var finished = false;
+      function finish(){
+        if (finished) return;
+        finished = true;
+        if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
+        setTimeout(function () { if (iframe.parentNode) iframe.remove(); }, 1000);
+      }
+      function go(){
+        try {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+        } catch (e) {
           alert('Something went wrong generating the PDF — please try again.');
-          finish();
-        });
-      });
+        }
+        finish();
+      }
+      /* Give the web font a moment to load before printing so the resume
+         doesn't briefly print in a fallback font. */
+      iframe.onload = function () { setTimeout(go, 300); };
+      setTimeout(go, 1200);
     }
 
     /* Word-compatible .doc download — a self-contained HTML file with a .doc
