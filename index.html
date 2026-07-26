@@ -31,6 +31,7 @@
 <meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@20..72,500;20..72,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 :root {
   --orange:#FF6B35;--orange-dark:#E85520;--orange-light:#FFF0EA;
@@ -370,7 +371,7 @@ footer a:hover{color:var(--orange);}
 .footer-brand span{color:var(--orange);}
 
 /* PRINT */
-#resume-print-area{display:none;}
+#resume-print-area{position:absolute;top:0;left:0;z-index:-9999;background:#fff;}
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
   html,body{margin:0!important;padding:0!important;width:210mm!important;height:auto!important;}
@@ -1284,7 +1285,7 @@ footer a:hover{color:var(--orange);}
       </div>
       <div class="faq-item" id="hfaq-5">
         <div class="faq-q" onclick="toggleFaq('hfaq-5')"><span>Does BanaoResume work on mobile?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. However, for downloading as PDF, we recommend using a desktop or laptop browser (Chrome or Edge) for the cleanest print output.</div>
+        <div class="faq-a">Yes, BanaoResume is fully responsive and works on Android and iOS. Downloads on both desktop and mobile save the PDF directly to your device — no print dialog required.</div>
       </div>
       <div class="faq-item" id="hfaq-6">
         <div class="faq-q" onclick="toggleFaq('hfaq-6')"><span>How do the paid services work?</span><span class="faq-icon">+</span></div>
@@ -1496,7 +1497,7 @@ footer a:hover{color:var(--orange);}
       <button class="dl-btn dl-btn-pdf" onclick="downloadResume()">🎨 Download PDF (Colored)</button>
       <button class="dl-btn dl-btn-bw" onclick="downloadResume(true)">⬛ Download PDF (B&W)</button>
     </div>
-    <div class="dl-note">💡 <strong>How it works:</strong> Click Download → print dialog opens → select <strong>"Save as PDF"</strong> → set Paper: <strong>A4</strong>, Margins: <strong>None</strong>.</div>
+    <div class="dl-note">💡 Click Download — your PDF is generated instantly and saved straight to your device. Works on desktop and mobile.</div>
   </div>
 
   <div id="pdfStatus"></div>
@@ -2510,12 +2511,59 @@ function refreshPreview() {
 
 function downloadResume(bw) {
   bw = bw || false;
-  const printArea = document.getElementById('resume-print-area');
-  printArea.innerHTML = buildResumeHTML(getData(), bw);
+  const d = getData();
+
   const status = document.getElementById('pdfStatus');
   status.style.display = 'block';
-  status.innerHTML = `<div style="background:var(--orange-light);border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:var(--orange);font-weight:600;">🖨️ <strong>Print dialog opening…</strong><br><span style="font-weight:400;color:#7A3C1E;">Set <strong>Destination → Save as PDF</strong>, Paper = <strong>A4</strong>, Margins = <strong>None</strong>, enable <strong>Background graphics</strong>.</span></div>`;
-  setTimeout(() => { window.print(); setTimeout(() => { status.style.display = 'none'; }, 3500); }, 120);
+
+  if (typeof html2pdf === 'undefined') {
+    status.innerHTML = `<div style="background:#FFF5F5;border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:#E53E3E;font-weight:600;">⚠️ The PDF library didn't load. Check your internet connection and reload the page, then try again.</div>`;
+    return;
+  }
+
+  status.innerHTML = `<div style="background:var(--orange-light);border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:var(--orange);font-weight:600;">⏳ <strong>Generating your PDF…</strong></div>`;
+
+  const fname = ((d.name || 'resume').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'resume') + (bw ? '-bw' : '') + '.pdf';
+
+  // Render into a genuinely visible full-screen overlay instead of an
+  // off-screen/hidden container. Hidden or off-canvas elements are the
+  // #1 cause of a blank html2canvas capture across different browsers —
+  // a visible element is always guaranteed to be painted correctly.
+  const overlay = document.getElementById('resume-print-area');
+  overlay.setAttribute('style', 'position:fixed;inset:0;z-index:100000;background:#fff;overflow:auto;display:flex;justify-content:center;padding:24px 0;');
+  overlay.innerHTML = buildResumeHTML(d, bw);
+  const target = overlay.firstElementChild;
+
+  function resetOverlay() {
+    overlay.innerHTML = '';
+    overlay.setAttribute('style', 'position:absolute;top:0;left:0;z-index:-9999;background:#fff;');
+  }
+
+  // Wait two animation frames so the browser has definitely completed
+  // layout + paint of the newly-inserted content before we screenshot it.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    try {
+      html2pdf().set({
+        margin: 0,
+        filename: fname,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 },
+        jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'] }
+      }).from(target).save().then(() => {
+        status.style.display = 'none';
+        resetOverlay();
+      }).catch((err) => {
+        console.error('PDF generation failed:', err);
+        status.innerHTML = `<div style="background:#FFF5F5;border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:#E53E3E;font-weight:600;">Something went wrong generating the PDF. Please try again — if it keeps happening, try a different browser.</div>`;
+        resetOverlay();
+      });
+    } catch (err) {
+      console.error('PDF generation failed:', err);
+      status.innerHTML = `<div style="background:#FFF5F5;border-radius:8px;padding:0.7rem 1rem;font-size:0.78rem;color:#E53E3E;font-weight:600;">Something went wrong generating the PDF. Please try again — if it keeps happening, try a different browser.</div>`;
+      resetOverlay();
+    }
+  }));
 }
 
 function populateEditFields(d) {
@@ -2917,7 +2965,7 @@ const RM_R={
   ai:{accent:'#F472B6',name:'AI Engineer',level:'Intermediate → Advanced',time:'8–12 mo',salary:'₹6–30L',tagline:'Build and ship real products powered by ML and LLMs.',
     stages:[{title:'Fundamentals',sub:'Python + math — 5–6 weeks',topics:[{name:'Python for ML',diff:'med',time:'2 wk',why:'PyTorch, TensorFlow, LLM libraries are Python-first.',mistake:'Skipping NumPy/Pandas fundamentals.'},{name:'Math for ML',diff:'hard',time:'3 wk',why:'Vectors, matrices, probability — essential to understand models.',mistake:'Memorizing formulas instead of building intuition.'},{name:'Pandas / NumPy',diff:'med',time:'1 wk',why:'70% of real ML work is data cleaning.',mistake:'Writing slow for-loops over dataframes.'}]},
     {title:'Core Skills',sub:'ML fundamentals — 8 weeks',topics:[{name:'Classical ML (sklearn)',diff:'med',time:'2.5 wk',why:'Regression, classification still power many production systems.',mistake:'Jumping to deep learning when simpler models fit.'},{name:'Deep Learning (PyTorch)',diff:'hard',time:'3 wk',why:'PyTorch dominates research and industry in 2026.',mistake:'Copy-pasting training loops without understanding backprop.'},{name:'Model Evaluation',diff:'med',time:'1 wk',why:'Precision/recall vs accuracy separates real engineers.',mistake:'Accuracy-only on imbalanced datasets.'},{name:'NLP Fundamentals',diff:'hard',time:'1.5 wk',why:'Tokenization and attention — prerequisites for understanding LLMs.',mistake:'Using GPT APIs without knowing what embeddings are.'}]},
-    {title:'Advanced Skills',sub:'LLMs & production — 6–8 weeks',topics:[{name:'LLM APIs',diff:'med',time:'1.5 wk',why:'Most AI roles build products on LLMs, not train from scratch.',mistake:'Ignoring prompt engineering, temperature, token limits.'},{name:'RAG',diff:'hard',time:'2 wk',why:'#1 pattern for domain-specific LLM knowledge in production.',mistake:'Poor document chunking → irrelevant retrieval.'},{name:'Vector Databases',diff:'med',time:'1 wk',why:'Fast similarity search over embeddings for RAG.',mistake:'Using SQL for similarity search.'},{name:'Agentic Workflows',diff:'hard',time:'2 wk',why:'2025–2026\'s biggest shift: autonomous tool-using agents.',mistake:'Complex agent chains when function-calling would work.'}]},
+    {title:'Advanced Skills',sub:'LLMs & production — 6–8 weeks',topics:[{name:'LLM APIs',diff:'med',time:'1.5 wk',why:'Most AI roles build products on LLMs, not train from scratch.',mistake:'Ignoring prompt engineering, temperature, token limits.'},{name:'RAG',diff:'hard',time:'2 wk',why:'#1 pattern for domain-specific LLM knowledge in production.',mistake:'Poor document chunking → irrelevant retrieval.'},{name:'Vector Databases',diff:'med',time:'1 wk',why:'Fast similarity search over embeddings for RAG.',mistake:'Using SQL for similarity search.'},{name:'Agentic Workflows',diff:'hard',time:'2 wk',why:'2025-2026\'s biggest shift: autonomous tool-using agents.',mistake:'Complex agent chains when function-calling would work.'}]},
     {title:'Professional Skills',sub:'MLOps & deployment — ongoing',topics:[{name:'Model Deployment',diff:'med',time:'1.5 wk',why:'A notebook model has zero business value.',mistake:'No containerization → deployment failures.'},{name:'LLM Evaluation',diff:'hard',time:'1.5 wk',why:'Non-deterministic outputs need structured evals.',mistake:'Shipping without an eval set.'},{name:'ML Version Control',diff:'med',time:'1 wk',why:'Data/model versioning matters as much as code.',mistake:'Not tracking which version produced which results.'}]}],
     tools:[['PyTorch','Deep learning','Free'],['Hugging Face','Model hub','Freemium'],['LangChain','LLM framework','Free'],['Pinecone','Vector DB','Freemium'],['W&B','Experiment tracking','Freemium'],['Colab','Notebooks','Free']],
     projects:{beginner:['House price predictor','Spam classifier','Sentiment analysis','Digit recognizer','Movie recommender','Rule-based chatbot','Image classifier','RAG over one PDF','Text summarizer','Keyword extractor'],intermediate:['Fine-tuned classifier','RAG doc library','Multi-turn LLM chat','Image captioning','Embedding recommender','Voice + LLM assistant','Custom NER model','LLM SQL generator','Auto-retrain pipeline','Content moderation'],advanced:['RAG + reranking + evals','Multi-agent workflow','LoRA fine-tune','Pipeline + drift detection','Recommender at scale','Custom eval framework','Multimodal app','Agentic coding assistant','Model serving autoscale','Full MLOps CI/CD']},
@@ -3325,7 +3373,7 @@ function rmSwProj(btn,l){
       return '\\begin{center}\n'
            + '  \\textbf{\\LARGE ' + (d.name || 'Your Name') + '} \\\\ \\vspace{3pt}\n'
            + '  \\small ' + bits.join(' $|$ ') + '\n'
-           + '\\end{center}\n\\vspace{-6pt}\n\n';
+           + '\\end{center}';
     }
 
     function tabularHeader(d){
@@ -3337,25 +3385,35 @@ function rmSwProj(btn,l){
            + '  \\textbf{{\\LARGE ' + (d.name || 'Your Name') + '}}\\\\\n'
            + '  ' + li + ' & {' + em + '}\\\\\n'
            + '  ' + gh + ' & {' + ph + '} \\\\\n'
-           + '\\end{tabular*}\n\n';
+           + '\\end{tabular*}';
     }
 
-  function pushFields(){
-  var ta = $('lx-code'), src = ta.value, d = data();
-  if (src.indexOf('\\begin{document}') === -1) return; // don't touch a broken doc
+    /* Robust, whitespace/indentation-independent header rewrite.
+       Finds the exact start/end of the existing header block via plain
+       string search (no fragile regex with optional trailing groups that
+       could over/under-match), so preamble content is never disturbed. */
+    function pushFields(){
       var ta = $('lx-code'), src = ta.value, d = data();
-      var ctrRe = /\\begin\{center\}[\s\S]*?\\end\{center\}\s*(?:\\vspace\{-?\d+pt\})?\s*/;
-      var tabRe = /\\begin\{tabular\*\}\{\\textwidth\}[\s\S]*?\\end\{tabular\*\}\s*/;
+      var ctrStart = src.indexOf('\\begin{center}');
+      var ctrEnd = ctrStart > -1 ? src.indexOf('\\end{center}', ctrStart) : -1;
 
-      if (ctrRe.test(src))      ta.value = src.replace(ctrRe, centerHeader(d));
-      else if (tabRe.test(src)) ta.value = src.replace(tabRe, tabularHeader(d));
-      else {
-        var at = src.indexOf('\\begin{document}');
-        if (at > -1){
-          at = src.indexOf('\n', at) + 1;
-          ta.value = src.slice(0, at) + '\n' + centerHeader(d) + src.slice(at);
+      if (ctrStart > -1 && ctrEnd > -1){
+        ctrEnd += '\\end{center}'.length;
+        ta.value = src.slice(0, ctrStart) + centerHeader(d) + src.slice(ctrEnd);
+      } else {
+        var tabStart = src.indexOf('\\begin{tabular*}{\\textwidth}');
+        var tabEnd = tabStart > -1 ? src.indexOf('\\end{tabular*}', tabStart) : -1;
+        if (tabStart > -1 && tabEnd > -1){
+          tabEnd += '\\end{tabular*}'.length;
+          ta.value = src.slice(0, tabStart) + tabularHeader(d) + src.slice(tabEnd);
         } else {
-          ta.value = centerHeader(d) + src;
+          var at = src.indexOf('\\begin{document}');
+          if (at > -1){
+            at = src.indexOf('\n', at) + 1;
+            ta.value = src.slice(0, at) + '\n' + centerHeader(d) + '\n' + src.slice(at);
+          } else {
+            ta.value = centerHeader(d) + '\n' + src;
+          }
         }
       }
       render();
@@ -3388,10 +3446,6 @@ function rmSwProj(btn,l){
       var list = [], i = from;
       for (var n = 0; n < max; n++){
         var j = i;
-        /* skip whitespace and any "% comment" lines sitting between the
-           command and its braces — a common, harmless thing to type while
-           editing, but previously it made the parser think the argument
-           was simply missing. */
         while (j < src.length){
           if (/\s/.test(src[j])) { j++; continue; }
           if (src[j] === '%') { while (j < src.length && src[j] !== '\n') j++; continue; }
@@ -3512,12 +3566,18 @@ function rmSwProj(btn,l){
       return html + '</table>';
     }
 
-   function compile(src){
-  var start = src.indexOf('\\begin{document}');
-  if (start === -1) {
-    return '<div class="d-err">⚠ Missing \\begin{document} — preview can\'t render. Click "Load template" to reset.</div>';
-  }
-  var body = src.slice(start + 16);
+    function compile(src){
+      var start = src.indexOf('\\begin{document}');
+      var body = start > -1 ? src.slice(start + 16) : src;
+      var stop = body.indexOf('\\end{document}');
+      if (stop > -1) body = body.slice(0, stop);
+      // Defensive: strip any stray preamble artifacts that shouldn't be here
+      // (protects the rendered preview even if header-boundary detection
+      // above this line ever mis-slices, so a \newcommand definition can
+      // never leak into the preview as a garbage bullet).
+      body = body.replace(/\\newcommand\{[\s\S]*?\n(?=\\(?:section|begin\{center\}|begin\{tabular)|$)/g, '')
+                 .replace(/^\s*\\(?:documentclass|usepackage|addtolength|urlstyle|raggedbottom|raggedright|setlength|titleformat)\b.*$/gm, '');
+
       var head = '', mm;
       mm = /\\begin\{center\}([\s\S]*?)\\end\{center\}/.exec(body);
       if (mm){ head = renderCenter(mm[1]); body = body.slice(mm.index + mm[0].length); }
@@ -3540,8 +3600,6 @@ function rmSwProj(btn,l){
         if (cmd === 'section'){
           r = args(body, after, 1);
           if (!r.n){
-            /* No braces found right after \section — fall back to using the
-               rest of the line as the title instead of dropping it. */
             var lnEnd = body.indexOf('\n', after);
             if (lnEnd === -1) lnEnd = body.length;
             var fallbackTitle = body.slice(after, lnEnd).trim();
@@ -3566,8 +3624,6 @@ function rmSwProj(btn,l){
         if (cmd === 'resumeItem' || cmd === 'resumeSubItem'){
           r = args(body, after, 2);
           if (!r.n){
-            /* No braces found — treat the rest of the line as plain text
-               rather than silently dropping it. */
             var itLnEnd = body.indexOf('\n', after);
             if (itLnEnd === -1) itLnEnd = body.length;
             var fallbackItem = body.slice(after, itLnEnd).trim();
@@ -3583,9 +3639,6 @@ function rmSwProj(btn,l){
         if (cmd === 'item'){
           r = args(body, after, 1);
           if (r.n){ openList(); html += '<li>' + inline(r.args[0]) + '</li>'; i = r.end; continue; }
-          /* Standard plain LaTeX \item — no braces, the text just runs on
-             until the next \item or \end. This is the normal way \item is
-             used inside a plain \begin{itemize}...\end{itemize} block. */
           var itemStop = body.slice(after).search(/\\(item\b|end\b)/);
           itemStop = itemStop === -1 ? body.length : after + itemStop;
           var plainItem = body.slice(after, itemStop).trim();
@@ -3660,7 +3713,7 @@ function rmSwProj(btn,l){
     function onEdit(){ render(); pullFields($('lx-code').value); }
 
     function loadTemplate(){
-      $('lx-code').value = PREAMBLE + centerHeader(data()) + BODY;
+      $('lx-code').value = PREAMBLE + centerHeader(data()) + '\n\n' + BODY;
       onEdit();
     }
 
@@ -3730,66 +3783,58 @@ function rmSwProj(btn,l){
         .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'resume';
     }
 
-    /* Direct PDF export via the browser's own native print engine — no
-       screenshot library, no canvas capture-region math to get wrong.
-       We build a tiny hidden iframe with its own document containing just
-       the resume + @page:A4 CSS, then call print() on that iframe's window.
-       This opens the normal system "Print / Save as PDF" dialog (not a
-       popup window or new tab) and always renders at exactly the right
-       size because it's real text and CSS, not a photographed image. */
-    var LX_PDF_PAGE_CSS = [
-      "@page{size:A4;margin:0;}",
-      "*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}",
-      "html,body{margin:0;padding:0;background:#fff;}",
-      "body{width:210mm;}",
-      ".lx-doc{width:210mm;min-height:297mm;padding:11mm 12mm;box-sizing:border-box;}",
-      ".lx-doc .d-sec{break-after:avoid;page-break-after:avoid;}",
-      ".lx-doc .d-note, .lx-doc ul.d-list li{break-inside:avoid;page-break-inside:avoid;}"
-    ].join('\n');
-
+    /* Direct PDF export via html2pdf.js (html2canvas + jsPDF) — renders the
+       compiled resume DOM to a real PDF and triggers a browser download.
+       No print dialog, no iframe. Works identically on desktop and mobile,
+       which fixes the blank-page issue mobile browsers had with the old
+       hidden-iframe print() approach. */
     function downloadPdf(){
       var btn = $('lx-btn-pdf');
       var oldLabel = btn ? btn.textContent : '';
+
+      if (typeof html2pdf === 'undefined') {
+        alert("The PDF library didn't load — check your internet connection and reload the page, then try again.");
+        return;
+      }
+
       if (btn) { btn.textContent = 'Preparing PDF…'; btn.disabled = true; }
 
-      var bodyHtml = flexRowsToTables('<div class="lx-doc">' + $('lx-out').innerHTML + '</div>');
-      var title = (data().name || 'Resume') + ' - Resume';
+      // Genuinely visible full-screen overlay (not off-screen/hidden) so
+      // html2canvas always has real, painted content to capture.
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;z-index:100000;background:#fff;overflow:auto;display:flex;justify-content:center;padding:24px 0;';
+      var clone = document.createElement('div');
+      clone.className = 'lx-doc';
+      clone.style.cssText = 'width:794px;background:#fff;';
+      clone.innerHTML = flexRowsToTables($('lx-out').innerHTML);
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
 
-      var iframe = document.createElement('iframe');
-      iframe.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
-      document.body.appendChild(iframe);
-
-      var idoc = iframe.contentWindow.document;
-      idoc.open();
-      idoc.write(
-        '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(title) + '</title>' +
-        '<link rel="preconnect" href="https://fonts.googleapis.com">' +
-        '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@20..72,500;20..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">' +
-        '<style>' + LX_DOC_CSS + '\n' + LX_PDF_PAGE_CSS + '</style></head>' +
-        '<body>' + bodyHtml + '</body></html>'
-      );
-      idoc.close();
-
-      var finished = false;
-      function finish(){
-        if (finished) return;
-        finished = true;
+      function cleanup(){
+        overlay.remove();
         if (btn) { btn.textContent = oldLabel; btn.disabled = false; }
-        setTimeout(function () { if (iframe.parentNode) iframe.remove(); }, 1000);
       }
-      function go(){
+
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
         try {
-          iframe.contentWindow.focus();
-          iframe.contentWindow.print();
-        } catch (e) {
-          alert('Something went wrong generating the PDF — please try again.');
+          html2pdf().set({
+            margin: 0,
+            filename: fileBaseName() + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 },
+            jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' },
+            pagebreak: { mode: ['css', 'legacy'] }
+          }).from(clone).save().then(cleanup).catch(function(err){
+            console.error('PDF generation failed:', err);
+            alert('Something went wrong generating the PDF — please try again. If it keeps happening, try a different browser.');
+            cleanup();
+          });
+        } catch (err) {
+          console.error('PDF generation failed:', err);
+          alert('Something went wrong generating the PDF — please try again. If it keeps happening, try a different browser.');
+          cleanup();
         }
-        finish();
-      }
-      /* Give the web font a moment to load before printing so the resume
-         doesn't briefly print in a fallback font. */
-      iframe.onload = function () { setTimeout(go, 300); };
-      setTimeout(go, 1200);
+      }); });
     }
 
     /* Word-compatible .doc download — a self-contained HTML file with a .doc
