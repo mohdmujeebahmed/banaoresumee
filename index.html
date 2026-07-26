@@ -3206,159 +3206,162 @@ function rmSwProj(btn,l){
     var FIELDS = ['lx-name', 'lx-phone', 'lx-email', 'lx-li', 'lx-gh'];
 
     var PREAMBLE = [
-     %-------------------------------------------
-% BanaoResume · one-page resume
-% Compile with pdfLaTeX
-%-------------------------------------------
-\documentclass[a4paper,10pt]{article}
+  '%-------------------------------------------',
+  '% BanaoResume · one-page resume',
+  '% Compile with pdfLaTeX',
+  '%-------------------------------------------',
+  '\\documentclass[a4paper,10pt]{article}',
+  '',
+  '\\usepackage[hidelinks]{hyperref}',
+  '\\usepackage[empty]{fullpage}',
+  '\\usepackage{titlesec}',
+  '\\usepackage{enumitem}',
+  '\\usepackage{tabularx}',
+  '',
+  '% ---------- MARGINS ----------',
+  '\\addtolength{\\oddsidemargin}{-0.530in}',
+  '\\addtolength{\\evensidemargin}{-0.375in}',
+  '\\addtolength{\\textwidth}{1in}',
+  '\\addtolength{\\topmargin}{-.55in}',
+  '\\addtolength{\\textheight}{1.1in}',
+  '',
+  '\\urlstyle{rm}',
+  '\\raggedbottom',
+  '\\raggedright',
+  '\\setlength{\\tabcolsep}{0in}',
+  '\\pagenumbering{gobble}',
+  '',
+  '% ---------- SECTION TITLE FORMAT (single source of truth for every section) ----------',
+  '\\titleformat{\\section}',
+  '  {\\vspace{-4pt}\\bfseries\\raggedright\\large}',
+  '  {}{0em}{}',
+  '  [\\vspace{-6pt}\\titlerule\\vspace{-5pt}]',
+  '\\titlespacing*{\\section}{0pt}{10pt}{6pt}',
+  '',
+  '% ---------- REUSABLE MACROS ----------',
+  '% Single-line bullet item, e.g. skills rows: \\resumeItem{Languages}{Python, Java, C++}',
+  '\\newcommand{\\resumeItem}[2]{%',
+  '  \\item\\small{\\textbf{#1}: #2}%',
+  '}',
+  '',
+  '% Two-column heading used for Experience / Education / Projects entries.',
+  '% Left column bold (role/degree/name), right column the date range.',
+  '% #1 = left-bold text   #2 = right-side date/duration',
+  '% #3 = left-italic text (company/school/subtitle)  #4 = right-side location/second date',
+  '\\newcommand{\\resumeSubheading}[4]{%',
+  '  \\item',
+  '    \\begin{tabularx}{\\textwidth}{@{}X r@{}}',
+  '      \\textbf{#1} & \\textbf{\\small #2} \\\\',
+  '      \\textit{\\small #3} & \\textit{\\small #4} \\\\',
+  '    \\end{tabularx}%',
+  '    \\vspace{2pt}%',
+  '}',
+  '',
+  '% Compact one-line sub-item with a right-aligned date (used for Skills rows',
+  '% that does not need a date, or short bullet + label pairs). Kept for',
+  '% backward-compatibility with older content blocks.',
+  '\\newcommand{\\resumeSubItem}[2]{\\resumeItem{#1}{#2}}',
+  '',
+  '\\newcommand{\\resumeSubHeadingListStart}{\\begin{itemize}[leftmargin=0in, label={}, itemsep=6pt, topsep=2pt]}',
+  '\\newcommand{\\resumeSubHeadingListEnd}{\\end{itemize}\\vspace{-4pt}}',
+  '',
+  '\\newcommand{\\resumeItemListStart}{\\begin{itemize}[leftmargin=0.18in, itemsep=2pt, topsep=3pt, parsep=0pt]}',
+  '\\newcommand{\\resumeItemListEnd}{\\end{itemize}\\vspace{2pt}}',
+  '',
+  '\\begin{document}',
+  '',
+  '%----------HEADING-----------------'
+].join('\n') + '\n';
 
-\usepackage[hidelinks]{hyperref}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{tabularx}
-
-% ---------- MARGINS ----------
-\addtolength{\oddsidemargin}{-0.530in}
-\addtolength{\evensidemargin}{-0.375in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.55in}
-\addtolength{\textheight}{1.1in}
-
-\urlstyle{rm}
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-\pagenumbering{gobble}
-
-% ---------- SECTION TITLE FORMAT (single source of truth for every section) ----------
-\titleformat{\section}
-  {\vspace{-4pt}\bfseries\raggedright\large}
-  {}{0em}{}
-  [\vspace{-6pt}\titlerule\vspace{-5pt}]
-\titlespacing*{\section}{0pt}{10pt}{6pt}
-
-% ---------- REUSABLE MACROS ----------
-% Single-line bullet item, e.g. skills rows: \resumeItem{Languages}{Python, Java, C++}
-\newcommand{\resumeItem}[2]{%
-  \item\small{\textbf{#1}: #2}%
-}
-
-% Two-column heading used for Experience / Education / Projects entries.
-% Left column bold (role/degree/name), right column the date range.
-% #1 = left-bold text   #2 = right-side date/duration
-% #3 = left-italic text (company/school/subtitle)  #4 = right-side location/second date
-\newcommand{\resumeSubheading}[4]{%
-  \item
-    \begin{tabularx}{\textwidth}{@{}X r@{}}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small #3} & \textit{\small #4} \\
-    \end{tabularx}%
-    \vspace{2pt}%
-}
-
-% Compact one-line sub-item with a right-aligned date (used for Skills rows
-% that don't need a date, or short bullet + label pairs). Kept for
-% backward-compatibility with older content blocks.
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}, itemsep=6pt, topsep=2pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
-
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.18in, itemsep=2pt, topsep=3pt, parsep=0pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
-
-\begin{document}
-
-%----------HEADING-----------------
-\begin{center}
-  \textbf{\LARGE Your Name} \\ \vspace{3pt}
-  \small +91 XXXXX XXXXX $|$ \href{mailto:you@example.com}{you@example.com} $|$ \href{https://linkedin.com/in/yourhandle}{LinkedIn} $|$ \href{https://github.com/yourhandle}{GitHub}
-\end{center}
-\vspace{-6pt}
-
-%----------SKILLS SUMMARY-----------------
-\section{Skills Summary}
-\resumeSubHeadingListStart
-  \resumeItem{Languages}{Python, Java, C++, JavaScript, SQL}
-  \resumeItem{Frameworks}{React, Node.js, Express, Bootstrap}
-  \resumeItem{Tools/Platforms}{Git, GitHub, Docker, MySQL, Linux}
-  \resumeItem{Soft Skills}{Problem Solving, Teamwork, Communication, Ownership}
-\resumeSubHeadingListEnd
-
-%----------EDUCATION-----------------
-\section{Education}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Your University Name}{August 2022 -- May 2026}
-    {B.Tech -- Computer Science and Engineering; CGPA: 8.5}{City, India}
-  \resumeSubheading
-    {Your School Name}{April 2020 -- March 2022}
-    {Intermediate; Percentage: 92\%}{City, India}
-\resumeSubHeadingListEnd
-
-%----------EXPERIENCE-----------------
-\section{Experience}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Company Name}{May 2025 -- August 2025}
-    {Software Development Intern}{City / Remote}
-  \resumeItemListStart
-    \resumeItem{Overview}{Built a reporting module used by 3 internal teams, replacing a manual spreadsheet process}
-    \resumeItem{Impact}{Cut report generation time from 4 hours to \textbf{15 minutes} per week}
-    \resumeItem{Tech stack}{Python, PostgreSQL, React}
-  \resumeItemListEnd
-  \resumeSubheading
-    {Second Company or Hackathon}{March 2025}
-    {Student Developer}{Remote}
-  \resumeItemListStart
-    \resumeItem{About}{Built a working prototype with a team of 3 over a 36-hour build window}
-    \resumeItem{Repository}{\href{https://github.com/yourhandle/project}{github.com/yourhandle/project}}
-  \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%----------PROJECTS-----------------
-\section{Projects}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Project One -- Short Description}{2025}
-    {React, Node.js, MongoDB}{}
-  \resumeItemListStart
-    \resumeItem{What it does}{Describe the problem it solves and what you personally built}
-    \resumeItem{Impact}{Add a number wherever you can -- users, requests handled, time saved}
-  \resumeItemListEnd
-  \resumeSubheading
-    {Project Two -- Short Description}{2025}
-    {Python, Flask, PostgreSQL}{}
-  \resumeItemListStart
-    \resumeItem{What it does}{One or two lines on the problem it solves and the result it produced}
-  \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%----------ACHIEVEMENTS-----------------
-\section{Achievements}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Achievement or Rank}{2025}
-    {Add the scale so it lands -- among 20,000+ participants}{}
-  \resumeSubheading
-    {Award or Scholarship}{2024}
-    {One line on what it was awarded for}{}
-\resumeSubHeadingListEnd
-
-%----------CERTIFICATIONS-----------------
-\section{Certifications}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Certification Name}{2025}
-    {Issuing Body}{}
-  \resumeSubheading
-    {Second Certification Name}{2024}
-    {Issuing Body}{}
-\resumeSubHeadingListEnd
-
-\end{document}
-    ].join('\n');
+var BODY = [
+  '\\begin{center}',
+  '  \\textbf{\\LARGE Your Name} \\\\ \\vspace{3pt}',
+  '  \\small +91 XXXXX XXXXX $|$ \\href{mailto:you@example.com}{you@example.com} $|$ \\href{https://linkedin.com/in/yourhandle}{LinkedIn} $|$ \\href{https://github.com/yourhandle}{GitHub}',
+  '\\end{center}',
+  '\\vspace{-6pt}',
+  '',
+  '%----------SKILLS SUMMARY-----------------',
+  '\\section{Skills Summary}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeItem{Languages}{Python, Java, C++, JavaScript, SQL}',
+  '  \\resumeItem{Frameworks}{React, Node.js, Express, Bootstrap}',
+  '  \\resumeItem{Tools/Platforms}{Git, GitHub, Docker, MySQL, Linux}',
+  '  \\resumeItem{Soft Skills}{Problem Solving, Teamwork, Communication, Ownership}',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '%----------EDUCATION-----------------',
+  '\\section{Education}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeSubheading',
+  '    {Your University Name}{August 2022 -- May 2026}',
+  '    {B.Tech -- Computer Science and Engineering; CGPA: 8.5}{City, India}',
+  '  \\resumeSubheading',
+  '    {Your School Name}{April 2020 -- March 2022}',
+  '    {Intermediate; Percentage: 92\\%}{City, India}',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '%----------EXPERIENCE-----------------',
+  '\\section{Experience}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeSubheading',
+  '    {Company Name}{May 2025 -- August 2025}',
+  '    {Software Development Intern}{City / Remote}',
+  '  \\resumeItemListStart',
+  '    \\resumeItem{Overview}{Built a reporting module used by 3 internal teams, replacing a manual spreadsheet process}',
+  '    \\resumeItem{Impact}{Cut report generation time from 4 hours to \\textbf{15 minutes} per week}',
+  '    \\resumeItem{Tech stack}{Python, PostgreSQL, React}',
+  '  \\resumeItemListEnd',
+  '  \\resumeSubheading',
+  '    {Second Company or Hackathon}{March 2025}',
+  '    {Student Developer}{Remote}',
+  '  \\resumeItemListStart',
+  '    \\resumeItem{About}{Built a working prototype with a team of 3 over a 36-hour build window}',
+  '    \\resumeItem{Repository}{\\href{https://github.com/yourhandle/project}{github.com/yourhandle/project}}',
+  '  \\resumeItemListEnd',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '%----------PROJECTS-----------------',
+  '\\section{Projects}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeSubheading',
+  '    {Project One -- Short Description}{2025}',
+  '    {React, Node.js, MongoDB}{}',
+  '  \\resumeItemListStart',
+  '    \\resumeItem{What it does}{Describe the problem it solves and what you personally built}',
+  '    \\resumeItem{Impact}{Add a number wherever you can -- users, requests handled, time saved}',
+  '  \\resumeItemListEnd',
+  '  \\resumeSubheading',
+  '    {Project Two -- Short Description}{2025}',
+  '    {Python, Flask, PostgreSQL}{}',
+  '  \\resumeItemListStart',
+  '    \\resumeItem{What it does}{One or two lines on the problem it solves and the result it produced}',
+  '  \\resumeItemListEnd',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '%----------ACHIEVEMENTS-----------------',
+  '\\section{Achievements}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeSubheading',
+  '    {Achievement or Rank}{2025}',
+  '    {Add the scale so it lands -- among 20,000+ participants}{}',
+  '  \\resumeSubheading',
+  '    {Award or Scholarship}{2024}',
+  '    {One line on what it was awarded for}{}',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '%----------CERTIFICATIONS-----------------',
+  '\\section{Certifications}',
+  '\\resumeSubHeadingListStart',
+  '  \\resumeSubheading',
+  '    {Certification Name}{2025}',
+  '    {Issuing Body}{}',
+  '  \\resumeSubheading',
+  '    {Second Certification Name}{2024}',
+  '    {Issuing Body}{}',
+  '\\resumeSubHeadingListEnd',
+  '',
+  '\\end{document}'
+].join('\n');
 
     function url(u){
       u = String(u || '').trim();
