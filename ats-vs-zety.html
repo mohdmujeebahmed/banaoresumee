@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Resume Builder vs Zety: Full Feature Comparison</title>
+<meta name="description" content="ATS Resume Builder vs Zety compared for ATS-safety, pricing, and keyword optimization — see which one actually helps you pass applicant tracking systems.">
+<link rel="canonical" href="https://banaoresumee.online/ats-vs-zety.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Which is better for passing ATS software, ATS Resume Builder or Zety?","acceptedAnswer":{"@type":"Answer","text":"Zety has strong design tooling, but like most design-first builders, downloads are gated behind a subscription and keyword-matching isn't a core feature."}},
+    {"@type":"Question","name":"Is ATS Resume Builder free to use compared to Zety?","acceptedAnswer":{"@type":"Answer","text":"Yes, ATS Resume Builder offers full free access to templates and downloads, while several alternatives restrict downloads or core features behind a paid plan."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://banaoresumee.online/"},
+    {"@type":"ListItem","position":2,"name":"Comparisons","item":"https://banaoresumee.online/comparisons"},
+    {"@type":"ListItem","position":3,"name":"ATS Resume Builder vs Zety: Full Feature Comparison","item":"https://banaoresumee.online/ats-vs-zety.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"BanaoResumee","url":"https://banaoresumee.online","logo":"https://banaoresumee.online/logo.png"}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF8F2; --paper-dim:#F1EEE4; --ink:#17233D; --ink-soft:#455066;
+    --slate:#6E7A8F; --line:#DAD4C3; --highlight:#FFD23F;
+    --pass:#1F8F5B; --fail:#C0442C; --radius:14px;
+    --shadow: 0 1px 0 rgba(23,35,61,.05), 0 12px 30px -14px rgba(23,35,61,.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;color:var(--ink);margin:0 0 .4em;line-height:1.15;}
+  a{color:inherit;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);display:inline-flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--highlight);border:1px solid var(--ink);}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;}
+  .brand span{color:var(--pass);}
+  .nav-cta{background:var(--ink);color:var(--paper);padding:9px 18px;border-radius:999px;font-size:.82rem;font-weight:600;text-decoration:none;transition:.15s;}
+  .nav-cta:hover{background:var(--pass);transform:translateY(-1px);}
+
+  .hero{padding:56px 0 32px;text-align:center;}
+  .hero h1{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:600;letter-spacing:-.02em;max-width:820px;margin:0 auto .4em;}
+  .hero em{font-style:normal;color:var(--pass);}
+  .hero p.lead{font-size:1.03rem;color:var(--ink-soft);max-width:60ch;margin:0 auto 26px;}
+  .btn-primary{background:var(--pass);color:#fff;padding:14px 26px;border-radius:10px;font-weight:700;text-decoration:none;font-size:.96rem;box-shadow:var(--shadow);transition:.15s;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{transform:translateY(-2px);}
+
+  .vs-badge{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 22px;box-shadow:var(--shadow);font-family:'JetBrains Mono',monospace;font-size:.85rem;margin-bottom:22px;}
+  .vs-badge .win{color:var(--pass);font-weight:700;}
+  .vs-badge .vs{color:var(--slate);}
+
+  section{padding:44px 0;}
+  .section-head{max-width:640px;margin:0 auto 26px;text-align:center;}
+  .section-head h2{font-size:clamp(1.35rem,2.6vw,1.9rem);}
+  .section-head p{color:var(--ink-soft);}
+
+  .verdict-card{background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:28px 30px;text-align:center;max-width:760px;margin:0 auto;}
+  .verdict-card .tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--highlight);margin-bottom:10px;display:block;}
+  .verdict-card h3{color:#fff;font-size:1.3rem;margin-bottom:10px;}
+  .verdict-card p{color:#C7CEDB;margin:0;font-size:.95rem;}
+
+  .table-scroll{overflow-x:auto;}
+  table.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:.9rem;min-width:520px;}
+  table.cmp th,table.cmp td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:.8rem;}
+  table.cmp tr:last-child td{border-bottom:none;}
+  table.cmp td.good{color:var(--pass);font-weight:600;}
+
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .pc-card{border-radius:var(--radius);padding:22px;border:1px solid var(--line);background:#fff;}
+  .pc-card h3{font-size:1rem;margin-bottom:12px;}
+  .pc-card.a h3{color:var(--pass);} .pc-card.b h3{color:var(--ink-soft);}
+  .pc-card ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:.92rem;}
+  .pc-card li{margin-bottom:8px;}
+
+  .cmp-nav{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow);}
+  .cmp-nav h2{font-size:1rem;margin-bottom:14px;}
+  .cmp-nav-list{display:flex;flex-wrap:wrap;gap:10px;}
+  .cmp-link{background:var(--paper-dim);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:.85rem;text-decoration:none;color:var(--ink-soft);font-weight:600;transition:.15s;}
+  .cmp-link:hover{background:var(--pass);color:#fff;border-color:var(--pass);}
+
+  .cta-band{background:var(--ink);color:var(--paper);border-radius:20px;padding:42px 34px;text-align:center;}
+  .cta-band h2{color:#fff;font-size:clamp(1.35rem,2.6vw,1.9rem);}
+  .cta-band p{color:#C7CEDB;max-width:52ch;margin:0 auto 20px;}
+  .cta-band .btn-primary{background:var(--highlight);color:var(--ink);}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;margin-top:12px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--slate);}
+  footer a{color:var(--pass);text-decoration:none;font-weight:600;}
+
+  @media (max-width:760px){ .proscons{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resumee</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online/ats resume maker.html" target="_blank" rel="noopener">Build My Resume →</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Head-to-head</span>
+      <h1>ATS Resume Builder vs Zety: <em>Which One Actually Gets You Hired?</em></h1>
+      <div class="vs-badge"><span class="win">ATS Resume Builder</span><span class="vs">vs</span><span>Zety</span></div>
+      <p class="lead">ATS Resume Builder vs Zety compared for ATS-safety, pricing, and keyword optimization — see which one actually helps you pass applicant tracking systems.</p>
+      <a class="btn-primary" href="https://banaoresumee.online/ats resume maker.html" target="_blank" rel="noopener">🚀 Try the ATS Resume Builder Free</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The verdict</span>
+        <h2>Our recommendation</h2>
+      </div>
+      <div class="verdict-card">
+        <span class="tag">Winner</span>
+        <h3>ATS Resume Builder</h3>
+        <p>Zety has strong design tooling, but like most design-first builders, downloads are gated behind a subscription and keyword-matching isn't a core feature.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Side by side</span>
+        <h2>Feature comparison</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="cmp">
+          <tr><th>Feature</th><th>ATS Resume Builder</th><th>Zety</th></tr>
+          <tr><td>Primary purpose</td><td class='good'>ATS-first resume building</td><td>Design-forward resume & cover letter builder</td></tr>
+          <tr><td>ATS parsing accuracy</td><td class='good'>High by default</td><td>Good on simple templates, weaker on graphic ones</td></tr>
+          <tr><td>Keyword matching tool</td><td class='good'>Yes, built-in</td><td>No dedicated keyword scoring</td></tr>
+          <tr><td>Download access</td><td class='good'>Free, unrestricted</td><td>Download typically requires paid plan</td></tr>
+          <tr><td>Extras</td><td class='good'>Focused purely on ATS resumes</td><td>Cover letters, resume examples library</td></tr>
+          <tr><td>Price</td><td class='good'>Free</td><td>~$2.70 trial then subscription (~$24.70/mo)</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Weigh it up</span>
+        <h2>Pros & cons</h2>
+      </div>
+      <div class="proscons">
+        <div class="pc-card a">
+          <h3>✓ ATS Resume Builder</h3>
+          <ul><li>Free, unrestricted downloads</li><li>Built-in ATS keyword scoring</li><li>No recurring cost</li></ul>
+        </div>
+        <div class="pc-card b">
+          <h3>Zety</h3>
+          <ul><li>Paywalled PDF downloads</li><li>No keyword-match scoring</li><li>Ongoing subscription cost</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="cmp-nav">
+        <h2>More comparisons & guides</h2>
+        <div class="cmp-nav-list">
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-canva.html">vs Canva</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-microsoft-word.html">vs Microsoft Word</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-google-docs.html">vs Google Docs</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-novoresume.html">vs Novorésumé</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-resumeio.html">vs Resume.io</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-best-free-resume-builders.html">Free Resume Builders</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-best-ai-resume-builders.html">AI Resume Builders</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-best-ats-resume-templates.html">ATS Resume Templates</a>
+          <a class="cmp-link" href="https://banaoresumee.online/ats-vs-resume-writer.html">Resume Writer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Stop guessing. Build an ATS-safe resume free.</h2>
+        <p>No paywalled downloads, no risky templates — just a resume built to pass real applicant tracking systems.</p>
+        <a class="btn-primary" href="https://banaoresumee.online/ats resume maker.html" target="_blank" rel="noopener">🚀 Build My Resume Free</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 BanaoResumee · ATS Resume Builder Comparisons</span>
+    <a href="https://banaoresumee.online/ats resume maker.html" target="_blank" rel="noopener">banaoresumee.online →</a>
+  </div>
+</footer>
+</body>
+</html>
