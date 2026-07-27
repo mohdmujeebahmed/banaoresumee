@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Resume Maker: Build a Job-Winning Resume Free | BanaoResumee</title>
+<meta name="description" content="Create an ATS-friendly resume in minutes with our free ATS resume maker. Beat applicant tracking systems, land more interviews, and get hired faster.">
+<link rel="canonical" href="https://banaoresumee.online/ats-resume-maker">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is an ATS resume maker?","acceptedAnswer":{"@type":"Answer","text":"An ATS resume maker is an online tool that builds resumes formatted to be correctly read and ranked by applicant tracking systems used by employers to filter job applications."}},
+    {"@type":"Question","name":"Is a free ATS resume maker good enough?","acceptedAnswer":{"@type":"Answer","text":"Yes, for most job seekers. Free versions typically offer solid templates and basic keyword matching. Paid versions add advanced ATS scoring, unlimited downloads, and premium templates."}},
+    {"@type":"Question","name":"Do I need a different resume for every job application?","acceptedAnswer":{"@type":"Answer","text":"Ideally, yes. Tailoring your resume's keywords and summary to each specific job description significantly improves your ATS match score."}},
+    {"@type":"Question","name":"Should I use a PDF or Word document for ATS?","acceptedAnswer":{"@type":"Answer","text":"Word (.docx) is generally the safest choice unless the employer specifically requests PDF. If using PDF, make sure it's text-based, not a scanned image."}},
+    {"@type":"Question","name":"Can I use graphics, icons, or a photo in an ATS resume?","acceptedAnswer":{"@type":"Answer","text":"Avoid them. Icons, photos, and graphics are often unreadable by ATS software and can cause your information to be misparsed or dropped entirely."}},
+    {"@type":"Question","name":"Is an ATS resume maker useful for internships?","acceptedAnswer":{"@type":"Answer","text":"Yes, many college career portals and internship platforms route applications through ATS software, so formatting correctly matters even for entry-level roles."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://banaoresumee.online/"},
+    {"@type":"ListItem","position":2,"name":"Resume Tools","item":"https://banaoresumee.online/resume-tools"},
+    {"@type":"ListItem","position":3,"name":"ATS Resume Maker","item":"https://banaoresumee.online/ats-resume-maker"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BanaoResumee",
+  "url": "https://banaoresumee.online",
+  "logo": "https://banaoresumee.online/logo.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "ATS Resume Maker: Build a Job-Winning Resume Free",
+  "description": "Create an ATS-friendly resume in minutes with our free ATS resume maker.",
+  "url": "https://banaoresumee.online/ats-resume-maker"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF8F2;
+    --paper-dim:#F1EEE4;
+    --ink:#17233D;
+    --ink-soft:#455066;
+    --slate:#6E7A8F;
+    --line:#DAD4C3;
+    --highlight:#FFD23F;
+    --highlight-soft:#FFF1BE;
+    --pass:#1F8F5B;
+    --fail:#C0442C;
+    --radius:14px;
+    --shadow: 0 1px 0 rgba(23,35,61,.05), 0 12px 30px -14px rgba(23,35,61,.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    color:var(--ink);
+    margin:0 0 .4em;
+    line-height:1.12;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--highlight);border:1px solid var(--ink);}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,242,.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;letter-spacing:-.01em;}
+  .brand span{color:var(--pass);}
+  .nav-cta{
+    background:var(--ink);color:var(--paper);
+    padding:9px 18px;border-radius:999px;
+    font-size:.85rem;font-weight:600;text-decoration:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .nav-cta:hover{background:var(--pass);transform:translateY(-1px);}
+
+  /* HERO */
+  .hero{padding:72px 0 40px;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(2.1rem,4vw,3.3rem);font-weight:600;letter-spacing:-.02em;}
+  .hero h1 em{font-style:normal;color:var(--pass);}
+  .hero p.lead{font-size:1.08rem;color:var(--ink-soft);max-width:52ch;margin:0 0 26px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px;}
+  .btn-primary{
+    background:var(--pass);color:#fff;padding:14px 26px;border-radius:10px;
+    font-weight:700;text-decoration:none;font-size:.98rem;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-secondary{
+    border:1.5px solid var(--ink);color:var(--ink);padding:13px 22px;border-radius:10px;
+    text-decoration:none;font-weight:600;font-size:.95rem;
+  }
+  .trust-line{font-size:.82rem;color:var(--slate);}
+
+  /* SCAN CARD - signature element */
+  .scan-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:26px 26px 22px;position:relative;overflow:hidden;
+  }
+  .scan-card .doc-title{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--slate);
+    display:flex;justify-content:space-between;margin-bottom:14px;border-bottom:1px dashed var(--line);padding-bottom:10px;}
+  .doc-line{height:9px;border-radius:4px;background:var(--paper-dim);margin-bottom:9px;position:relative;}
+  .doc-line.short{width:55%;}
+  .doc-line.med{width:78%;}
+  .doc-line.full{width:100%;}
+  .kw{background:transparent;border-radius:3px;padding:0 2px;transition:background .35s ease, color .35s ease;}
+  .scan-sweep{
+    position:absolute;left:0;top:0;width:100%;height:3px;
+    background:linear-gradient(90deg, transparent, var(--highlight) 40%, var(--highlight) 60%, transparent);
+    box-shadow:0 0 16px 4px rgba(255,210,63,.55);
+    animation:sweep 3.6s ease-in-out infinite;
+    opacity:.95;
+  }
+  @keyframes sweep{
+    0%{top:38px;}
+    45%{top:calc(100% - 40px);}
+    50%{top:calc(100% - 40px);}
+    95%{top:38px;}
+    100%{top:38px;}
+  }
+  .kw.hit{background:var(--highlight-soft);color:var(--ink);font-weight:600;}
+  .score-pill{
+    position:absolute;bottom:16px;right:16px;background:var(--ink);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:6px 12px;border-radius:999px;
+  }
+
+  /* SECTIONS */
+  section{padding:56px 0;}
+  .section-head{max-width:640px;margin:0 auto 36px;text-align:center;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .section-head p{color:var(--ink-soft);}
+
+  /* FEATURE GRID */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .feature-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .feature-card .num{font-family:'JetBrains Mono',monospace;color:var(--pass);font-size:.8rem;margin-bottom:8px;display:block;}
+  .feature-card h3{font-size:1.05rem;margin-bottom:6px;}
+  .feature-card p{color:var(--ink-soft);font-size:.94rem;margin:0;}
+
+  /* STEPS */
+  .steps{counter-reset:step;}
+  .step{
+    display:grid;grid-template-columns:56px 1fr;gap:20px;padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    counter-increment:step;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--paper-dim);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--ink);
+  }
+  .step-num::before{content:counter(step);}
+  .step h3{font-size:1.05rem;margin-bottom:4px;}
+  .step p{color:var(--ink-soft);margin:0;font-size:.95rem;}
+
+  /* COMPARISON TABLE */
+  table.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  table.cmp th, table.cmp td{padding:14px 16px;text-align:left;font-size:.92rem;border-bottom:1px solid var(--line);}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;}
+  table.cmp tr:last-child td{border-bottom:none;}
+  table.cmp td.yes{color:var(--pass);font-weight:600;}
+  table.cmp td.no{color:var(--fail);}
+
+  /* PROS CONS */
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .pc-card{border-radius:var(--radius);padding:22px;border:1px solid var(--line);background:#fff;}
+  .pc-card h3{font-size:1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .pc-card.pros h3{color:var(--pass);}
+  .pc-card.cons h3{color:var(--fail);}
+  .pc-card ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:.93rem;}
+  .pc-card li{margin-bottom:8px;}
+
+  /* FAQ ACCORDION */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;
+    padding:18px 0;font-family:'Fraunces',serif;font-size:1.02rem;
+    display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--ink);
+  }
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;font-size:1.2rem;color:var(--pass);transition:transform .2s ease;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--ink-soft);font-size:.94rem;}
+  .faq-a p{margin:0 0 16px;}
+
+  /* CTA BAND */
+  .cta-band{
+    background:var(--ink);color:var(--paper);border-radius:20px;
+    padding:48px 40px;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);}
+  .cta-band p{color:#C7CEDB;max-width:52ch;margin:0 auto 24px;}
+  .cta-band .btn-primary{background:var(--highlight);color:var(--ink);}
+
+  footer{border-top:1px solid var(--line);padding:32px 0;margin-top:20px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--slate);}
+  footer a{color:var(--pass);text-decoration:none;font-weight:600;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr;}
+    .proscons{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scan-sweep{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resumee</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online" target="_blank" rel="noopener">Build My Resume →</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Free ATS Resume Maker</span>
+        <h1>Build an <em>ATS resume maker</em>&#8209;approved resume that gets past the bots</h1>
+        <p class="lead">Most resumes get rejected before a human ever reads them. Our <strong>ATS resume maker</strong> formats, scores, and keyword-matches your resume against real job descriptions — so job hunters and interns in the US and India actually get interviews.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://banaoresumee.online" target="_blank" rel="noopener">🚀 Make My Resume Free</a>
+          <a class="btn-secondary" href="#how-it-works">See How It Works</a>
+        </div>
+        <div class="trust-line">No signup required to start · Used by job hunters & interns across the US and India</div>
+      </div>
+
+      <div class="scan-card">
+        <div class="scan-sweep"></div>
+        <div class="doc-title"><span>resume.docx</span><span>ATS Preview</span></div>
+        <div class="doc-line short"></div>
+        <div class="doc-line med"></div>
+        <div class="doc-line full"></div>
+        <div class="doc-line med"></div>
+        <div class="doc-line full" style="margin-top:18px;"></div>
+        <div class="doc-line short"></div>
+        <div class="doc-line med"></div>
+        <div class="doc-line full"></div>
+        <div class="doc-line short"></div>
+        <div class="score-pill">Match Score 94%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-is">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What it does</span>
+        <h2>Why an ATS resume maker matters</h2>
+        <p>Over 98% of large employers — and a growing share of small businesses in the US and India — use applicant tracking systems like Workday, Greenhouse, Taleo, and iCIMS to filter resumes before a recruiter sees them.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="num">01</span>
+          <h3>Clean, parsable formatting</h3>
+          <p>No tables, columns, or graphics that scramble your info when scanned by ATS software.</p>
+        </div>
+        <div class="feature-card">
+          <span class="num">02</span>
+          <h3>Live keyword matching</h3>
+          <p>Paste any job description and instantly see which skills and keywords you're missing.</p>
+        </div>
+        <div class="feature-card">
+          <span class="num">03</span>
+          <h3>Built for job hunters & interns</h3>
+          <p>Templates tuned for entry-level résumés, internships, and experienced professionals alike.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Step by step</span>
+        <h2>How the ATS resume maker works</h2>
+        <p>Eight simple steps from blank page to a resume ready to submit.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num"></div><div><h3>Choose an ATS-approved template</h3><p>Single-column layout, standard fonts, zero graphics.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Add your contact details</h3><p>Name, phone, email, LinkedIn, city — no design elements needed.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Write a targeted summary</h3><p>2–3 lines mirroring the exact role and language from the job post.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>List your experience</h3><p>Standard headings, action verbs, and quantifiable results.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Add a matched skills section</h3><p>Hard and soft skills pulled straight from the job description.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Include education & certifications</h3><p>Crucial for freshers and interns with limited work history.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Run the ATS compatibility check</h3><p>Get a real-time match score and fix flagged issues instantly.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Export the right format</h3><p>Download as .docx or text-based PDF — recruiter-ready.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a class="btn-primary" href="https://banaoresumee.online" target="_blank" rel="noopener">Start Building Free →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparison">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Comparison</span>
+        <h2>ATS Resume Maker vs. Traditional Resume Builder</h2>
+      </div>
+      <table class="cmp">
+        <tr><th>Feature</th><th>ATS Resume Maker</th><th>Design-Focused Builder</th></tr>
+        <tr><td>Layout</td><td class="yes">Single-column, clean</td><td class="no">Multi-column, graphic-heavy</td></tr>
+        <tr><td>Parsing accuracy</td><td class="yes">95%+</td><td class="no">40–60%</td></tr>
+        <tr><td>Keyword matching</td><td class="yes">Built-in</td><td class="no">Rarely included</td></tr>
+        <tr><td>Best for</td><td>Corporate jobs & internships</td><td>Creative portfolios</td></tr>
+        <tr><td>File compatibility</td><td class="yes">.docx / text PDF</td><td class="no">Often image-based PDF</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Weigh it up</span>
+        <h2>Pros & Cons of an ATS Resume Maker</h2>
+      </div>
+      <div class="proscons">
+        <div class="pc-card pros">
+          <h3>✓ Pros</h3>
+          <ul>
+            <li>Higher chance of passing automated screening</li>
+            <li>Saves time with compliant templates</li>
+            <li>Real-time keyword suggestions</li>
+            <li>Great for high-volume internship applications</li>
+            <li>Fewer formatting-based auto-rejections</li>
+          </ul>
+        </div>
+        <div class="pc-card cons">
+          <h3>✕ Cons</h3>
+          <ul>
+            <li>Templates look plainer than designer resumes</li>
+            <li>Keyword overuse can hurt human readability</li>
+            <li>Free tiers may limit downloads or scans</li>
+            <li>Doesn't guarantee an interview — only visibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap" style="max-width:760px;">
+      <div class="section-head">
+        <span class="eyebrow">People also ask</span>
+        <h2>FAQs about ATS resume makers</h2>
+      </div>
+      <div id="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is an ATS resume maker?<span class="plus">+</span></button>
+          <div class="faq-a"><p>An ATS resume maker is an online tool that builds resumes formatted to be correctly read and ranked by applicant tracking systems used by employers to filter job applications.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is a free ATS resume maker good enough?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, for most job seekers. Free versions typically offer solid templates and basic keyword matching. Paid versions add advanced ATS scoring, unlimited downloads, and premium templates.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need a different resume for every job application?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Ideally, yes. Tailoring your resume's keywords and summary to each specific job description significantly improves your ATS match score.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Should I use a PDF or Word document for ATS?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Word (.docx) is generally the safest choice unless the employer specifically requests PDF. If using PDF, make sure it's text-based, not a scanned image.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I use graphics, icons, or a photo in an ATS resume?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Avoid them. Icons, photos, and graphics are often unreadable by ATS software and can cause your information to be misparsed or dropped entirely.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is an ATS resume maker useful for internships?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes — many college career portals and internship platforms route applications through ATS software, so formatting correctly matters even for entry-level roles.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Stop getting filtered out. Start getting interviews.</h2>
+        <p>Build your free ATS-optimized resume with BanaoResumee in under 10 minutes — no design skills needed.</p>
+        <a class="btn-primary" href="https://banaoresumee.online" target="_blank" rel="noopener">🚀 Make My Resume at BanaoResumee.online</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 BanaoResumee · Free ATS Resume Maker for Job Hunters & Interns</span>
+    <a href="https://banaoresumee.online" target="_blank" rel="noopener">banaoresumee.online →</a>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 40 + 'px';
+      }
+    });
+  });
+
+  // Keyword highlight sync with scan sweep (signature interaction)
+  const lines = document.querySelectorAll('.doc-line');
+  const keywords = ['ATS','resume','keyword','match','skills','experience','internship','optimized'];
+  lines.forEach((line, i) => {
+    if(Math.random() > 0.4){
+      line.innerHTML = '<span class="kw">' + keywords[i % keywords.length] + '</span>';
+      line.style.background = 'transparent';
+      line.style.color = 'var(--ink-soft)';
+      line.style.fontSize = '.75rem';
+      line.style.fontFamily = "'JetBrains Mono', monospace";
+      line.style.display = 'flex';
+      line.style.alignItems = 'center';
+    }
+  });
+
+  function pulseHighlight(){
+    const all = document.querySelectorAll('.kw');
+    all.forEach(k => k.classList.remove('hit'));
+    const n = 3 + Math.floor(Math.random()*3);
+    const shuffled = [...all].sort(()=>0.5-Math.random()).slice(0,n);
+    shuffled.forEach(k => k.classList.add('hit'));
+  }
+  setInterval(pulseHighlight, 3600);
+  pulseHighlight();
+</script>
+
+</body>
+</html>
