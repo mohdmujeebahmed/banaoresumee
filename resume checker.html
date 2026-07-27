@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Checker: Free Instant ATS Score & Feedback</title>
+<meta name="description" content="Run your resume through a free resume checker to get an instant ATS score, keyword gaps, and formatting fixes. Improve your resume and get more interviews.">
+<link rel="canonical" href="https://banaoresumee.online/resume-checker">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a resume checker?","acceptedAnswer":{"@type":"Answer","text":"A resume checker is a tool that analyzes your resume for ATS compatibility, keyword alignment, formatting issues, and grammar, giving you a score and specific recommendations to improve it."}},
+    {"@type":"Question","name":"Is a free resume checker accurate?","acceptedAnswer":{"@type":"Answer","text":"Most reputable free resume checkers use the same core parsing logic as paid tools, checking format, structure, and keyword overlap reliably."}},
+    {"@type":"Question","name":"Do resume checkers guarantee an interview?","acceptedAnswer":{"@type":"Answer","text":"No. A resume checker tells you whether your resume will be correctly read and ranked by an ATS, it doesn't evaluate your fit for the role."}},
+    {"@type":"Question","name":"How often should I check my resume?","acceptedAnswer":{"@type":"Answer","text":"Ideally before every job application, especially when tailoring your resume to a new job description."}},
+    {"@type":"Question","name":"What's the difference between a resume checker and a resume builder?","acceptedAnswer":{"@type":"Answer","text":"A resume checker diagnoses an existing resume, while a resume builder like an ATS resume maker helps you create one from scratch."}},
+    {"@type":"Question","name":"Can a resume checker fix my resume for me?","acceptedAnswer":{"@type":"Answer","text":"Most checkers only flag issues; they don't rewrite content. For a full rebuild, use a dedicated ATS resume maker."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://banaoresumee.online/"},
+    {"@type":"ListItem","position":2,"name":"Resume Tools","item":"https://banaoresumee.online/resume-tools"},
+    {"@type":"ListItem","position":3,"name":"Resume Checker","item":"https://banaoresumee.online/resume-checker"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BanaoResumee",
+  "url": "https://banaoresumee.online",
+  "logo": "https://banaoresumee.online/logo.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Resume Checker: Free Instant ATS Score & Feedback",
+  "description": "Run your resume through a free resume checker to get an instant ATS score, keyword gaps, and formatting fixes.",
+  "url": "https://banaoresumee.online/resume-checker"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF8F2; --paper-dim:#F1EEE4; --ink:#17233D; --ink-soft:#455066;
+    --slate:#6E7A8F; --line:#DAD4C3; --highlight:#FFD23F; --highlight-soft:#FFF1BE;
+    --pass:#1F8F5B; --warn:#C98A1D; --fail:#C0442C; --radius:14px;
+    --shadow: 0 1px 0 rgba(23,35,61,.05), 0 12px 30px -14px rgba(23,35,61,.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;color:var(--ink);margin:0 0 .4em;line-height:1.15;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);display:inline-flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--highlight);border:1px solid var(--ink);}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;}
+  .brand span{color:var(--pass);}
+  .nav-cta{background:var(--ink);color:var(--paper);padding:9px 18px;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;}
+  .nav-cta:hover{background:var(--pass);transform:translateY(-1px);}
+
+  .hero{padding:68px 0 36px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;}
+  .hero h1{font-size:clamp(2rem,3.8vw,3.1rem);font-weight:600;letter-spacing:-.02em;}
+  .hero h1 em{font-style:normal;color:var(--pass);}
+  .hero p.lead{font-size:1.06rem;color:var(--ink-soft);max-width:54ch;margin:0 0 24px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+  .btn-primary{background:var(--pass);color:#fff;padding:14px 26px;border-radius:10px;font-weight:700;text-decoration:none;font-size:.98rem;box-shadow:var(--shadow);transition:.15s;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-secondary{border:1.5px solid var(--ink);color:var(--ink);padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.95rem;}
+  .trust-line{font-size:.82rem;color:var(--slate);}
+
+  .score-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;text-align:center;}
+  .gauge-wrap{position:relative;width:200px;height:200px;margin:0 auto 12px;}
+  .gauge-wrap svg{transform:rotate(-90deg);}
+  .gauge-bg{fill:none;stroke:var(--paper-dim);stroke-width:14;}
+  .gauge-fg{fill:none;stroke:var(--pass);stroke-width:14;stroke-linecap:round;stroke-dasharray:565;stroke-dashoffset:565;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1);}
+  .gauge-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:2.2rem;color:var(--ink);}
+  .gauge-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--slate);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+  .score-rows{text-align:left;font-size:.85rem;}
+  .score-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);}
+  .score-row:last-child{border-bottom:none;}
+  .score-row .tag{color:var(--ink-soft);}
+  .score-row .val{font-family:'JetBrains Mono',monospace;font-weight:600;}
+  .val.good{color:var(--pass);} .val.mid{color:var(--warn);} .val.bad{color:var(--fail);}
+
+  section{padding:52px 0;}
+  .section-head{max-width:660px;margin:0 auto 32px;text-align:center;}
+  .section-head h2{font-size:clamp(1.5rem,2.8vw,2.1rem);}
+  .section-head p{color:var(--ink-soft);}
+
+  .toc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow);}
+  .toc h2{font-size:1.05rem;margin-bottom:14px;}
+  .toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;}
+  .toc li{margin-bottom:8px;font-size:.92rem;break-inside:avoid;}
+  .toc a{text-decoration:none;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+  .toc a:hover{color:var(--pass);border-color:var(--pass);}
+
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .feature-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:.18s;}
+  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .feature-card .num{font-family:'JetBrains Mono',monospace;color:var(--pass);font-size:.78rem;display:block;margin-bottom:6px;}
+  .feature-card h3{font-size:.98rem;margin-bottom:4px;}
+  .feature-card p{color:var(--ink-soft);font-size:.88rem;margin:0;}
+
+  .steps{counter-reset:step;}
+  .step{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step-num{counter-increment:step;width:40px;height:40px;border-radius:50%;background:var(--paper-dim);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:600;}
+  .step-num::before{content:counter(step);}
+  .step h3{font-size:1rem;margin-bottom:3px;}
+  .step p{color:var(--ink-soft);margin:0;font-size:.92rem;}
+  .step a{color:var(--pass);font-weight:600;text-decoration:underline;}
+
+  table.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:.9rem;}
+  table.cmp th,table.cmp td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:.82rem;}
+  table.cmp tr:last-child td{border-bottom:none;}
+  table.cmp td.good{color:var(--pass);font-weight:600;}
+  table.cmp td.bad{color:var(--fail);}
+  table.cmp a{color:var(--pass);font-weight:600;}
+  .table-scroll{overflow-x:auto;}
+
+  .mistake-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .mistake{background:#fff;border:1px solid var(--line);border-left:4px solid var(--fail);border-radius:10px;padding:14px 16px;font-size:.9rem;color:var(--ink-soft);}
+
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .pc-card{border-radius:var(--radius);padding:22px;border:1px solid var(--line);background:#fff;}
+  .pc-card h3{font-size:1rem;margin-bottom:12px;}
+  .pc-card.pros h3{color:var(--pass);} .pc-card.cons h3{color:var(--fail);}
+  .pc-card ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:.92rem;}
+  .pc-card li{margin-bottom:8px;}
+
+  .usecase-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .tab-btn{background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--ink-soft);}
+  .tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .tab-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+  .tab-panel.active{display:block;}
+
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:17px 0;font-family:'Fraunces',serif;font-size:1rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--ink);}
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;font-size:1.2rem;color:var(--pass);transition:.2s;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--ink-soft);font-size:.93rem;}
+  .faq-a p{margin:0 0 16px;}
+
+  .cta-band{background:var(--ink);color:var(--paper);border-radius:20px;padding:46px 38px;text-align:center;}
+  .cta-band h2{color:#fff;font-size:clamp(1.4rem,2.8vw,2rem);}
+  .cta-band p{color:#C7CEDB;max-width:54ch;margin:0 auto 22px;}
+  .cta-band .btn-primary{background:var(--highlight);color:var(--ink);}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;margin-top:16px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--slate);}
+  footer a{color:var(--pass);text-decoration:none;font-weight:600;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr 1fr;}
+    .proscons{grid-template-columns:1fr;}
+    .mistake-grid{grid-template-columns:1fr;}
+    .toc ol{columns:1;}
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resumee</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">Fix My Resume →</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Free Resume Checker</span>
+        <h1>Find out in 60 seconds if your <em>resume checker</em> score will get you past the bots</h1>
+        <p class="lead">A <strong>resume checker</strong> scans your resume the way an ATS does — scoring formatting, keyword match, and grammar so you know exactly what to fix before you hit submit.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">🔍 Check My Resume Free</a>
+          <a class="btn-secondary" href="#how-it-works">See How Scoring Works</a>
+        </div>
+        <div class="trust-line">No signup required · Built for job hunters & interns in the US and India</div>
+      </div>
+
+      <div class="score-card">
+        <div class="gauge-label">Sample Resume Score</div>
+        <div class="gauge-wrap">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle class="gauge-bg" cx="100" cy="100" r="90"></circle>
+            <circle class="gauge-fg" id="gaugeFg" cx="100" cy="100" r="90"></circle>
+          </svg>
+          <div class="gauge-num" id="gaugeNum">0%</div>
+        </div>
+        <div class="score-rows">
+          <div class="score-row"><span class="tag">ATS Formatting</span><span class="val good">Pass</span></div>
+          <div class="score-row"><span class="tag">Keyword Match</span><span class="val mid">68%</span></div>
+          <div class="score-row"><span class="tag">Grammar</span><span class="val good">Clean</span></div>
+          <div class="score-row"><span class="tag">Section Structure</span><span class="val good">Pass</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="toc">
+        <h2>What's covered on this page</h2>
+        <ol>
+          <li><a href="#what-is">What Is a Resume Checker?</a></li>
+          <li><a href="#how-it-works">How a Resume Checker Works</a></li>
+          <li><a href="#what-it-scores">What Gets Scored</a></li>
+          <li><a href="#step-by-step">Step-by-Step Guide</a></li>
+          <li><a href="#comparison">Checker vs. Builder vs. Human</a></li>
+          <li><a href="#mistakes">Common Mistakes Caught</a></li>
+          <li><a href="#pros-cons">Pros & Cons</a></li>
+          <li><a href="#use-cases">Use Cases by Job Seeker Type</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-is" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The basics</span>
+        <h2>What is a resume checker?</h2>
+        <p>A resume checker analyzes your resume the way real hiring software does — flagging what's blocking you before a recruiter ever sees your application. Recruiters reportedly scan resumes in as little as 6–7 seconds, and a large share never make it past the ATS filter first.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card"><span class="num">01</span><h3>Parsing check</h3><p>Confirms the ATS can actually read your layout.</p></div>
+        <div class="feature-card"><span class="num">02</span><h3>Keyword match</h3><p>Compares your resume to a real job description.</p></div>
+        <div class="feature-card"><span class="num">03</span><h3>Content strength</h3><p>Flags weak, duty-based bullet points.</p></div>
+        <div class="feature-card"><span class="num">04</span><h3>Grammar & structure</h3><p>Catches typos and inconsistent formatting.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Under the hood</span>
+        <h2 id="what-it-scores">What a good resume checker actually scores</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="cmp">
+          <tr><th>Category</th><th>What's Evaluated</th><th>Why It Matters</th></tr>
+          <tr><td>ATS Compatibility</td><td>Format, file type, section headers</td><td>Determines if the ATS can read your resume at all</td></tr>
+          <tr><td>Keyword Match</td><td>Overlap with job description</td><td>Drives your ranking inside the ATS</td></tr>
+          <tr><td>Content Strength</td><td>Action verbs, quantified results</td><td>Signals impact, not just duties</td></tr>
+          <tr><td>Grammar & Spelling</td><td>Typos, tense, punctuation</td><td>Treated as an attention-to-detail signal</td></tr>
+          <tr><td>Length & Density</td><td>Word count, section balance</td><td>Too short or too long both hurt you</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="step-by-step" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Do this now</span>
+        <h2>How to check your resume, step by step</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num"></div><div><h3>Save in a standard format</h3><p>Use .docx or a text-based PDF — never a scanned image.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Find your target job description</h3><p>Use a real posting for the most accurate keyword comparison.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Run the resume checker</h3><p>Upload or paste your resume alongside the job description.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Review your score</h3><p>Below 70% usually signals meaningful gaps to close.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Fix issues by priority</h3><p>Formatting first, then keywords, then grammar and tone.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h3>Rebuild if needed</h3><p>Major structural problems? Use the <a href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">ATS Resume Maker</a> instead of patching it.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <a class="btn-primary" href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">Build an ATS-Ready Resume →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparison">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Comparison</span>
+        <h2>Resume Checker vs. ATS Resume Maker vs. Human Review</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="cmp">
+          <tr><th>Feature</th><th>Resume Checker</th><th>ATS Resume Maker</th><th>Human Review</th></tr>
+          <tr><td>Purpose</td><td>Diagnose existing resume</td><td>Build a new compliant resume</td><td>Subjective career feedback</td></tr>
+          <tr><td>Speed</td><td class="good">Under 1 minute</td><td>10–20 minutes</td><td class="bad">Days</td></tr>
+          <tr><td>Cost</td><td class="good">Often free</td><td class="good">Often free</td><td class="bad">$50–$300+</td></tr>
+          <tr><td>Keyword Matching</td><td class="good">Automated</td><td class="good">Built-in</td><td class="bad">Rarely quantified</td></tr>
+          <tr><td>Best For</td><td>Checking before submitting</td><td><a href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">Building from scratch</a></td><td>Executive positioning</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Red flags</span>
+        <h2>Common mistakes a checker catches</h2>
+      </div>
+      <div class="mistake-grid">
+        <div class="mistake">Multi-column layouts that scramble text order when parsed</div>
+        <div class="mistake">Graphics, icons, and skill bars ATS software can't read</div>
+        <div class="mistake">Missing keywords present in the job description</div>
+        <div class="mistake">Inconsistent date formats across roles</div>
+        <div class="mistake">Passive, duty-based bullets instead of quantified results</div>
+        <div class="mistake">Non-standard section headers like "My Journey"</div>
+        <div class="mistake">Typos, especially in the summary or most recent role</div>
+        <div class="mistake">Resume length mismatched to seniority level</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pros-cons">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Weigh it up</span>
+        <h2>Pros & cons of using a resume checker</h2>
+      </div>
+      <div class="proscons">
+        <div class="pc-card pros">
+          <h3>✓ Pros</h3>
+          <ul>
+            <li>Instant, objective feedback instead of guessing</li>
+            <li>Catches formatting issues invisible to the eye</li>
+            <li>Quantifies keyword alignment with a specific job</li>
+            <li>Free tools make this accessible to everyone</li>
+          </ul>
+        </div>
+        <div class="pc-card cons">
+          <h3>✕ Cons</h3>
+          <ul>
+            <li>A high score doesn't guarantee an interview</li>
+            <li>Automated grammar checks can miss tone or nuance</li>
+            <li>Over-optimizing can feel robotic if unbalanced</li>
+            <li>Free tiers may limit checks per day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="use-cases" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who it's for</span>
+        <h2>Resume checker use cases</h2>
+      </div>
+      <div class="usecase-tabs">
+        <button class="tab-btn active" data-tab="t1">Students & Interns</button>
+        <button class="tab-btn" data-tab="t2">Career Changers</button>
+        <button class="tab-btn" data-tab="t3">Professionals</button>
+      </div>
+      <div class="tab-panel active" id="t1"><p>Especially valuable with limited work history — it tells you whether academic projects and coursework are strong enough to compensate, and flags when your resume is too generic for the internships you're targeting.</p></div>
+      <div class="tab-panel" id="t2"><p>Highlights exactly which of your existing keywords transfer to a new industry, and which critical terms are missing — helping you reframe past experience in the new field's language.</p></div>
+      <div class="tab-panel" id="t3"><p>Catches "keyword drift," where your resume still reflects outdated tools, titles, or terminology that no longer match how the market describes your target role.</p></div>
+    </div>
+  </section>
+
+  <section id="faqs">
+    <div class="wrap" style="max-width:760px;">
+      <div class="section-head">
+        <span class="eyebrow">People also ask</span>
+        <h2>FAQs about resume checkers</h2>
+      </div>
+      <div id="faq-list">
+        <div class="faq-item"><button class="faq-q">What is a resume checker?<span class="plus">+</span></button><div class="faq-a"><p>A resume checker is a tool that analyzes your resume for ATS compatibility, keyword alignment, formatting issues, and grammar, giving you a score and specific recommendations to improve it.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Is a free resume checker accurate?<span class="plus">+</span></button><div class="faq-a"><p>Most reputable free resume checkers use the same core parsing logic as paid tools, checking format, structure, and keyword overlap reliably.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do resume checkers guarantee an interview?<span class="plus">+</span></button><div class="faq-a"><p>No. A resume checker tells you whether your resume will be correctly read and ranked by an ATS — it doesn't evaluate your fit for the role.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How often should I check my resume?<span class="plus">+</span></button><div class="faq-a"><p>Ideally before every job application, especially when tailoring your resume to a new job description.</p></div></div>
+        <div class="faq-item"><button class="faq-q">What's the difference between a checker and a builder?<span class="plus">+</span></button><div class="faq-a"><p>A resume checker diagnoses an existing resume. A resume builder — like an ATS resume maker — helps you create one from scratch.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can a resume checker fix my resume for me?<span class="plus">+</span></button><div class="faq-a"><p>Most checkers only flag issues; they don't rewrite content. For a full rebuild, use a dedicated <a href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">ATS resume maker</a>.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Know your score before you hit submit.</h2>
+        <p>Check your resume free, then fix it in minutes with our ATS Resume Maker — built to pass applicant tracking systems in the US and India.</p>
+        <a class="btn-primary" href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">🔍 Check & Fix My Resume Free</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 BanaoResumee · Free Resume Checker & ATS Resume Maker</span>
+    <a href="https://banaoresumee.online/ats-resume-maker.html" target="_blank" rel="noopener">banaoresumee.online →</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 40 + 'px'; }
+    });
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  const circumference = 2 * Math.PI * 90;
+  const fg = document.getElementById('gaugeFg');
+  const num = document.getElementById('gaugeNum');
+  fg.style.strokeDasharray = circumference;
+  const target = 82;
+  let current = 0;
+  function animateGauge(){
+    const step = () => {
+      current += (target - current) * 0.08;
+      if(target - current < 0.5) current = target;
+      const offset = circumference - (current/100)*circumference;
+      fg.style.strokeDashoffset = offset;
+      num.textContent = Math.round(current) + '%';
+      if(current < target) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('load', () => setTimeout(animateGauge, 300));
+</script>
+
+</body>
+</html>
