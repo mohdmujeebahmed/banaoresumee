@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Resume Columns: Why This Layout Choice Breaks Parsing Most Often | BanaoResume</title>
+<meta name="description" content="ATS resume columns are the single most common cause of scrambled parsing. Here's exactly why, and how to rebuild a column layout safely.">
+<link rel="canonical" href="https://banaoresumee.online/ats-resume-columns.html">
+<meta property="og:title" content="ATS Resume Columns: Why This Layout Choice Breaks Parsing Most Often | BanaoResume">
+<meta property="og:description" content="ATS resume columns are the single most common cause of scrambled parsing. Here's exactly why, and how to rebuild a column layout safely.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>/* ================= ATS Troubleshooting Page — Design System 2 =================
+   Palette: light "diagnostic report" surface — paper background, ink text,
+   signal red for the problem, signal green for the fix.
+   Signature: a terminal-style status strip that flips from
+   ERROR (red) to FIXED (green) — literalizing "diagnose then resolve."
+=================================================================== */
+
+:root{
+  --paper: #f6f4ee;
+  --paper-card: #ffffff;
+  --paper-card-alt: #efece2;
+  --ink: #1c1b18;
+  --ink-muted: #5c584f;
+  --ink-dim: #8b867a;
+  --line: #e2ddd0;
+  --error: #c8402f;
+  --error-bg: rgba(200,64,47,0.08);
+  --fixed: #227a52;
+  --fixed-bg: rgba(34,122,82,0.08);
+  --accent: #1c1b18;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --display: 'Libre Franklin', sans-serif;
+  --body: 'Source Sans 3', sans-serif;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  line-height:1.68;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+a{color:var(--fixed); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; background:rgba(246,244,238,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1120px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+.brand{font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-0.01em; color:var(--ink);}
+.brand span{color:var(--fixed);}
+.nav-cta{font-family:var(--mono); font-size:0.76rem; background:var(--ink); color:var(--paper); padding:9px 16px; border-radius:5px; font-weight:600;}
+.nav-cta:hover{opacity:0.85; text-decoration:none;}
+
+/* ---------- hero ---------- */
+.hero{padding:70px 0 56px; border-bottom:1px solid var(--line);}
+.eyebrow{
+  font-family:var(--mono); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--error); background:var(--error-bg); border:1px solid rgba(200,64,47,0.25);
+  display:inline-flex; padding:6px 12px; border-radius:5px; margin-bottom:22px;
+}
+h1{font-family:var(--display); font-weight:800; font-size:clamp(2rem,4.2vw,3.1rem); line-height:1.12; letter-spacing:-0.02em; color:var(--ink); max-width:800px;}
+.hero-sub{margin-top:20px; font-size:1.1rem; color:var(--ink-muted); max-width:640px;}
+.hero-ctas{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn-primary{font-family:var(--mono); font-weight:700; font-size:0.85rem; background:var(--fixed); color:#fff; padding:13px 22px; border-radius:6px; display:inline-flex; align-items:center; gap:8px;}
+.btn-primary:hover{text-decoration:none; opacity:0.9;}
+.btn-secondary{font-family:var(--mono); font-weight:600; font-size:0.85rem; border:1px solid var(--line); color:var(--ink); padding:13px 22px; border-radius:6px;}
+.btn-secondary:hover{text-decoration:none; border-color:var(--ink);}
+
+/* status strip: ERROR -> FIXED */
+.status-strip{
+  margin-top:46px; max-width:560px; background:var(--ink); border-radius:10px; overflow:hidden;
+  font-family:var(--mono); font-size:0.82rem;
+}
+.status-strip .bar{display:flex; align-items:center; gap:8px; padding:10px 16px; background:#100f0d; border-bottom:1px solid #2a2924;}
+.status-strip .dot{width:9px; height:9px; border-radius:50%; background:#3a382f;}
+.status-strip .body{padding:18px 20px;}
+.status-line{display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#c9c5b8;}
+.tag-error{font-weight:700; color:var(--error); background:rgba(200,64,47,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.tag-fixed{font-weight:700; color:#4ade9c; background:rgba(74,222,156,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.status-strip .dim{color:#6b6858;}
+
+/* ---------- sections ---------- */
+.section{padding:52px 0; border-bottom:1px solid var(--line);}
+.section-label{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:12px; display:flex; align-items:center; gap:10px;}
+.section-label::after{content:""; flex:1; height:1px; background:var(--line);}
+h2{font-family:var(--display); font-weight:800; font-size:clamp(1.45rem,2.4vw,1.9rem); letter-spacing:-0.015em; margin-bottom:16px; color:var(--ink);}
+h3{font-family:var(--display); font-weight:700; font-size:1.12rem; margin:24px 0 8px; color:var(--ink);}
+p{color:#3a372f; margin-bottom:14px;}
+p strong{color:var(--ink);}
+.lede{font-size:1.06rem; color:var(--ink-muted);}
+ul,ol{margin:14px 0 18px 22px; color:#3a372f;}
+li{margin-bottom:8px;}
+
+/* ---------- steps ---------- */
+.steps{display:flex; flex-direction:column; margin-top:22px;}
+.step{display:grid; grid-template-columns:52px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line);}
+.step:last-child{border-bottom:1px solid var(--line);}
+.step-num{font-family:var(--mono); color:var(--fixed); font-size:0.92rem; font-weight:700; padding-top:2px;}
+.step h4{font-family:var(--display); font-size:1.02rem; margin-bottom:5px; color:var(--ink);}
+.step p{margin-bottom:0; color:var(--ink-muted);}
+
+/* ---------- cards ---------- */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+.card{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:18px 20px;}
+.card.err{border-left:3px solid var(--error);}
+.card.good{border-left:3px solid var(--fixed);}
+.card-tag{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:7px; display:block;}
+.card.err .card-tag{color:var(--error);}
+.card.good .card-tag{color:var(--fixed);}
+.card h4{font-family:var(--display); font-size:0.98rem; margin-bottom:6px; color:var(--ink);}
+.card p{margin-bottom:0; color:var(--ink-muted); font-size:0.94rem;}
+
+/* ---------- examples ---------- */
+.example{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:20px 22px; margin-bottom:14px;}
+.example .who{font-family:var(--mono); font-size:0.76rem; color:var(--fixed); margin-bottom:8px;}
+.example p{color:#3a372f; margin-bottom:0; font-size:0.95rem;}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto; margin-top:18px; border:1px solid var(--line); border-radius:9px;}
+table{width:100%; border-collapse:collapse; font-size:0.9rem;}
+th{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; text-align:left; background:var(--paper-card-alt); color:var(--ink-muted); padding:11px 15px; border-bottom:1px solid var(--line);}
+td{padding:12px 15px; border-bottom:1px solid var(--line); color:#3a372f;}
+tr:last-child td{border-bottom:none;}
+td strong{color:var(--ink);}
+
+/* ---------- checklist ---------- */
+.checklist{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:6px 22px; margin-top:18px;}
+.check-item{display:flex; align-items:flex-start; gap:12px; padding:13px 0; border-bottom:1px solid var(--line); font-size:0.94rem; color:#3a372f;}
+.check-item:last-child{border-bottom:none;}
+.check-box{flex-shrink:0; width:17px; height:17px; border:1.5px solid var(--fixed); border-radius:4px; margin-top:2px;}
+
+/* ---------- faq ---------- */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:17px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--display); font-size:0.98rem; font-weight:700; color:var(--ink);}
+.faq-q .icon{font-family:var(--mono); color:var(--fixed); font-size:1.05rem; flex-shrink:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.25s ease;}
+.faq-a p{padding-bottom:17px; color:var(--ink-muted); font-size:0.94rem; margin:0;}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ---------- related ---------- */
+.related{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.related a{font-family:var(--mono); font-size:0.78rem; border:1px solid var(--line); border-radius:20px; padding:8px 16px; color:var(--ink-muted);}
+.related a:hover{border-color:var(--fixed); color:var(--fixed); text-decoration:none;}
+.related a.current{border-color:var(--fixed); color:var(--fixed); background:var(--fixed-bg);}
+
+/* ---------- final CTA ---------- */
+.cta-final{padding:60px 0 72px; text-align:center;}
+.cta-box{background:var(--ink); border-radius:16px; padding:50px 32px; text-align:center;}
+.cta-box h2{margin-bottom:10px; color:#fff;}
+.cta-box p{max-width:520px; margin:0 auto 24px; color:#c9c5b8;}
+.cta-box .btn-primary{background:var(--fixed);}
+
+footer{padding:34px 0; text-align:center;}
+footer p{color:var(--ink-dim); font-size:0.82rem;}
+
+@media(max-width:640px){
+  .hero{padding:50px 0 40px;}
+  .section{padding:38px 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resume</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online">Fix My Resume Free →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">⚠ Troubleshooting Guide</div>
+    <h1>ATS Resume Columns</h1>
+    <p class="hero-sub">A two-column resume looks organized to your eye. To most parsers, it often reads as one scrambled sentence.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">Fix It Free →</a>
+      <a class="btn-secondary" href="#faq">See FAQs</a>
+    </div>
+    <div class="status-strip" aria-hidden="true">
+      <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="body">
+        <div class="status-line"><span class="tag-error">ERROR</span><span>reading_order: columns interleaved — 14 lines scrambled</span></div>
+        <div class="status-line dim">— diagnosing —</div>
+        <div class="status-line"><span class="tag-fixed">FIXED</span><span>reading_order: single column — 14 lines in sequence</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">The Issue</div>
+    <h2>What's Actually Going On: ATS Resume Columns</h2>
+    
+<p class="lede"><strong>ATS resume columns</strong> refers to the practice of dividing a resume's layout into two or more side-by-side vertical sections — commonly a narrow sidebar for skills or contact info alongside a wider main column for experience — and the specific, well-documented parsing risk this creates.</p>
+<p>Column layouts are extremely popular in modern resume templates because they genuinely look organized and visually appealing, making efficient use of page space by separating different categories of information into distinct visual zones. A sidebar for skills and contact details next to a main column for work history is a common, attractive pattern across countless downloadable templates.</p>
+<p>The problem is specifically about reading order. Visually, a human eye naturally understands that a sidebar and a main column are two separate, independent streams of information to be read separately. A parsing engine, however, often processes a page using a much more literal, position-based reading order — commonly left to right, top to bottom, across the entire page width — without necessarily recognizing that two side-by-side columns represent two conceptually separate content streams.</p>
+<p>This mismatch between visual logic and parsing logic is, by a wide margin, the single most common and most severe formatting mistake covered across this entire troubleshooting series, which is why it deserves this level of dedicated, specific attention.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Root cause</div>
+    <h2>Why This Happens</h2>
+    
+<p>Column layouts break for a fairly mechanical reason. Most parsing engines process a page's text content in the order it appears in the underlying document structure, often following the page's physical coordinates from left to right and top to bottom, line by line, across the full page width — much like how a very simple text reader would process a page with no understanding of visual zones or columns at all.</p>
+<p>When your resume has a narrow sidebar on the left and a wider main column on the right, a parser without specific column-detection logic will often read one line's worth of text from the sidebar, then jump to the corresponding line's worth of text from the main column, treating them as one continuous sentence — even though, visually, they represent two completely unrelated pieces of information positioned at the same vertical height purely by coincidence of layout.</p>
+<p>Some more sophisticated, modern parsing engines do include column-detection logic specifically designed to identify and correctly separate these zones. But this capability isn't universal, and even among systems that attempt it, the accuracy can vary depending on exactly how the columns were created — a genuine document column structure behaves differently from a layout achieved through careful use of tables, text boxes, or manual spacing, each of which can affect how reliably any given parser can detect the intended separation.</p>
+<p>The unpredictability across different systems is exactly why this issue is considered high-risk rather than moderate. A resume you've tested and confirmed works on one specific platform provides no reliable guarantee that a different company's ATS, potentially without the same column-detection sophistication, will parse the same file correctly.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Mechanics</div>
+    <h2>How the ATS Handles This</h2>
+    
+<p>For parsers without column-detection logic, the mechanical process is straightforward and largely indifferent to your document's visual intent: extract text based on physical position on the page, moving left to right and top to bottom, regardless of whether that position happens to fall within a sidebar or a main content column.</p>
+<p>The practical output of this process, for a typical two-column resume, is a stream of text where sidebar content and main content alternate unpredictably, often mid-sentence, producing a garbled, largely unusable version of what was originally two clean, separate sections. A skill listed in the sidebar might get spliced directly into the middle of an unrelated job description from the main column.</p>
+<p>For the subset of more sophisticated parsers that do include column-detection, the outcome can be significantly better — correctly identifying and separately processing each column's content in the intended order. But because this capability varies so much by specific platform, and because there's no reliable way to know in advance which type of system a given employer uses, treating all columns as high-risk remains the more prudent, universally safer approach.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Pitfalls</div>
+    <h2>Common Mistakes</h2>
+    <div class="grid2"><div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Using a sidebar for skills or contact information</h4>
+  <p>The single most common column pattern, and one of the most likely to cause severely scrambled extraction on many parsing systems.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Assuming a template's popularity means its columns are safe</h4>
+  <p>Widespread visual popularity reflects design trends, not verified parsing safety — the two are unrelated qualities.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Testing on only one platform and generalizing the result</h4>
+  <p>A column layout that happens to parse correctly on one specific system provides no guarantee of the same result on a different company's ATS.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Using tables or text boxes to simulate a column layout</h4>
+  <p>This can behave even less predictably than a genuine document column structure, since it adds table or text-box parsing risk on top of the column issue.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Keeping essential information exclusively in a sidebar</h4>
+  <p>If a sidebar's content gets scrambled or lost, and it was the only place that information appeared, there's no fallback anywhere else in the document.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Not testing before relying on a column-based resume for real applications</h4>
+  <p>The only reliable way to know your specific column layout's actual risk is a direct scan or parse test, not a general assumption either way.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Walkthrough</div>
+    <h2>Step-by-Step Fixes</h2>
+    <div class="steps"><div class="step">
+  <div class="step-num">01</div>
+  <div><h4>Identify every column structure in your resume</h4><p>Sidebars, split sections, or any content arranged side by side rather than in a single vertical flow.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">02</div>
+  <div><h4>Run a scan or parse test on the current, column-based version</h4><p>See the actual extracted output to understand exactly how scrambled, if at all, your specific layout currently is.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">03</div>
+  <div><h4>Rebuild the layout as a single vertical column</h4><p>Move sidebar content — skills, contact info — to its own clearly labeled section within the main flow, rather than beside it.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">04</div>
+  <div><h4>Reorganize section order to compensate for the lost visual efficiency</h4><p>A single-column layout can still be organized effectively by placing your strongest, most relevant section higher on the page.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">05</div>
+  <div><h4>Use spacing and bold headers to maintain visual clarity</h4><p>A single-column resume can still look clean and organized through consistent spacing and clear section labels, without needing side-by-side columns.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">06</div>
+  <div><h4>Re-test the rebuilt, single-column version</h4><p>Confirm the previously scrambled content now extracts in a clean, correct, sequential order.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">07</div>
+  <div><h4>Compare the before-and-after extraction directly</h4><p>Seeing the specific improvement helps confirm the column structure was indeed the source of the original problem.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Get it right</div>
+    <h2>Best Practices</h2>
+    <div class="grid2"><div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Default to a single-column layout for the entire resume</h4>
+  <p>The single highest-impact, most universally reliable formatting decision covered anywhere in this series.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Use clear section headers instead of visual zones to organize content</h4>
+  <p>"Skills," "Experience," "Education" as distinct, bolded sections in sequence rather than side-by-side columns.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Reserve columns for documents you know won't be parsed</h4>
+  <p>A printed copy for an in-person interview, for instance, where visual design can matter more than machine-readability.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Test any column layout directly before trusting it broadly</h4>
+  <p>If you have a specific reason to keep columns, at minimum confirm the actual extraction behavior rather than assuming either way.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Keep essential information from a sidebar duplicated in the main flow if columns must be used</h4>
+  <p>Provides a fallback in case the sidebar's content is lost or scrambled during parsing.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Prioritize your strongest content near the top of a single column</h4>
+  <p>Compensates for any visual efficiency lost by moving away from a side-by-side layout.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Real world</div>
+    <h2>Real Examples</h2>
+    <div class="example">
+  <div class="who">Fresher using a popular two-column university template</div>
+  <p>A narrow left sidebar held contact info, skills, and languages, while the main right column held education and experience. A parse test showed the two columns interleaved almost entirely, producing an unreadable jumble where skill names appeared spliced into the middle of degree descriptions.</p>
+</div>
+<div class="example">
+  <div class="who">Consultant with a stylish column-based summary section</div>
+  <p>Used a side-by-side layout for a brief bio next to a photo and key stats. Testing revealed the bio text and the stats extracted in a scrambled, alternating order, making the summary section effectively meaningless to the ATS despite reading perfectly clearly to a human eye.</p>
+</div>
+<div class="example">
+  <div class="who">Developer who rebuilt a sidebar into a single column</div>
+  <p>After a scan test revealed his skills sidebar was scrambling with his main experience column, he rebuilt the entire resume as one single vertical flow, with a clearly labeled "Technical Skills" section placed just below his summary. Retesting confirmed clean, fully correct extraction.</p>
+</div>
+<div class="example">
+  <div class="who">Job seeker whose column layout happened to parse correctly on one test</div>
+  <p>Tested his two-column resume on one specific free scanner tool and found it extracted cleanly, concluding columns were safe for his layout. A second, different parsing tool produced a significantly more scrambled result for the exact same file — underscoring that a single successful test doesn't generalize across all systems.</p>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Comparison</div>
+    <h2>Column Layouts vs. Single-Column: Direct Comparison</h2>
+    <div class="tbl-wrap"><table>
+<thead><tr><th>Factor</th><th>Multi-Column Layout</th><th>Single-Column Layout</th></tr></thead>
+<tbody><tr><td>Parsing consistency across ATS platforms</td><td><strong>Low and highly variable</strong></td><td><strong>High and consistent</strong></td></tr><tr><td>Visual space efficiency</td><td><strong>Strong</strong></td><td>Moderate — requires more vertical length</td></tr><tr><td>Risk of scrambled or interleaved text</td><td><strong>High</strong></td><td>Very low</td></tr><tr><td>Suitability for machine-read applications</td><td>Not recommended</td><td><strong>Recommended default</strong></td></tr></tbody>
+</table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Before you submit</div>
+    <h2>Fix-It Checklist</h2>
+    <div class="checklist"><div class="check-item"><div class="check-box"></div><div>Every column structure in the resume identified, including subtle ones</div></div><div class="check-item"><div class="check-box"></div><div>Current column-based version tested to see actual extraction behavior</div></div><div class="check-item"><div class="check-box"></div><div>Layout rebuilt as a single, vertical column throughout</div></div><div class="check-item"><div class="check-box"></div><div>Section order reorganized to place strongest content near the top</div></div><div class="check-item"><div class="check-box"></div><div>Spacing and bold headers used to maintain visual clarity without columns</div></div><div class="check-item"><div class="check-box"></div><div>Rebuilt single-column version re-tested for clean, sequential extraction</div></div><div class="check-item"><div class="check-box"></div><div>Before-and-after extraction compared to confirm the specific improvement</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-label">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Are all column layouts equally risky?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Risk varies somewhat by specific parsing engine and how the columns were technically created, but no column layout is considered universally safe, which is why single-column remains the more reliable general recommendation.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can a sidebar ever be used safely?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Some modern, sophisticated parsers handle columns reasonably well, but there's no reliable way to know in advance which type of system a given employer uses, making single-column the safer default choice regardless.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Why does a column layout look fine when I open it myself?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>You're viewing the document visually, exactly as it was designed to be seen — the parsing risk is specifically about how the underlying text extracts in a different, position-based reading order, which isn't visible just by looking at the page.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is this the single biggest formatting risk covered across ATS guides?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>It's widely considered one of the most common and severe formatting risks, given how frequently column layouts appear in popular templates and how significantly they can scramble extraction.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does converting a column resume to single-column lose any content?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>No — the underlying information stays the same; only the visual arrangement changes from side-by-side to sequential.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can I keep a column layout for a printed or in-person copy?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — the parsing risk specifically applies to digital submissions processed by an ATS. A printed copy for an interview doesn't face this risk at all.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How do I know if my specific resume's columns are a real problem?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Run a scan or parse test and review the extracted output directly — scrambled or interleaved text is a clear, direct sign the column structure is causing genuine parsing issues.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Do some ATS platforms genuinely handle columns well?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Some more advanced systems do include column-detection logic, but this capability varies significantly and isn't something you can verify in advance for a specific employer's system.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is a sidebar for just a photo, with no text, still risky?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>A photo alone carries less direct text-parsing risk, though many ATS-facing resumes avoid photos entirely for other reasons, including general best practice and consistency.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Should I test one column layout and assume the result applies elsewhere?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>No — a result from one specific parsing tool doesn't reliably generalize to other systems, so broader caution is warranted even after one successful test.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can I use columns just for the header area, like name and title?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>This carries somewhat lower risk than a full-resume column layout, but testing directly remains the safest way to confirm it doesn't cause problems for your specific design.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>What's the fastest way to check if my resume has hidden column risk?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Run it through a scanner or parser tool and read the extracted output top to bottom — scrambled, interleaved, or out-of-order text is the clearest possible sign.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Explore the series</div>
+    <h2>Related ATS Troubleshooting Guides</h2>
+    <div class="related"><a href="ats-can-t-read-my-resume.html" class="">ATS Can't Read My Resume</a>
+<a href="ats-rejected-my-resume.html" class="">ATS Rejected My Resume</a>
+<a href="ats-resume-formatting-mistakes.html" class="">ATS Resume Formatting Mistakes</a>
+<a href="ats-resume-keywords-guide.html" class="">ATS Resume Keywords Guide</a>
+<a href="ats-resume-fonts.html" class="">ATS Resume Fonts</a>
+<a href="ats-resume-pdf-vs-docx.html" class="">ATS Resume PDF vs DOCX</a>
+<a href="ats-resume-tables.html" class="">ATS Resume Tables</a>
+<a href="ats-resume-icons.html" class="">ATS Resume Icons</a>
+<a href="ats-resume-columns.html" class="current">ATS Resume Columns</a>
+<a href="ats-resume-graphics.html" class="">ATS Resume Graphics</a></div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Don't let a fixable problem cost you the job.</h2>
+      <p>BanaoResume's templates are built single-column from the ground up, so the most common and most severe ATS parsing risk is never a concern with your resume.</p>
+      <a class="btn-primary" href="https://banaoresumee.online">Build Your Free ATS Resume →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>© 2026 BanaoResume · Free ATS Resume Builder for Indian Students & Freshers</p></div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are all column layouts equally risky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Risk varies somewhat by specific parsing engine and how the columns were technically created, but no column layout is considered universally safe, which is why single-column remains the more reliable general recommendation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a sidebar ever be used safely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some modern, sophisticated parsers handle columns reasonably well, but there's no reliable way to know in advance which type of system a given employer uses, making single-column the safer default choice regardless."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a column layout look fine when I open it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You're viewing the document visually, exactly as it was designed to be seen \u2014 the parsing risk is specifically about how the underlying text extracts in a different, position-based reading order, which isn't visible just by looking at the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the single biggest formatting risk covered across ATS guides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's widely considered one of the most common and severe formatting risks, given how frequently column layouts appear in popular templates and how significantly they can scramble extraction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting a column resume to single-column lose any content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 the underlying information stays the same; only the visual arrangement changes from side-by-side to sequential."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep a column layout for a printed or in-person copy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 the parsing risk specifically applies to digital submissions processed by an ATS. A printed copy for an interview doesn't face this risk at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my specific resume's columns are a real problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run a scan or parse test and review the extracted output directly \u2014 scrambled or interleaved text is a clear, direct sign the column structure is causing genuine parsing issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do some ATS platforms genuinely handle columns well?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some more advanced systems do include column-detection logic, but this capability varies significantly and isn't something you can verify in advance for a specific employer's system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a sidebar for just a photo, with no text, still risky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A photo alone carries less direct text-parsing risk, though many ATS-facing resumes avoid photos entirely for other reasons, including general best practice and consistency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I test one column layout and assume the result applies elsewhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 a result from one specific parsing tool doesn't reliably generalize to other systems, so broader caution is warranted even after one successful test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use columns just for the header area, like name and title?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This carries somewhat lower risk than a full-resume column layout, but testing directly remains the safest way to confirm it doesn't cause problems for your specific design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the fastest way to check if my resume has hidden column risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run it through a scanner or parser tool and read the extracted output top to bottom \u2014 scrambled, interleaved, or out-of-order text is the clearest possible sign."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
