@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Resume Graphics: Why Charts, Photos, and Visual Elements Get Lost | BanaoResume</title>
+<meta name="description" content="ATS resume graphics — skill bar charts, headshots, infographic timelines — are usually invisible to parsing software. Here's what to use instead.">
+<link rel="canonical" href="https://banaoresumee.online/ats-resume-graphics.html">
+<meta property="og:title" content="ATS Resume Graphics: Why Charts, Photos, and Visual Elements Get Lost | BanaoResume">
+<meta property="og:description" content="ATS resume graphics — skill bar charts, headshots, infographic timelines — are usually invisible to parsing software. Here's what to use instead.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>/* ================= ATS Troubleshooting Page — Design System 2 =================
+   Palette: light "diagnostic report" surface — paper background, ink text,
+   signal red for the problem, signal green for the fix.
+   Signature: a terminal-style status strip that flips from
+   ERROR (red) to FIXED (green) — literalizing "diagnose then resolve."
+=================================================================== */
+
+:root{
+  --paper: #f6f4ee;
+  --paper-card: #ffffff;
+  --paper-card-alt: #efece2;
+  --ink: #1c1b18;
+  --ink-muted: #5c584f;
+  --ink-dim: #8b867a;
+  --line: #e2ddd0;
+  --error: #c8402f;
+  --error-bg: rgba(200,64,47,0.08);
+  --fixed: #227a52;
+  --fixed-bg: rgba(34,122,82,0.08);
+  --accent: #1c1b18;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --display: 'Libre Franklin', sans-serif;
+  --body: 'Source Sans 3', sans-serif;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  line-height:1.68;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+a{color:var(--fixed); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; background:rgba(246,244,238,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1120px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+.brand{font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-0.01em; color:var(--ink);}
+.brand span{color:var(--fixed);}
+.nav-cta{font-family:var(--mono); font-size:0.76rem; background:var(--ink); color:var(--paper); padding:9px 16px; border-radius:5px; font-weight:600;}
+.nav-cta:hover{opacity:0.85; text-decoration:none;}
+
+/* ---------- hero ---------- */
+.hero{padding:70px 0 56px; border-bottom:1px solid var(--line);}
+.eyebrow{
+  font-family:var(--mono); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--error); background:var(--error-bg); border:1px solid rgba(200,64,47,0.25);
+  display:inline-flex; padding:6px 12px; border-radius:5px; margin-bottom:22px;
+}
+h1{font-family:var(--display); font-weight:800; font-size:clamp(2rem,4.2vw,3.1rem); line-height:1.12; letter-spacing:-0.02em; color:var(--ink); max-width:800px;}
+.hero-sub{margin-top:20px; font-size:1.1rem; color:var(--ink-muted); max-width:640px;}
+.hero-ctas{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn-primary{font-family:var(--mono); font-weight:700; font-size:0.85rem; background:var(--fixed); color:#fff; padding:13px 22px; border-radius:6px; display:inline-flex; align-items:center; gap:8px;}
+.btn-primary:hover{text-decoration:none; opacity:0.9;}
+.btn-secondary{font-family:var(--mono); font-weight:600; font-size:0.85rem; border:1px solid var(--line); color:var(--ink); padding:13px 22px; border-radius:6px;}
+.btn-secondary:hover{text-decoration:none; border-color:var(--ink);}
+
+/* status strip: ERROR -> FIXED */
+.status-strip{
+  margin-top:46px; max-width:560px; background:var(--ink); border-radius:10px; overflow:hidden;
+  font-family:var(--mono); font-size:0.82rem;
+}
+.status-strip .bar{display:flex; align-items:center; gap:8px; padding:10px 16px; background:#100f0d; border-bottom:1px solid #2a2924;}
+.status-strip .dot{width:9px; height:9px; border-radius:50%; background:#3a382f;}
+.status-strip .body{padding:18px 20px;}
+.status-line{display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#c9c5b8;}
+.tag-error{font-weight:700; color:var(--error); background:rgba(200,64,47,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.tag-fixed{font-weight:700; color:#4ade9c; background:rgba(74,222,156,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.status-strip .dim{color:#6b6858;}
+
+/* ---------- sections ---------- */
+.section{padding:52px 0; border-bottom:1px solid var(--line);}
+.section-label{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:12px; display:flex; align-items:center; gap:10px;}
+.section-label::after{content:""; flex:1; height:1px; background:var(--line);}
+h2{font-family:var(--display); font-weight:800; font-size:clamp(1.45rem,2.4vw,1.9rem); letter-spacing:-0.015em; margin-bottom:16px; color:var(--ink);}
+h3{font-family:var(--display); font-weight:700; font-size:1.12rem; margin:24px 0 8px; color:var(--ink);}
+p{color:#3a372f; margin-bottom:14px;}
+p strong{color:var(--ink);}
+.lede{font-size:1.06rem; color:var(--ink-muted);}
+ul,ol{margin:14px 0 18px 22px; color:#3a372f;}
+li{margin-bottom:8px;}
+
+/* ---------- steps ---------- */
+.steps{display:flex; flex-direction:column; margin-top:22px;}
+.step{display:grid; grid-template-columns:52px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line);}
+.step:last-child{border-bottom:1px solid var(--line);}
+.step-num{font-family:var(--mono); color:var(--fixed); font-size:0.92rem; font-weight:700; padding-top:2px;}
+.step h4{font-family:var(--display); font-size:1.02rem; margin-bottom:5px; color:var(--ink);}
+.step p{margin-bottom:0; color:var(--ink-muted);}
+
+/* ---------- cards ---------- */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+.card{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:18px 20px;}
+.card.err{border-left:3px solid var(--error);}
+.card.good{border-left:3px solid var(--fixed);}
+.card-tag{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:7px; display:block;}
+.card.err .card-tag{color:var(--error);}
+.card.good .card-tag{color:var(--fixed);}
+.card h4{font-family:var(--display); font-size:0.98rem; margin-bottom:6px; color:var(--ink);}
+.card p{margin-bottom:0; color:var(--ink-muted); font-size:0.94rem;}
+
+/* ---------- examples ---------- */
+.example{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:20px 22px; margin-bottom:14px;}
+.example .who{font-family:var(--mono); font-size:0.76rem; color:var(--fixed); margin-bottom:8px;}
+.example p{color:#3a372f; margin-bottom:0; font-size:0.95rem;}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto; margin-top:18px; border:1px solid var(--line); border-radius:9px;}
+table{width:100%; border-collapse:collapse; font-size:0.9rem;}
+th{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; text-align:left; background:var(--paper-card-alt); color:var(--ink-muted); padding:11px 15px; border-bottom:1px solid var(--line);}
+td{padding:12px 15px; border-bottom:1px solid var(--line); color:#3a372f;}
+tr:last-child td{border-bottom:none;}
+td strong{color:var(--ink);}
+
+/* ---------- checklist ---------- */
+.checklist{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:6px 22px; margin-top:18px;}
+.check-item{display:flex; align-items:flex-start; gap:12px; padding:13px 0; border-bottom:1px solid var(--line); font-size:0.94rem; color:#3a372f;}
+.check-item:last-child{border-bottom:none;}
+.check-box{flex-shrink:0; width:17px; height:17px; border:1.5px solid var(--fixed); border-radius:4px; margin-top:2px;}
+
+/* ---------- faq ---------- */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:17px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--display); font-size:0.98rem; font-weight:700; color:var(--ink);}
+.faq-q .icon{font-family:var(--mono); color:var(--fixed); font-size:1.05rem; flex-shrink:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.25s ease;}
+.faq-a p{padding-bottom:17px; color:var(--ink-muted); font-size:0.94rem; margin:0;}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ---------- related ---------- */
+.related{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.related a{font-family:var(--mono); font-size:0.78rem; border:1px solid var(--line); border-radius:20px; padding:8px 16px; color:var(--ink-muted);}
+.related a:hover{border-color:var(--fixed); color:var(--fixed); text-decoration:none;}
+.related a.current{border-color:var(--fixed); color:var(--fixed); background:var(--fixed-bg);}
+
+/* ---------- final CTA ---------- */
+.cta-final{padding:60px 0 72px; text-align:center;}
+.cta-box{background:var(--ink); border-radius:16px; padding:50px 32px; text-align:center;}
+.cta-box h2{margin-bottom:10px; color:#fff;}
+.cta-box p{max-width:520px; margin:0 auto 24px; color:#c9c5b8;}
+.cta-box .btn-primary{background:var(--fixed);}
+
+footer{padding:34px 0; text-align:center;}
+footer p{color:var(--ink-dim); font-size:0.82rem;}
+
+@media(max-width:640px){
+  .hero{padding:50px 0 40px;}
+  .section{padding:38px 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resume</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online">Fix My Resume Free →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">⚠ Troubleshooting Guide</div>
+    <h1>ATS Resume Graphics</h1>
+    <p class="hero-sub">A skill bar chart looks precise. To a parser, it's usually just an image — and images don't extract as data.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">Fix It Free →</a>
+      <a class="btn-secondary" href="#faq">See FAQs</a>
+    </div>
+    <div class="status-strip" aria-hidden="true">
+      <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="body">
+        <div class="status-line"><span class="tag-error">ERROR</span><span>embedded_images: 4 detected — 0 text extracted</span></div>
+        <div class="status-line dim">— diagnosing —</div>
+        <div class="status-line"><span class="tag-fixed">FIXED</span><span>text_equivalent: 4 skills — 4 extracted with detail</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">The Issue</div>
+    <h2>What's Actually Going On: ATS Resume Graphics</h2>
+    
+<p class="lede"><strong>ATS resume graphics</strong> covers any visual, image-based element on a resume — skill-level bar charts, infographic-style timelines, headshots, decorative borders, embedded logos — and the specific parsing risk they introduce, distinct from text-based formatting issues like columns or tables.</p>
+<p>Graphics are appealing precisely because they can communicate certain kinds of information efficiently and attractively to a human reader — a bar chart showing skill proficiency at a glance, a clean timeline graphic showing career progression visually. This visual efficiency is exactly what fails to translate to a parsing engine, which extracts text content, not visual meaning.</p>
+<p>This is conceptually the broadest category covered in this troubleshooting series — icons are a specific, narrow type of graphic, but this guide covers the full range: photos, charts, infographic elements, decorative design flourishes, and embedded logos, all of which share the same fundamental limitation when it comes to ATS parsing.</p>
+<p>The underlying principle is simple even though the specific graphic types vary widely: if information is communicated purely through a visual image rather than through actual, extractable text characters, an ATS generally cannot read it, regardless of how clear or well-designed that visual might be to a human eye.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Root cause</div>
+    <h2>Why This Happens</h2>
+    
+<p>Graphics fail to parse for a straightforward technical reason: an embedded image, regardless of what it depicts, contains pixel data, not text data. A parsing engine extracting text content from a document has no built-in mechanism to interpret the visual meaning of a picture — it can potentially recognize that an image exists in a certain location, but it generally cannot read a bar chart and determine that it represents "Python: 90%, SQL: 75%."</p>
+<p>This becomes a particular problem with infographic-style resumes, which have grown in popularity partly because they stand out visually in a crowded, template-saturated job market. Ironically, the more a resume leans into infographic-style visual communication to stand out to a human reviewer, the more information it often loses entirely for the automated review stage that happens first.</p>
+<p>Skill-level bar charts and progress-bar graphics are an especially common and especially risky pattern, because they're frequently the only place a specific skill and its associated level are communicated at all — if the chart doesn't parse, that information isn't just degraded, it can be completely absent from what the ATS stores.</p>
+<p>Headshots and decorative borders carry a different, smaller risk profile — they're less likely to be central to your qualifications, but they can still occasionally interfere with document structure or add unnecessary file complexity, and in some hiring contexts, including a photo carries considerations beyond just parsing, related to reducing unconscious bias in the screening process.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Mechanics</div>
+    <h2>How the ATS Handles This</h2>
+    
+<p>When a parser encounters an embedded image in your resume, its handling depends on the specific system, but the most common outcome is that the image is simply skipped entirely during text extraction — the parser recognizes there's a non-text element present and moves on to the next text content, leaving no equivalent information captured in its place.</p>
+<p>Some more advanced systems may attempt optical character recognition on embedded images, especially if the image is flagged as containing text-like content, but this is not a standard or reliable capability across most Applicant Tracking Systems, and should never be assumed or relied upon as a fallback.</p>
+<p>The practical consequence is that any information communicated purely through a graphic — a skill chart, an infographic timeline of your career progression, a visually creative summary of your qualifications — is very likely to be entirely absent from the version of your resume that actually gets searched, scored, and ranked, even though it may be the most visually prominent, carefully designed part of the document you submitted.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Pitfalls</div>
+    <h2>Common Mistakes</h2>
+    <div class="grid2"><div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Using bar charts or progress bars for skill levels</h4>
+  <p>One of the highest-risk graphic types, since the chart is often the only place a specific skill level is communicated at all.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Building an infographic-style resume</h4>
+  <p>Visually striking and memorable to a human reviewer, but often catastrophic for ATS parsing since most of the actual content is embedded as images rather than text.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Assuming a headshot or logo causes no harm</h4>
+  <p>While lower risk than content-carrying graphics, decorative images can still add unnecessary file complexity and, in some cases, factor into broader hiring-bias considerations.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Relying on a graphic as the sole source of key information</h4>
+  <p>If a chart or infographic element is the only place specific information appears, and it doesn't parse, that information is effectively gone from the ATS record.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Assuming any ATS can perform image-based text recognition</h4>
+  <p>This is not a standard, reliable capability across most systems and should never be assumed as a fallback for graphic-based content.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Choosing visual novelty over ATS compatibility for a digital application</h4>
+  <p>A resume meant primarily for online, automated submission should generally prioritize parsing reliability over visual creativity.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Walkthrough</div>
+    <h2>Step-by-Step Fixes</h2>
+    <div class="steps"><div class="step">
+  <div class="step-num">01</div>
+  <div><h4>Identify every graphic element in your resume</h4><p>Charts, infographic elements, headshots, decorative borders, embedded logos — list each one specifically.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">02</div>
+  <div><h4>Determine which graphics carry essential information</h4><p>Skill charts and infographic timelines usually do; headshots and decorative borders usually don't.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">03</div>
+  <div><h4>Rebuild information-carrying graphics as plain text</h4><p>Convert a skill bar chart into a simple "Skill — Level" bulleted list conveying the same information in extractable text.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">04</div>
+  <div><h4>Remove purely decorative graphics for the digital submission version</h4><p>Headshots, decorative borders, and embedded logos can generally be removed without losing any substantive information.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">05</div>
+  <div><h4>Keep a visually designed version separate, if desired, for other purposes</h4><p>A more graphic-heavy version can still be useful for a personal portfolio site or a printed leave-behind, just not for ATS-facing digital submissions.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">06</div>
+  <div><h4>Test the rebuilt, text-based version with a scanner or parser tool</h4><p>Confirm all previously graphic-communicated information now extracts correctly as readable text.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">07</div>
+  <div><h4>Do a final review comparing information completeness before and after</h4><p>Confirm nothing substantive was lost in the process of converting from graphics to plain text.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Get it right</div>
+    <h2>Best Practices</h2>
+    <div class="grid2"><div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Convert skill charts into plain "Skill — Level" text</h4>
+  <p>Preserves the same information in a fully extractable, ATS-safe format.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Remove headshots and decorative graphics from ATS-facing versions</h4>
+  <p>These carry parsing risk and added complexity without conveying any information essential to your qualifications.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Reserve infographic-style designs for non-ATS contexts</h4>
+  <p>A personal portfolio website or printed copy can showcase visual creativity without risking a lost automated screening.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Prioritize text-based communication for anything essential</h4>
+  <p>If information matters to your candidacy, it should exist as extractable text somewhere in the document, not solely as a visual element.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Test any resume with graphics before relying on it for real applications</h4>
+  <p>Confirms definitively whether specific graphic elements are causing information loss during parsing.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Keep file size and complexity reasonable</h4>
+  <p>Removing unnecessary embedded images also tends to keep file size smaller and more broadly compatible across different upload systems.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Real world</div>
+    <h2>Real Examples</h2>
+    <div class="example">
+  <div class="who">Designer with a fully infographic-style resume</div>
+  <p>Built an entirely graphic-based resume with icon-driven sections, a skills radar chart, and a stylized timeline graphic for work history. A parse test extracted almost no usable content at all — nearly the entire resume was communicated through images, leaving the ATS-stored version close to empty despite the file looking impressive and professional to a human viewer.</p>
+</div>
+<div class="example">
+  <div class="who">Sales candidate using skill-level progress bars</div>
+  <p>Used horizontal progress-bar graphics to indicate proficiency in five key sales tools. Testing showed the tool names extracted as plain text nearby, but the specific proficiency levels shown only in the bar graphics were entirely lost, understating his actual, well-developed expertise.</p>
+</div>
+<div class="example">
+  <div class="who">Job seeker keeping a headshot for a specific application</div>
+  <p>Included a professional headshot in the top corner of the resume for a role in a region where this is a common convention. While the photo itself didn't affect keyword-based text extraction, converting the surrounding decorative border elements to plain text formatting improved overall parsing reliability.</p>
+</div>
+<div class="example">
+  <div class="who">Candidate who rebuilt a career-progression infographic</div>
+  <p>Had a visually appealing infographic timeline showing job titles and years as a graphic element rather than text. After a parse test confirmed this section extracted as entirely blank, rebuilding it as a standard chronological list of job titles and dates preserved the same career narrative in a fully ATS-readable format.</p>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Comparison</div>
+    <h2>Graphic Types: Risk and Recommended Handling</h2>
+    <div class="tbl-wrap"><table>
+<thead><tr><th>Graphic Type</th><th>Information Risk</th><th>Recommended Approach</th></tr></thead>
+<tbody><tr><td>Skill-level bar/progress charts</td><td><strong>High</strong> — often the sole source of that data</td><td>Rebuild as plain "Skill — Level" text</td></tr><tr><td>Infographic timelines/summaries</td><td><strong>Very high</strong></td><td>Rebuild entirely as standard chronological text</td></tr><tr><td>Headshots</td><td><strong>Low</strong> for parsing, other considerations apply</td><td>Optional; remove for most ATS-facing submissions</td></tr><tr><td>Decorative borders/logos</td><td><strong>Low–Medium</strong></td><td>Remove for digital, ATS-facing versions</td></tr></tbody>
+</table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Before you submit</div>
+    <h2>Fix-It Checklist</h2>
+    <div class="checklist"><div class="check-item"><div class="check-box"></div><div>Every graphic element in the resume identified and categorized</div></div><div class="check-item"><div class="check-box"></div><div>Information-carrying graphics (charts, infographics) rebuilt as plain text</div></div><div class="check-item"><div class="check-box"></div><div>Purely decorative graphics removed from the ATS-facing version</div></div><div class="check-item"><div class="check-box"></div><div>Skill levels confirmed present as extractable text, not just visual charts</div></div><div class="check-item"><div class="check-box"></div><div>Career timeline confirmed present as standard chronological text</div></div><div class="check-item"><div class="check-box"></div><div>Rebuilt version tested with a scanner or parser tool</div></div><div class="check-item"><div class="check-box"></div><div>Information completeness double-checked between graphic and text versions</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-label">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Do all graphics get skipped by an ATS?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Most do, since parsing engines extract text content and generally have no reliable mechanism for interpreting the visual meaning of an image.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is a headshot a serious parsing risk?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Less so for text extraction specifically, though it can add file complexity, and photo inclusion carries its own separate considerations depending on region and company policy.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can a skill chart ever be safe to use?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Only if the same information — the specific skill and its level — also exists somewhere as plain, extractable text; the chart alone should never be the sole source of that data.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Why do infographic resumes look so appealing if they parse so poorly?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>They're specifically designed to stand out visually to a human reviewer, which is a real and valid goal — the issue is they're generally unsuited for the automated, ATS-facing stage most applications pass through first.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can I keep a visually creative resume for other purposes?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — a personal portfolio site or a printed copy for networking events can showcase visual design without the parsing risk relevant only to ATS-facing digital submissions.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does removing graphics make my resume look boring?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Not necessarily — clean typography, thoughtful spacing, and clear section organization can create a professional, polished look without relying on image-based graphics.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can an ATS read text embedded inside an image?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Generally no — standard text extraction doesn't include optical character recognition, and this capability shouldn't be assumed or relied upon.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is a company logo on my resume a parsing risk?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Usually low risk in isolation, though it adds unnecessary complexity; removing it for ATS-facing submissions is a reasonable simplification.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How do I know if a specific graphic is causing information loss?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Run a scan or parse test and check whether the information that graphic was meant to convey — a skill level, a timeline — appears anywhere in the extracted text output.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Should I use graphics for a resume sent directly to a hiring manager, not through an ATS?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>In that specific context the parsing risk doesn't apply, though it's often difficult to know for certain whether a resume will pass through an ATS at some stage even when sent directly.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can graphics affect file size in a way that causes other problems?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — heavy use of embedded images can increase file size, which in rare cases may exceed upload limits on some job portals or slow down processing.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>What's the safest general approach to visual design on an ATS-facing resume?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Rely on typography, spacing, and text formatting for visual clarity, and reserve genuinely graphic-heavy designs for non-ATS contexts like a portfolio site.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Explore the series</div>
+    <h2>Related ATS Troubleshooting Guides</h2>
+    <div class="related"><a href="ats-can-t-read-my-resume.html" class="">ATS Can't Read My Resume</a>
+<a href="ats-rejected-my-resume.html" class="">ATS Rejected My Resume</a>
+<a href="ats-resume-formatting-mistakes.html" class="">ATS Resume Formatting Mistakes</a>
+<a href="ats-resume-keywords-guide.html" class="">ATS Resume Keywords Guide</a>
+<a href="ats-resume-fonts.html" class="">ATS Resume Fonts</a>
+<a href="ats-resume-pdf-vs-docx.html" class="">ATS Resume PDF vs DOCX</a>
+<a href="ats-resume-tables.html" class="">ATS Resume Tables</a>
+<a href="ats-resume-icons.html" class="">ATS Resume Icons</a>
+<a href="ats-resume-columns.html" class="">ATS Resume Columns</a>
+<a href="ats-resume-graphics.html" class="current">ATS Resume Graphics</a></div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Don't let a fixable problem cost you the job.</h2>
+      <p>BanaoResume's templates communicate every skill and detail as clean, extractable text — never a chart or graphic — so nothing essential is ever invisible to the systems reading your resume first.</p>
+      <a class="btn-primary" href="https://banaoresumee.online">Build Your Free ATS Resume →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>© 2026 BanaoResume · Free ATS Resume Builder for Indian Students & Freshers</p></div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do all graphics get skipped by an ATS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most do, since parsing engines extract text content and generally have no reliable mechanism for interpreting the visual meaning of an image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a headshot a serious parsing risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Less so for text extraction specifically, though it can add file complexity, and photo inclusion carries its own separate considerations depending on region and company policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a skill chart ever be safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the same information \u2014 the specific skill and its level \u2014 also exists somewhere as plain, extractable text; the chart alone should never be the sole source of that data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do infographic resumes look so appealing if they parse so poorly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They're specifically designed to stand out visually to a human reviewer, which is a real and valid goal \u2014 the issue is they're generally unsuited for the automated, ATS-facing stage most applications pass through first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep a visually creative resume for other purposes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 a personal portfolio site or a printed copy for networking events can showcase visual design without the parsing risk relevant only to ATS-facing digital submissions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing graphics make my resume look boring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily \u2014 clean typography, thoughtful spacing, and clear section organization can create a professional, polished look without relying on image-based graphics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an ATS read text embedded inside an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally no \u2014 standard text extraction doesn't include optical character recognition, and this capability shouldn't be assumed or relied upon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a company logo on my resume a parsing risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually low risk in isolation, though it adds unnecessary complexity; removing it for ATS-facing submissions is a reasonable simplification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if a specific graphic is causing information loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run a scan or parse test and check whether the information that graphic was meant to convey \u2014 a skill level, a timeline \u2014 appears anywhere in the extracted text output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use graphics for a resume sent directly to a hiring manager, not through an ATS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In that specific context the parsing risk doesn't apply, though it's often difficult to know for certain whether a resume will pass through an ATS at some stage even when sent directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can graphics affect file size in a way that causes other problems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 heavy use of embedded images can increase file size, which in rare cases may exceed upload limits on some job portals or slow down processing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the safest general approach to visual design on an ATS-facing resume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rely on typography, spacing, and text formatting for visual clarity, and reserve genuinely graphic-heavy designs for non-ATS contexts like a portfolio site."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
