@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Resume Parser – See How Software Structures Your Resume Data | BanaoResume</title>
+<meta name="description" content="Test your resume with a free ATS resume parser and see exactly how it gets broken into structured fields — name, titles, dates, skills — before you apply.">
+<link rel="canonical" href="https://banaoresumee.online/ats-resume-parser.html">
+<meta property="og:title" content="ATS Resume Parser – See How Software Structures Your Resume Data | BanaoResume">
+<meta property="og:description" content="Test your resume with a free ATS resume parser and see exactly how it gets broken into structured fields — name, titles, dates, skills — before you apply.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>/* ================= ATS Page Design System =================
+   Palette: near-black tech surface + scan-line signal green
+   Signature: the "scan line" — sweeps across the hero + divides
+   every section, literalizing what an ATS does to a resume.
+================================================================ */
+
+:root{
+  --bg: #0a0d12;
+  --bg-card: #12161f;
+  --bg-card-hi: #171d29;
+  --border: #232a38;
+  --text: #e9edf3;
+  --text-muted: #8b93a6;
+  --text-dim: #5b6577;
+  --scan: #00e6a8;
+  --scan-dim: rgba(0,230,168,0.14);
+  --warn: #ffb020;
+  --danger: #ff6b6b;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --display: 'Space Grotesk', sans-serif;
+  --body: 'Inter', sans-serif;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 42px 42px;
+  pointer-events:none;
+  z-index:0;
+}
+
+.wrap{max-width:900px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+.wrap-wide{max-width:1120px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+a{color:var(--scan); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---------- Top nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,13,18,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1120px; margin:0 auto; padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{font-family:var(--display); font-weight:700; font-size:1.05rem; letter-spacing:-0.01em; color:var(--text);}
+.brand span{color:var(--scan);}
+.nav-cta{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em;
+  background:var(--scan); color:#04120d; padding:9px 16px; border-radius:6px;
+  font-weight:600;
+}
+.nav-cta:hover{opacity:0.88; text-decoration:none;}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:76px 0 64px;
+  position:relative;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.eyebrow{
+  font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--scan); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+}
+.eyebrow::before{
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:var(--scan); box-shadow:0 0 0 4px var(--scan-dim);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+h1{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height:1.08; letter-spacing:-0.02em;
+  color:var(--text); max-width:820px;
+}
+h1 em{color:var(--scan); font-style:normal;}
+
+.hero-sub{
+  margin-top:22px; font-size:1.12rem; color:var(--text-muted); max-width:640px;
+}
+.hero-ctas{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn-primary{
+  font-family:var(--mono); font-weight:600; font-size:0.86rem;
+  background:var(--scan); color:#04120d; padding:13px 22px; border-radius:7px;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn-primary:hover{text-decoration:none; opacity:0.9;}
+.btn-secondary{
+  font-family:var(--mono); font-weight:600; font-size:0.86rem;
+  border:1px solid var(--border); color:var(--text); padding:13px 22px; border-radius:7px;
+}
+.btn-secondary:hover{text-decoration:none; border-color:var(--scan); color:var(--scan);}
+
+/* scanning resume mock, hero decoration */
+.scan-doc{
+  margin-top:48px; max-width:560px;
+  background:var(--bg-card); border:1px solid var(--border); border-radius:10px;
+  padding:22px 24px; position:relative; overflow:hidden;
+  font-family:var(--mono); font-size:0.82rem; color:var(--text-dim);
+}
+.scan-doc .line{height:9px; background:#1d2432; border-radius:3px; margin-bottom:10px;}
+.scan-doc .line.short{width:38%;}
+.scan-doc .line.mid{width:64%;}
+.scan-doc .line.long{width:92%;}
+.scan-doc .hit{background:var(--scan-dim); outline:1px solid rgba(0,230,168,0.4);}
+.scan-doc::after{
+  content:""; position:absolute; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--scan), transparent);
+  box-shadow:0 0 14px 2px var(--scan);
+  animation:scanmove 3.2s ease-in-out infinite;
+}
+@keyframes scanmove{
+  0%{top:6%;} 50%{top:92%;} 100%{top:6%;}
+}
+@media (prefers-reduced-motion: reduce){
+  .scan-doc::after, .eyebrow::before{animation:none;}
+}
+
+/* ---------- Section shell ---------- */
+.section{padding:56px 0; border-bottom:1px solid var(--border);}
+.section-label{
+  font-family:var(--mono); font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-dim); margin-bottom:12px; display:flex; align-items:center; gap:10px;
+}
+.section-label::after{content:""; flex:1; height:1px; background:var(--border);}
+h2{
+  font-family:var(--display); font-weight:700; font-size:clamp(1.5rem,2.6vw,2rem);
+  letter-spacing:-0.015em; margin-bottom:18px; color:var(--text);
+}
+h3{font-family:var(--display); font-weight:600; font-size:1.18rem; margin:26px 0 10px; color:var(--text);}
+p{color:#c3c9d4; margin-bottom:14px;}
+p strong{color:var(--text);}
+.lede{font-size:1.08rem; color:var(--text-muted);}
+ul,ol{margin:14px 0 18px 22px; color:#c3c9d4;}
+li{margin-bottom:8px;}
+
+/* ---------- Steps ---------- */
+.steps{display:flex; flex-direction:column; gap:0; margin-top:24px;}
+.step{
+  display:grid; grid-template-columns:56px 1fr; gap:20px;
+  padding:22px 0; border-top:1px solid var(--border);
+}
+.step:last-child{border-bottom:1px solid var(--border);}
+.step-num{font-family:var(--mono); color:var(--scan); font-size:0.95rem; font-weight:700; padding-top:2px;}
+.step h4{font-family:var(--display); font-size:1.05rem; margin-bottom:6px; color:var(--text);}
+.step p{margin-bottom:0; color:var(--text-muted);}
+
+/* ---------- Mistake / best-practice cards ---------- */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+.card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:20px 22px;
+}
+.card.warn{border-color:rgba(255,176,32,0.35);}
+.card-tag{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px; display:block;}
+.card.warn .card-tag{color:var(--warn);}
+.card.good .card-tag{color:var(--scan);}
+.card p{margin-bottom:0; color:var(--text-muted); font-size:0.95rem;}
+.card h4{font-family:var(--display); font-size:1rem; margin-bottom:6px; color:var(--text);}
+
+/* ---------- Example cards ---------- */
+.example{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:10px;
+  padding:22px 24px; margin-bottom:16px;
+}
+.example .who{font-family:var(--mono); font-size:0.78rem; color:var(--scan); margin-bottom:8px; letter-spacing:0.04em;}
+.example p{color:#c3c9d4; margin-bottom:0; font-size:0.96rem;}
+
+/* ---------- Table ---------- */
+.tbl-wrap{overflow-x:auto; margin-top:20px; border:1px solid var(--border); border-radius:10px;}
+table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+th{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+  text-align:left; background:var(--bg-card-hi); color:var(--text-muted); padding:12px 16px;
+  border-bottom:1px solid var(--border);
+}
+td{padding:13px 16px; border-bottom:1px solid var(--border); color:#c3c9d4;}
+tr:last-child td{border-bottom:none;}
+td strong{color:var(--text);}
+
+/* ---------- Checklist ---------- */
+.checklist{background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:8px 24px; margin-top:20px;}
+.check-item{
+  display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--border);
+  font-size:0.96rem; color:#c3c9d4;
+}
+.check-item:last-child{border-bottom:none;}
+.check-box{
+  flex-shrink:0; width:18px; height:18px; border:1.5px solid var(--scan); border-radius:4px; margin-top:2px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:18px 0; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  font-family:var(--display); font-size:1rem; font-weight:600; color:var(--text);
+}
+.faq-q .icon{font-family:var(--mono); color:var(--scan); font-size:1.1rem; flex-shrink:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.25s ease;}
+.faq-a p{padding-bottom:18px; color:var(--text-muted); font-size:0.95rem; margin:0;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-item.open .icon{color:var(--scan);}
+
+/* ---------- Compare strip (related pages) ---------- */
+.related{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+.related a{
+  font-family:var(--mono); font-size:0.8rem; border:1px solid var(--border); border-radius:20px;
+  padding:8px 16px; color:var(--text-muted);
+}
+.related a:hover{border-color:var(--scan); color:var(--scan); text-decoration:none;}
+.related a.current{border-color:var(--scan); color:var(--scan); background:var(--scan-dim);}
+
+/* ---------- Final CTA ---------- */
+.cta-final{
+  padding:64px 0 76px; text-align:center; position:relative;
+}
+.cta-box{
+  background:radial-gradient(ellipse at top, rgba(0,230,168,0.08), transparent 60%), var(--bg-card);
+  border:1px solid var(--border); border-radius:16px; padding:52px 32px; text-align:center;
+}
+.cta-box h2{margin-bottom:10px;}
+.cta-box p{max-width:520px; margin:0 auto 26px; color:var(--text-muted);}
+
+/* ---------- Footer ---------- */
+footer{padding:36px 0; text-align:center;}
+footer p{color:var(--text-dim); font-size:0.84rem;}
+
+@media(max-width:640px){
+  .hero{padding:56px 0 44px;}
+  .section{padding:42px 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resume</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online">Build Free Resume →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Free · No signup required</div>
+    <h1>ATS Resume Parser</h1>
+    <p class="hero-sub">Recruiters search by field, not by paragraph. An <em>ATS resume parser</em> shows you what fields your resume actually produces.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">Check My Resume Free →</a>
+      <a class="btn-secondary" href="#faq">See FAQs</a>
+    </div>
+    <div class="scan-doc" aria-hidden="true">
+      <div class="line long"></div>
+      <div class="line mid hit"></div>
+      <div class="line short"></div>
+      <div class="line long hit"></div>
+      <div class="line mid"></div>
+      <div class="line long"></div>
+      <div class="line short hit"></div>
+      <div class="line mid"></div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">What it is</div>
+    <h2>What Is ATS Resume Parser?</h2>
+    
+<p class="lede">An <strong>ATS resume parser</strong> shows you how your resume gets converted from a document into structured data — the individual fields (name, job titles, dates, skills, education) that a recruiter's database actually stores and searches against.</p>
+<p>This is a distinct step from scanning. Scanning is about raw text extraction; parsing is about interpretation — deciding which extracted text is a job title versus a company name versus a bullet point, and filing each into the right field.</p>
+<p>A parser tool exposes this mapping directly, so you can see if your "Senior Backend Developer" title actually landed in the Job Title field, or got miscategorized as part of a company name or generic text block.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Why it matters</div>
+    <h2>Why ATS Resume Parser Matters in 2026</h2>
+    
+<p>Recruiters searching an ATS database in 2026 typically filter by structured fields, not free text — "5+ years, Job Title contains 'Product Manager', Skills contains 'SQL'." If your resume's parsing puts the wrong information in the wrong field, you can be functionally invisible to exactly the searches you should be matching.</p>
+<p>This is a subtler failure than a formatting error that breaks the whole scan — the resume might scan and score fine overall while individual fields are still quietly wrong, which only a parser-focused check will catch.</p>
+<p>It matters most for resumes with unconventional job titles, multiple roles at the same company, or non-standard date formats, all of which are common parsing failure points.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Mechanics</div>
+    <h2>How ATS Resume Parser Works</h2>
+    
+<p><strong>1. Text segmentation.</strong> The parser splits your resume's extracted text into logical chunks based on formatting cues — line breaks, bold text, spacing.</p>
+<p><strong>2. Field classification.</strong> Each chunk is classified into a field type: name, title, company, date range, skill, degree.</p>
+<p><strong>3. Structured output.</strong> The result is a structured record — essentially a form filled out automatically from your resume — which is what gets stored and searched in the ATS database.</p>
+<p><strong>4. Field-level review.</strong> A parser tool shows you this structured output directly, so misclassified or missing fields are immediately visible.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Walkthrough</div>
+    <h2>Step-by-Step: Using the Parser</h2>
+    <div class="steps"><div class="step">
+  <div class="step-num">01</div>
+  <div><h4>Run your resume through a parser tool</h4><p>Do this independent of any specific job posting — you're checking structural accuracy, not keyword match.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">02</div>
+  <div><h4>Review each extracted field individually</h4><p>Confirm name, contact info, job titles, companies, dates, and skills all landed where they should.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">03</div>
+  <div><h4>Flag any misclassified or missing fields</h4><p>A job title parsed into the wrong field, or a skill missing entirely, points to a formatting or phrasing issue nearby.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">04</div>
+  <div><h4>Adjust formatting around problem fields</h4><p>Often a spacing, bolding, or line-break change near the field is enough to fix the classification.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">05</div>
+  <div><h4>Check every role if you have multiple positions at one company</h4><p>Multi-role entries at a single employer are a common parsing failure point — verify each is captured separately.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">06</div>
+  <div><h4>Re-parse to confirm the fix</h4><p>Confirm the specific field now lands correctly before moving on.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Pitfalls</div>
+    <h2>Common Mistakes</h2>
+    <div class="grid2"><div class="card warn">
+  <span class="card-tag">Mistake</span>
+  <h4>Using non-standard job titles</h4>
+  <p>Creative titles like "Growth Ninja" often fail to classify as a recognizable Job Title field at all.</p>
+</div>
+<div class="card warn">
+  <span class="card-tag">Mistake</span>
+  <h4>Combining multiple roles into one date range</h4>
+  <p>Two different positions at the same company merged under one date block can parse as a single, confused entry.</p>
+</div>
+<div class="card warn">
+  <span class="card-tag">Mistake</span>
+  <h4>Irregular date formatting</h4>
+  <p>Formats like "Since Summer '22" often fail to parse into a usable date field compared to a standard "Jun 2022 – Present."</p>
+</div>
+<div class="card warn">
+  <span class="card-tag">Mistake</span>
+  <h4>Assuming a good overall score means clean parsing</h4>
+  <p>A resume can score reasonably well overall while specific fields are still silently misclassified.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Get it right</div>
+    <h2>Best Practices</h2>
+    <div class="grid2"><div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Use conventional, recognizable job titles</h4>
+  <p>Pair any creative internal title with the standard industry equivalent in parentheses if needed.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Separate multiple roles at one employer clearly</h4>
+  <p>Give each position its own date range and bullet points, even under the same company header.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Use a consistent date format throughout</h4>
+  <p>"Mon YYYY – Mon YYYY" parses reliably across the widest range of systems.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>List skills as a distinct, clearly labeled section</h4>
+  <p>Rather than folding tools and skills into narrative sentences where a parser may miss them.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Real world</div>
+    <h2>Real-World Examples</h2>
+    <div class="example">
+  <div class="who">Product manager with a creative internal title</div>
+  <p>"Product Whisperer" failed to classify as a job title in several parsers tested. Adding the standard title "Product Manager" alongside it resolved the field mapping.</p>
+</div>
+<div class="example">
+  <div class="who">Developer with two roles at the same startup</div>
+  <p>A promotion mid-tenure was listed under one merged date range. Splitting it into two clearly dated entries let the parser capture both titles and date ranges correctly.</p>
+</div>
+<div class="example">
+  <div class="who">Graduate using an unusual date format</div>
+  <p>"Summer Internship '23" wasn't recognized as a valid date range by multiple parsers. Switching to "Jun 2023 – Aug 2023" fixed the field extraction immediately.</p>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Comparison</div>
+    <h2>the Parser vs. Other ATS Tools</h2>
+    <div class="tbl-wrap"><table>
+<thead><tr><th>Tool</th><th>Primary Job</th><th>Best For</th></tr></thead>
+<tbody><tr><td><strong>ATS Resume Parser</strong></td><td>Maps extracted text into structured fields</td><td>Verifying field-level accuracy</td></tr><tr><td>ATS Resume Scanner</td><td>Raw text extraction from the document</td><td>Diagnosing layout-level scan breaks</td></tr><tr><td>ATS Resume Validator</td><td>Checks compliance with formatting rules</td><td>Catching hard rejection triggers</td></tr><tr><td>ATS Resume Checker</td><td>Full report: parsing + keywords + score</td><td>General pre-submission review</td></tr></tbody>
+</table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Before you submit</div>
+    <h2>the Parser Checklist</h2>
+    <div class="checklist"><div class="check-item"><div class="check-box"></div><div>Job titles use standard, recognizable industry language</div></div><div class="check-item"><div class="check-box"></div><div>Multiple roles at one employer are listed as separate entries</div></div><div class="check-item"><div class="check-box"></div><div>Dates follow a consistent "Mon YYYY – Mon YYYY" format</div></div><div class="check-item"><div class="check-box"></div><div>Skills appear in a clearly labeled, distinct section</div></div><div class="check-item"><div class="check-box"></div><div>Name and contact fields extracted correctly and completely</div></div><div class="check-item"><div class="check-box"></div><div>Every field-level output reviewed, not just the overall score</div></div><div class="check-item"><div class="check-box"></div><div>Re-parsed after any formatting or title change</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-label">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>What's the difference between a scanner and a parser?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>A scanner extracts raw text from your document; a parser takes that text a step further and classifies it into structured fields like title, company, and dates.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Why does my job title matter for parsing specifically?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Recruiters often search the ATS database by exact job title field. A title that doesn't classify correctly can make you invisible to those searches even with a strong overall resume.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can a resume parse fine but still score poorly?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — parsing accuracy and keyword match are separate. A resume can have perfectly structured fields but still lack the specific keywords a job requires.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How do I know if my dates parsed correctly?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>A parser tool will show you the extracted date range field directly — if it's blank or garbled, the format needs adjusting.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does having two jobs at one company confuse every ATS?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Not every one, but it's a common failure point. Listing each role as a separate, clearly dated entry is the safer approach across systems.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is a creative job title always a problem?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Not always, but pairing it with the standard industry title improves the odds it's correctly classified and searchable.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Should students with no formal job titles worry about this?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Less so — internships and academic roles usually parse fine as long as dates and titles are clearly formatted.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How often do parsing standards change?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>ATS platforms update periodically, so it's worth re-testing your resume's parsing accuracy every few months or before a major job search push.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Explore the series</div>
+    <h2>Related ATS Tools</h2>
+    <div class="related"><a href="ats-resume-scanner.html" class="">ATS Resume Scanner</a>
+<a href="ats-resume-checker.html" class="">ATS Resume Checker</a>
+<a href="ats-resume-score-checker.html" class="">ATS Resume Score Checker</a>
+<a href="ats-resume-analyzer.html" class="">ATS Resume Analyzer</a>
+<a href="ats-resume-optimizer.html" class="">ATS Resume Optimizer</a>
+<a href="ats-resume-parser.html" class="current">ATS Resume Parser</a>
+<a href="ats-resume-validator.html" class="">ATS Resume Validator</a>
+<a href="ats-resume-review.html" class="">ATS Resume Review</a>
+<a href="ats-keyword-checker.html" class="">ATS Keyword Checker</a></div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Stop guessing. Start passing.</h2>
+      <p>BanaoResume's templates use parser-tested field structures by default, so your titles, dates, and skills land where recruiters actually search for them.</p>
+      <a class="btn-primary" href="https://banaoresumee.online">Build Your Free ATS Resume →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>© 2026 BanaoResume · Free ATS Resume Builder for Indian Students & Freshers</p></div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between a scanner and a parser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A scanner extracts raw text from your document; a parser takes that text a step further and classifies it into structured fields like title, company, and dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my job title matter for parsing specifically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recruiters often search the ATS database by exact job title field. A title that doesn't classify correctly can make you invisible to those searches even with a strong overall resume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a resume parse fine but still score poorly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 parsing accuracy and keyword match are separate. A resume can have perfectly structured fields but still lack the specific keywords a job requires."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my dates parsed correctly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A parser tool will show you the extracted date range field directly \u2014 if it's blank or garbled, the format needs adjusting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does having two jobs at one company confuse every ATS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not every one, but it's a common failure point. Listing each role as a separate, clearly dated entry is the safer approach across systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a creative job title always a problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always, but pairing it with the standard industry title improves the odds it's correctly classified and searchable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should students with no formal job titles worry about this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Less so \u2014 internships and academic roles usually parse fine as long as dates and titles are clearly formatted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often do parsing standards change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ATS platforms update periodically, so it's worth re-testing your resume's parsing accuracy every few months or before a major job search push."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
