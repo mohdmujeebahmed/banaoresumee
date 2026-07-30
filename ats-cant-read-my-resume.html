@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Can't Read My Resume? Here's Why (and the Exact Fix) | BanaoResume</title>
+<meta name="description" content="If the ATS can't read your resume, it's almost always a formatting issue, not your qualifications. Here's exactly what breaks parsing and how to fix it.">
+<link rel="canonical" href="https://banaoresumee.online/ats-cant-read-my-resume.html">
+<meta property="og:title" content="ATS Can't Read My Resume? Here's Why (and the Exact Fix) | BanaoResume">
+<meta property="og:description" content="If the ATS can't read your resume, it's almost always a formatting issue, not your qualifications. Here's exactly what breaks parsing and how to fix it.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>/* ================= ATS Troubleshooting Page — Design System 2 =================
+   Palette: light "diagnostic report" surface — paper background, ink text,
+   signal red for the problem, signal green for the fix.
+   Signature: a terminal-style status strip that flips from
+   ERROR (red) to FIXED (green) — literalizing "diagnose then resolve."
+=================================================================== */
+
+:root{
+  --paper: #f6f4ee;
+  --paper-card: #ffffff;
+  --paper-card-alt: #efece2;
+  --ink: #1c1b18;
+  --ink-muted: #5c584f;
+  --ink-dim: #8b867a;
+  --line: #e2ddd0;
+  --error: #c8402f;
+  --error-bg: rgba(200,64,47,0.08);
+  --fixed: #227a52;
+  --fixed-bg: rgba(34,122,82,0.08);
+  --accent: #1c1b18;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --display: 'Libre Franklin', sans-serif;
+  --body: 'Source Sans 3', sans-serif;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  line-height:1.68;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+a{color:var(--fixed); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; background:rgba(246,244,238,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1120px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+.brand{font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-0.01em; color:var(--ink);}
+.brand span{color:var(--fixed);}
+.nav-cta{font-family:var(--mono); font-size:0.76rem; background:var(--ink); color:var(--paper); padding:9px 16px; border-radius:5px; font-weight:600;}
+.nav-cta:hover{opacity:0.85; text-decoration:none;}
+
+/* ---------- hero ---------- */
+.hero{padding:70px 0 56px; border-bottom:1px solid var(--line);}
+.eyebrow{
+  font-family:var(--mono); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--error); background:var(--error-bg); border:1px solid rgba(200,64,47,0.25);
+  display:inline-flex; padding:6px 12px; border-radius:5px; margin-bottom:22px;
+}
+h1{font-family:var(--display); font-weight:800; font-size:clamp(2rem,4.2vw,3.1rem); line-height:1.12; letter-spacing:-0.02em; color:var(--ink); max-width:800px;}
+.hero-sub{margin-top:20px; font-size:1.1rem; color:var(--ink-muted); max-width:640px;}
+.hero-ctas{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn-primary{font-family:var(--mono); font-weight:700; font-size:0.85rem; background:var(--fixed); color:#fff; padding:13px 22px; border-radius:6px; display:inline-flex; align-items:center; gap:8px;}
+.btn-primary:hover{text-decoration:none; opacity:0.9;}
+.btn-secondary{font-family:var(--mono); font-weight:600; font-size:0.85rem; border:1px solid var(--line); color:var(--ink); padding:13px 22px; border-radius:6px;}
+.btn-secondary:hover{text-decoration:none; border-color:var(--ink);}
+
+/* status strip: ERROR -> FIXED */
+.status-strip{
+  margin-top:46px; max-width:560px; background:var(--ink); border-radius:10px; overflow:hidden;
+  font-family:var(--mono); font-size:0.82rem;
+}
+.status-strip .bar{display:flex; align-items:center; gap:8px; padding:10px 16px; background:#100f0d; border-bottom:1px solid #2a2924;}
+.status-strip .dot{width:9px; height:9px; border-radius:50%; background:#3a382f;}
+.status-strip .body{padding:18px 20px;}
+.status-line{display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#c9c5b8;}
+.tag-error{font-weight:700; color:var(--error); background:rgba(200,64,47,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.tag-fixed{font-weight:700; color:#4ade9c; background:rgba(74,222,156,0.15); padding:2px 8px; border-radius:4px; font-size:0.72rem; letter-spacing:0.05em;}
+.status-strip .dim{color:#6b6858;}
+
+/* ---------- sections ---------- */
+.section{padding:52px 0; border-bottom:1px solid var(--line);}
+.section-label{font-family:var(--mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:12px; display:flex; align-items:center; gap:10px;}
+.section-label::after{content:""; flex:1; height:1px; background:var(--line);}
+h2{font-family:var(--display); font-weight:800; font-size:clamp(1.45rem,2.4vw,1.9rem); letter-spacing:-0.015em; margin-bottom:16px; color:var(--ink);}
+h3{font-family:var(--display); font-weight:700; font-size:1.12rem; margin:24px 0 8px; color:var(--ink);}
+p{color:#3a372f; margin-bottom:14px;}
+p strong{color:var(--ink);}
+.lede{font-size:1.06rem; color:var(--ink-muted);}
+ul,ol{margin:14px 0 18px 22px; color:#3a372f;}
+li{margin-bottom:8px;}
+
+/* ---------- steps ---------- */
+.steps{display:flex; flex-direction:column; margin-top:22px;}
+.step{display:grid; grid-template-columns:52px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line);}
+.step:last-child{border-bottom:1px solid var(--line);}
+.step-num{font-family:var(--mono); color:var(--fixed); font-size:0.92rem; font-weight:700; padding-top:2px;}
+.step h4{font-family:var(--display); font-size:1.02rem; margin-bottom:5px; color:var(--ink);}
+.step p{margin-bottom:0; color:var(--ink-muted);}
+
+/* ---------- cards ---------- */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+.card{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:18px 20px;}
+.card.err{border-left:3px solid var(--error);}
+.card.good{border-left:3px solid var(--fixed);}
+.card-tag{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:7px; display:block;}
+.card.err .card-tag{color:var(--error);}
+.card.good .card-tag{color:var(--fixed);}
+.card h4{font-family:var(--display); font-size:0.98rem; margin-bottom:6px; color:var(--ink);}
+.card p{margin-bottom:0; color:var(--ink-muted); font-size:0.94rem;}
+
+/* ---------- examples ---------- */
+.example{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:20px 22px; margin-bottom:14px;}
+.example .who{font-family:var(--mono); font-size:0.76rem; color:var(--fixed); margin-bottom:8px;}
+.example p{color:#3a372f; margin-bottom:0; font-size:0.95rem;}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto; margin-top:18px; border:1px solid var(--line); border-radius:9px;}
+table{width:100%; border-collapse:collapse; font-size:0.9rem;}
+th{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; text-align:left; background:var(--paper-card-alt); color:var(--ink-muted); padding:11px 15px; border-bottom:1px solid var(--line);}
+td{padding:12px 15px; border-bottom:1px solid var(--line); color:#3a372f;}
+tr:last-child td{border-bottom:none;}
+td strong{color:var(--ink);}
+
+/* ---------- checklist ---------- */
+.checklist{background:var(--paper-card); border:1px solid var(--line); border-radius:9px; padding:6px 22px; margin-top:18px;}
+.check-item{display:flex; align-items:flex-start; gap:12px; padding:13px 0; border-bottom:1px solid var(--line); font-size:0.94rem; color:#3a372f;}
+.check-item:last-child{border-bottom:none;}
+.check-box{flex-shrink:0; width:17px; height:17px; border:1.5px solid var(--fixed); border-radius:4px; margin-top:2px;}
+
+/* ---------- faq ---------- */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:17px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--display); font-size:0.98rem; font-weight:700; color:var(--ink);}
+.faq-q .icon{font-family:var(--mono); color:var(--fixed); font-size:1.05rem; flex-shrink:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.25s ease;}
+.faq-a p{padding-bottom:17px; color:var(--ink-muted); font-size:0.94rem; margin:0;}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ---------- related ---------- */
+.related{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.related a{font-family:var(--mono); font-size:0.78rem; border:1px solid var(--line); border-radius:20px; padding:8px 16px; color:var(--ink-muted);}
+.related a:hover{border-color:var(--fixed); color:var(--fixed); text-decoration:none;}
+.related a.current{border-color:var(--fixed); color:var(--fixed); background:var(--fixed-bg);}
+
+/* ---------- final CTA ---------- */
+.cta-final{padding:60px 0 72px; text-align:center;}
+.cta-box{background:var(--ink); border-radius:16px; padding:50px 32px; text-align:center;}
+.cta-box h2{margin-bottom:10px; color:#fff;}
+.cta-box p{max-width:520px; margin:0 auto 24px; color:#c9c5b8;}
+.cta-box .btn-primary{background:var(--fixed);}
+
+footer{padding:34px 0; text-align:center;}
+footer p{color:var(--ink-dim); font-size:0.82rem;}
+
+@media(max-width:640px){
+  .hero{padding:50px 0 40px;}
+  .section{padding:38px 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Banao<span>Resume</span></div>
+    <a class="nav-cta" href="https://banaoresumee.online">Fix My Resume Free →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">⚠ Troubleshooting Guide</div>
+    <h1>ATS Can't Read My Resume</h1>
+    <p class="hero-sub">Silence after every application usually isn't about your experience. It's about whether a machine could even read the document you sent.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://banaoresumee.online">Fix It Free →</a>
+      <a class="btn-secondary" href="#faq">See FAQs</a>
+    </div>
+    <div class="status-strip" aria-hidden="true">
+      <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="body">
+        <div class="status-line"><span class="tag-error">ERROR</span><span>resume.docx — 3 fields extracted, 9 expected</span></div>
+        <div class="status-line dim">— diagnosing —</div>
+        <div class="status-line"><span class="tag-fixed">FIXED</span><span>resume.docx — 12/12 fields extracted</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">The Issue</div>
+    <h2>What's Actually Going On: ATS Can't Read My Resume</h2>
+    
+<p class="lede">"The <strong>ATS can't read my resume</strong>" is what's actually happening whenever a qualified candidate applies to dozens of jobs and hears back from almost none of them — not because the experience is weak, but because the Applicant Tracking System never correctly extracted it in the first place.</p>
+<p>This is a distinct problem from being under-qualified or having a weak resume in the writing sense. A resume that reads beautifully to a human, printed out or opened in Word, can still be functionally unreadable to the software that processes it first. The two failures look identical from the outside — silence — but the cause and the fix are completely different.</p>
+<p>Applicant Tracking Systems don't view your resume the way you do. They don't "see" a page with a name in bold at the top and a neat two-column layout below it. They extract raw text, following their own reading logic, and then attempt to classify that text into fields — name, contact info, job titles, dates, skills. When that extraction breaks, the ATS doesn't necessarily throw an error and tell anyone. It often just quietly stores a partial, garbled, or empty version of your resume, and that broken version is what gets searched, filtered, and ranked from that point forward.</p>
+<p>This is what makes the problem so frustrating to diagnose on your own. You open your resume, it looks completely normal, and there is no visible error message anywhere telling you something is wrong. The failure is invisible unless you specifically test for it — which is exactly what this guide walks you through.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Root cause</div>
+    <h2>Why This Happens</h2>
+    
+<p>The root cause is almost always a mismatch between how your resume is designed to be seen and how it's structured to be read. Most resume templates are designed visually first — a designer or template creator arranges text boxes, columns, and graphic elements to look impressive on screen, without necessarily testing whether the underlying document structure survives a parsing pass.</p>
+<p>Multi-column layouts are the single most common cause. Many parsing engines read a page in a strict left-to-right, top-to-bottom order, the same way a very old web browser would render simple text. A two-column resume, visually, is meant to be read as two separate vertical streams. But to a parser without column-detection logic, it often reads as one interleaved stream — alternating fragments from the left and right columns stitched together into a confusing, broken sequence.</p>
+<p>Tables cause a similar problem. A skills table with columns for skill name and proficiency level might look clean on the page, but many parsers extract table content in an unpredictable order, sometimes losing the association between a skill and its corresponding detail entirely.</p>
+<p>Text boxes and headers/footers are another frequent culprit. Contact information placed in a document header — a very common default in many resume templates — is skipped entirely by a meaningful number of ATS parsers, because headers and footers are technically a separate layer of the document, not the main body text stream the parser is built to scan.</p>
+<p>Finally, there's the file type problem. A resume saved as a flattened image, or exported from a design tool in a way that doesn't preserve a real, selectable text layer, presents no machine-readable text at all. In the most extreme version of this failure, the ATS isn't struggling to read a messy resume — it's trying and failing to read what is, from a text-extraction standpoint, essentially a picture.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Mechanics</div>
+    <h2>How the ATS Handles This</h2>
+    
+<p>Understanding the actual mechanical sequence helps explain why this failure is so silent. First, the ATS extracts raw text from your uploaded file, following its own internal reading-order logic. Second, it attempts to segment that raw text into sections — Experience, Education, Skills — usually based on formatting cues like bold headers, consistent spacing, or recognized section-title keywords. Third, it classifies specific pieces of text into structured fields: this is your name, this is a job title, this is a date range.</p>
+<p>If any of these steps fail partway through, the system typically doesn't reject the file outright — it simply proceeds with whatever it managed to extract. A resume where the parser only captured 3 of 9 expected fields doesn't usually generate an error message a recruiter would see. It just quietly becomes a mostly-empty record in the database, which then scores poorly on any subsequent keyword match or ranking pass, entirely because the underlying data was never captured correctly to begin with.</p>
+<p>This is also why two resumes with genuinely similar experience can perform very differently in the same application cycle. The problem was never really about the qualifications — it was about which resume the software could actually read correctly.</p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Pitfalls</div>
+    <h2>Common Mistakes</h2>
+    <div class="grid2"><div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Using a template with visual columns</h4>
+  <p>The single most common cause of a resume the ATS can't read correctly — even a subtle two-column layout can scramble extraction.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Placing contact info in the header</h4>
+  <p>A common template default that a meaningful number of parsers skip over entirely.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Saving as a flattened image or scanned PDF</h4>
+  <p>Presents no machine-readable text layer at all, regardless of how the content reads visually.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Using tables for skills or project details</h4>
+  <p>Table content often extracts in an unpredictable order, breaking the association between related pieces of information.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Assuming a good visual design means good parsing</h4>
+  <p>Visual polish and machine-readability are almost entirely unrelated qualities in a resume.</p>
+</div>
+<div class="card err">
+  <span class="card-tag">Mistake</span>
+  <h4>Never actually testing the file before submitting</h4>
+  <p>The failure is invisible without a specific test — assuming it's fine because it looks fine is the core mistake underlying all the others.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Walkthrough</div>
+    <h2>Step-by-Step Fixes</h2>
+    <div class="steps"><div class="step">
+  <div class="step-num">01</div>
+  <div><h4>Export your resume as .docx or a text-based PDF</h4><p>Confirm you can select and copy individual words directly from the file — if you can't, it's likely an image, not real text.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">02</div>
+  <div><h4>Run it through a scanner or parser-style tool</h4><p>This shows you the raw, reconstructed text output — exactly what the ATS would extract from your file.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">03</div>
+  <div><h4>Read the extracted output top to bottom</h4><p>Compare it against your actual resume. Missing sections, scrambled sentences, or merged fields point directly to the layout problem.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">04</div>
+  <div><h4>Identify the specific layout element causing the break</h4><p>Usually a column, a table, a text box, or header/footer placement — isolate it before making changes.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">05</div>
+  <div><h4>Rebuild the affected section in plain, single-column text</h4><p>Keep the same content, just remove the layout structure the parser can't handle.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">06</div>
+  <div><h4>Move any header/footer content into the main body</h4><p>Contact information especially should sit as regular text at the top of the document, not inside a header region.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">07</div>
+  <div><h4>Re-test after the fix</h4><p>Confirm the specific fields that were missing or scrambled now extract correctly before moving on.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">08</div>
+  <div><h4>Repeat for every section until the full extraction is clean</h4><p>A resume can have more than one layout issue — a clean scan on one pass doesn't guarantee every section is fixed.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Get it right</div>
+    <h2>Best Practices</h2>
+    <div class="grid2"><div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Build in a single column from the start</h4>
+  <p>The most reliable single decision you can make for parsing accuracy across the widest range of ATS platforms.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Use real, bold text section headers</h4>
+  <p>"Experience," "Education," "Skills" — not a graphic, icon, or colored bar standing in for the label.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Keep contact information in the main body</h4>
+  <p>Placed at the very top of the document as regular text, never inside a header or footer region.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Save and test in both .docx and PDF</h4>
+  <p>Some platforms handle one format more reliably than the other for your specific structure — testing both removes the guesswork.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Use plain bullet points instead of tables</h4>
+  <p>A simple list preserves the association between a skill and its detail far more reliably than a table structure.</p>
+</div>
+<div class="card good">
+  <span class="card-tag">Do</span>
+  <h4>Test before every major application push</h4>
+  <p>Formatting issues can be introduced by small edits — a quick re-test before a batch of applications is worth the few minutes it takes.</p>
+</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Real world</div>
+    <h2>Real Examples</h2>
+    <div class="example">
+  <div class="who">Software engineer with a striking two-column template</div>
+  <p>His resume looked genuinely impressive — a sleek sidebar with skills and a clean main column with experience. A scan test revealed the two columns were interleaving line by line, merging unrelated skills and job descriptions into nonsense. Rebuilding in a single column preserved all the same content and fixed the extraction completely.</p>
+</div>
+<div class="example">
+  <div class="who">Finance graduate with contact info in the header</div>
+  <p>Her phone number and email lived in the document header, a default from the template she'd downloaded. Several ATS platforms skipped that region entirely, meaning her resume had no extractable contact information at all — a likely explanation for zero responses despite strong qualifications.</p>
+</div>
+<div class="example">
+  <div class="who">Consultant using a scanned PDF from an old print copy</div>
+  <p>He'd scanned a printed resume to create a digital file quickly. The resulting PDF had no selectable text layer whatsoever — to any ATS, it was functionally a photograph, not a document. Recreating it as a native, text-based file resolved the issue immediately.</p>
+</div>
+<div class="example">
+  <div class="who">Marketing candidate with a skills table</div>
+  <p>A neat two-column table listing skill and proficiency level looked clean visually but extracted as a jumbled, disconnected list with no clear pairing between skill names and levels. Converting the table into simple bulleted text preserved the same information in a format the parser could handle correctly.</p>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Comparison</div>
+    <h2>ATS Can't Read My Resume vs. Related Issues</h2>
+    <div class="tbl-wrap"><table>
+<thead><tr><th>Symptom</th><th>Likely Cause</th><th>Where to Start</th></tr></thead>
+<tbody><tr><td><strong>Total silence, every application</strong></td><td>Resume isn't parsing at all — likely a layout or file-type issue</td><td>Run a scan or parse test first</td></tr><tr><td>Some replies, but far fewer than expected</td><td>Partial parsing failure — some fields extracting, others missing</td><td>Check field-level extraction, not just overall readability</td></tr><tr><td>Rejected quickly after applying</td><td>May be a hard compliance failure, separate from parsing quality</td><td>Check file type and validation rules</td></tr><tr><td>Low match score despite relevant experience</td><td>Resume may parse fine but lack aligned keywords</td><td>Run a keyword comparison against the job description</td></tr></tbody>
+</table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Before you submit</div>
+    <h2>Fix-It Checklist</h2>
+    <div class="checklist"><div class="check-item"><div class="check-box"></div><div>Resume text is selectable and copyable, not an image</div></div><div class="check-item"><div class="check-box"></div><div>Single-column layout used throughout</div></div><div class="check-item"><div class="check-box"></div><div>No contact information placed in a header or footer</div></div><div class="check-item"><div class="check-box"></div><div>No tables used for skills, dates, or project details</div></div><div class="check-item"><div class="check-box"></div><div>Section headers are real, bold text — not graphics or icons</div></div><div class="check-item"><div class="check-box"></div><div>Tested in both .docx and PDF formats</div></div><div class="check-item"><div class="check-box"></div><div>Extracted output reviewed top-to-bottom for missing or scrambled sections</div></div><div class="check-item"><div class="check-box"></div><div>Re-tested after every layout change, however minor</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-label">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How do I know if the ATS can't read my resume?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>The clearest sign is consistently low or zero responses despite applying to roles you're genuinely qualified for. A scan or parser tool can confirm this directly by showing you the extracted text.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can a resume look perfect and still fail to parse?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — this is the core of the problem. Visual polish and machine-readability are largely unrelated qualities, and many visually impressive templates parse poorly.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is a two-column resume always unreadable to an ATS?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Not always, but it's the single most common cause of parsing failures. Some modern systems handle columns reasonably well, but it remains the highest-risk layout choice.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Why would my contact information disappear entirely?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>If it's placed inside a document header or footer, a meaningful number of parsing engines skip that region of the file entirely, treating it as separate from the main content.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does file type matter that much?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — a scanned image or a design-tool export without a real text layer presents no machine-readable content at all, regardless of how good the resume looks.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can I fix this without starting my resume over?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Usually yes. Most parsing failures come from specific layout elements — a column, a table, a header — that can be rebuilt individually without rewriting your actual content.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Should I use a template labeled "ATS-friendly"?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>It's a reasonable starting point, but always verify independently with an actual scan or parse test rather than trusting the label alone.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does this affect PDF and Word files equally?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Not necessarily — the same layout can behave differently between file types. Testing both is the safest approach if you're unsure.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Why did my resume work fine for some applications but not others?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Different companies use different ATS platforms with different parsing engines. A layout that happens to parse cleanly on one system can still fail on another.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Is this more common for certain industries or roles?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>It's more common wherever heavily designed templates are popular — creative fields, some tech roles — since those templates more often use columns, icons, and graphics that risk parsing failures.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Can I test this myself without paying for anything?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>Yes — free ATS scanner and checker tools can show you the extracted text output directly, which is usually enough to identify the specific problem.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>How often should I re-test my resume?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>After any layout change, and periodically during an active job search, since small edits can sometimes reintroduce a parsing issue that was previously fixed.</p></div>
+</div>
+<div class="faq-item">
+  <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+    <span>Does a clean parse guarantee I'll get an interview?</span><span class="icon">+</span>
+  </button>
+  <div class="faq-a"><p>No — it only confirms the ATS can read your resume correctly. From there, keyword relevance, resume quality, and the actual hiring process still determine the outcome.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Explore the series</div>
+    <h2>Related ATS Troubleshooting Guides</h2>
+    <div class="related"><a href="ats-can-t-read-my-resume.html" class="current">ATS Can't Read My Resume</a>
+<a href="ats-rejected-my-resume.html" class="">ATS Rejected My Resume</a>
+<a href="ats-resume-formatting-mistakes.html" class="">ATS Resume Formatting Mistakes</a>
+<a href="ats-resume-keywords-guide.html" class="">ATS Resume Keywords Guide</a>
+<a href="ats-resume-fonts.html" class="">ATS Resume Fonts</a>
+<a href="ats-resume-pdf-vs-docx.html" class="">ATS Resume PDF vs DOCX</a>
+<a href="ats-resume-tables.html" class="">ATS Resume Tables</a>
+<a href="ats-resume-icons.html" class="">ATS Resume Icons</a>
+<a href="ats-resume-columns.html" class="">ATS Resume Columns</a>
+<a href="ats-resume-graphics.html" class="">ATS Resume Graphics</a></div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Don't let a fixable problem cost you the job.</h2>
+      <p>BanaoResume's templates are built single-column and parser-tested by default, so there's no invisible formatting failure standing between your experience and the recruiter who should be reading it.</p>
+      <a class="btn-primary" href="https://banaoresumee.online">Build Your Free ATS Resume →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>© 2026 BanaoResume · Free ATS Resume Builder for Indian Students & Freshers</p></div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if the ATS can't read my resume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The clearest sign is consistently low or zero responses despite applying to roles you're genuinely qualified for. A scan or parser tool can confirm this directly by showing you the extracted text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a resume look perfect and still fail to parse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 this is the core of the problem. Visual polish and machine-readability are largely unrelated qualities, and many visually impressive templates parse poorly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a two-column resume always unreadable to an ATS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always, but it's the single most common cause of parsing failures. Some modern systems handle columns reasonably well, but it remains the highest-risk layout choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why would my contact information disappear entirely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If it's placed inside a document header or footer, a meaningful number of parsing engines skip that region of the file entirely, treating it as separate from the main content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does file type matter that much?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 a scanned image or a design-tool export without a real text layer presents no machine-readable content at all, regardless of how good the resume looks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fix this without starting my resume over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes. Most parsing failures come from specific layout elements \u2014 a column, a table, a header \u2014 that can be rebuilt individually without rewriting your actual content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use a template labeled \"ATS-friendly\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a reasonable starting point, but always verify independently with an actual scan or parse test rather than trusting the label alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this affect PDF and Word files equally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily \u2014 the same layout can behave differently between file types. Testing both is the safest approach if you're unsure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my resume work fine for some applications but not others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Different companies use different ATS platforms with different parsing engines. A layout that happens to parse cleanly on one system can still fail on another."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this more common for certain industries or roles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's more common wherever heavily designed templates are popular \u2014 creative fields, some tech roles \u2014 since those templates more often use columns, icons, and graphics that risk parsing failures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I test this myself without paying for anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 free ATS scanner and checker tools can show you the extracted text output directly, which is usually enough to identify the specific problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I re-test my resume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After any layout change, and periodically during an active job search, since small edits can sometimes reintroduce a parsing issue that was previously fixed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a clean parse guarantee I'll get an interview?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 it only confirms the ATS can read your resume correctly. From there, keyword relevance, resume quality, and the actual hiring process still determine the outcome."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
