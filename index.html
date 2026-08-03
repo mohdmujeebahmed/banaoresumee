@@ -2792,7 +2792,7 @@ function buildIITGoogleHTML(d) {
     itemWrap: 'margin-bottom:8px;',
     itemRow: 'display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;',
     itemTitle: 'font-size:9pt;font-weight:700;color:#111827;',
-    itemTitleSep: `font-weight:400;color:#374151;`,
+    itemTitleSep: `font-weight:400;color:#374151;font-size:9pt;`,
     itemDate: 'font-size:8pt;color:#6b7280;white-space:nowrap;font-style:italic;flex-shrink:0;',
     itemDesc: 'font-size:8.3pt;color:#1f2937;line-height:1.62;margin-top:3px;padding-left:13px;position:relative;',
     bullet: 'position:absolute;left:0;top:0;color:#374151;font-size:8pt;',
@@ -2831,7 +2831,7 @@ function buildIITGoogleHTML(d) {
   </div>`;
 
   // "Title | Company" on one bold line, dates italic on the right — the classic recruiter-scan layout
-  const titleLine = (title, sub) => `<span style="${S.itemTitle}">${title||''}</span>${sub ? `<span style="${S.itemTitleSep}"> &nbsp;|&nbsp; ${sub}</span>` : ''}`;
+  const titleLine = (title, sub) => `<span style="display:inline-flex;flex-wrap:wrap;align-items:baseline;"><span style="${S.itemTitle}">${title||''}</span>${sub ? `<span style="${S.itemTitleSep}"> &nbsp;|&nbsp; ${sub}</span>` : ''}</span>`;
 
   const renderEdu = () => {
     const items = d.education.filter(e => e.degree || e.institution);
@@ -2843,10 +2843,10 @@ function buildIITGoogleHTML(d) {
     if (!items.length) return '';
     return secTitle('Experience') + items.map(e => `<div style="${S.itemWrap}"><div style="${S.itemRow}">${titleLine(e.title, e.company)}<span style="${S.itemDate}">${e.start||''}${e.end?' – '+e.end:''}</span></div>${renderLinkRow(e.link)}${renderDescLines(e.desc)}</div>`).join('') + secClose;
   };
-  const renderProj = () => {
+const renderProj = () => {
     const items = d.projects.filter(p => p.name);
     if (!items.length) return '';
-    return secTitle('Projects') + items.map(p => `<div style="${S.itemWrap}"><div style="${S.itemRow}">${titleLine(p.name)}<span style="${S.itemDate}">${p.year||''}</span></div>${renderLinkRow(p.link)}${renderDescLines(p.desc)}</div>`).join('') + secClose;
+    return secTitle('Projects') + items.map(p => `<div style="${S.itemWrap}"><div style="${S.itemRow}">${titleLine(p.name, p.link ? `<a href="${hrefOf(p.link)}" target="_blank" style="color:${navy};text-decoration:underline;">Link</a>` : '')}<span style="${S.itemDate}">${p.year||''}</span></div>${renderDescLines(p.desc)}</div>`).join('') + secClose;
   };
   const renderSkills = () => {
     if (!d.skills.tech.length && !d.skills.tools.length && !d.skills.soft.length && !d.skills.langs.length) return '';
