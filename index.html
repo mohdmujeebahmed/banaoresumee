@@ -601,7 +601,7 @@ footer a:hover{color:var(--orange);}
 .resume-doc.tpl-iitgoogle .res-role{color:#444!important;font-size:9pt!important;text-align:center;display:block;margin-top:3pt;font-weight:400;}
 .resume-doc.tpl-iitgoogle .res-contact-bar{justify-content:center!important;margin-top:5pt!important;gap:5pt!important;padding-bottom:8pt;border-bottom:1.5pt solid #0d0d0d;}
 .resume-doc.tpl-iitgoogle .res-contact-bar span{color:#333!important;font-size:7.5pt!important;font-family:'JetBrains Mono',monospace;}
-.resume-doc.tpl-iitgoogle .res-contact-bar a{color:#1155CC!important;}
+.resume-doc.tpl-iitgoogle .res-contact-bar a{color:#0d0d0d!important;}
 .resume-doc.tpl-iitgoogle .res-body{display:block!important;}
 .resume-doc.tpl-iitgoogle .res-main{padding:0 20pt!important;border-right:none!important;}
 .resume-doc.tpl-iitgoogle .res-side{padding:0 20pt 16pt!important;background:#fff!important;}
@@ -612,7 +612,7 @@ footer a:hover{color:var(--orange);}
 .resume-doc.tpl-iitgoogle .res-item-title{font-size:9pt!important;font-weight:700!important;color:#0d0d0d!important;}
 .resume-doc.tpl-iitgoogle .res-item-date{font-size:7.5pt!important;color:#444!important;}
 .resume-doc.tpl-iitgoogle .res-item-sub{color:#333!important;font-style:italic;font-weight:500!important;font-size:8.5pt!important;}
-.resume-doc.tpl-iitgoogle .res-item-sub a{color:#1155CC!important;}
+.resume-doc.tpl-iitgoogle .res-item-sub a{color:#0d0d0d!important;}
 .resume-doc.tpl-iitgoogle .res-item-desc{font-size:8.5pt!important;color:#222!important;line-height:1.6!important;}
 .resume-doc.tpl-iitgoogle .res-about{font-size:8.5pt!important;color:#222!important;line-height:1.7!important;}
 .resume-doc.tpl-iitgoogle .res-skill-tags{display:block!important;margin-top:0!important;}
@@ -2779,7 +2779,7 @@ function getData() {
 }
 
 function buildIITGoogleHTML(d) {
-  const navy = '#1a3a6e';
+  const navy =  custState.accent || '#0d0d0d';
   const pLink = navy;
   const S = {
     wrap: 'width:210mm;min-height:297mm;background:#fff;color:#1a1a1a;font-family:\'DM Sans\',sans-serif;box-sizing:border-box;padding:16mm 18mm 14mm 18mm;',
