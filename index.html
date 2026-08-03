@@ -73,7 +73,7 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 .flash-overlay.on{opacity:0.3;}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:100;background:rgba(250,247,244,0.95);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
+header{position:sticky;top:0;z-index:100;background:rgba(250,247,244,0.95);backdrop-filter:blur(16px);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
 .brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
 .brand-logo{width:32px;height:32px;background:var(--orange);border-radius:9px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(255,107,53,0.35);flex-shrink:0;}
 .brand-logo svg{width:18px;height:18px;}
@@ -298,6 +298,18 @@ main.builder-active{max-width:1340px;}
 .cust-sp-roomy .resume-doc:not(.tpl-iitgoogle) .res-item{margin-bottom:16px!important;}
 .cust-sp-roomy .resume-doc:not(.tpl-iitgoogle) .res-sec{margin-bottom:20px!important;}
 
+/* ===== Overall resume text font — applies to every template ===== */
+.cust-font-times .resume-doc, .cust-font-times .lx-doc{font-family:'Times New Roman',Times,serif!important;}
+.cust-font-times .resume-doc .res-name{font-family:'Times New Roman',Times,serif!important;}
+.cust-font-georgia .resume-doc, .cust-font-georgia .lx-doc{font-family:Georgia,'Times New Roman',serif!important;}
+.cust-font-georgia .resume-doc .res-name{font-family:Georgia,serif!important;}
+.cust-font-arial .resume-doc, .cust-font-arial .lx-doc{font-family:Arial,Helvetica,sans-serif!important;}
+.cust-font-arial .resume-doc .res-name{font-family:Arial,Helvetica,sans-serif!important;}
+.cust-font-calibri .resume-doc, .cust-font-calibri .lx-doc{font-family:Calibri,Candara,'Segoe UI',sans-serif!important;}
+.cust-font-calibri .resume-doc .res-name{font-family:Calibri,Candara,'Segoe UI',sans-serif!important;}
+.cust-font-garamond .resume-doc, .cust-font-garamond .lx-doc{font-family:'Garamond','EB Garamond',serif!important;}
+.cust-font-garamond .resume-doc .res-name{font-family:'Garamond','EB Garamond',serif!important;}
+
 /* =====================
    HOME PAGE SCROLL SECTIONS — each feels like a new page when scrolling
    ===================== */
@@ -389,6 +401,10 @@ textarea{resize:vertical;min-height:75px;}
 .entry-card:hover{box-shadow:var(--shadow-lg);}
 .entry-card .remove-btn{position:absolute;top:0.55rem;right:0.55rem;background:var(--danger-light);border:1.5px solid #FFCCCC;color:var(--danger);font-size:0.75rem;width:24px;height:24px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
 .entry-card .remove-btn:hover{background:var(--danger);color:white;border-color:var(--danger);}
+.entry-order-row{display:flex;gap:6px;margin-bottom:0.6rem;}
+.move-btn{background:var(--bg);border:1.5px solid var(--border);color:var(--muted);font-size:0.68rem;width:24px;height:24px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0;}
+.move-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-light);}
+.simple-item .move-btn{position:static;}
 .entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;}
 .entry-grid .full{grid-column:1/-1;}
 @media(max-width:440px){.entry-grid{grid-template-columns:1fr;}.entry-grid .full{grid-column:1;}}
@@ -445,7 +461,7 @@ textarea{resize:vertical;min-height:75px;}
 #pdfStatus{display:none;text-align:center;padding:0.7rem;background:var(--orange-light);border-radius:var(--r-sm);margin-bottom:0.75rem;font-size:0.78rem;color:var(--orange);font-weight:600;}
 
 /* PREVIEW */
-#previewArea{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:0.9rem;margin-top:1rem;box-shadow:var(--shadow);overflow:hidden;}
+#previewArea{background:var(--surface);border:1.5px solid var(--border);border-top:none;border-radius:var(--r);padding:0.9rem;margin-top:1rem;box-shadow:var(--shadow);overflow:hidden;}
 .preview-label{font-size:0.65rem;font-weight:700;color:var(--muted);margin-bottom:0.7rem;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:5px;}
 .preview-label::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:blinkDot 1.5s ease-in-out infinite;}
 @keyframes blinkDot{0%,100%{opacity:1;}50%{opacity:0.2;}}
@@ -1441,7 +1457,7 @@ footer a:hover{color:var(--orange);}
     <div class="builder-preview-col">
       <div class="builder-preview-sticky">
         <div class="builder-preview-head">
-          <div class="preview-label">Live Preview</div>
+          <div class="preview-label" onclick="openFullPreview()" style="cursor:zoom-in;" title="Click to see the full final output">Live Preview <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(click to view full size)</span></div>
           <div class="preview-head-btns">
             <div class="tpl-picker-wrap">
               <button class="cust-btn" onclick="toggleTemplateMenu()">🖼️ Template</button>
@@ -1461,6 +1477,7 @@ footer a:hover{color:var(--orange);}
           <div class="dl-action-row">
             <button class="dl-btn dl-btn-pdf" onclick="downloadResume()">🎨 Download PDF (Colored)</button>
             <button class="dl-btn dl-btn-bw" onclick="downloadResume(true)">⬛ Download PDF (B&amp;W)</button>
+            <button class="dl-btn" style="background:linear-gradient(135deg,#1155CC,#0d3f99);color:#fff;box-shadow:0 4px 14px rgba(17,85,204,0.35);" onclick="downloadResumeWord()">📄 Download Word (.doc)</button>
           </div>
           <div id="pdfStatus"></div>
         </div>
@@ -1605,6 +1622,7 @@ footer a:hover{color:var(--orange);}
         </div>
         <div class="bsec-body">
           <div class="entries-container entries-divided" id="certContainer"></div>
+          <button class="add-btn" onclick="event.stopPropagation();addCertEntry()">＋ Add Certification</button>
         </div>
       </div>
 
@@ -2047,7 +2065,7 @@ footer a:hover{color:var(--orange);}
 let currentStep = 0, userMode = 'fresher', currentTemplate = 'modern';
 const skillTags = { tech: [], tools: [], soft: [], langs: [] };
 let expCount = 0, projCount = 0, eduCount = 0, achCount = 0, internCount = 0, volCount = 0;
-let custState = { template: 'modern', layout: 'one', fontSize: 'normal', spacing: 'normal', accent: '' };
+let custState = { template: 'modern', layout: 'one', fontSize: 'normal', spacing: 'normal', accent: '', fontFamily: 'default' };
 
 /* ---- History entry for the very first view (home/builder step 0) ---- */
 history.replaceState({ type: 'step', step: 0 }, '');
@@ -2446,6 +2464,7 @@ function addEntry(type) {
     expCount++; const id = expCount;
     const d = document.createElement('div'); d.className = 'entry-card'; d.id = `exp-${id}`;
     d.innerHTML = `<button class="remove-btn" onclick="removeEntry('exp-${id}')">✕</button>
+    <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('exp-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('exp-${id}','down')" title="Move down">▼</button></div>
     <div class="entry-grid">
       <div class="field-group"><label>Job Title</label><input type="text" id="exp-title-${id}" placeholder="Software Engineer Intern"/></div>
       <div class="field-group"><label>Company</label><input type="text" id="exp-company-${id}" placeholder="Google"/></div>
@@ -2465,6 +2484,7 @@ function addEntry(type) {
     projCount++; const id = projCount;
     const d = document.createElement('div'); d.className = 'entry-card'; d.id = `proj-${id}`;
     d.innerHTML = `<button class="remove-btn" onclick="removeEntry('proj-${id}')">✕</button>
+    <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('proj-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('proj-${id}','down')" title="Move down">▼</button></div>
     <div class="entry-grid">
       <div class="field-group"><label>Project Name</label><input type="text" id="proj-name-${id}" placeholder="AI Resume Builder"/></div>
       <div class="field-group"><label>Link <span class="opt">optional</span></label><input type="text" id="proj-link-${id}" placeholder="github.com/you/project"/></div>
@@ -2482,6 +2502,7 @@ function addEntry(type) {
     eduCount++; const id = eduCount;
     const d = document.createElement('div'); d.className = 'entry-card'; d.id = `edu-${id}`;
     d.innerHTML = `<button class="remove-btn" onclick="removeEntry('edu-${id}')">✕</button>
+    <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('edu-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('edu-${id}','down')" title="Move down">▼</button></div>
     <div class="entry-grid">
       <div class="field-group"><label>Degree / Certificate</label><input type="text" id="edu-deg-${id}" placeholder="B.Tech Computer Science"/></div>
       <div class="field-group"><label>Institution</label><input type="text" id="edu-inst-${id}" placeholder="IIT Bombay"/></div>
@@ -2493,6 +2514,7 @@ function addEntry(type) {
     internCount++; const id = internCount;
     const d = document.createElement('div'); d.className = 'entry-card'; d.id = `intern-${id}`;
     d.innerHTML = `<button class="remove-btn" onclick="removeEntry('intern-${id}')">✕</button>
+    <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('intern-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('intern-${id}','down')" title="Move down">▼</button></div>
     <div class="entry-grid">
       <div class="field-group"><label>Role</label><input type="text" id="intern-title-${id}" placeholder="Marketing Intern"/></div>
       <div class="field-group"><label>Start Date</label><input type="text" id="intern-start-${id}" placeholder="May 2024"/></div>
@@ -2510,6 +2532,7 @@ function addEntry(type) {
     volCount++; const id = volCount;
     const d = document.createElement('div'); d.className = 'entry-card'; d.id = `vol-${id}`;
     d.innerHTML = `<button class="remove-btn" onclick="removeEntry('vol-${id}')">✕</button>
+    <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('vol-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('vol-${id}','down')" title="Move down">▼</button></div>
     <div class="entry-grid">
       <div class="field-group"><label>Role</label><input type="text" id="vol-title-${id}" placeholder="Event Volunteer"/></div>
       <div class="field-group"><label>Organization</label><input type="text" id="vol-company-${id}" placeholder="NGO / Club Name"/></div>
@@ -2537,7 +2560,7 @@ function addSimpleItem(sectionKey) {
   const d = document.createElement('div');
   d.className = 'simple-item';
   d.id = `${sectionKey}-${id}`;
-  d.innerHTML = `<input type="text" id="${sectionKey}-text-${id}" placeholder="${simpleItemPlaceholders[sectionKey] || ''}"/><button class="remove-btn" onclick="removeEntry('${sectionKey}-${id}')">✕</button>`;
+  d.innerHTML = `<input type="text" id="${sectionKey}-text-${id}" placeholder="${simpleItemPlaceholders[sectionKey] || ''}"/><button type="button" class="move-btn" onclick="moveEntryEl('${sectionKey}-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('${sectionKey}-${id}','down')" title="Move down">▼</button><button class="remove-btn" onclick="removeEntry('${sectionKey}-${id}')">✕</button>`;
   document.getElementById(`${sectionKey}Container`).appendChild(d);
   refreshPreview();
 }
@@ -2547,6 +2570,7 @@ function addCustomSection() {
   customSecCount++; const id = customSecCount;
   const d = document.createElement('div'); d.className = 'entry-card'; d.id = `customsec-${id}`;
   d.innerHTML = `<button class="remove-btn" onclick="removeEntry('customsec-${id}')">✕</button>
+  <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('customsec-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('customsec-${id}','down')" title="Move down">▼</button></div>
   <div class="entry-grid">
     <div class="field-group full"><label>Section Title</label><input type="text" id="customsec-title-${id}" placeholder="Hobbies & Interests"/></div>
     <div class="field-group full"><label>Content</label><textarea id="customsec-desc-${id}" placeholder="Chess, photography, open-source contributions..."></textarea></div>
@@ -2589,7 +2613,7 @@ const ADD_CONTENT_ACTIONS = {
   skills: () => document.getElementById('techSkillInput')?.focus(),
   edu: () => addEntry('edu'),
   ach: () => addAchievement(),
-  cert: () => addSimpleItem('cert'),
+  cert: () => addCertEntry(),
   intern: () => addEntry('intern'),
   vol: () => addEntry('vol'),
   awards: () => addSimpleItem('awards'),
@@ -2682,11 +2706,26 @@ function getDescLines(prefix, id) {
   return Array.from(container.querySelectorAll('.desc-line-input')).map(inp => inp.value.trim()).filter(Boolean).join('\n');
 }
 
+/* Certifications now work like Projects: a name field plus optional
+   multi-line "+ Add Line" details, with its own explicit "+ Add
+   Certification" button (not just the generic Add Content menu). */
+function addCertEntry() {
+  simpleItemCounts.cert++; const id = simpleItemCounts.cert;
+  const d = document.createElement('div'); d.className = 'entry-card'; d.id = `cert-${id}`;
+  d.innerHTML = `<button class="remove-btn" onclick="removeEntry('cert-${id}')">✕</button>
+  <div class="entry-order-row"><button type="button" class="move-btn" onclick="moveEntryEl('cert-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" onclick="moveEntryEl('cert-${id}','down')" title="Move down">▼</button></div>
+  <div class="entry-grid">
+    <div class="field-group full"><label>Certification Name</label><input type="text" id="cert-text-${id}" placeholder="Google Digital Marketing Certification — 2025"/></div>
+  </div>`;
+  document.getElementById('certContainer').appendChild(d);
+  refreshPreview();
+}
+
 function addAchievement() {
   achCount++; const id = achCount;
   const d = document.createElement('div'); d.className = 'entry-card'; d.id = `ach-${id}`;
   d.style.cssText = 'display:flex;gap:0.6rem;align-items:center;padding:0.75rem;';
-  d.innerHTML = `<button class="remove-btn" style="position:relative;top:0;right:0;flex-shrink:0;" onclick="removeEntry('ach-${id}')">✕</button>
+  d.innerHTML = `<button type="button" class="move-btn" style="position:relative;" onclick="moveEntryEl('ach-${id}','up')" title="Move up">▲</button><button type="button" class="move-btn" style="position:relative;" onclick="moveEntryEl('ach-${id}','down')" title="Move down">▼</button><button class="remove-btn" style="position:relative;top:0;right:0;flex-shrink:0;" onclick="removeEntry('ach-${id}')">✕</button>
   <div class="field-group" style="flex:1;margin:0;"><input type="text" id="ach-text-${id}" placeholder="Top 100 in CodeChef Long Challenge 2024"/></div>`;
   document.getElementById('achieveContainer').appendChild(d);
   refreshPreview();
@@ -2696,6 +2735,27 @@ function removeEntry(id) {
   const el = document.getElementById(id);
   el.style.cssText += 'opacity:0;transform:scale(0.95);transition:all 0.2s;';
   setTimeout(() => { el.remove(); refreshPreview(); }, 200);
+}
+
+/* Generic reorder — works for every repeatable content type (Experience,
+   Projects, Education, Internships, Volunteering, Achievements, Certifications,
+   Awards, Publications, References, Custom Sections). Moves the entry's DOM
+   element up or down within its own container; getData() reads entries in
+   DOM order, so this directly controls final resume order. */
+function moveEntryEl(id, dir) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (dir === 'up') {
+    const prev = el.previousElementSibling;
+    if (prev) el.parentNode.insertBefore(el, prev);
+  } else {
+    const next = el.nextElementSibling;
+    if (next) el.parentNode.insertBefore(next, el);
+  }
+  el.style.transition = 'background 0.3s';
+  el.style.background = 'var(--orange-light)';
+  setTimeout(() => { el.style.background = ''; }, 350);
+  refreshPreview();
 }
 
 function setupTagInput(inputId, wrapId, store) {
@@ -2764,18 +2824,46 @@ function getData() {
     publications: [], references: [], customSections: [],
     skills: { ...skillTags }
   };
-  for (let i = 1; i <= expCount;  i++) if (document.getElementById(`exp-${i}`))  data.experience.push({ title: val(`exp-title-${i}`), company: val(`exp-company-${i}`), start: val(`exp-start-${i}`), end: val(`exp-end-${i}`), link: val(`exp-link-${i}`), desc: getDescLines('exp', i) });
-  for (let i = 1; i <= projCount; i++) if (document.getElementById(`proj-${i}`)) data.projects.push({ name: val(`proj-name-${i}`), link: val(`proj-link-${i}`), year: val(`proj-year-${i}`), desc: getDescLines('proj', i) });
-  for (let i = 1; i <= eduCount;  i++) if (document.getElementById(`edu-${i}`))  data.education.push({ degree: val(`edu-deg-${i}`), institution: val(`edu-inst-${i}`), year: val(`edu-year-${i}`), gpa: val(`edu-gpa-${i}`) });
-  for (let i = 1; i <= achCount;  i++) if (document.getElementById(`ach-${i}`))  { const t = val(`ach-text-${i}`); if (t) data.achievements.push(t); }
-  for (let i = 1; i <= internCount; i++) if (document.getElementById(`intern-${i}`)) data.internships.push({ title: val(`intern-title-${i}`), start: val(`intern-start-${i}`), end: val(`intern-end-${i}`), desc: getDescLines('intern', i) });
-  for (let i = 1; i <= volCount; i++) if (document.getElementById(`vol-${i}`)) data.volunteering.push({ title: val(`vol-title-${i}`), company: val(`vol-company-${i}`), start: val(`vol-start-${i}`), end: val(`vol-end-${i}`), desc: val(`vol-desc-${i}`) });
-  for (let i = 1; i <= simpleItemCounts.cert; i++) if (document.getElementById(`cert-${i}`)) { const t = val(`cert-text-${i}`); if (t) data.certifications.push(t); }
-  for (let i = 1; i <= simpleItemCounts.awards; i++) if (document.getElementById(`awards-${i}`)) { const t = val(`awards-text-${i}`); if (t) data.awards.push(t); }
-  for (let i = 1; i <= simpleItemCounts.pub; i++) if (document.getElementById(`pub-${i}`)) { const t = val(`pub-text-${i}`); if (t) data.publications.push(t); }
-  for (let i = 1; i <= simpleItemCounts.ref; i++) if (document.getElementById(`ref-${i}`)) { const t = val(`ref-text-${i}`); if (t) data.references.push(t); }
-  for (let i = 1; i <= customSecCount; i++) if (document.getElementById(`customsec-${i}`)) { const title = val(`customsec-title-${i}`), desc = val(`customsec-desc-${i}`); if (title || desc) data.customSections.push({ title, desc }); }
+  const gv = (card, sel) => { const el = card.querySelector(sel); return el ? el.value.trim() : ''; };
+  const gvta = (card, sel) => { const el = card.querySelector(sel); return el ? el.value.trim() : ''; };
+  document.querySelectorAll('#expContainer .entry-card').forEach(card => {
+    data.experience.push({ title: gv(card,'[id^="exp-title-"]'), company: gv(card,'[id^="exp-company-"]'), start: gv(card,'[id^="exp-start-"]'), end: gv(card,'[id^="exp-end-"]'), link: gv(card,'[id^="exp-link-"]'), desc: getDescLinesFromCard(card) });
+  });
+  document.querySelectorAll('#projContainer .entry-card').forEach(card => {
+    data.projects.push({ name: gv(card,'[id^="proj-name-"]'), link: gv(card,'[id^="proj-link-"]'), year: gv(card,'[id^="proj-year-"]'), desc: getDescLinesFromCard(card) });
+  });
+  document.querySelectorAll('#eduContainer .entry-card').forEach(card => {
+    data.education.push({ degree: gv(card,'[id^="edu-deg-"]'), institution: gv(card,'[id^="edu-inst-"]'), year: gv(card,'[id^="edu-year-"]'), gpa: gv(card,'[id^="edu-gpa-"]') });
+  });
+  document.querySelectorAll('#achieveContainer .entry-card').forEach(card => {
+    const t = gv(card,'[id^="ach-text-"]'); if (t) data.achievements.push(t);
+  });
+  document.querySelectorAll('#internContainer .entry-card').forEach(card => {
+    data.internships.push({ title: gv(card,'[id^="intern-title-"]'), start: gv(card,'[id^="intern-start-"]'), end: gv(card,'[id^="intern-end-"]'), desc: getDescLinesFromCard(card) });
+  });
+  document.querySelectorAll('#volContainer .entry-card').forEach(card => {
+    data.volunteering.push({ title: gv(card,'[id^="vol-title-"]'), company: gv(card,'[id^="vol-company-"]'), start: gv(card,'[id^="vol-start-"]'), end: gv(card,'[id^="vol-end-"]'), desc: gvta(card,'[id^="vol-desc-"]') });
+  });
+  document.querySelectorAll('#certContainer .entry-card').forEach(card => {
+    const name = gv(card,'[id^="cert-text-"]');
+    if (name) data.certifications.push({ name });
+  });
+  document.querySelectorAll('#awardsContainer .simple-item').forEach(card => { const t = gv(card,'[id^="awards-text-"]'); if (t) data.awards.push(t); });
+  document.querySelectorAll('#pubContainer .simple-item').forEach(card => { const t = gv(card,'[id^="pub-text-"]'); if (t) data.publications.push(t); });
+  document.querySelectorAll('#refContainer .simple-item').forEach(card => { const t = gv(card,'[id^="ref-text-"]'); if (t) data.references.push(t); });
+  document.querySelectorAll('#customContainer .entry-card').forEach(card => {
+    const title = gv(card,'[id^="customsec-title-"]'), desc = gvta(card,'[id^="customsec-desc-"]');
+    if (title || desc) data.customSections.push({ title, desc });
+  });
   return data;
+}
+
+/* Reads all "+ Add Line" description rows inside a given entry-card, in the
+   order they appear in the DOM — used by getData() above. */
+function getDescLinesFromCard(card) {
+  const dl = card.querySelector('.desc-lines');
+  if (!dl) return '';
+  return Array.from(dl.querySelectorAll('.desc-line-input')).map(inp => inp.value.trim()).filter(Boolean).join('\n');
 }
 
 function buildIITGoogleHTML(d) {
@@ -2783,7 +2871,7 @@ function buildIITGoogleHTML(d) {
   const pLink = navy;
   const S = {
     wrap: 'width:210mm;min-height:297mm;background:#fff;color:#1a1a1a;font-family:\'DM Sans\',sans-serif;box-sizing:border-box;padding:16mm 18mm 14mm 18mm;',
-    header: 'text-align:center;padding-bottom:9px;border-bottom:1.3px solid #cbd5e0;',
+    header: 'text-align:center;padding-bottom:9px;',
     name: `font-family:'Fraunces',serif;font-size:21pt;font-weight:800;color:${navy};letter-spacing:0.02em;line-height:1.1;display:block;text-transform:uppercase;`,
     role: 'font-size:9.5pt;color:#6b7280;margin-top:4px;font-weight:500;display:block;letter-spacing:0.01em;',
     contacts: 'font-size:8pt;color:#374151;margin-top:6px;display:block;line-height:1.7;',
@@ -2796,7 +2884,7 @@ function buildIITGoogleHTML(d) {
     itemDate: 'font-size:8pt;color:#6b7280;white-space:nowrap;font-style:italic;flex-shrink:0;',
     itemDesc: 'font-size:8.3pt;color:#1f2937;line-height:1.62;margin-top:3px;padding-left:13px;position:relative;',
     bullet: 'position:absolute;left:0;top:0;color:#374151;font-size:8pt;',
-    bodyBox: 'font-size:8.5pt;color:#1f2937;line-height:1.7;border:1px solid #cbd5e0;border-radius:2px;padding:8px 10px;',
+    bodyBox: 'font-size:8.5pt;color:#1f2937;line-height:1.7;',
     plainText: 'font-size:8.5pt;color:#1f2937;line-height:1.7;',
     skillRow: 'font-size:8.3pt;color:#1f2937;line-height:1.85;margin-bottom:1px;',
     skillLabel: `font-weight:700;color:#111827;`,
@@ -2816,12 +2904,12 @@ function buildIITGoogleHTML(d) {
   // shown as its own line, hyperlinked to the actual URL entered.
   const renderLinkRow = link => link ? `<div style="font-size:8pt;color:${navy};margin-top:1px;"><a href="${hrefOf(link)}" target="_blank" style="color:${navy};text-decoration:underline;">Link</a></div>` : '';
   const contactParts = [
-    d.location && d.location,
-    d.email    && `<a href="mailto:${d.email}" style="color:${pLink};text-decoration:none;">${d.email}</a>`,
-    d.phone    && d.phone,
-    d.linkedin && `<a href="${hrefOf(d.linkedin)}" target="_blank" style="color:${pLink};text-decoration:underline;">LinkedIn</a>`,
-    d.github   && `<a href="${hrefOf(d.github)}" target="_blank" style="color:${pLink};text-decoration:underline;">GitHub</a>`,
-    d.portfolio && `<a href="${hrefOf(d.portfolio)}" target="_blank" style="color:${pLink};text-decoration:underline;">Portfolio</a>`,
+    d.location && `📍 ${d.location}`,
+    d.email    && `📧 <a href="mailto:${d.email}" style="color:${pLink};text-decoration:none;">${d.email}</a>`,
+    d.phone    && `📞 ${d.phone}`,
+    d.linkedin && `🔗 <a href="${hrefOf(d.linkedin)}" target="_blank" style="color:${pLink};text-decoration:underline;">LinkedIn</a>`,
+    d.github   && `🐙 <a href="${hrefOf(d.github)}" target="_blank" style="color:${pLink};text-decoration:underline;">GitHub</a>`,
+    d.portfolio && `🌐 <a href="${hrefOf(d.portfolio)}" target="_blank" style="color:${pLink};text-decoration:underline;">Portfolio</a>`,
   ].filter(Boolean).join(' &nbsp;|&nbsp; ');
 
   let html = `<div style="${S.wrap}"><div style="${S.header}">
@@ -2875,6 +2963,11 @@ const renderProj = () => {
     if (!items.length) return '';
     return secTitle('Volunteering') + items.map(e => `<div style="${S.itemWrap}"><div style="${S.itemRow}">${titleLine(e.title, e.company)}<span style="${S.itemDate}">${e.start||''}${e.end?' – '+e.end:''}</span></div>${e.desc?`<div style="${S.itemDesc}"><span style="${S.bullet}">•</span>${e.desc}</div>`:''}</div>`).join('') + secClose;
   };
+  const renderCert = () => {
+    const items = (d.certifications || []).filter(c => c && c.name);
+    if (!items.length) return '';
+    return secTitle('Certifications') + items.map(c => `<div style="${S.itemWrap}"><div style="${S.itemRow}">${titleLine(c.name)}</div></div>`).join('') + secClose;
+  };
   const renderSimpleList = (title, items) => {
     if (!items || !items.length) return '';
     return secTitle(title) + `<div style="${S.infoRow}">${items.map(t=>`<div style="${S.itemDesc}"><span style="${S.bullet}">•</span>${t}</div>`).join('')}</div>` + secClose;
@@ -2893,7 +2986,7 @@ const renderProj = () => {
     edu: renderEdu,
     vol: renderVol,
     ach: renderAch,
-    cert: () => renderSimpleList('Certifications', d.certifications),
+    cert: renderCert,
     awards: () => renderSimpleList('Awards', d.awards),
     pub: () => renderSimpleList('Publications', d.publications),
     ref: () => renderSimpleList('References', d.references),
@@ -2912,11 +3005,11 @@ function buildResumeHTML(d, bw) {
   const hLink = bw ? '#ccc' : '#FFB899';
   const pLink = bw ? '#333' : '#FF6B35';
   const contactBits = [
-    d.email    && `<span>✉ <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
-    d.phone    && `<span>✆ ${d.phone}</span>`,
+    d.email    && `<span>📧 <a href="mailto:${d.email}" style="color:${hLink};text-decoration:underline;">${d.email}</a></span>`,
+    d.phone    && `<span>📞 ${d.phone}</span>`,
     d.location && `<span>📍 ${d.location}</span>`,
     d.linkedin && `<span>🔗 ${linkify(d.linkedin, hLink, 'LinkedIn')}</span>`,
-    d.github   && `<span>⌥ ${linkify(d.github, hLink, 'GitHub')}</span>`,
+    d.github   && `<span>🐙 ${linkify(d.github, hLink, 'GitHub')}</span>`,
     d.portfolio && `<span>🌐 ${linkify(d.portfolio, hLink, 'Portfolio')}</span>`,
   ].filter(Boolean).join('');
   const descLinesHtml = desc => desc ? desc.split('\n').map(l => l.trim()).filter(Boolean).map(l => `<div class="res-item-desc">• ${l}</div>`).join('') : '';
@@ -2927,12 +3020,13 @@ function buildResumeHTML(d, bw) {
   const internSec = (d.internships||[]).filter(e=>e.title).length ? `<div class="res-sec"><div class="res-sec-title">Internships</div>${d.internships.filter(e=>e.title).map(e=>`<div class="res-item"><div class="res-item-hd"><div class="res-item-title">${e.title||''}</div><div class="res-item-date">${e.start||''}${e.end?' – '+e.end:''}</div></div>${descLinesHtml(e.desc)}</div>`).join('')}</div>` : '';
   const volSec = (d.volunteering||[]).filter(e=>e.title||e.company).length ? `<div class="res-sec"><div class="res-sec-title">Volunteering</div>${d.volunteering.filter(e=>e.title||e.company).map(e=>`<div class="res-item"><div class="res-item-hd"><div class="res-item-title">${e.title||''}</div><div class="res-item-date">${e.start||''}${e.end?' – '+e.end:''}</div></div>${e.company?`<div class="res-item-sub">${e.company}</div>`:''}${e.desc?`<div class="res-item-desc">${e.desc}</div>`:''}</div>`).join('')}</div>` : '';
   const simpleListSec = (title, items) => (items && items.length) ? `<div class="res-sec"><div class="res-sec-title">${title}</div>${items.map(a=>`<div class="res-achievement">${a}</div>`).join('')}</div>` : '';
+  const certSec = (d.certifications||[]).filter(c=>c && c.name).length ? `<div class="res-sec"><div class="res-sec-title">Certifications</div>${d.certifications.filter(c=>c && c.name).map(c=>`<div class="res-achievement">${c.name}</div>`).join('')}</div>` : '';
   const customSec = (d.customSections||[]).length ? d.customSections.map(cs=>`<div class="res-sec"><div class="res-sec-title">${cs.title||'Additional Section'}</div><div class="res-about">${cs.desc||''}</div></div>`).join('') : '';
   const techSec = (d.skills.tech.length || d.skills.tools.length || d.skills.soft.length || d.skills.langs.length) ? `<div class="res-sec"><div class="res-sec-title">Skills</div>${d.skills.tech.length?`<div class="res-skill-tags">${d.skills.tech.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div>`:''}${d.skills.tools.length?`<div class="res-skill-cat">Tools</div><div class="res-skill-tags">${d.skills.tools.map(s=>`<span class="res-skill-tag tools">${s}</span>`).join('')}</div>`:''}${d.skills.soft.length?`<div class="res-skill-cat">Soft Skills</div><div class="res-skill-tags">${d.skills.soft.map(s=>`<span class="res-skill-tag soft">${s}</span>`).join('')}</div>`:''}${d.skills.langs.length?`<div class="res-skill-cat">Languages</div><div class="res-skill-tags">${d.skills.langs.map(s=>`<span class="res-skill-tag">${s}</span>`).join('')}</div>`:''}</div>` : '';
   const eduSec = d.education.filter(e=>e.degree||e.institution).length ? `<div class="res-sec"><div class="res-sec-title">Education</div>${d.education.filter(e=>e.degree||e.institution).map(e=>`<div style="margin-bottom:8px"><div class="res-edu-deg">${e.degree||''}</div><div class="res-edu-school">${e.institution||''}</div><div class="res-edu-year">${e.year||''}${e.gpa?' · '+e.gpa:''}</div></div>`).join('')}</div>` : '';
   const aboutSec = d.about ? `<div class="res-sec"><div class="res-sec-title">About</div><div class="res-about">${d.about}</div></div>` : '';
   const mainRenderers = { summary: aboutSec, exp: expSec, intern: internSec, proj: projSec, vol: volSec, ach: achSec,
-    cert: simpleListSec('Certifications', d.certifications), awards: simpleListSec('Awards', d.awards),
+    cert: certSec, awards: simpleListSec('Awards', d.awards),
     pub: simpleListSec('Publications', d.publications), ref: simpleListSec('References', d.references), custom: customSec };
   const sideRenderers = { skills: techSec, edu: eduSec };
   const mainContent = sectionOrder.filter(k => k in mainRenderers).map(k => mainRenderers[k]).join('');
@@ -2943,16 +3037,80 @@ function buildResumeHTML(d, bw) {
 
 function buildResume() { refreshPreview(); populateEditFields(getData()); }
 
+/* Renders HTML off-screen at full 794px width to measure its real height —
+   used to detect how many A4 pages the resume actually spans, both for the
+   sidebar preview and the full preview modal. */
+function measureContentHeight(html, custClass) {
+  let probe = document.getElementById('rp-measure-probe');
+  if (!probe) {
+    probe = document.createElement('div');
+    probe.id = 'rp-measure-probe';
+    probe.style.cssText = 'position:absolute;left:-9999px;top:0;width:794px;pointer-events:none;';
+    document.body.appendChild(probe);
+  }
+  probe.innerHTML = `<div class="${custClass}">${html}</div>`;
+  return probe.scrollHeight || 1123;
+}
+
 function refreshPreview() {
   const scroll = document.getElementById('previewScroll');
   if (!scroll) return;
   const d = getData();
   const html = buildResumeHTML(d, false);
   const availW = (scroll.parentElement ? scroll.parentElement.clientWidth : 320) - 32;
-  const scale = Math.min(availW / 794, 0.78);
-  const scaledH = 1123 * scale;
-  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-layout-${custState.layout}`;
-  scroll.innerHTML = `<div style="width:100%;height:${scaledH}px;overflow:hidden;border-radius:6px;box-shadow:0 6px 30px rgba(0,0,0,0.12);"><div class="${custClass}" style="transform:scale(${scale});transform-origin:top left;width:794px;">${html}</div></div>`;
+  const scale = Math.min(availW / 794, 1);
+  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-font-${custState.fontFamily}`;
+  const fullH = measureContentHeight(html, custClass);
+  const pages = Math.max(1, Math.ceil(fullH / 1123));
+  const scaledH = fullH * scale;
+  const breaks = Array.from({ length: pages - 1 }, (_, i) => {
+    const top = (i + 1) * 1123 * scale;
+    return `<div style="position:absolute;left:0;right:0;top:${top}px;border-top:2px dashed #E53E3E;z-index:5;pointer-events:none;"><span style="position:absolute;right:4px;top:2px;font-size:8.5px;color:#E53E3E;font-family:'JetBrains Mono',monospace;background:#fff;padding:0 4px;border-radius:2px;">page ${i + 2}</span></div>`;
+  }).join('');
+  scroll.innerHTML = `<div style="width:100%;border-radius:6px;box-shadow:0 6px 30px rgba(0,0,0,0.12);cursor:zoom-in;" onclick="openFullPreview()" title="Click for the full final-output preview">
+    <div style="position:relative;height:${scaledH}px;">
+      <div class="${custClass}" style="transform:scale(${scale});transform-origin:top left;width:794px;">${html}</div>
+      ${breaks}
+      ${pages > 1 ? `<div style="position:absolute;top:6px;right:6px;background:var(--orange);color:#fff;font-size:0.6rem;font-weight:700;padding:2px 8px;border-radius:100px;z-index:6;">📄 ${pages} pages</div>` : ''}
+    </div>
+  </div>`;
+}
+
+/* Full-size modal preview — shows exactly how the exported PDF/Word file
+   will look, including a clear marker of where page 2 (and beyond) begins,
+   which the small sidebar preview previously hid entirely. */
+function openFullPreview() {
+  const d = getData();
+  const html = buildResumeHTML(d, false);
+  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-font-${custState.fontFamily}`;
+  const fullH = measureContentHeight(html, custClass);
+  const pages = Math.max(1, Math.ceil(fullH / 1123));
+  const modalScale = Math.min(1, Math.min(window.innerWidth - 40, 860) / 794);
+  const boxW = 794 * modalScale;
+  const boxH = fullH * modalScale;
+  let overlay = document.getElementById('fullPreviewOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'fullPreviewOverlay';
+    document.body.appendChild(overlay);
+  }
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(26,16,8,0.72);z-index:5000;display:flex;flex-direction:column;align-items:center;overflow:auto;padding:2rem 1rem 3rem;';
+  const breaks = Array.from({ length: pages - 1 }, (_, i) => {
+    const top = (i + 1) * 1123 * modalScale;
+    return `<div style="position:absolute;left:0;right:0;top:${top}px;border-top:2px dashed #E53E3E;pointer-events:none;"><span style="position:absolute;right:6px;top:4px;font-size:11px;color:#E53E3E;font-family:'JetBrains Mono',monospace;background:#fff;padding:1px 6px;border-radius:3px;">Page ${i + 2} starts here</span></div>`;
+  }).join('');
+  overlay.innerHTML = `
+    <div style="width:100%;max-width:${boxW}px;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:0.75rem;">
+      <div style="color:#fff;font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;">Full Resume Preview${pages > 1 ? ' · ' + pages + ' pages' : ' · 1 page'}</div>
+      <button onclick="document.getElementById('fullPreviewOverlay').remove()" style="background:#fff;border:none;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;color:#1A1008;flex-shrink:0;">✕</button>
+    </div>
+    <div style="position:relative;width:${boxW}px;max-width:100%;height:${boxH}px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+      <div style="transform:scale(${modalScale});transform-origin:top left;width:794px;">
+        <div class="${custClass}">${html}</div>
+      </div>
+      ${breaks}
+    </div>`;
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
 }
 
 /* html2canvas/html2pdf rasterizes the resume into a flat image, so plain
@@ -2994,7 +3152,7 @@ function downloadResume(bw) {
   // a visible element is always guaranteed to be painted correctly.
   const overlay = document.getElementById('resume-print-area');
   overlay.setAttribute('style', 'position:fixed;inset:0;z-index:100000;background:#fff;overflow:auto;display:flex;justify-content:center;padding:24px 0;');
-  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-layout-${custState.layout}`;
+  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-font-${custState.fontFamily}`;
   overlay.innerHTML = `<div class="${custClass}">${buildResumeHTML(d, bw)}</div>`;
   const target = overlay.firstElementChild;
 
@@ -3031,6 +3189,32 @@ function downloadResume(bw) {
       resetOverlay();
     }
   }));
+}
+
+/* Word (.doc) export for the main resume builder — embeds the page's own
+   stylesheet into a self-contained MS-Office HTML document so fonts,
+   colors, borders, and spacing carry over faithfully. (Two-column layouts
+   built with CSS grid/flex gracefully degrade to a stacked single column
+   in Word, which does not support those display modes — a normal, safe
+   trade-off for a .doc export.) */
+function downloadResumeWord() {
+  const d = getData();
+  const bodyHtml = buildResumeHTML(d, false);
+  const custClass = `cust-fs-${custState.fontSize} cust-sp-${custState.spacing} cust-font-${custState.fontFamily || 'default'}`;
+  const styleEl = document.querySelector('head > style');
+  const styleText = styleEl ? styleEl.textContent : '';
+  const html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
+    + '<head><meta charset="utf-8"><title>' + (d.name || 'Resume').replace(/</g,'') + '</title>'
+    + '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/></w:WordDocument></xml><![endif]-->'
+    + '<style>@page{size:21cm 29.7cm;margin:0;}body{margin:0;background:#fff;}'
+    + styleText + '</style></head>'
+    + '<body><div class="' + custClass + '">' + bodyHtml + '</div></body></html>';
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = ((d.name || 'resume').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'resume') + '.doc';
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 200);
 }
 
 function populateEditFields(d) {
@@ -3072,13 +3256,20 @@ document.addEventListener('input', e => {
    ===================================================================== */
 const CUST_TABS = [
   { key: 'overview', label: 'Overview' },
-  { key: 'layout', label: 'Layout' },
-  { key: 'fontsize', label: 'Font Size' },
+  { key: 'typography', label: 'Typography' },
   { key: 'spacing', label: 'Spacing' },
   { key: 'colors', label: 'Colors' },
 ];
 let custActiveTab = 'overview';
 const ACCENT_SWATCHES = ['', '#FF6B35', '#2ECC71', '#1155CC', '#8B5CF6', '#E53E3E', '#0d0d0d', '#F0A93A'];
+const FONT_FAMILIES = [
+  { key: 'default', label: 'Default (DM Sans)' },
+  { key: 'times', label: 'Times New Roman' },
+  { key: 'georgia', label: 'Georgia' },
+  { key: 'garamond', label: 'Garamond' },
+  { key: 'arial', label: 'Arial' },
+  { key: 'calibri', label: 'Calibri' },
+];
 
 function openCustomize() {
   document.getElementById('custOverlay').classList.add('open');
@@ -3101,8 +3292,8 @@ function renderCustTabs() {
 }
 
 function custSetTemplate(tpl) { applyTemplate(tpl); custState.template = tpl; renderCustBody(); }
-function custSetLayout(v) { custState.layout = v; refreshPreview(); renderCustBody(); }
 function custSetFontSize(v) { custState.fontSize = v; refreshPreview(); renderCustBody(); }
+function custSetFontFamily(v) { custState.fontFamily = v; refreshPreview(); renderCustBody(); }
 function custSetSpacing(v) { custState.spacing = v; refreshPreview(); renderCustBody(); }
 function custSetAccent(v) { custState.accent = v; refreshPreview(); renderCustBody(); }
 
@@ -3122,17 +3313,14 @@ function renderCustBody() {
           <button class="btn btn-ghost" style="justify-content:center;" onclick="downloadResume(true)">⬛ Download PDF (B&amp;W)</button>
         </div>
       </div>`;
-  } else if (custActiveTab === 'layout') {
-    html = `<div class="cust-group"><div class="cust-group-title">Layout</div>
+  } else if (custActiveTab === 'typography') {
+    html = `<div class="cust-group"><div class="cust-group-title">Font Style</div>
       <div class="cust-option-row">
-        <span class="cust-pill${custState.layout==='one'?' active':''}" onclick="custSetLayout('one')">One Column</span>
-        <span class="cust-pill${custState.layout==='two'?' active':''}" onclick="custSetLayout('two')">Two Columns</span>
-        <span class="cust-pill${custState.layout==='mixed'?' active':''}" onclick="custSetLayout('mixed')">Mixed Layout</span>
+        ${FONT_FAMILIES.map(f => `<span class="cust-pill${custState.fontFamily===f.key?' active':''}" onclick="custSetFontFamily('${f.key}')">${f.label}</span>`).join('')}
       </div>
-      <p style="font-size:0.72rem;color:var(--muted);">The IIT-to-Google template is single-column by design; Modern &amp; ATS Minimal use a two-column layout.</p>
-      </div>`;
-  } else if (custActiveTab === 'fontsize') {
-    html = `<div class="cust-group"><div class="cust-group-title">Base Font Size</div>
+      <p style="font-size:0.72rem;color:var(--muted);margin-bottom:1rem;">Changes the font used throughout the whole resume — names, headings, and body text.</p>
+      </div>
+      <div class="cust-group"><div class="cust-group-title">Base Font Size</div>
       <div class="cust-option-row">
         <span class="cust-pill${custState.fontSize==='compact'?' active':''}" onclick="custSetFontSize('compact')">Compact</span>
         <span class="cust-pill${custState.fontSize==='normal'?' active':''}" onclick="custSetFontSize('normal')">Normal</span>
