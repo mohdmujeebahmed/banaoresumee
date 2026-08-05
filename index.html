@@ -284,6 +284,11 @@ main.builder-active{max-width:1340px;}
 @media(min-width:980px){.builder-wrap{grid-template-columns:1fr 1fr;}}
 @media(min-width:1200px){.builder-wrap{grid-template-columns:1fr 1.05fr;}}
 
+@media(max-width:979px){
+  .builder-preview-col{order:2;}
+  .builder-edit-col{order:1;}
+}
+
 /* ===== Applied customizations (font size / spacing) — modern & minimal templates ===== */
 .cust-fs-compact .resume-doc:not(.tpl-iitgoogle) .res-item-desc,
 .cust-fs-compact .resume-doc:not(.tpl-iitgoogle) .res-about{font-size:8.3pt!important;}
@@ -2760,12 +2765,17 @@ function moveEntryEl(id, dir) {
 
 function setupTagInput(inputId, wrapId, store) {
   const input = document.getElementById(inputId);
+
+  function commitValue() {
+    const v = input.value.trim().replace(/,$/, '');
+    if (v && !store.includes(v)) { store.push(v); renderTag(v, wrapId, store, inputId); }
+    input.value = '';
+  }
+
   input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ',') {
+    if (e.key === 'Enter' || e.key === ',' || e.keyCode === 13 || e.keyCode === 188) {
       e.preventDefault();
-      const v = input.value.trim().replace(/,$/, '');
-      if (v && !store.includes(v)) { store.push(v); renderTag(v, wrapId, store, inputId); }
-      input.value = '';
+      commitValue();
     }
     if (e.key === 'Backspace' && input.value === '' && store.length) {
       store.pop();
@@ -2773,6 +2783,9 @@ function setupTagInput(inputId, wrapId, store) {
       if (tags.length) tags[tags.length - 1].remove();
     }
   });
+
+  input.addEventListener('blur', () => { if (input.value.trim()) commitValue(); });
+
   document.getElementById(wrapId).addEventListener('click', () => input.focus());
 }
 
