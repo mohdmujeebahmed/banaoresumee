@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume for Diploma Students — Banaoresumee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --paper:#F5F1E7;
+    --panel:#EDE7D6;
+    --navy:#132A46;
+    --navy-2:#1D3B5F;
+    --brass:#C4872B;
+    --brass-dark:#8F5F17;
+    --teal:#2F6F68;
+    --teal-dark:#1E4B46;
+    --ink:#22262B;
+    --ink-soft:#5B5F58;
+    --line: rgba(19,42,70,0.18);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight:700;
+    color:var(--navy);
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Courier New', monospace;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--brass-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:20px;height:1px;background:var(--brass-dark);
+    display:inline-block;
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/40px 40px,
+      var(--paper);
+    border-bottom:2px solid var(--navy);
+    padding:64px 0 56px;
+    overflow:hidden;
+  }
+  .hero::before,.hero::after{
+    content:"";
+    position:absolute;
+    width:26px;height:26px;
+    border:2px solid var(--navy);
+    top:24px;
+  }
+  .hero::before{left:24px;border-right:none;border-bottom:none;}
+  .hero::after{right:24px;border-left:none;border-bottom:none;}
+  .hero-inner{position:relative;}
+  .hero h1{
+    font-size:44px;
+    line-height:1.12;
+    margin:18px 0 20px;
+    max-width:680px;
+  }
+  .hero h1 span{color:var(--brass-dark);}
+  .hero p.lead{
+    max-width:560px;
+    font-size:17px;
+    color:var(--ink-soft);
+    margin-bottom:30px;
+  }
+  .stat-row{
+    display:flex;
+    gap:0;
+    border-top:1px solid var(--navy);
+    border-bottom:1px solid var(--navy);
+    margin-top:36px;
+  }
+  .stat{
+    flex:1;
+    padding:16px 20px;
+    border-right:1px solid var(--navy);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:Georgia,serif;
+    font-size:28px;
+    font-weight:700;
+    color:var(--navy);
+  }
+  .stat .lbl{
+    font-family:'Courier New',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:2px;
+    border:2px solid var(--navy);
+  }
+  .btn-primary{background:var(--brass);color:#fff;border-color:var(--brass-dark);}
+  .btn-primary:hover{background:var(--brass-dark);}
+  .btn-ghost{background:transparent;color:var(--navy);}
+  .btn-ghost:hover{background:var(--navy);color:var(--paper);}
+
+  /* SECTION GENERIC */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  .section-head{margin-bottom:32px;}
+  .section-head h2{font-size:28px;margin-top:10px;}
+
+  /* WHO NEEDS */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:16px;
+  }
+  .who-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid var(--teal);
+    padding:18px 18px;
+  }
+  .who-card p{margin:0;font-size:14.5px;color:var(--ink);}
+
+  /* PROCESS - real sequence, numbering justified */
+  .process{counter-reset:step;}
+  .step{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    padding:20px 0;
+    border-top:1px dashed var(--line);
+  }
+  .step:first-child{border-top:none;}
+  .step-num{
+    font-family:Georgia,serif;
+    font-size:30px;
+    font-weight:700;
+    color:var(--brass);
+  }
+  .step h3{font-size:17px;margin-bottom:6px;}
+  .step p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+  /* SKILLS TAGS */
+  .tagbox{
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .tag{
+    font-family:'Courier New',monospace;
+    font-size:12.5px;
+    padding:6px 12px;
+    border:1px solid var(--navy-2);
+    color:var(--navy-2);
+    background:#fff;
+  }
+  .tag.teal{border-color:var(--teal);color:var(--teal-dark);}
+  .tag.brass{border-color:var(--brass);color:var(--brass-dark);}
+
+  /* TEMPLATE PREVIEW */
+  .sheet{
+    background:#fff;
+    border:1px solid var(--navy);
+    box-shadow: 6px 6px 0 var(--brass);
+    padding:26px 28px;
+    font-family:'Courier New', monospace;
+    font-size:12.5px;
+    color:var(--ink);
+    max-width:640px;
+  }
+  .sheet .name{font-size:16px;font-weight:bold;color:var(--navy);}
+  .sheet hr{border:none;border-top:1px dashed var(--line);margin:10px 0;}
+  .sheet .lbl{color:var(--brass-dark);font-weight:bold;}
+
+  /* MISTAKES */
+  .mistake-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .mistake-list li{
+    display:grid;grid-template-columns:26px 1fr;gap:12px;
+    font-size:14.5px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .mistake-x{
+    color:var(--brass-dark);font-weight:bold;font-family:Georgia,serif;
+  }
+
+  /* FAQ */
+  details{
+    border-top:1px solid var(--line);
+    padding:14px 0;
+  }
+  details:last-child{border-bottom:1px solid var(--line);}
+  summary{
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    color:var(--navy);
+    list-style:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"+ ";color:var(--brass-dark);}
+  details[open] summary::before{content:"– ";}
+  details p{margin:10px 0 0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* FOOTER CTA */
+  .final-cta{
+    background:var(--navy);
+    color:var(--paper);
+    padding:56px 0;
+    text-align:center;
+  }
+  .final-cta h2{color:#fff;font-size:30px;margin-bottom:14px;}
+  .final-cta p{color:#C9D3DE;max-width:480px;margin:0 auto 26px;}
+
+  @media(max-width:600px){
+    .hero h1{font-size:32px;}
+    .stat-row{flex-direction:column;}
+    .stat{border-right:none;border-bottom:1px solid var(--navy);}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Banaoresumee · Free ATS resume builder</div>
+    <h1>The diploma resume that gets<br><span>past the filter, not just read.</span></h1>
+    <p class="lead">Most resume advice is written for degree holders. This is built for diploma and polytechnic students — practical skills, industrial training, and real projects, formatted the way ATS software actually scans.</p>
+    <div class="cta-row">
+      <a href="https://banaoresumee.online" class="btn btn-primary">Build my resume free →</a>
+      <a href="#template" class="btn btn-ghost">See the template</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">8</div><div class="lbl">Resume sections</div></div>
+      <div class="stat"><div class="num">60+</div><div class="lbl">Skill examples</div></div>
+      <div class="stat"><div class="num">15</div><div class="lbl">Project ideas</div></div>
+      <div class="stat"><div class="num">0 ₹</div><div class="lbl">Cost to build</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Fig. 01 — Audience</div>
+      <h2>Who this is built for</h2>
+    </div>
+    <div class="card-grid">
+      <div class="who-card"><p>Diploma holders in Mechanical, Civil, Electrical, Electronics or CS/IT applying for their first job.</p></div>
+      <div class="who-card"><p>Polytechnic students entering the job market right after their diploma.</p></div>
+      <div class="who-card"><p>Diploma students doing lateral entry into a B.Tech/B.E. while also job-hunting.</p></div>
+      <div class="who-card"><p>Diploma holders with no experience, relying on projects and industrial training.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Fig. 02 — Structure</div>
+      <h2>Build it in the right order</h2>
+    </div>
+    <div class="process">
+      <div class="step"><div class="step-num">01</div><div><h3>Objective</h3><p>Two lines stating your specialization, one strength, and the role you want.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><h3>Education</h3><p>Diploma first, then 12th/SSLC — institution, board, year, percentage.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h3>Skills</h3><p>8–12 tools and soft skills, matched to the exact job posting.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h3>Projects</h3><p>Your strongest section without job experience — lead with results.</p></div></div>
+      <div class="step"><div class="step-num">05</div><div><h3>Industrial training</h3><p>Mandatory training counts as real experience — always include it.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Fig. 03 — Vocabulary</div>
+      <h2>Skills recruiters are scanning for</h2>
+    </div>
+    <div class="tagbox">
+      <span class="tag">AutoCAD</span>
+      <span class="tag">SolidWorks</span>
+      <span class="tag teal">PLC Programming</span>
+      <span class="tag">Circuit Design</span>
+      <span class="tag brass">CNC Operation</span>
+      <span class="tag">Python</span>
+      <span class="tag teal">MySQL</span>
+      <span class="tag">Quality Control</span>
+      <span class="tag brass">Networking Basics</span>
+      <span class="tag">MATLAB</span>
+      <span class="tag teal">Report Writing</span>
+      <span class="tag">Problem-Solving</span>
+    </div>
+  </section>
+
+  <section id="template">
+    <div class="section-head">
+      <div class="eyebrow">Fig. 04 — Template</div>
+      <h2>What an ATS-ready sheet looks like</h2>
+    </div>
+    <div class="sheet">
+      <div class="name">RAVI KUMAR</div>
+      +91-9XXXXXXXXX · ravi.kumar@email.com · Bengaluru
+      <hr>
+      <span class="lbl">OBJECTIVE</span><br>
+      Diploma holder in Mechanical Engineering, hands-on with SolidWorks and CNC, seeking a Junior Design Engineer role.
+      <hr>
+      <span class="lbl">SKILLS</span><br>
+      AutoCAD · SolidWorks · GD&amp;T · CNC Operation · Quality Control
+      <hr>
+      <span class="lbl">PROJECTS</span><br>
+      Go-Kart Chassis Design — reduced weight by 12% using SolidWorks.
+      <hr>
+      <span class="lbl">INDUSTRIAL TRAINING</span><br>
+      ABC Precision Tools — 6-week trainee, CNC quality inspection.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Fig. 05 — Avoid these</div>
+      <h2>What actually gets diploma resumes rejected</h2>
+    </div>
+    <ul class="mistake-list">
+      <li><span class="mistake-x">✕</span><span>Graphic-heavy templates that ATS software can't parse.</span></li>
+      <li><span class="mistake-x">✕</span><span>Listing tools with no context on how they were used.</span></li>
+      <li><span class="mistake-x">✕</span><span>Skipping the projects section entirely.</span></li>
+      <li><span class="mistake-x">✕</span><span>Leaving out industrial training because it feels informal.</span></li>
+      <li><span class="mistake-x">✕</span><span>Submitting an image-based PDF instead of text-based.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Common questions</h2>
+    </div>
+    <details open>
+      <summary>What's the best resume format for diploma students?</summary>
+      <p>A reverse-chronological hybrid — it leads with education and skills, then projects and training, in a layout ATS software parses reliably.</p>
+    </details>
+    <details>
+      <summary>Do I need work experience to apply?</summary>
+      <p>No. Academic projects, industrial training, and certifications carry the same weight for entry-level and trainee roles.</p>
+    </details>
+    <details>
+      <summary>What file format should I submit?</summary>
+      <p>A text-based PDF or DOCX — never an image or scanned copy, since ATS software can't read image text.</p>
+    </details>
+  </section>
+
+</div>
+
+<div class="final-cta">
+  <div class="wrap">
+    <h2>Stop formatting. Start applying.</h2>
+    <p>Banaoresumee builds an ATS-optimized diploma resume for you in minutes — free, no design skills needed.</p>
+    <a href="https://banaoresumee.online" class="btn btn-primary">Build my resume free →</a>
+  </div>
+</div>
+
+</body>
+</html>
