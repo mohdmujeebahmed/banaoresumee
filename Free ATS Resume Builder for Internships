@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free ATS Resume Builder for Internships | BanaoResume</title>
+<meta name="description" content="Create an internship-ready resume with this free ATS resume builder for internship applications — built for students with limited experience.">
+<link rel="canonical" href="https://banaoresumee.online/free-ats-resume-builder-for-internship">
+<meta property="og:title" content="Free ATS Resume Builder for Internships | BanaoResume">
+<meta property="og:description" content="Create an internship-ready resume with this free ATS resume builder for internship applications — built for students with limited experience.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700|Inter:wght@400;500;600;700|JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== BASE LAYOUT MECHANICS =====
+   Every color/font value below is a var() supplied by each page's
+   own theme block — this file only defines structure, spacing,
+   and behavior, never a hardcoded color. */
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0; background: var(--bg); color: var(--text);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+h1,h2,h3{ font-family: var(--f-display); font-weight: var(--display-weight, 600); margin: 0; color: var(--heading); }
+h1{ font-size: clamp(2.1rem, 4.4vw, 3.5rem); line-height: 1.06; letter-spacing: var(--h1-tracking, -0.02em); }
+h2{ font-size: clamp(1.5rem, 2.6vw, 2.05rem); line-height: 1.2; letter-spacing: var(--h2-tracking, -0.01em); }
+h3{ font-size: 1.15rem; line-height: 1.35; }
+p{ margin: 0 0 1em; color: var(--text-dim); }
+p:last-child{ margin-bottom: 0; }
+strong{ color: var(--heading); font-weight: 600; }
+.mono{ font-family: var(--f-mono); }
+
+.eyebrow{
+  font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--accent); display:inline-flex; align-items:center; gap:0.6em; margin-bottom: 1.1rem;
+}
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius: var(--dot-radius, 50%); background: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+.wrap{ max-width: 1080px; margin:0 auto; padding: 0 24px; position:relative; z-index:1; }
+section{ padding: 68px 0; border-bottom: 1px solid var(--line-soft); }
+section:last-of-type{ border-bottom: none; }
+.section-tight{ padding: 44px 0; }
+
+header.site{ position: sticky; top:0; z-index:50; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1080px; margin:0 auto; }
+.brand{ display:flex; align-items:center; gap:10px; font-family: var(--f-display); font-weight:700; font-size:1.03rem; color: var(--heading); }
+.brand-mark{ width:26px; height:26px; border-radius: var(--radius-sm); background: var(--accent-grad, var(--accent)); display:flex; align-items:center; justify-content:center; font-family: var(--f-mono); font-weight:700; font-size:0.72rem; color: var(--on-accent); }
+.nav-links{ display:flex; gap:24px; align-items:center; }
+.nav-links a{ color: var(--text-dim); font-size:0.9rem; }
+.nav-links a:hover{ color: var(--heading); text-decoration:none; }
+.nav-cta{ background: var(--accent); color: var(--on-accent) !important; padding:9px 16px; border-radius: var(--radius-sm); font-weight:600; font-size:0.86rem !important; }
+.nav-cta:hover{ filter: brightness(1.1); text-decoration:none !important; }
+
+.btn{ display:inline-flex; align-items:center; gap:10px; font-family: var(--f-body); font-weight:600; font-size:0.98rem; padding:14px 26px; border-radius: var(--radius); cursor:pointer; border:1px solid transparent; transition: transform .15s ease, filter .15s ease, border-color .15s ease; }
+.btn:hover{ text-decoration:none; transform: translateY(-1px); }
+.btn-primary{ background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover{ filter: brightness(1.08); color: var(--on-accent); }
+.btn-ghost{ background: transparent; color: var(--heading); border-color: var(--line); }
+.btn-ghost:hover{ border-color: var(--text-dim); }
+.btn-row{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.btn-note{ font-family: var(--f-mono); font-size:0.78rem; color: var(--text-faint); }
+
+.hero{ padding: 76px 0 60px; border-bottom: 1px solid var(--line-soft); background: var(--hero-bg, var(--bg)); }
+.hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap:56px; align-items:center; }
+.hero h1{ margin-bottom:18px; }
+.hero-sub{ font-size:1.12rem; color: var(--text-dim); max-width:46ch; margin-bottom:30px; }
+.hero-visual{ position:relative; }
+
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card{ background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius); padding:24px; }
+.card h3{ margin-bottom:10px; }
+.card p{ margin-bottom:0; font-size:0.95rem; }
+
+ul.plain{ list-style:none; margin:0; padding:0; }
+ul.plain li{ padding-left:28px; position:relative; margin-bottom:12px; color: var(--text-dim); }
+ul.plain li::before{ content: var(--arrow, "→"); position:absolute; left:0; color: var(--accent); font-family: var(--f-mono); }
+
+.checklist{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.checklist li{ display:flex; align-items:flex-start; gap:12px; background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius-sm); padding:13px 16px; color: var(--heading); font-size:0.95rem; }
+.checklist li::before{ content:"✓"; flex-shrink:0; width:20px; height:20px; border-radius: var(--radius-sm); background: var(--accent-dim); color: var(--accent); font-size:0.72rem; display:flex; align-items:center; justify-content:center; margin-top:1px; font-family: var(--f-mono); }
+
+.steps{ display:grid; gap:0; }
+.step{ display:grid; grid-template-columns:56px 1fr; gap:20px; padding:22px 0; border-top:1px solid var(--line-soft); }
+.step:first-child{ border-top:none; }
+.step-num{ font-family: var(--f-mono); color: var(--accent); font-size:1.3rem; font-weight:600; }
+.step h3{ margin-bottom:6px; }
+.step p{ font-size:0.95rem; }
+
+.compare{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.compare-block{ border-radius: var(--radius); padding:18px 20px; border:1px solid var(--line); background: var(--card-bg); }
+.compare-block.bad{ border-color: var(--bad-border); }
+.compare-block.good{ border-color: var(--good-border); }
+.compare-label{ font-family: var(--f-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; display:block; }
+.compare-block.bad .compare-label{ color: var(--bad-text); }
+.compare-block.good .compare-label{ color: var(--good-text); }
+.compare-block p{ font-family: var(--f-mono); font-size:0.87rem; color: var(--heading); margin:0; line-height:1.6; }
+
+.mistakes{ display:grid; gap:14px; }
+.mistake{ display:flex; gap:14px; padding:16px 18px; background: var(--card-bg); border:1px solid var(--line); border-left:3px solid var(--warn); border-radius: var(--radius-sm); }
+.mistake p{ margin:0; font-size:0.95rem; color: var(--text-dim); }
+.mistake strong{ display:block; color: var(--heading); margin-bottom:4px; font-size:0.96rem; }
+
+.callout{ background: var(--callout-bg); border:1px solid var(--accent-dim); border-radius: 16px; padding:44px; text-align:center; }
+.callout h2{ margin-bottom:12px; }
+.callout p{ max-width:56ch; margin:0 auto 26px; }
+.callout .btn-row{ justify-content:center; }
+
+.faq-item{ border-top:1px solid var(--line-soft); }
+.faq-item:last-child{ border-bottom:1px solid var(--line-soft); }
+.faq-q{ width:100%; text-align:left; background:none; border:none; color: var(--heading); font-family: var(--f-display); font-size:1.02rem; font-weight:600; padding:20px 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.faq-q .plus{ font-family: var(--f-mono); color: var(--accent); font-size:1.2rem; flex-shrink:0; transition: transform .2s ease; }
+.faq-item[open] .plus{ transform: rotate(45deg); }
+.faq-a{ padding:0 0 22px; max-width:68ch; }
+.faq-a p{ font-size:0.96rem; }
+summary{ list-style:none; } summary::-webkit-details-marker{ display:none; }
+
+.linkgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.linkcard{ display:block; background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius-sm); padding:16px 18px; color: var(--heading); font-size:0.93rem; transition: border-color .15s ease; }
+.linkcard:hover{ border-color: var(--accent); text-decoration:none; }
+.linkcard span{ display:block; color: var(--text-faint); font-family: var(--f-mono); font-size:0.72rem; margin-top:6px; }
+
+footer.site{ padding:40px 0 60px; }
+.footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-row p{ font-size:0.85rem; color: var(--text-faint); margin:0; }
+.footer-links{ display:flex; gap:20px; }
+.footer-links a{ color: var(--text-faint); font-size:0.85rem; }
+
+.audience-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.audience-pill{ font-size:0.88rem; color: var(--text-dim); background: var(--card-bg); border:1px solid var(--line); border-radius:999px; padding:8px 16px; }
+
+.illus{ width:100%; }
+.illus svg{ width:100%; height:auto; display:block; border-radius: var(--radius); }
+
+@media (max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .grid-2,.grid-3,.compare,.linkgrid{ grid-template-columns:1fr; }
+  .nav-links{ display:none; }
+  section{ padding:48px 0; }
+  .callout{ padding:32px 22px; }
+  section .wrap[style*="grid-template-columns:1.1fr"]{ grid-template-columns:1fr !important; }
+}
+
+
+:root{
+  --bg:#0F1524; --bg-raised:#161D30; --card-bg:#161D30;
+  --line:#28324A; --line-soft:#1C2438;
+  --text:#D7DCEC; --heading:#F4F6FC; --text-dim:#9CA5C0; --text-faint:#666F8C;
+  --accent:#FF8A3D; --accent-dim:#3A2716; --on-accent:#170C02;
+  --link:#8FB8FF;
+  --f-display:"Space Grotesk","Inter",sans-serif; --f-body:"Inter",sans-serif; --f-mono:"JetBrains Mono",monospace;
+  --display-weight:700; --h1-tracking:-0.02em;
+  --radius:12px; --radius-sm:7px;
+  --nav-bg:rgba(15,21,36,0.86);
+  --bad-border:#E0556533; --bad-text:#F0808F; --good-border:#FF8A3D55; --good-text:#FF8A3D;
+  --warn:#FF8A3D;
+  --callout-bg: linear-gradient(155deg, rgba(255,138,61,0.12), rgba(255,138,61,0.02));
+}
+.sig-wrap{ background: var(--card-bg); border:1px solid var(--line); border-radius:14px; padding:28px; }
+.chip-row{ display:flex; align-items:center; gap:12px; background:#0F1524; border:1px solid var(--accent-dim); border-radius:10px; padding:14px 16px; margin-bottom:20px; }
+.chip-dot{ width:9px; height:9px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); animation: pulse 1.8s ease-in-out infinite; flex-shrink:0; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+.chip-text{ font-family:var(--f-mono); font-size:.82rem; color:var(--heading); }
+.chip-text b{ color:var(--accent); }
+.sig-line2{ height:10px; background:#222B42; border-radius:3px; margin-bottom:12px; }
+.sig-tags2{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.sig-tag2{ font-family:var(--f-mono); font-size:.74rem; padding:5px 10px; border-radius:5px; background:#FF8A3D18; border:1px solid #FF8A3D55; color:#FF8A3D; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://banaoresumee.online/free-ats-resume-builder-for-internship",
+      "url": "https://banaoresumee.online/free-ats-resume-builder-for-internship",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BanaoResume",
+        "url": "https://banaoresumee.online/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need prior internship experience to apply for an internship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No \u2014 most applicants at this stage have limited or no prior internship experience; projects and coursework are valid substitutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I state my availability on the resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes \u2014 stating your available duration and start date near the top helps recruiters quickly assess fit for time-bound roles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should an internship resume be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One page is standard for internship applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I include college club or event coordination roles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if relevant to the internship's function \u2014 describe your specific contribution and outcome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should my internship resume look different from a job resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes \u2014 it typically emphasizes education, coursework, and availability more heavily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I've only done one very short internship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Include it and describe the specific tasks and outcomes, even briefly \u2014 it's still relevant experience."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="/" class="brand"><span class="brand-mark">br</span>BanaoResume</a>
+    <div class="nav-links">
+      <a href="/free-ats-resume-builder-for-students">Build</a>
+      <a href="/free-ats-resume-keyword-matcher">Keyword Match</a>
+      <a href="/free-ats-resume-compatibility-checker">Check</a>
+      <a href="/free-ats-resume-for-naukri-and-linkedin">Naukri &amp; LinkedIn</a>
+      <a href="https://banaoresumee.online/build" class="nav-cta">Build Your Internship Resume Free</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">For internship applicants</div>
+      <h1>A Free ATS Resume Builder for Internships</h1>
+      <p class="hero-sub">Internship recruiters aren't expecting a finished professional — they're screening for potential, relevant coursework, and availability. Build a resume structured around exactly that.</p>
+      <div class="btn-row">
+        <a href="https://banaoresumee.online/build" class="btn btn-primary">Build Your Internship Resume Free →</a>
+        <span class="btn-note">No signup wall · Export as PDF</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      
+<div class="sig-wrap">
+  <div class="chip-row"><span class="chip-dot"></span><span class="chip-text">Available <b>3 months</b> · starts June 2027</span></div>
+  <div class="sig-line2" style="width:70%;"></div>
+  <div class="sig-line2" style="width:88%;"></div>
+  <div class="sig-line2" style="width:52%;"></div>
+  <div class="sig-tags2">
+    <span class="sig-tag2">Social Media Analytics</span><span class="sig-tag2">6-Week Internship</span>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT MEANS + ILLUSTRATION ============ -->
+<section>
+  <div class="wrap" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;">
+    <div>
+      <h2>What makes an internship resume different</h2>
+      <p style="max-width:60ch; margin-top:16px; font-size:1.02rem;">An internship resume typically foregrounds education and coursework more heavily than a full-time resume, states availability clearly, and treats small projects and short-term commitments as fully valid content — because that's realistically what most applicants at this stage have.</p>
+    </div>
+    <div class="illus" aria-hidden="false">
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration">
+  <rect x="0" y="0" width="480" height="320" rx="18" fill="#161D30" stroke="#28324A" stroke-width="1.5"/>
+  <!-- desk -->
+  <rect x="40" y="230" width="400" height="10" rx="5" fill="#28324A"/>
+  <rect x="60" y="240" width="10" height="46" fill="#28324A"/>
+  <rect x="410" y="240" width="10" height="46" fill="#28324A"/>
+  <!-- laptop base -->
+  <rect x="150" y="205" width="180" height="14" rx="4" fill="#9CA5C0" opacity="0.35"/>
+  <!-- laptop screen -->
+  <rect x="165" y="95" width="150" height="112" rx="8" fill="#0000" stroke="#9CA5C0" stroke-width="3" opacity="0.5"/>
+  <rect x="172" y="102" width="136" height="98" rx="4" fill="#3A2716"/>
+  
+    <circle cx="240" cy="150" r="26" fill="none" stroke="#FF8A3D" stroke-width="3"/>
+    <path d="M240 150 L240 132" stroke="#FF8A3D" stroke-width="3" stroke-linecap="round"/>
+    <path d="M240 150 L254 158" stroke="#FF8A3D" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="240" cy="150" r="3" fill="#FF8A3D"/>
+    
+  <!-- person silhouette -->
+  <circle cx="240" cy="150" r="0" fill="none"/>
+  <g opacity="0.9">
+    <ellipse cx="240" cy="252" rx="46" ry="14" fill="#28324A" opacity="0.5"/>
+    <path d="M198 250 C198 205 220 190 240 190 C260 190 282 205 282 250 Z" fill="#9CA5C0" opacity="0.4"/>
+    <circle cx="240" cy="172" r="20" fill="#9CA5C0" opacity="0.55"/>
+  </g>
+  <!-- floating resume sheet -->
+  <g transform="translate(330,60) rotate(8)">
+    <rect x="0" y="0" width="86" height="108" rx="6" fill="#161D30" stroke="#FF8A3D" stroke-width="2"/>
+    <rect x="12" y="16" width="46" height="7" rx="3" fill="#FF8A3D"/>
+    <rect x="12" y="32" width="62" height="4" rx="2" fill="#9CA5C0" opacity="0.5"/>
+    <rect x="12" y="42" width="54" height="4" rx="2" fill="#9CA5C0" opacity="0.5"/>
+    <rect x="12" y="52" width="60" height="4" rx="2" fill="#9CA5C0" opacity="0.5"/>
+    <rect x="12" y="68" width="30" height="4" rx="2" fill="#FF8A3D" opacity="0.7"/>
+    <rect x="12" y="78" width="50" height="4" rx="2" fill="#9CA5C0" opacity="0.4"/>
+    <rect x="12" y="88" width="40" height="4" rx="2" fill="#9CA5C0" opacity="0.4"/>
+  </g>
+  
+</svg>
+</div>
+  </div>
+</section>
+
+<!-- ============ WHO SHOULD USE ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <h2 style="margin-bottom:20px;">Who this is for</h2>
+    <div class="audience-row">
+      <span class="audience-pill">Students applying for their first internship</span><span class="audience-pill">Students applying for a second, more relevant one</span><span class="audience-pill">Final-years applying for pre-placement internships</span><span class="audience-pill">Applicants via college placement cells or portals</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">How to build it</h2>
+    <p style="margin-bottom:28px;">Structured for what internship recruiters actually screen for.</p>
+    <div class="steps">
+      
+      <div class="step">
+        <div class="step-num">01</div>
+        <div><h3>Lead with Education</h3><p>Degree, institution, graduation year, and relevant coursework.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">02</div>
+        <div><h3>State availability near the top</h3><p>“Available for a 3-month internship starting June 2027” — plain and specific.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">03</div>
+        <div><h3>Add a Projects section</h3><p>2–3 relevant academic or personal projects.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">04</div>
+        <div><h3>List relevant skills</h3><p>Technical/soft skills matched to the specific internship role.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">05</div>
+        <div><h3>Include any prior short-term work</h3><p>Even brief internships, part-time work, or volunteering count.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">06</div>
+        <div><h3>Keep it to one page</h3><p>Standard length at this stage.</p></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY ELEMENTS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:28px;">What an internship resume needs</h2>
+    <div class="grid-3">
+      
+      <div class="card"><h3>Availability statement</h3><p>Clearly stated duration and start date, in plain text near the top.</p></div>
+      
+      <div class="card"><h3>Education-first structure</h3><p>Usually your strongest asset at this stage.</p></div>
+      
+      <div class="card"><h3>Short-term experience, included</h3><p>Treated as legitimate, never omitted for being brief or unpaid.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXAMPLE ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">Framing a short or informal role</h2>
+    <p style="margin-bottom:26px;">Brief experience, described with actual specifics.</p>
+    <div class="compare">
+      <div class="compare-block bad">
+        <span class="compare-label">Before</span>
+        <p>“Did a summer internship at a small company.”</p>
+      </div>
+      <div class="compare-block good">
+        <span class="compare-label">After — ATS-aligned</span>
+        <p>“Supported digital marketing operations during a 6-week internship, including social media content planning and basic performance analytics.”</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ============ MISTAKES ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:24px;">Common mistakes on internship resumes</h2>
+    <div class="mistakes">
+      
+      <div class="mistake"><div><strong>Not stating availability</strong><p>Forces the recruiter to guess your duration and timing.</p></div></div>
+      
+      <div class="mistake"><div><strong>Reusing a full-time-job resume as-is</strong><p>Internship expectations differ — education and coursework should lead.</p></div></div>
+      
+      <div class="mistake"><div><strong>Omitting short or unpaid work</strong><p>A belief it “doesn't count” leaves out legitimate content.</p></div></div>
+      
+      <div class="mistake"><div><strong>Overloading with unrelated coursework</strong><p>List only subjects relevant to the internship's function.</p></div></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATS CONSIDERATIONS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:20px;">ATS considerations</h2>
+    <ul class="plain">
+      <li>Keep availability/duration in plain text near the top, not buried in a paragraph — some parsers extract only structured fields well.</li><li>Standard section headings remain the safest choice for internship portals that often run their own ATS layer.</li><li>Avoid embedding availability or contact details inside a header/footer — this content is sometimes not extracted.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:22px;">Quick checklist before you apply</h2>
+    <ul class="checklist">
+      <li>Availability and duration clearly stated</li><li>Education section leads the resume</li><li>At least 2 relevant projects listed with outcomes</li><li>Any prior internship or part-time work included, however short</li><li>Resume kept to one page</li><li>Contact details in the body text, not header/footer only</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CALLOUT ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="callout">
+      <h2>A short internship still counts as real experience</h2>
+      <p>Build a resume that states your availability clearly and puts your coursework and projects to work.</p>
+      <div class="btn-row"><a href="https://banaoresumee.online/build" class="btn btn-primary">Build Your Internship Resume Free →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">Frequently asked questions</h2>
+    <p style="margin-bottom:10px;">Straight answers to what people usually ask before applying.</p>
+    <div>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Do I need prior internship experience to apply for an internship? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>No — most applicants at this stage have limited or no prior internship experience; projects and coursework are valid substitutes.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Should I state my availability on the resume? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Yes — stating your available duration and start date near the top helps recruiters quickly assess fit for time-bound roles.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">How long should an internship resume be? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>One page is standard for internship applications.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Can I include college club or event coordination roles? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Yes, if relevant to the internship's function — describe your specific contribution and outcome.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Should my internship resume look different from a job resume? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Yes — it typically emphasizes education, coursework, and availability more heavily.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">What if I've only done one very short internship? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Include it and describe the specific tasks and outcomes, even briefly — it's still relevant experience.</p></div>
+      </details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERNAL LINKS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:22px;">Where to go next</h2>
+    <div class="linkgrid">
+      
+      <a class="linkcard" href="/free-ats-resume-builder-for-students">Build a general student resume<span>For students not internship-specific right now</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-builder-for-a-specific-job">Match your resume to the posting<span>Internship postings have specific keyword needs</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-keyword-matcher">Check for missing keywords<span>Identify gaps against the internship's JD</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-formatting-checker">Test your resume's formatting<span>Many portals run their own ATS layer</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-for-naukri-and-linkedin">Prep for Naukri & LinkedIn<span>Many internships are also posted there</span></a>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL EXTERNAL RESOURCES ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <h2 style="margin-bottom:6px;">Useful external resources</h2>
+    <p style="margin-bottom:20px;">Live links to official platforms and tools mentioned on this page.</p>
+    <div class="linkgrid">
+      
+      <a class="linkcard" href="https://internshala.com/" target="_blank" rel="noopener">Internshala ↗<span>India's largest internship-specific listing platform</span></a>
+      
+      <a class="linkcard" href="https://internship.aicte-india.org/" target="_blank" rel="noopener">AICTE Internship Portal ↗<span>Official government internship portal for students</span></a>
+      
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <p>© 2026 BanaoResume · Free ATS resume tools for job seekers in India</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/blog">Blog</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
