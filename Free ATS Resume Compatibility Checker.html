@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free ATS Resume Compatibility Checker | BanaoResume</title>
+<meta name="description" content="Check if your resume is ATS compatible with this free ATS resume compatibility checker — spot structural issues before you apply.">
+<link rel="canonical" href="https://banaoresumee.online/free-ats-resume-compatibility-checker">
+<meta property="og:title" content="Free ATS Resume Compatibility Checker | BanaoResume">
+<meta property="og:description" content="Check if your resume is ATS compatible with this free ATS resume compatibility checker — spot structural issues before you apply.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600|Inter:wght@400;500;600;700|JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== BASE LAYOUT MECHANICS =====
+   Every color/font value below is a var() supplied by each page's
+   own theme block — this file only defines structure, spacing,
+   and behavior, never a hardcoded color. */
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0; background: var(--bg); color: var(--text);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+h1,h2,h3{ font-family: var(--f-display); font-weight: var(--display-weight, 600); margin: 0; color: var(--heading); }
+h1{ font-size: clamp(2.1rem, 4.4vw, 3.5rem); line-height: 1.06; letter-spacing: var(--h1-tracking, -0.02em); }
+h2{ font-size: clamp(1.5rem, 2.6vw, 2.05rem); line-height: 1.2; letter-spacing: var(--h2-tracking, -0.01em); }
+h3{ font-size: 1.15rem; line-height: 1.35; }
+p{ margin: 0 0 1em; color: var(--text-dim); }
+p:last-child{ margin-bottom: 0; }
+strong{ color: var(--heading); font-weight: 600; }
+.mono{ font-family: var(--f-mono); }
+
+.eyebrow{
+  font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--accent); display:inline-flex; align-items:center; gap:0.6em; margin-bottom: 1.1rem;
+}
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius: var(--dot-radius, 50%); background: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+.wrap{ max-width: 1080px; margin:0 auto; padding: 0 24px; position:relative; z-index:1; }
+section{ padding: 68px 0; border-bottom: 1px solid var(--line-soft); }
+section:last-of-type{ border-bottom: none; }
+.section-tight{ padding: 44px 0; }
+
+header.site{ position: sticky; top:0; z-index:50; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1080px; margin:0 auto; }
+.brand{ display:flex; align-items:center; gap:10px; font-family: var(--f-display); font-weight:700; font-size:1.03rem; color: var(--heading); }
+.brand-mark{ width:26px; height:26px; border-radius: var(--radius-sm); background: var(--accent-grad, var(--accent)); display:flex; align-items:center; justify-content:center; font-family: var(--f-mono); font-weight:700; font-size:0.72rem; color: var(--on-accent); }
+.nav-links{ display:flex; gap:24px; align-items:center; }
+.nav-links a{ color: var(--text-dim); font-size:0.9rem; }
+.nav-links a:hover{ color: var(--heading); text-decoration:none; }
+.nav-cta{ background: var(--accent); color: var(--on-accent) !important; padding:9px 16px; border-radius: var(--radius-sm); font-weight:600; font-size:0.86rem !important; }
+.nav-cta:hover{ filter: brightness(1.1); text-decoration:none !important; }
+
+.btn{ display:inline-flex; align-items:center; gap:10px; font-family: var(--f-body); font-weight:600; font-size:0.98rem; padding:14px 26px; border-radius: var(--radius); cursor:pointer; border:1px solid transparent; transition: transform .15s ease, filter .15s ease, border-color .15s ease; }
+.btn:hover{ text-decoration:none; transform: translateY(-1px); }
+.btn-primary{ background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover{ filter: brightness(1.08); color: var(--on-accent); }
+.btn-ghost{ background: transparent; color: var(--heading); border-color: var(--line); }
+.btn-ghost:hover{ border-color: var(--text-dim); }
+.btn-row{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.btn-note{ font-family: var(--f-mono); font-size:0.78rem; color: var(--text-faint); }
+
+.hero{ padding: 76px 0 60px; border-bottom: 1px solid var(--line-soft); background: var(--hero-bg, var(--bg)); }
+.hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap:56px; align-items:center; }
+.hero h1{ margin-bottom:18px; }
+.hero-sub{ font-size:1.12rem; color: var(--text-dim); max-width:46ch; margin-bottom:30px; }
+.hero-visual{ position:relative; }
+
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card{ background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius); padding:24px; }
+.card h3{ margin-bottom:10px; }
+.card p{ margin-bottom:0; font-size:0.95rem; }
+
+ul.plain{ list-style:none; margin:0; padding:0; }
+ul.plain li{ padding-left:28px; position:relative; margin-bottom:12px; color: var(--text-dim); }
+ul.plain li::before{ content: var(--arrow, "→"); position:absolute; left:0; color: var(--accent); font-family: var(--f-mono); }
+
+.checklist{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.checklist li{ display:flex; align-items:flex-start; gap:12px; background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius-sm); padding:13px 16px; color: var(--heading); font-size:0.95rem; }
+.checklist li::before{ content:"✓"; flex-shrink:0; width:20px; height:20px; border-radius: var(--radius-sm); background: var(--accent-dim); color: var(--accent); font-size:0.72rem; display:flex; align-items:center; justify-content:center; margin-top:1px; font-family: var(--f-mono); }
+
+.steps{ display:grid; gap:0; }
+.step{ display:grid; grid-template-columns:56px 1fr; gap:20px; padding:22px 0; border-top:1px solid var(--line-soft); }
+.step:first-child{ border-top:none; }
+.step-num{ font-family: var(--f-mono); color: var(--accent); font-size:1.3rem; font-weight:600; }
+.step h3{ margin-bottom:6px; }
+.step p{ font-size:0.95rem; }
+
+.compare{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.compare-block{ border-radius: var(--radius); padding:18px 20px; border:1px solid var(--line); background: var(--card-bg); }
+.compare-block.bad{ border-color: var(--bad-border); }
+.compare-block.good{ border-color: var(--good-border); }
+.compare-label{ font-family: var(--f-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; display:block; }
+.compare-block.bad .compare-label{ color: var(--bad-text); }
+.compare-block.good .compare-label{ color: var(--good-text); }
+.compare-block p{ font-family: var(--f-mono); font-size:0.87rem; color: var(--heading); margin:0; line-height:1.6; }
+
+.mistakes{ display:grid; gap:14px; }
+.mistake{ display:flex; gap:14px; padding:16px 18px; background: var(--card-bg); border:1px solid var(--line); border-left:3px solid var(--warn); border-radius: var(--radius-sm); }
+.mistake p{ margin:0; font-size:0.95rem; color: var(--text-dim); }
+.mistake strong{ display:block; color: var(--heading); margin-bottom:4px; font-size:0.96rem; }
+
+.callout{ background: var(--callout-bg); border:1px solid var(--accent-dim); border-radius: 16px; padding:44px; text-align:center; }
+.callout h2{ margin-bottom:12px; }
+.callout p{ max-width:56ch; margin:0 auto 26px; }
+.callout .btn-row{ justify-content:center; }
+
+.faq-item{ border-top:1px solid var(--line-soft); }
+.faq-item:last-child{ border-bottom:1px solid var(--line-soft); }
+.faq-q{ width:100%; text-align:left; background:none; border:none; color: var(--heading); font-family: var(--f-display); font-size:1.02rem; font-weight:600; padding:20px 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.faq-q .plus{ font-family: var(--f-mono); color: var(--accent); font-size:1.2rem; flex-shrink:0; transition: transform .2s ease; }
+.faq-item[open] .plus{ transform: rotate(45deg); }
+.faq-a{ padding:0 0 22px; max-width:68ch; }
+.faq-a p{ font-size:0.96rem; }
+summary{ list-style:none; } summary::-webkit-details-marker{ display:none; }
+
+.linkgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.linkcard{ display:block; background: var(--card-bg); border:1px solid var(--line); border-radius: var(--radius-sm); padding:16px 18px; color: var(--heading); font-size:0.93rem; transition: border-color .15s ease; }
+.linkcard:hover{ border-color: var(--accent); text-decoration:none; }
+.linkcard span{ display:block; color: var(--text-faint); font-family: var(--f-mono); font-size:0.72rem; margin-top:6px; }
+
+footer.site{ padding:40px 0 60px; }
+.footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-row p{ font-size:0.85rem; color: var(--text-faint); margin:0; }
+.footer-links{ display:flex; gap:20px; }
+.footer-links a{ color: var(--text-faint); font-size:0.85rem; }
+
+.audience-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.audience-pill{ font-size:0.88rem; color: var(--text-dim); background: var(--card-bg); border:1px solid var(--line); border-radius:999px; padding:8px 16px; }
+
+.illus{ width:100%; }
+.illus svg{ width:100%; height:auto; display:block; border-radius: var(--radius); }
+
+@media (max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .grid-2,.grid-3,.compare,.linkgrid{ grid-template-columns:1fr; }
+  .nav-links{ display:none; }
+  section{ padding:48px 0; }
+  .callout{ padding:32px 22px; }
+  section .wrap[style*="grid-template-columns:1.1fr"]{ grid-template-columns:1fr !important; }
+}
+
+
+:root{
+  --bg:#0D1210; --bg-raised:#151C19; --card-bg:#151C19;
+  --line:#243530; --line-soft:#1A2521;
+  --text:#D3DFDA; --heading:#EEF6F1; --text-dim:#93A69D; --text-faint:#5E7069;
+  --accent:#5BE39A; --accent-dim:#1B3A2B; --on-accent:#04150D;
+  --link:#7EE0B7;
+  --f-display:"IBM Plex Mono","Inter",monospace; --f-body:"Inter",sans-serif; --f-mono:"JetBrains Mono",monospace;
+  --display-weight:600; --h1-tracking:-0.01em;
+  --radius:10px; --radius-sm:6px;
+  --nav-bg:rgba(13,18,16,0.86);
+  --bad-border:#FF6B6B55; --bad-text:#FF6B6B; --good-border:#5BE39A55; --good-text:#5BE39A;
+  --warn:#F2B84B;
+  --callout-bg: linear-gradient(155deg, rgba(91,227,154,0.09), rgba(91,227,154,0.02));
+  --arrow:"›";
+}
+.sig-wrap{ background: var(--card-bg); border:1px solid var(--line); border-radius:14px; padding:26px; }
+.led-row{ display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line-soft); }
+.led-row:last-child{ border-bottom:none; }
+.led{ width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+.led.ok{ background: var(--accent); box-shadow:0 0 10px 1px var(--accent); }
+.led.warn{ background: var(--warn); box-shadow:0 0 10px 1px var(--warn); }
+.led-label{ font-family:var(--f-mono); font-size:.82rem; color:var(--heading); }
+.led-status{ margin-left:auto; font-family:var(--f-mono); font-size:.72rem; color:var(--text-faint); }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://banaoresumee.online/free-ats-resume-compatibility-checker",
+      "url": "https://banaoresumee.online/free-ats-resume-compatibility-checker",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BanaoResume",
+        "url": "https://banaoresumee.online/"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BanaoResume Compatibility Checker",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Reviews a resume's structure and file format for common ATS compatibility risk factors.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the difference between compatibility, parsing, and formatting checks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compatibility is a general structural review; parsing checks show exactly what data gets extracted field-by-field; formatting checks focus specifically on layout and visual structure. They overlap but answer slightly different questions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an ATS read a PDF resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most modern ATS systems can read text-based PDFs reliably; image-based or scanned PDFs are significantly less reliable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I avoid all design elements in my resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not entirely \u2014 bold text and simple bullet points are generally fine; the higher-risk elements are tables, columns, text boxes, and icons replacing text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is DOCX safer than PDF for ATS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are generally acceptable for most modern systems; follow the specific application's instructions if a format is explicitly requested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will fixing compatibility issues guarantee I get shortlisted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No \u2014 compatibility is one factor; relevant experience, keyword alignment, and qualifications remain central."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I re-check compatibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Re-check whenever you significantly change your resume's layout or switch templates."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="/" class="brand"><span class="brand-mark">br</span>BanaoResume</a>
+    <div class="nav-links">
+      <a href="/free-ats-resume-builder-for-students">Build</a>
+      <a href="/free-ats-resume-keyword-matcher">Keyword Match</a>
+      <a href="/free-ats-resume-compatibility-checker">Check</a>
+      <a href="/free-ats-resume-for-naukri-and-linkedin">Naukri &amp; LinkedIn</a>
+      <a href="https://banaoresumee.online/check" class="nav-cta">Check Your Resume</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Compatibility check</div>
+      <h1>Is Your Resume Actually ATS Compatible?</h1>
+      <p class="hero-sub">A resume can be well-written and still have structural issues — tables, columns, unusual fonts — that reduce how reliably ATS software can process it. Find out before you apply.</p>
+      <div class="btn-row">
+        <a href="https://banaoresumee.online/check" class="btn btn-primary">Check Your Resume →</a>
+        <span class="btn-note">Upload a PDF or DOCX</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      
+<div class="sig-wrap">
+  <div class="led-row"><span class="led ok"></span><span class="led-label">File format</span><span class="led-status">PDF · text-based</span></div>
+  <div class="led-row"><span class="led ok"></span><span class="led-label">Section structure</span><span class="led-status">standard headings</span></div>
+  <div class="led-row"><span class="led warn"></span><span class="led-label">Layout</span><span class="led-status">2-column skills table</span></div>
+  <div class="led-row"><span class="led ok"></span><span class="led-label">Contact fields</span><span class="led-status">in body text</span></div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT MEANS + ILLUSTRATION ============ -->
+<section>
+  <div class="wrap" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;">
+    <div>
+      <h2>What “ATS compatibility” actually means</h2>
+      <p style="max-width:60ch; margin-top:16px; font-size:1.02rem;">ATS compatibility refers to how reliably a resume's structure, file format, and layout allow tracking software to correctly process and store it — separate from keyword relevance or exact field-by-field parsing accuracy. A resume can be keyword-relevant and still have structural issues that reduce compatibility.</p>
+    </div>
+    <div class="illus" aria-hidden="false">
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration">
+  <rect x="0" y="0" width="480" height="320" rx="18" fill="#151C19" stroke="#243530" stroke-width="1.5"/>
+  <!-- desk -->
+  <rect x="40" y="230" width="400" height="10" rx="5" fill="#243530"/>
+  <rect x="60" y="240" width="10" height="46" fill="#243530"/>
+  <rect x="410" y="240" width="10" height="46" fill="#243530"/>
+  <!-- laptop base -->
+  <rect x="150" y="205" width="180" height="14" rx="4" fill="#93A69D" opacity="0.35"/>
+  <!-- laptop screen -->
+  <rect x="165" y="95" width="150" height="112" rx="8" fill="#0000" stroke="#93A69D" stroke-width="3" opacity="0.5"/>
+  <rect x="172" y="102" width="136" height="98" rx="4" fill="#1B3A2B"/>
+  
+    <circle cx="192" cy="120" r="5" fill="#5BE39A"/><rect x="204" y="116" width="70" height="8" rx="4" fill="#93A69D" opacity="0.4"/>
+    <circle cx="192" cy="140" r="5" fill="#5BE39A"/><rect x="204" y="136" width="50" height="8" rx="4" fill="#93A69D" opacity="0.4"/>
+    <circle cx="192" cy="160" r="5" fill="#F2B84B"/><rect x="204" y="156" width="60" height="8" rx="4" fill="#93A69D" opacity="0.4"/>
+    <circle cx="192" cy="180" r="5" fill="#5BE39A"/><rect x="204" y="176" width="45" height="8" rx="4" fill="#93A69D" opacity="0.4"/>
+    
+  <!-- person silhouette -->
+  <circle cx="240" cy="150" r="0" fill="none"/>
+  <g opacity="0.9">
+    <ellipse cx="240" cy="252" rx="46" ry="14" fill="#243530" opacity="0.5"/>
+    <path d="M198 250 C198 205 220 190 240 190 C260 190 282 205 282 250 Z" fill="#93A69D" opacity="0.4"/>
+    <circle cx="240" cy="172" r="20" fill="#93A69D" opacity="0.55"/>
+  </g>
+  <!-- floating resume sheet -->
+  <g transform="translate(330,60) rotate(8)">
+    <rect x="0" y="0" width="86" height="108" rx="6" fill="#151C19" stroke="#5BE39A" stroke-width="2"/>
+    <rect x="12" y="16" width="46" height="7" rx="3" fill="#5BE39A"/>
+    <rect x="12" y="32" width="62" height="4" rx="2" fill="#93A69D" opacity="0.5"/>
+    <rect x="12" y="42" width="54" height="4" rx="2" fill="#93A69D" opacity="0.5"/>
+    <rect x="12" y="52" width="60" height="4" rx="2" fill="#93A69D" opacity="0.5"/>
+    <rect x="12" y="68" width="30" height="4" rx="2" fill="#5BE39A" opacity="0.7"/>
+    <rect x="12" y="78" width="50" height="4" rx="2" fill="#93A69D" opacity="0.4"/>
+    <rect x="12" y="88" width="40" height="4" rx="2" fill="#93A69D" opacity="0.4"/>
+  </g>
+  
+</svg>
+</div>
+  </div>
+</section>
+
+<!-- ============ WHO SHOULD USE ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <h2 style="margin-bottom:20px;">Who this is for</h2>
+    <div class="audience-row">
+      <span class="audience-pill">Anyone about to submit to an online portal or career page</span><span class="audience-pill">Job seekers using a highly designed template</span><span class="audience-pill">Candidates unsure if PDF or DOCX is appropriate</span><span class="audience-pill">Anyone applying across multiple platforms</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">How it works</h2>
+    <p style="margin-bottom:28px;">A general structural review, not a field-level one.</p>
+    <div class="steps">
+      
+      <div class="step">
+        <div class="step-num">01</div>
+        <div><h3>Upload your resume file</h3><p>PDF or DOCX.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">02</div>
+        <div><h3>We review overall structure</h3><p>Section organization, standard headings, layout complexity.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">03</div>
+        <div><h3>Common risk elements get flagged</h3><p>Tables, columns, embedded text boxes, unusual fonts.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">04</div>
+        <div><h3>You get a general compatibility overview</h3><p>Areas to review, in plain terms.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">05</div>
+        <div><h3>Address the structural issues</h3><p>Usually a layout change, not a content rewrite.</p></div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">06</div>
+        <div><h3>Re-check after edits</h3><p>Confirm the flagged issues are resolved.</p></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY ELEMENTS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:28px;">What affects compatibility</h2>
+    <div class="grid-3">
+      
+      <div class="card"><h3>File format</h3><p>Standard PDF/DOCX handled well; image-based PDFs and unusual formats are riskier.</p></div>
+      
+      <div class="card"><h3>Section structure</h3><p>Standard, clearly labeled sections are more reliably processed than merged or creative ones.</p></div>
+      
+      <div class="card"><h3>Layout complexity</h3><p>Multi-column layouts, tables, and text boxes can interfere with reading order.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXAMPLE ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">A common compatibility issue</h2>
+    <p style="margin-bottom:26px;">Looks organized to a human, reads oddly to software.</p>
+    <div class="compare">
+      <div class="compare-block bad">
+        <span class="compare-label">Before</span>
+        <p>A two-column resume: “Skills” in a narrow left column, “Experience” in a wider right column.</p>
+      </div>
+      <div class="compare-block good">
+        <span class="compare-label">After — ATS-aligned</span>
+        <p>Converted to a single-column layout with Skills and Experience as sequential sections — same information, no column-based reading risk.</p>
+      </div>
+    </div>
+    <p style="margin-top:18px; font-size:0.92rem;">Some ATS systems read left-to-right across the full page width rather than column-by-column, which can interleave unrelated sections.</p>
+  </div>
+</section>
+
+<!-- ============ MISTAKES ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:24px;">Common mistakes affecting compatibility</h2>
+    <div class="mistakes">
+      
+      <div class="mistake"><div><strong>Using a multi-column template</strong><p>Chosen because it “looks more designed,” at the cost of reading order.</p></div></div>
+      
+      <div class="mistake"><div><strong>Contact info only in header/footer</strong><p>Some systems don't reliably extract header/footer content.</p></div></div>
+      
+      <div class="mistake"><div><strong>Image-based PDFs</strong><p>A scanned resume is far less reliable than a text-based one.</p></div></div>
+      
+      <div class="mistake"><div><strong>Icons instead of text labels</strong><p>A phone icon alone may not convey “phone number” to a parser.</p></div></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATS CONSIDERATIONS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:20px;">ATS considerations</h2>
+    <ul class="plain">
+      <li>Compatibility issues are structural, not content-based — fixing them generally doesn't require rewriting your bullets.</li><li>No checker can guarantee performance across every ATS vendor, since systems vary; the goal is reducing well-documented risk factors.</li><li>Compatibility and keyword relevance are separate concerns — a compatible resume with no relevant keywords still won't rank well.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:22px;">Quick checklist before you apply</h2>
+    <ul class="checklist">
+      <li>File format is a standard, text-based PDF or DOCX</li><li>Single-column layout used throughout</li><li>Contact details in the main body, not only header/footer</li><li>No tables used for skills or experience sections</li><li>Standard fonts used throughout</li><li>Section headings are standard and clearly labeled</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CALLOUT ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="callout">
+      <h2>Know before you apply, not after</h2>
+      <p>Upload your resume and see a plain-language overview of anything that could interfere with correct processing.</p>
+      <div class="btn-row"><a href="https://banaoresumee.online/check" class="btn btn-primary">Check Your Resume →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">Frequently asked questions</h2>
+    <p style="margin-bottom:10px;">Straight answers to what people usually ask before applying.</p>
+    <div>
+      
+      <details class="faq-item">
+        <summary class="faq-q">What's the difference between compatibility, parsing, and formatting checks? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Compatibility is a general structural review; parsing checks show exactly what data gets extracted field-by-field; formatting checks focus specifically on layout and visual structure. They overlap but answer slightly different questions.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Can an ATS read a PDF resume? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Most modern ATS systems can read text-based PDFs reliably; image-based or scanned PDFs are significantly less reliable.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Should I avoid all design elements in my resume? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Not entirely — bold text and simple bullet points are generally fine; the higher-risk elements are tables, columns, text boxes, and icons replacing text.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Is DOCX safer than PDF for ATS? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Both are generally acceptable for most modern systems; follow the specific application's instructions if a format is explicitly requested.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">Will fixing compatibility issues guarantee I get shortlisted? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>No — compatibility is one factor; relevant experience, keyword alignment, and qualifications remain central.</p></div>
+      </details>
+      
+      <details class="faq-item">
+        <summary class="faq-q">How often should I re-check compatibility? <span class="plus">+</span></summary>
+        <div class="faq-a"><p>Re-check whenever you significantly change your resume's layout or switch templates.</p></div>
+      </details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERNAL LINKS ============ -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:22px;">Where to go next</h2>
+    <div class="linkgrid">
+      
+      <a class="linkcard" href="/free-ats-resume-parser-checker">See exactly how your resume parses field-by-field<span>A more granular check than this overview</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-formatting-checker">Run a focused formatting audit<span>Deep-dives into layout issues flagged here</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-keyword-matcher">Check your resume against a job description<span>Compatibility and keyword relevance are complementary</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-builder-for-students">Build an ATS-friendly resume from scratch<span>If your current file has too many issues to fix</span></a>
+      
+      <a class="linkcard" href="/free-ats-resume-for-naukri-and-linkedin">Prep your resume for Naukri & LinkedIn<span>These platforms run their own parsing layer</span></a>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL EXTERNAL RESOURCES ============ -->
+<section class="section-tight">
+  <div class="wrap">
+    <h2 style="margin-bottom:6px;">Useful external resources</h2>
+    <p style="margin-bottom:20px;">Live links to official platforms and tools mentioned on this page.</p>
+    <div class="linkgrid">
+      
+      <a class="linkcard" href="https://www.adobe.com/acrobat/online/pdf-to-text.html" target="_blank" rel="noopener">Adobe Acrobat — export text-based PDF ↗<span>Verify your PDF isn't an image-only scan before uploading</span></a>
+      
+      <a class="linkcard" href="https://www.naukri.com/" target="_blank" rel="noopener">Naukri.com upload guidelines ↗<span>Check platform-specific file requirements before applying</span></a>
+      
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <p>© 2026 BanaoResume · Free ATS resume tools for job seekers in India</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/blog">Blog</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
