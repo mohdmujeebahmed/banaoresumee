@@ -3188,8 +3188,11 @@ function downloadResume(bw) {
       }).from(target).toPdf().get('pdf').then((pdf) => {
         addLinkAnnotationsToPdf(pdf, target);
         return pdf.save(fname);
-      }).then(() => {
-        status.style.display = 'none';
+          }).then(() => {
+        status.style.display = 'block';
+        status.innerHTML = `<a href="https://wa.me/919381282521?text=Hi%2C%20I%27d%20like%20a%20Resume%20Rewrite%20(%E2%82%B9499).%20Please%20share%20next%20steps." target="_blank" rel="noopener" style="display:block;text-decoration:none;background:linear-gradient(135deg,#25D366,#1ebe5d);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;padding:0.75rem 1rem;border-radius:10px;text-align:center;box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+          ✍️ Get every line rewritten so recruiters actually stop and read it →
+        </a>`;
         resetOverlay();
       }).catch((err) => {
         console.error('PDF generation failed:', err);
